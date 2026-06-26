@@ -1,504 +1,610 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="dark" data-accent="cyan">
+<html lang="es" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- ══════════════════════════════════════════════════
-    ✏️  CAMBIA ESTOS 4 DATOS para cada materia:
-  ══════════════════════════════════════════════════ -->
-  <title>Álgebra · Prontuario Mecatrónica · UNAM FI</title>
+  <!-- ═══════════════════════════════════════════════════════════
+       CAMBIA ESTOS DATOS POR CADA MATERIA
+  ════════════════════════════════════════════════════════════ -->
   <meta name="SEMESTRE"  content="Primer Semestre">
-  <meta name="MATERIA"   content="Álgebra">
+  <meta name="MATERIA"   content="ÁLGEBRA">
   <meta name="CLAVE"     content="1120">
   <meta name="CREDITOS"  content="8">
-  <!-- ══════════════════════════════════════════════════ -->
+  <meta name="COLOR"     content="#fa2415">
+  <!-- ════════════════════════════════════════════════════════ -->
 
-  <link rel="icon" type="image/png" href="../../favicon.png">
+  <title>Álgebra · Prontuario Mecatrónica · UNAM FI</title>
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAArCAYAAAA65tviAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANNSURBVGhD7ZltaBt1HMc/17vLXV3KrQ9pVtuEmc6OLvSFCg0M36iVjWy+s9W5WmWI4liniDOvxGdQhMKYFAQpIqLDVwq2IPSN+Cp94UTZhmFRTFp1TbULpVsvueR81TL/tLkt3nLpzAfuzff35eDDPXDcT9KaDZvbAOlGRXyBHjoOHcMYHELr7kWSFbHiKnbJwlxIk5+bZWl6ikJuXqz8ixsSaT8wSuj4e+RmPiGfnMHMpLCtolhzFUlR0cJ9GLE4gfgY2ckEf33zqVjbwFGk/cAowZEXyJx5ibVfzovjmqBHooTHJ7j8xektZSqK+AI97PsoyaXXHvdMYh09EmXPG2e58Exs09tMVlT9dTFcJzjyIld/vUD+uy/FUc2xlnNIup87IgOs/PCtOKZJDK7HGBwin5wRY8/IJ2cwBofEGJxEtO5ezExKjD3DzKTQunvFGJxEJFm55W+nm8G2ilu+9iuKbCcaIvVGQ6TeaIhshtoWpO3ho7QffGrjaH1gBLnZvzFrue9BACTVh7H/0Mb8v+KqiK9rN4FHjhEcPsGdTyYIPnqcQHwMuaUVLbyXXcPjdB15GbW1E61nD12jCYLDJ1B2doinumlcFVk9n+Tnkw/x5+cTlAsmmQ9OkTp1mMJiFoBy0USSZZr33kvLwP3YBRO7WBBPUxWuijhhW0XWsin8/TF27BtkNfW9WKmamoo0aTrmHxlaBvajtgWx/l6kSWsWa1VRUxGQWJtPYa1eoZCbp7i8KBaqpsYiYK0sk371MX57/3nskiWOq6bmIrcKV0UkVcMXDCP7d4IEitGBrzOEJMti1XVcFdkRjXH3u1+xa+QkTT6d0HPv0PvmWXydIbHqOhV/Ptzz9WV+eqJfjD1l4LOLnDscFGN3r4iXNETqjYZIvfH/ELFLFpKiirFnSIq65WdNRRFzIY0W7hNjz9DCfZgLaTEGJ5H83CxGLC7GnmHE4uTnZsUYnESWpqcIxMfQI1FxVHP0SJRAfIyl6SlxBE4ihdw82ckE4fEJT2XWFz3ZycSmuxGc9iMA19I/UjavcdcrHyLpfkpX85RWrkC5LFZdRVJU9N39tB98mtCzb/H7x29vua3C6aPxem6LZeh2oOIzsp1oiNQb/wC/2QLl/sw38AAAAABJRU5ErkJggg==">
 
-  <!-- Preloader de tema — SINCRONO, evita flash de colores -->
+  <!-- Preloader: evita flash de tema al cargar/volver -->
   <script>
     (function(){
       var h = document.documentElement;
-      h.dataset.theme = localStorage.getItem('theme') || 'dark';
-      var f = localStorage.getItem('accentFixed');
-      if (f) h.dataset.accent = f;
+      h.dataset.theme = localStorage.getItem('prontuario-theme') || 'dark';
     })();
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
-  /* ══════════════════════════════════════════════════
-     RESET + sin transiciones en el primer render
-  ══════════════════════════════════════════════════ */
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html:not([data-ready]) *, html:not([data-ready]) *::before,
-  html:not([data-ready]) *::after { transition: none !important; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  /* ══════════════════════════════════════════════════
-     DESIGN TOKENS
-  ══════════════════════════════════════════════════ */
-  :root {
-    --p:   #38BDF8;
-    --p-d: rgba(56,189,248,0.09);
-    --p-g: rgba(56,189,248,0.22);
-    --bg:      #07090F;
-    --surface: #0D1322;
-    --card:    #101726;
-    --border:  rgba(255,255,255,0.08);
-    --b-hover: rgba(255,255,255,0.22);
-    --text:    #E2E8F0;
-    --text-d:  #94A3B8;
-    --text-m:  #4B5563;
-    --shadow:  rgba(0,0,0,0.5);
-    --green:   #34D399;
-    --orange:  #FB923C;
-    --mono: 'JetBrains Mono', monospace;
-    --disp: 'Space Grotesk', sans-serif;
-    --body: 'Inter', sans-serif;
-    /* Colores de headings Word en modo OSCURO */
-    --wh3-bg:   #0F2D3D;
-    --wh3-fg:   #7DD3FC;
-    --wh4-bg:   #0A2030;
-    --wh4-fg:   #94A3B8;
-  }
+    /* ════════════════════════════════════════════════
+       DESIGN TOKENS
+    ════════════════════════════════════════════════ */
+    :root {
+      --color:      #3494BA;   /* sobreescrito por JS desde <meta name=COLOR> */
+      --font-mono:  'JetBrains Mono', monospace;
+      --font-disp:  'Space Grotesk', sans-serif;
+      --font-body:  'Inter', sans-serif;
+      --toc-w:      258px;
+      --hdr-h:      52px;
+    }
 
-  /* ── Todos los acentos ── */
-  [data-accent="cyan"]      { --p:#38BDF8; --p-d:rgba(56,189,248,.09);  --p-g:rgba(56,189,248,.22); }
-  [data-accent="celeste"]   { --p:#7DD3FC; --p-d:rgba(125,211,252,.09); --p-g:rgba(125,211,252,.22); }
-  [data-accent="azul"]      { --p:#60A5FA; --p-d:rgba(96,165,250,.09);  --p-g:rgba(96,165,250,.22); }
-  [data-accent="indigo"]    { --p:#818CF8; --p-d:rgba(129,140,248,.09); --p-g:rgba(129,140,248,.22); }
-  [data-accent="violeta"]   { --p:#A78BFA; --p-d:rgba(167,139,250,.09); --p-g:rgba(167,139,250,.22); }
-  [data-accent="purpura"]   { --p:#C084FC; --p-d:rgba(192,132,252,.09); --p-g:rgba(192,132,252,.22); }
-  [data-accent="fuchsia"]   { --p:#E879F9; --p-d:rgba(232,121,249,.09); --p-g:rgba(232,121,249,.22); }
-  [data-accent="rosa"]      { --p:#F472B6; --p-d:rgba(244,114,182,.09); --p-g:rgba(244,114,182,.22); }
-  [data-accent="rojo"]      { --p:#F87171; --p-d:rgba(248,113,113,.09); --p-g:rgba(248,113,113,.22); }
-  [data-accent="coral"]     { --p:#FF7F6B; --p-d:rgba(255,127,107,.09); --p-g:rgba(255,127,107,.22); }
-  [data-accent="naranja"]   { --p:#FB923C; --p-d:rgba(251,146,60,.09);  --p-g:rgba(251,146,60,.22); }
-  [data-accent="amarillo"]  { --p:#FBBF24; --p-d:rgba(251,191,36,.09);  --p-g:rgba(251,191,36,.22); }
-  [data-accent="lima"]      { --p:#A3E635; --p-d:rgba(163,230,53,.09);  --p-g:rgba(163,230,53,.22); }
-  [data-accent="esmeralda"] { --p:#10B981; --p-d:rgba(16,185,129,.09);  --p-g:rgba(16,185,129,.22); }
-  [data-accent="verde"]     { --p:#34D399; --p-d:rgba(52,211,153,.09);  --p-g:rgba(52,211,153,.22); }
-  [data-accent="blanco"]    { --p:#CBD5E1; --p-d:rgba(203,213,225,.09); --p-g:rgba(203,213,225,.22); }
+    /* ── Modo oscuro (defecto) ── */
+    [data-theme="dark"] {
+      --bg:       #07090F;
+      --surface:  #0D1322;
+      --card:     #101726;
+      --border:   rgba(255,255,255,0.08);
+      --text:     #E2E8F0;
+      --text-d:   #94A3B8;
+      --text-m:   #4B5563;
+      /* Headings */
+      --h3-bg:    var(--color);
+      --h3-fg:    #FFFFFF;
+      --h4-bg:    color-mix(in srgb, var(--color) 24%, #0D1322);
+      --h4-fg:    #E2E8F0;
+      --h5-fg:    color-mix(in srgb, var(--color) 88%, white);
+      --h6-fg:    color-mix(in srgb, var(--color) 72%, white);
+      --h7-fg:    color-mix(in srgb, var(--color) 56%, #94A3B8);
+    }
 
-  /* ── Light theme ── */
-  [data-theme="light"] {
-    --bg:      #EDF2F8;
-    --surface: #FFFFFF;
-    --card:    #F8FAFC;
-    --border:  rgba(15,23,42,0.11);
-    --b-hover: rgba(15,23,42,0.32);
-    --text:    #0F172A;
-    --text-d:  #334155;
-    --text-m:  #64748B;
-    --shadow:  rgba(15,23,42,0.10);
-    /* Headings de Word en modo CLARO — respeta colores originales */
-    --wh3-bg:  #3494BA;
-    --wh3-fg:  #FFFFFF;
-    --wh4-bg:  #D4EAF3;
-    --wh4-fg:  #0F172A;
-  }
-  [data-theme="light"] body {
-    background-image: radial-gradient(circle, rgba(15,23,42,0.06) 1px, transparent 1px);
-  }
+    /* ── Modo claro ── */
+    [data-theme="light"] {
+      --bg:       #F0F4FA;
+      --surface:  #FFFFFF;
+      --card:     #FFFFFF;
+      --border:   rgba(15,23,42,0.10);
+      --text:     #0F172A;
+      --text-d:   #334155;
+      --text-m:   #64748B;
+      /* Headings */
+      --h3-bg:    var(--color);
+      --h3-fg:    #FFFFFF;
+      --h4-bg:    color-mix(in srgb, var(--color) 14%, white);
+      --h4-fg:    color-mix(in srgb, var(--color) 85%, #0F172A);
+      --h5-fg:    color-mix(in srgb, var(--color) 80%, #0F172A);
+      --h6-fg:    color-mix(in srgb, var(--color) 65%, #0F172A);
+      --h7-fg:    color-mix(in srgb, var(--color) 50%, #334155);
+    }
 
-  /* ══════════════════════════════════════════════════
-     BASE
-  ══════════════════════════════════════════════════ */
-  html { scroll-behavior: smooth; }
-  body {
-    background-color: var(--bg);
-    color: var(--text);
-    font-family: var(--body);
-    min-height: 100vh;
-    transition: background-color 0.3s, color 0.3s;
-    background-image: radial-gradient(circle, var(--p-d) 1px, transparent 1px);
-    background-size: 28px 28px;
-  }
+    /* ════════════════════════════════════════════════
+       BASE
+    ════════════════════════════════════════════════ */
+    html, body { height: 100%; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 14px;
+      line-height: 1.7;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: background 0.3s, color 0.3s;
+    }
+    /* Transición suave en todas las superficies al cambiar de tema */
+    .toc-sidebar, .site-header, .content-main, .hero,
+    .word-article, .toc-header, .toc-nav {
+      transition: background 0.3s, border-color 0.3s, box-shadow 0.3s, color 0.3s;
+    }
 
-  /* ══════════════════════════════════════════════════
-     HEADER
-  ══════════════════════════════════════════════════ */
-  header {
-    position: sticky; top: 0; z-index: 300;
-    background: color-mix(in srgb, var(--bg) 88%, transparent);
-    backdrop-filter: blur(16px);
-    border-bottom: 1px solid var(--border);
-    padding: 0 24px; height: 56px;
-    display: flex; align-items: center; gap: 10px;
-    transition: background 0.3s, border-color 0.3s;
-  }
-  .hdr-brand {
-    display: flex; align-items: center; gap: 9px;
-    text-decoration: none; flex-shrink: 0;
-  }
-  .hdr-logo { width: 32px; height: 32px; border-radius: 6px; overflow: hidden; }
-  .hdr-logo img { width: 100%; height: 100%; object-fit: cover; }
-  .hdr-name { font-family: var(--disp); font-size: 13px; font-weight: 600; color: var(--text); line-height: 1.2; transition: color 0.3s; }
-  .hdr-sub  { font-family: var(--mono); font-size: 9px; color: var(--text-m); letter-spacing: .06em; transition: color 0.3s; }
-  .hdr-spacer { flex: 1; }
-  .hdr-controls { display: flex; align-items: center; gap: 8px; }
-  .back-btn {
-    display: flex; align-items: center; gap: 5px;
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: 7px; padding: 5px 10px;
-    color: var(--text-d); font-family: var(--mono); font-size: 11px;
-    text-decoration: none; flex-shrink: 0;
-    transition: border-color 0.2s, color 0.2s, background 0.3s;
-  }
-  .back-btn:hover { border-color: var(--p); color: var(--p); }
-  .theme-btn {
-    width: 30px; height: 30px; border-radius: 7px;
-    background: var(--surface); border: 1px solid var(--border);
-    color: var(--text-d); cursor: pointer;
-    display: grid; place-items: center;
-    transition: border-color 0.2s, color 0.2s, background 0.3s;
-  }
-  .theme-btn:hover { border-color: var(--p); color: var(--p); }
+    /* ════════════════════════════════════════════════
+       HEADER
+    ════════════════════════════════════════════════ */
+    .site-header {
+      flex-shrink: 0;
+      height: var(--hdr-h);
+      background: color-mix(in srgb, var(--bg) 88%, transparent);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 10px;
+      padding: 0 18px;
+      position: relative;
+      z-index: 100;
+      transition: background 0.25s, border-color 0.25s;
+    }
 
-  /* ══════════════════════════════════════════════════
-     HERO (generado por JS con los <meta>)
-  ══════════════════════════════════════════════════ */
-  .subject-hero {
-    max-width: 1140px; margin: 0 auto;
-    padding: 28px 32px 22px;
-    border-bottom: 1px solid var(--border);
-    transition: border-color 0.3s;
-  }
-  .sem-tag {
-    display: inline-block; font-family: var(--mono); font-size: 10px;
-    letter-spacing: .15em; color: var(--p); text-transform: uppercase;
-    border: 1px solid var(--p-g); border-radius: 4px;
-    padding: 3px 8px; margin-bottom: 10px;
-    transition: color 0.3s, border-color 0.3s;
-  }
-  .subject-hero h1 {
-    font-family: var(--disp); font-size: clamp(26px,4vw,46px);
-    font-weight: 700; letter-spacing: -.025em; line-height: 1.05;
-    margin-bottom: 6px; color: var(--text);
-    transition: color 0.3s;
-  }
-  .subject-hero .clave {
-    font-family: var(--mono); font-size: 11px; color: var(--text-m);
-    margin-bottom: 12px; transition: color 0.3s;
-  }
-  .subject-hero .obj {
-    font-size: 13.5px; color: var(--text-d); line-height: 1.75;
-    max-width: 800px; transition: color 0.3s;
-  }
+    /* Thin color strip — subject identity mark */
+    .hdr-strip {
+      width: 3px; height: 28px; border-radius: 2px;
+      background: var(--color); flex-shrink: 0;
+      transition: background 0.25s;
+    }
 
-  /* ══════════════════════════════════════════════════
-     PAGE LAYOUT
-  ══════════════════════════════════════════════════ */
-  .page-wrap {
-    max-width: 1140px; margin: 0 auto;
-    display: grid; grid-template-columns: 230px 1fr;
-    align-items: start;
-  }
-  @media (max-width: 800px) {
-    .page-wrap { grid-template-columns: 1fr; }
-    .sidebar   { display: none; }
-  }
+    .hdr-logo {
+      width: 30px; height: 30px; border-radius: 6px;
+      overflow: hidden; flex-shrink: 0; text-decoration: none;
+    }
+    .hdr-logo img { width: 100%; height: 100%; object-fit: cover; }
 
-  /* ══════════════════════════════════════════════════
-     SIDEBAR / TOC
-  ══════════════════════════════════════════════════ */
-  .sidebar {
-    position: sticky; top: 56px;
-    height: calc(100vh - 56px);
-    overflow-y: auto; overflow-x: hidden;
-    border-right: 1px solid var(--border);
-    background: var(--surface);
-    transition: background 0.3s, border-color 0.3s;
-  }
-  .sidebar::-webkit-scrollbar { width: 3px; }
-  .sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+    .hdr-text { text-decoration: none; }
+    .hdr-name { font-family: var(--font-disp); font-size: 13px; font-weight: 600; color: var(--text); line-height: 1.2; }
+    .hdr-sub  { font-family: var(--font-mono); font-size: 9px; color: var(--text-m); letter-spacing: 0.06em; }
 
-  .toc-title {
-    font-family: var(--mono); font-size: 9px; letter-spacing: .14em;
-    text-transform: uppercase; color: var(--text-m);
-    padding: 16px 16px 10px;
-    border-bottom: 1px solid var(--border);
-    transition: color 0.3s, border-color 0.3s;
-  }
-  .toc-list { list-style: none; padding: 6px 0; }
-  .toc-item a {
-    display: block; padding: 4px 14px;
-    font-size: 12px; color: var(--text-d); text-decoration: none;
-    border-left: 2px solid transparent;
-    line-height: 1.4; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-    transition: background .12s, color .12s, border-color .12s;
-  }
-  .toc-item a:hover { color: var(--p); background: var(--p-d); }
-  .toc-item.active > a {
-    color: var(--p) !important;
-    background: var(--p-d);
-    border-left-color: var(--p);
-  }
-  .toc-item[data-level="3"] > a { font-weight: 600; font-size: 12px; padding-left: 14px; }
-  .toc-item[data-level="4"] > a { font-size: 11.5px; padding-left: 26px; }
-  .toc-item[data-level="5"] > a { font-size: 11px; padding-left: 38px; color: var(--text-m); }
+    .hdr-space { flex: 1; }
 
-  /* ══════════════════════════════════════════════════
-     CONTENT AREA
-  ══════════════════════════════════════════════════ */
-  .content-area {
-    padding: 32px 44px 80px;
-    min-width: 0;
-  }
-  @media (max-width: 600px) {
-    .content-area { padding: 20px 16px 60px; }
-  }
+    .hdr-btn {
+      display: flex; align-items: center; gap: 5px;
+      padding: 6px 11px; border-radius: 7px;
+      background: var(--surface); border: 1px solid var(--border);
+      color: var(--text-d); font-family: var(--font-mono); font-size: 11px;
+      text-decoration: none; cursor: pointer; white-space: nowrap;
+      transition: border-color 0.18s, color 0.18s, background 0.25s;
+    }
+    .hdr-btn:hover { border-color: var(--color); color: var(--color); }
 
-  /* ══════════════════════════════════════════════════
-     WORD CONTENT — estilos para lo que pegas del .htm
-  ══════════════════════════════════════════════════ */
-  #word-content {
-    max-width: 700px;             /* ancho "hoja de Word" */
-    font-family: 'Inter', Calibri, Arial, sans-serif;
-    font-size: 13.5px;
-    line-height: 1.72;
-    color: var(--text-d);
-    transition: color 0.3s;
-  }
+    .theme-btn {
+      width: 32px; height: 32px; border-radius: 7px;
+      background: var(--surface); border: 1px solid var(--border);
+      color: var(--text-d); cursor: pointer;
+      display: grid; place-items: center; flex-shrink: 0;
+      transition: border-color 0.18s, color 0.18s, background 0.25s;
+    }
+    .theme-btn:hover { border-color: var(--color); color: var(--color); }
 
-  /* Párrafos genéricos de Word */
-  #word-content p,
-  #word-content .MsoNormal,
-  #word-content [class*="Mso"]:not(h2):not(h3):not(h4):not(h5):not(h6) {
-    margin-bottom: 9px;
-    line-height: 1.72;
-    font-size: 13.5px;
-    color: var(--text-d);
-    transition: color 0.3s;
-  }
+    /* ════════════════════════════════════════════════
+       PAGE LAYOUT
+    ════════════════════════════════════════════════ */
+    .page-layout {
+      flex: 1;
+      display: flex;
+      min-height: 0;   /* critical: allows children to scroll */
+      overflow: hidden;
+    }
 
-  /* h2 — título de la materia (se ocultará del body, ya está en el hero) */
-  #word-content h2 { display: none; }
+    /* ════════════════════════════════════════════════
+       TOC SIDEBAR
+    ════════════════════════════════════════════════ */
+    .toc-sidebar {
+      width: var(--toc-w);
+      flex-shrink: 0;
+      background: var(--surface);
+      border-right: 1px solid var(--border);
+      display: flex; flex-direction: column;
+      overflow: hidden;
+      transition: width 0.22s ease, background 0.25s, border-color 0.25s;
+    }
+    .toc-sidebar.collapsed { width: 0; border-right-width: 0; }
 
-  /* h3 — tema principal: "1. Trigonometría" */
-  #word-content h3 {
-    font-family: var(--disp);
-    font-size: 14.5px;
-    font-weight: 700;
-    background: var(--wh3-bg);
-    color: var(--wh3-fg) !important;
-    padding: 7px 14px;
-    margin: 32px 0 0;
-    border-radius: 6px 6px 0 0;
-    text-transform: uppercase;
-    letter-spacing: .04em;
-    text-indent: 0 !important;
-    scroll-margin-top: 68px;
-    transition: background 0.3s, color 0.3s;
-  }
-  #word-content h3:first-child { margin-top: 0; }
+    .toc-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 12px 9px;
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0; gap: 6px;
+      transition: border-color 0.25s;
+    }
+    .toc-title {
+      font-family: var(--font-mono); font-size: 9.5px;
+      color: var(--text-m); letter-spacing: 0.1em;
+      text-transform: uppercase; white-space: nowrap;
+    }
+    .toc-close {
+      width: 20px; height: 20px;
+      background: transparent; border: 1px solid var(--border);
+      border-radius: 4px; color: var(--text-m);
+      display: grid; place-items: center; cursor: pointer;
+      font-size: 8px; flex-shrink: 0; padding: 0;
+      transition: border-color 0.18s, color 0.18s;
+    }
+    .toc-close:hover { border-color: var(--color); color: var(--color); }
 
-  /* h4 — subtema: "1.1 Definición de…" */
-  #word-content h4 {
-    font-family: var(--disp);
-    font-size: 13px;
-    font-weight: 600;
-    background: var(--wh4-bg);
-    color: var(--wh4-fg) !important;
-    padding: 5px 14px 5px 24px;
-    margin: 2px 0 0;
-    text-transform: uppercase;
-    letter-spacing: .03em;
-    text-indent: 0 !important;
-    scroll-margin-top: 68px;
-    transition: background 0.3s, color 0.3s;
-  }
-  /* Si h4 viene directo tras h3, no hay gap */
-  #word-content h3 + h4 { margin-top: 2px; border-radius: 0; }
-  #word-content h4 + h4 { margin-top: 2px; }
-  /* Último h4 de un bloque → esquina inferior redondeada */
-  #word-content h4:not(:has(+ h4)) { border-radius: 0 0 4px 4px; margin-bottom: 12px; }
+    .toc-nav {
+      flex: 1; overflow-y: auto; overflow-x: hidden;
+      padding: 4px 0 16px;
+      scrollbar-width: thin;
+      scrollbar-color: var(--border) transparent;
+    }
+    .toc-nav::-webkit-scrollbar { width: 4px; }
+    .toc-nav::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
 
-  /* h5 — subtítulo de sección: "TRIGONOMETRÍA" */
-  #word-content h5 {
-    font-family: var(--mono);
-    font-size: 10px;
-    font-weight: 600;
-    color: var(--p);
-    text-transform: uppercase;
-    letter-spacing: .13em;
-    margin: 18px 0 6px;
-    padding-bottom: 3px;
-    border-bottom: 1px solid var(--border);
-    scroll-margin-top: 68px;
-    transition: color 0.3s, border-color 0.3s;
-  }
+    /* ── details/summary for H3 groups ── */
+    .toc-group { margin: 0; }
 
-  /* h6 — tercer nivel */
-  #word-content h6 {
-    font-family: var(--mono);
-    font-size: 9.5px;
-    font-weight: 500;
-    color: var(--text-m);
-    text-transform: uppercase;
-    letter-spacing: .1em;
-    margin: 12px 0 5px;
-    scroll-margin-top: 68px;
-    transition: color 0.3s;
-  }
+    .toc-group > summary {
+      display: flex; align-items: flex-start; gap: 5px;
+      padding: 5px 12px 5px 8px;
+      font-size: 11.5px; color: var(--text-d);
+      cursor: pointer; list-style: none;
+      transition: background 0.14s, color 0.14s;
+      line-height: 1.35;
+      user-select: none;
+    }
+    .toc-group > summary::-webkit-details-marker { display: none; }
+    .toc-group > summary:hover {
+      background: color-mix(in srgb, var(--color) 10%, transparent);
+      color: var(--text);
+    }
+    .toc-group > summary.toc-active { color: var(--color); }
 
-  /* Términos destacados (bold+italic+azul de Word → acento del tema) */
-  #word-content b i,
-  #word-content i b { color: var(--p); transition: color 0.3s; }
-  #word-content b    { color: var(--text); transition: color 0.3s; }
-  #word-content em   { color: var(--p); font-style: normal; transition: color 0.3s; }
-  #word-content .MsoSubtleEmphasis { color: var(--text-d); font-style: italic; transition: color 0.3s; }
+    .toc-arrow {
+      flex-shrink: 0; margin-top: 2px;
+      font-size: 7px; color: var(--text-m);
+      transition: transform 0.18s, color 0.18s;
+      display: inline-block;
+    }
+    .toc-group[open] > summary .toc-arrow { transform: rotate(90deg); }
 
-  /* Imágenes */
-  #word-content img {
-    max-width: 100% !important;
-    height: auto !important;
-    display: block;
-    margin: 12px auto;
-    border-radius: 6px;
-    border: 1px solid var(--border);
-    transition: border-color 0.3s;
-  }
+    .toc-h3-text { flex: 1; }
 
-  /* Listas de Word */
-  #word-content .MsoListParagraph,
-  #word-content .MsoListParagraphCxSpFirst,
-  #word-content .MsoListParagraphCxSpMiddle,
-  #word-content .MsoListParagraphCxSpLast {
-    padding-left: 8px;
-    margin-left: 18px;
-    margin-bottom: 4px;
-    list-style: disc;
-    font-size: 13.5px;
-    color: var(--text-d);
-    transition: color 0.3s;
-  }
-  #word-content ul, #word-content ol {
-    padding-left: 22px; margin-bottom: 10px;
-  }
-  #word-content li { margin-bottom: 3px; }
+    /* ── sub-items h4-h8 ── */
+    .toc-children { list-style: none; padding: 0; margin: 0; }
 
-  /* Citas destacadas (Pitágoras, etc.) */
-  #word-content .MsoIntenseQuote,
-  #word-content [class*="IntenseQuote"] {
-    background: var(--card);
-    border-left: 3px solid var(--p);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    border-right: none;
-    border-radius: 0 6px 6px 0;
-    padding: 12px 18px;
-    margin: 16px 0;
-    font-style: italic;
-    color: var(--p);
-    transition: background 0.3s, color 0.3s, border-color 0.3s;
-  }
+    .toc-item {
+      display: block;
+      padding: 3px 12px 3px 22px;
+      font-size: 11px; color: var(--text-m);
+      text-decoration: none; line-height: 1.35;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      border-left: 2px solid transparent;
+      margin-left: 8px;
+      transition: background 0.14s, color 0.14s, border-color 0.14s;
+    }
+    .toc-item:hover {
+      color: var(--text);
+      background: color-mix(in srgb, var(--color) 8%, transparent);
+    }
+    .toc-item.toc-active { color: var(--color); border-left-color: var(--color); }
 
-  /* divs con borde de Word (teoremas, etc.) */
-  #word-content div[style*="border-top:solid"],
-  #word-content div[style*="border-top: solid"],
-  #word-content div[style*="border:solid"],
-  #word-content div[style*="border: solid"] {
-    background: var(--card) !important;
-    border: 1px solid var(--border) !important;
-    border-left: 3px solid var(--p) !important;
-    border-radius: 0 6px 6px 0;
-    padding: 12px 18px !important;
-    margin: 16px 0;
-    transition: background 0.3s, border-color 0.3s;
-  }
+    .toc-item.lv4 { padding-left: 14px; font-size: 11px; }
+    .toc-item.lv5 { padding-left: 24px; font-size: 10.5px; font-family: var(--font-mono); opacity: 0.9; }
+    .toc-item.lv6 { padding-left: 34px; font-size: 10px;   font-family: var(--font-mono); opacity: 0.8; }
+    .toc-item.lv7 { padding-left: 44px; font-size: 9.5px;  font-family: var(--font-mono); opacity: 0.7; }
+    .toc-item.lv8 { padding-left: 54px; font-size: 9px;    font-family: var(--font-mono); opacity: 0.6; }
 
-  /* Tablas */
-  #word-content table {
-    width: 100%; border-collapse: collapse;
-    margin: 14px 0; font-size: 13px;
-    color: var(--text-d); transition: color 0.3s;
-  }
-  #word-content th {
-    background: var(--surface); border: 1px solid var(--border);
-    padding: 7px 10px; font-family: var(--mono); font-size: 10px;
-    color: var(--text-m); text-align: left; letter-spacing: .05em;
-    transition: background 0.3s, border-color 0.3s, color 0.3s;
-  }
-  #word-content td {
-    border: 1px solid var(--border); padding: 7px 10px;
-    transition: border-color 0.3s;
-  }
-  #word-content tr:hover td { background: var(--p-d); }
+    /* ════════════════════════════════════════════════
+       MAIN CONTENT
+    ════════════════════════════════════════════════ */
+    .content-main {
+      flex: 1; min-width: 0;
+      overflow-y: auto; overflow-x: hidden;
+      display: flex; flex-direction: column;
+      scrollbar-width: thin;
+      scrollbar-color: var(--border) transparent;
+    }
+    .content-main::-webkit-scrollbar { width: 6px; }
+    .content-main::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 
-  /* Wrapper de Word */
-  .WordSection1 { all: unset; display: block; }
+    /* Floating button to reopen TOC when collapsed */
+    .toc-open-btn {
+      display: none;
+      position: fixed;
+      top: calc(var(--hdr-h) + 10px); left: 0;
+      width: 26px; height: 26px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-left: none; border-radius: 0 6px 6px 0;
+      color: var(--text-m); cursor: pointer;
+      place-items: center; font-size: 9px; z-index: 50;
+      transition: color 0.18s, border-color 0.18s;
+    }
+    .toc-open-btn.visible { display: grid; }
+    .toc-open-btn:hover { color: var(--color); border-color: var(--color); }
 
-  /* ══════════════════════════════════════════════════
-     FOOTER
-  ══════════════════════════════════════════════════ */
-  footer {
-    border-top: 1px solid var(--border); padding: 18px 24px;
-    display: flex; align-items: center; justify-content: space-between;
-    flex-wrap: wrap; gap: 10px;
-    transition: border-color 0.3s;
-  }
-  .foot-l { font-family: var(--mono); font-size: 10.5px; color: var(--text-m); line-height: 1.7; transition: color 0.3s; }
-  .foot-r { display: flex; gap: 16px; }
-  .foot-r a { font-family: var(--mono); font-size: 10.5px; color: var(--text-m); text-decoration: none; transition: color .2s; }
-  .foot-r a:hover { color: var(--p); }
+    /* ── HERO ── */
+    .hero {
+      padding: 36px 44px 28px;
+      border-bottom: 1px solid transparent;  /* invisible — evita el flash del borde */
+      background: color-mix(in srgb, var(--color) 5%, var(--bg));
+      flex-shrink: 0;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    /* Separador sutil bajo el hero solo en dark */
+    [data-theme="dark"] .hero {
+      border-bottom-color: var(--border);
+    }
+    .hero-semestre {
+      font-family: var(--font-mono); font-size: 10px;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--color);
+      border: 1px solid color-mix(in srgb, var(--color) 40%, transparent);
+      border-radius: 4px; padding: 3px 9px;
+      display: inline-block; margin-bottom: 12px;
+      transition: color 0.25s, border-color 0.25s;
+    }
+    .hero-title {
+      font-family: var(--font-disp);
+      font-size: clamp(28px, 5vw, 48px);
+      font-weight: 700; letter-spacing: -0.02em;
+      color: var(--text); line-height: 1.05; margin-bottom: 5px;
+    }
+    .hero-meta {
+      font-family: var(--font-mono); font-size: 11px;
+      color: var(--text-m); margin-bottom: 18px; letter-spacing: 0.04em;
+    }
+    .hero-sep {
+      width: 40px; height: 2px; border-radius: 2px;
+      background: var(--color); margin-bottom: 14px;
+      transition: background 0.25s;
+    }
+    .hero-obj-lbl {
+      font-family: var(--font-mono); font-size: 9.5px;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--color); margin-bottom: 6px;
+      transition: color 0.25s;
+    }
+    .hero-obj-txt {
+      font-size: 13.5px; color: var(--text-d);
+      line-height: 1.75; max-width: 700px; font-style: italic;
+      transition: color 0.25s;
+    }
+
+    /* ════════════════════════════════════════════════
+       WORD CONTENT WRAPPER
+    ════════════════════════════════════════════════ */
+    .word-article {
+      padding: 32px 44px 64px;
+      max-width: 920px; width: 100%;
+    }
+
+    /* ── Forzar herencia de color en spans dentro de headings ──
+       Esto soluciona el bug del h4 oscuro en tema oscuro:
+       Word añade style="color:black" en los spans dentro de h4,
+       aquí lo anulamos para que usen el color del heading padre. */
+    .word-article h2 span,
+    .word-article h3 span,
+    .word-article h4 span,
+    .word-article h5 span,
+    .word-article h6 span,
+    .word-article h7 span,
+    .word-article h8 span {
+      color: inherit !important;
+      background: inherit !important;
+      font-size: inherit !important;
+    }
+
+    /* ── H2: el título de la materia — oculto (está en el hero) ── */
+    .word-article h2 { display: none !important; }
+
+    /* ── H3: tema principal ── */
+    .word-article h3 {
+      background: var(--h3-bg) !important;
+      color: var(--h3-fg) !important;
+      padding: 8px 16px !important;
+      border-radius: 4px !important;
+      margin: 30px 0 12px !important;
+      font-family: var(--font-disp) !important;
+      font-size: 13px !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.08em !important;
+      text-transform: uppercase !important;
+      text-indent: 0 !important;
+      line-height: 1.4 !important;
+      transition: background 0.25s, color 0.25s !important;
+    }
+
+    /* ── H4: subtema ── ESTE ERA EL QUE SE VEÍA OSCURO ── */
+    .word-article h4 {
+      background: var(--h4-bg) !important;
+      color: var(--h4-fg) !important;
+      padding: 6px 16px !important;
+      border-radius: 3px !important;
+      margin: 20px 0 8px !important;
+      font-family: var(--font-body) !important;
+      font-size: 12px !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.06em !important;
+      text-transform: uppercase !important;
+      text-indent: 0 !important;
+      line-height: 1.4 !important;
+      transition: background 0.25s, color 0.25s !important;
+    }
+
+    /* ── H5: sección (sin fondo) ── */
+    .word-article h5 {
+      background: none !important;
+      color: var(--h5-fg) !important;
+      padding: 10px 0 3px !important;
+      margin: 16px 0 7px !important;
+      font-family: var(--font-mono) !important;
+      font-size: 10.5px !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.14em !important;
+      text-transform: uppercase !important;
+      border-bottom: 1px solid color-mix(in srgb, var(--color) 28%, transparent) !important;
+      line-height: 1.4 !important;
+      transition: color 0.25s !important;
+    }
+
+    /* ── H6 ── */
+    .word-article h6 {
+      background: none !important;
+      color: var(--h6-fg) !important;
+      padding: 8px 0 2px !important;
+      margin: 14px 0 6px !important;
+      font-family: var(--font-body) !important;
+      font-size: 12.5px !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.04em !important;
+      text-transform: none !important;
+      transition: color 0.25s !important;
+    }
+
+    /* ── H7/H8: niveles profundos (Word a veces genera estos) ── */
+    .word-article h7, .word-article [class*="Heading7"],
+    .word-article p.MsoHeading7 {
+      display: block !important;
+      background: none !important;
+      color: var(--h7-fg) !important;
+      padding: 6px 0 2px !important;
+      margin: 12px 0 5px !important;
+      font-family: var(--font-body) !important;
+      font-size: 12px !important;
+      font-weight: 500 !important;
+      font-style: italic;
+      transition: color 0.25s !important;
+    }
+
+    .word-article h8, .word-article [class*="Heading8"],
+    .word-article p.MsoHeading8 {
+      display: block !important;
+      background: none !important;
+      color: var(--text-d) !important;
+      padding: 5px 0 2px !important;
+      margin: 10px 0 4px !important;
+      font-family: var(--font-body) !important;
+      font-size: 11.5px !important;
+      font-weight: 400 !important;
+      font-style: italic;
+    }
+
+    /* ── Párrafos ── */
+    .word-article p {
+      margin-bottom: 10px !important;
+      color: var(--text) !important;
+      font-size: 13.5px !important;
+      line-height: 1.75 !important;
+      transition: color 0.25s;
+    }
+
+    /* Términos clave (em en Word = negrita+color) */
+    .word-article em {
+      font-style: normal;
+      font-weight: 700;
+      color: var(--h5-fg);
+      transition: color 0.25s;
+    }
+
+    /* Spans con color inline — en dark mode redirigimos al color del tema */
+    [data-theme="dark"] .word-article p span[style*="color"] { color: var(--h5-fg) !important; }
+    [data-theme="dark"] .word-article p b span[style*="color"] { color: var(--h5-fg) !important; }
+    [data-theme="dark"] .word-article p i span[style*="color"] { color: var(--h5-fg) !important; }
+
+    /* Cita destacada */
+    .word-article .MsoIntenseQuote {
+      border-left: 3px solid var(--color) !important;
+      padding: 10px 16px !important;
+      background: color-mix(in srgb, var(--color) 7%, var(--surface)) !important;
+      border-radius: 0 4px 4px 0 !important;
+      color: var(--h5-fg) !important;
+      font-style: italic;
+      margin: 16px 0 !important;
+      transition: background 0.25s !important;
+    }
+
+    /* ── Imágenes ── */
+    .word-article img {
+      max-width: 100% !important;
+      height: auto !important;
+      display: block !important;
+      margin: 12px auto !important;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      transition: border-color 0.25s;
+    }
+
+    /* ── Tablas ── */
+    .word-article table {
+      border-collapse: collapse; width: 100%; margin: 16px 0;
+      font-size: 13px;
+    }
+    .word-article td, .word-article th {
+      border: 1px solid var(--border);
+      padding: 7px 10px; color: var(--text);
+      transition: border-color 0.25s, color 0.25s;
+    }
+    .word-article th {
+      background: color-mix(in srgb, var(--color) 15%, var(--surface));
+      font-weight: 600;
+    }
+
+    /* ── Listas de Word ── */
+    .word-article ul, .word-article ol {
+      padding-left: 28px; margin-bottom: 10px;
+      color: var(--text); font-size: 13.5px; line-height: 1.75;
+    }
+    .word-article .MsoListParagraph,
+    .word-article .MsoListParagraphCxSpFirst,
+    .word-article .MsoListParagraphCxSpMiddle,
+    .word-article .MsoListParagraphCxSpLast {
+      padding-left: 20px !important;
+      margin-bottom: 5px !important;
+      color: var(--text) !important;
+      font-size: 13.5px !important;
+    }
+
+    /* ════════════════════════════════════════════════
+       RESPONSIVE
+    ════════════════════════════════════════════════ */
+    @media (max-width: 800px) {
+      .toc-sidebar {
+        position: fixed;
+        top: var(--hdr-h); left: 0; bottom: 0;
+        z-index: 90;
+        box-shadow: none;
+        transition: width 0.22s ease, box-shadow 0.22s;
+      }
+      .toc-sidebar:not(.collapsed) {
+        box-shadow: 4px 0 24px rgba(0,0,0,0.45);
+      }
+      .hero { padding: 24px 20px 20px; }
+      .word-article { padding: 20px 20px 48px; }
+    }
+    @media (max-width: 480px) {
+      .hdr-sub { display: none; }
+    }
   </style>
 </head>
 
 <body>
 
-<!-- ══════════════════════════════════
+<!-- ═══════════════════════════════════════
      HEADER
-══════════════════════════════════ -->
-<header>
-  <a class="hdr-brand" href="../../index.html">
-    <div class="hdr-logo">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAArCAYAAAA65tviAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANNSURBVGhD7ZltaBt1HMc/17vLXV3KrQ9pVtuEmc6OLvSFCg0M36iVjWy+s9W5WmWI4liniDOvxGdQhMKYFAQpIqLDVwq2IPSN+Cp94UTZhmFRTFp1TbULpVsvueR81TL/tLkt3nLpzAfuzff35eDDPXDcT9KaDZvbAOlGRXyBHjoOHcMYHELr7kWSFbHiKnbJwlxIk5+bZWl6ikJuXqz8ixsSaT8wSuj4e+RmPiGfnMHMpLCtolhzFUlR0cJ9GLE4gfgY2ckEf33zqVjbwFGk/cAowZEXyJx5ibVfzovjmqBHooTHJ7j8xektZSqK+AI97PsoyaXXHvdMYh09EmXPG2e58Exs09tMVlT9dTFcJzjyIld/vUD+uy/FUc2xlnNIup87IgOs/PCtOKZJDK7HGBwin5wRY8/IJ2cwBofEGJxEtO5ezExKjD3DzKTQunvFGJxEJFm55W+nm8G2ilu+9iuKbCcaIvVGQ6TeaIhshtoWpO3ho7QffGrjaH1gBLnZvzFrue9BACTVh7H/0Mb8v+KqiK9rN4FHjhEcPsGdTyYIPnqcQHwMuaUVLbyXXcPjdB15GbW1E61nD12jCYLDJ1B2doinumlcFVk9n+Tnkw/x5+cTlAsmmQ9OkTp1mMJiFoBy0USSZZr33kvLwP3YBRO7WBBPUxWuijhhW0XWsin8/TF27BtkNfW9WKmamoo0aTrmHxlaBvajtgWx/l6kSWsWa1VRUxGQWJtPYa1eoZCbp7i8KBaqpsYiYK0sk371MX57/3nskiWOq6bmIrcKV0UkVcMXDCP7d4IEitGBrzOEJMti1XVcFdkRjXH3u1+xa+QkTT6d0HPv0PvmWXydIbHqOhV/Ptzz9WV+eqJfjD1l4LOLnDscFGN3r4iXNETqjYZIvfH/ELFLFpKiirFnSIq65WdNRRFzIY0W7hNjz9DCfZgLaTEGJ5H83CxGLC7GnmHE4uTnZsUYnESWpqcIxMfQI1FxVHP0SJRAfIyl6SlxBE4ihdw82ckE4fEJT2XWFz3ZycSmuxGc9iMA19I/UjavcdcrHyLpfkpX85RWrkC5LFZdRVJU9N39tB98mtCzb/H7x29vua3C6aPxem6LZeh2oOIzsp1oiNQb/wC/2QLl/sw38AAAAABJRU5ErkJggg==" alt="IM">
-    </div>
-    <div>
-      <div class="hdr-name">Prontuario Mecatrónica</div>
-      <div class="hdr-sub">UNAM · FI · DIMEI · Plan 2016</div>
-    </div>
+═══════════════════════════════════════ -->
+<header class="site-header">
+  <div class="hdr-strip"></div>
+  <a href="../../index.html" class="hdr-logo" title="Índice principal">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAArCAYAAAA65tviAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANNSURBVGhD7ZltaBt1HMc/17vLXV3KrQ9pVtuEmc6OLvSFCg0M36iVjWy+s9W5WmWI4liniDOvxGdQhMKYFAQpIqLDVwq2IPSN+Cp94UTZhmFRTFp1TbULpVsvueR81TL/tLkt3nLpzAfuzff35eDDPXDcT9KaDZvbAOlGRXyBHjoOHcMYHELr7kWSFbHiKnbJwlxIk5+bZWl6ikJuXqz8ixsSaT8wSuj4e+RmPiGfnMHMpLCtolhzFUlR0cJ9GLE4gfgY2ckEf33zqVjbwFGk/cAowZEXyJx5ibVfzovjmqBHooTHJ7j8xektZSqK+AI97PsoyaXXHvdMYh09EmXPG2e58Exs09tMVlT9dTFcJzjyIld/vUD+uy/FUc2xlnNIup87IgOs/PCtOKZJDK7HGBwin5wRY8/IJ2cwBofEGJxEtO5ezExKjD3DzKTQunvFGJxEJFm55W+nm8G2ilu+9iuKbCcaIvVGQ6TeaIhshtoWpO3ho7QffGrjaH1gBLnZvzFrue9BACTVh7H/0Mb8v+KqiK9rN4FHjhEcPsGdTyYIPnqcQHwMuaUVLbyXXcPjdB15GbW1E61nD12jCYLDJ1B2doinumlcFVk9n+Tnkw/x5+cTlAsmmQ9OkTp1mMJiFoBy0USSZZr33kvLwP3YBRO7WBBPUxWuijhhW0XWsin8/TF27BtkNfW9WKmamoo0aTrmHxlaBvajtgWx/l6kSWsWa1VRUxGQWJtPYa1eoZCbp7i8KBaqpsYiYK0sk371MX57/3nskiWOq6bmIrcKV0UkVcMXDCP7d4IEitGBrzOEJMti1XVcFdkRjXH3u1+xa+QkTT6d0HPv0PvmWXydIbHqOhV/Ptzz9WV+eqJfjD1l4LOLnDscFGN3r4iXNETqjYZIvfH/ELFLFpKiirFnSIq65WdNRRFzIY0W7hNjz9DCfZgLaTEGJ5H83CxGLC7GnmHE4uTnZsUYnESWpqcIxMfQI1FxVHP0SJRAfIyl6SlxBE4ihdw82ckE4fEJT2XWFz3ZycSmuxGc9iMA19I/UjavcdcrHyLpfkpX85RWrkC5LFZdRVJU9N39tB98mtCzb/H7x29vua3C6aPxem6LZeh2oOIzsp1oiNQb/wC/2QLl/sw38AAAAABJRU5ErkJggg==" alt="IM">
   </a>
-
-  <div class="hdr-spacer"></div>
-
-  <div class="hdr-controls">
-    <a class="back-btn" href="../../index.html">← Índice</a>
-    <button class="theme-btn" id="themeBtn" title="Cambiar tema"></button>
-  </div>
+  <a href="../../index.html" class="hdr-text">
+    <div class="hdr-name">Prontuario Mecatrónica</div>
+    <div class="hdr-sub">UNAM · FI · DIMEI · Plan 2016</div>
+  </a>
+  <div class="hdr-space"></div>
+  <a href="../../index.html" class="hdr-btn">← Índice</a>
+  <button class="theme-btn" id="themeBtn" title="Cambiar tema"></button>
 </header>
 
 
-<!-- ══════════════════════════════════
-     HERO — generado por JS
-══════════════════════════════════ -->
-<div class="subject-hero" id="subjectHero"></div>
+<!-- ═══════════════════════════════════════
+     PAGE LAYOUT
+═══════════════════════════════════════ -->
+<div class="page-layout">
 
-
-<!-- ══════════════════════════════════
-     LAYOUT
-══════════════════════════════════ -->
-<div class="page-wrap">
-
-  <aside class="sidebar" id="sidebar">
-    <div class="toc-title">Contenido</div>
-    <ul class="toc-list" id="tocList"></ul>
+  <!-- ──────────────────── TOC SIDEBAR ──────────────────── -->
+  <aside class="toc-sidebar" id="tocSidebar">
+    <div class="toc-header">
+      <span class="toc-title">Contenido – Marcadores</span>
+      <button class="toc-close" id="tocClose" title="Ocultar panel">◀</button>
+    </div>
+    <nav class="toc-nav" id="tocNav"></nav>
   </aside>
 
-  <div class="content-area">
+  <!-- ──────────────────── MAIN ──────────────────── -->
+  <div class="content-main" id="contentMain">
 
-    <!-- ▼▼▼ PEGA AQUÍ el contenido del <body> del .htm de Word ▼▼▼
-         Solo lo de adentro del <body>...</body>, nada del <head>.
-         Puedes pegar el <div class="WordSection1">...</div> completo.  -->
-    <div id="word-content">
+    <!-- Botón flotante para reabrir el TOC -->
+    <button class="toc-open-btn" id="tocOpenBtn" title="Mostrar marcadores">▶</button>
 
-<div class=WordSection1>
+    <!-- HERO — rellenado automáticamente por JS -->
+    <section class="hero" id="hero"></section>
 
+    <!-- WORD CONTENT -->
+    <article class="word-article" id="word-content">
 <h2><span class=Ttulo2Car><span style='color:#459EC4'>ÁLGEBRA</span> </span>(1120)</h2>
 
 <p class=MsoNormal style='margin-top:5.0pt;margin-right:0cm;margin-bottom:10.0pt;
@@ -2197,245 +2303,325 @@ src="index_archivos/image176.gif"></p>
 <p class=MsoNormal>Solar G., Eduardo, y Speziale de G., Leda. <i>Álgebra I.</i></p>
 
 <p class=MsoNormal>Velázquez T., Juan. <i>Fascículo de inducción matemática.</i></p>
+    </article>
 
-</div>
+  </div><!-- /content-main -->
 
-
-    </div>
-    <!-- ▲▲▲ FIN DEL CONTENIDO DE WORD ▲▲▲ -->
-
-  </div>
-</div>
+</div><!-- /page-layout -->
 
 
-<!-- ══════════════════════════════════
-     FOOTER
-══════════════════════════════════ -->
-<footer>
-  <div class="foot-l">
-    Ingeniería Mecatrónica · UNAM Facultad de Ingeniería · DIMEI<br>
-    Plan de Estudios 2016 — Prontuario personal · Wilbert83
-  </div>
-  <div class="foot-r">
-    <a href="../../index.html">Índice</a>
-    <a href="https://github.com/Wilbert83/INGENIERIA-MECATRONICA" target="_blank">GitHub</a>
-    <a href="https://fi.unam.mx" target="_blank">FI UNAM</a>
-  </div>
-</footer>
-
-
-<!-- ══════════════════════════════════
+<!-- ═══════════════════════════════════════
      SCRIPTS
-══════════════════════════════════ -->
+═══════════════════════════════════════ -->
 <script>
-'use strict';
-
-/* ── Iconos ── */
+/* ── Constantes SVG para botón de tema ── */
 const MOON = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>`;
 const SUN  = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`;
 
-/* ── Tema oscuro/claro ── */
-const themeBtn = document.getElementById('themeBtn');
-function syncThemeBtn() {
-  const dark = document.documentElement.dataset.theme !== 'light';
-  themeBtn.innerHTML = dark ? MOON : SUN;
-  themeBtn.title = dark ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro';
-}
-themeBtn.addEventListener('click', () => {
-  const next = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
-  document.documentElement.dataset.theme = next;
-  localStorage.setItem('theme', next);
-  syncThemeBtn();
-});
+/* ── Helpers ── */
+const $  = id => document.getElementById(id);
+const getMeta = n => (document.querySelector(`meta[name="${n}"]`) || {}).content || '';
 
-/* ── Acento: sincronizar con el color guardado del índice ── */
-const savedAccent = localStorage.getItem('accentFixed');
-if (savedAccent) document.documentElement.dataset.accent = savedAccent;
-
-/* ══════════════════════════════════════════════════
-   HERO — lee los <meta> y rellena el bloque superior
-══════════════════════════════════════════════════ */
-function getMeta(name) {
-  const el = document.querySelector(`meta[name="${name}"]`);
-  return el ? el.content.trim() : '';
+/* ══════════════════════════════════════════
+   1. COLOR DE LA MATERIA desde <meta name="COLOR">
+══════════════════════════════════════════ */
+function applyColor() {
+  const c = getMeta('COLOR') || '#3494BA';
+  document.documentElement.style.setProperty('--color', c);
 }
+
+/* ══════════════════════════════════════════
+   2. HERO: llena desde meta + extrae objetivo
+      El objetivo se muestra UNA sola vez aquí.
+      Se elimina del word-content para evitar duplicado.
+══════════════════════════════════════════ */
 function buildHero() {
-  const sem      = getMeta('SEMESTRE');
-  const materia  = getMeta('MATERIA');
+  const semestre = getMeta('SEMESTRE') || 'Semestre';
+  const materia  = getMeta('MATERIA')  || 'Materia';
   const clave    = getMeta('CLAVE');
   const creditos = getMeta('CREDITOS');
+  
+  const wc = $('word-content');
 
-  /* Extraer objetivo: busca el primer párrafo largo tras el h2 */
-  const wc = document.getElementById('word-content');
-  let obj = '';
-  if (wc) {
-    const paras = wc.querySelectorAll('p.MsoNormal, p');
-    for (const p of paras) {
-      const t = p.textContent.trim();
-      /* Párrafo del objetivo: largo, empieza con "El alumno…" o similar */
-      if (t.length > 50 && !/^objetivo/i.test(t)) { obj = t; break; }
+  /* Eliminar h2 (título de la materia — ya está en el hero) */
+  const h2 = wc.querySelector('h2');
+  if (h2) h2.remove();
+
+  /* Extraer objetivo: busca el primer <em> que contenga "Objetivo"
+     y el siguiente párrafo con el texto del objetivo */
+  let objLabel = '';
+  let objHTML  = '';
+
+  const ems = wc.querySelectorAll('em');
+  for (const em of ems) {
+    if (em.textContent.toLowerCase().includes('objetivo')) {
+      const emPara = em.closest('p');
+      if (emPara) {
+        objLabel = 'Objetivo(s) del curso';
+        /* El siguiente párrafo hermano tiene el texto del objetivo */
+        let sib = emPara.nextElementSibling;
+        while (sib && sib.tagName === 'P' && sib.textContent.trim() === '') {
+          sib = sib.nextElementSibling; /* saltamos párrafos vacíos */
+        }
+        if (sib && sib.tagName === 'P') {
+          objHTML = sib.innerHTML;
+          sib.remove();
+        }
+        emPara.remove();
+      }
+      break;
     }
   }
 
-  document.getElementById('subjectHero').innerHTML =
-    (sem ? `<div class="sem-tag">${sem}</div>` : '') +
-    `<h1>${materia || 'Materia'}</h1>` +
-    `<div class="clave">Clave: ${clave} · ${creditos} créditos</div>` +
-    (obj ? `<p class="obj">${obj}</p>` : '');
+  /* Construir hero */
+  const metaStr = [clave ? `Clave: ${clave}` : '', creditos ? `${creditos} créditos` : ''].filter(Boolean).join(' · ');
+
+  $('hero').innerHTML = `
+    <div class="hero-semestre">${semestre}</div>
+    <h1 class="hero-title">${materia}</h1>
+    ${metaStr ? `<div class="hero-meta">${metaStr}</div>` : ''}
+    <div class="hero-sep"></div>
+    ${objLabel ? `<div class="hero-obj-lbl">${objLabel}:</div>` : ''}
+    ${objHTML  ? `<p class="hero-obj-txt">${objHTML}</p>`       : ''}
+  `;
+
+  /* Actualizar <title> */
+  document.title = `${materia} · Prontuario Mecatrónica · UNAM FI`;
 }
 
-/* ══════════════════════════════════════════════════
-   CLEAN — elimina estilos inline de Word que rompen
-   el cambio de tema oscuro ↔ claro
-══════════════════════════════════════════════════ */
-function cleanWordStyles() {
-  const wc = document.getElementById('word-content');
-  if (!wc) return;
-
-  /* Colores azules de Word que deben heredar del CSS */
-  const WORD_BLUES = ['#459ec4','#3494ba','#1a495c','rgb(69,158,196)','rgb(52,148,186)','rgb(26,73,92)'];
-  const isWordBlue = (v) => v && WORD_BLUES.some(b => v.toLowerCase().replace(/\s/g,'').includes(b));
-
-  /* Recorre todos los elementos */
-  wc.querySelectorAll('*').forEach(el => {
-    const s = el.style;
-    if (!s) return;
-
-    /* Quitar colores fijos que Word puso en headings */
-    if (['H2','H3','H4','H5','H6'].includes(el.tagName)) {
-      el.removeAttribute('style');
-      return;
-    }
-
-    /* En spans: quitar color si es el azul de Word */
-    if (isWordBlue(s.color)) s.removeProperty('color');
-
-    /* Quitar backgrounds que ocultan texto en modo oscuro */
-    const bg = (s.background || '') + (s.backgroundColor || '');
-    if (bg.toLowerCase().includes('#3494ba') ||
-        bg.toLowerCase().includes('#d4eaf3') ||
-        bg.toLowerCase().includes('white')   ||
-        bg.toLowerCase().includes('#ffffff')) {
-      s.removeProperty('background');
-      s.removeProperty('background-color');
-    }
-
-    /* Quitar color:white que oculta texto en modo claro */
-    if ((s.color || '').toLowerCase() === 'white' ||
-        (s.color || '').toLowerCase() === '#ffffff') {
-      s.removeProperty('color');
-    }
-
-    /* Limpiar font:7.0pt (espaciadores de Word) */
-    if ((s.fontSize || '') === '7pt' || (s.fontSize || '') === '7.0pt') {
-      el.textContent = el.textContent.replace(/\s+/g, ' ');
-    }
-  });
-
-  /* Sanear sangría/text-indent en h3 y h4 */
-  wc.querySelectorAll('h3, h4').forEach(h => {
-    h.style.removeProperty('text-indent');
-    h.style.removeProperty('margin-left');
-    h.style.removeProperty('margin-top');
-    h.style.removeProperty('margin-bottom');
-    /* Eliminar spans de espaciado 7pt de Word */
-    h.querySelectorAll('span').forEach(s => {
-      if ((s.style.fontSize || '').includes('7')) {
-        s.replaceWith(document.createTextNode(' '));
-      }
-    });
-  });
-
-  /* Reemplazar caracteres Wingdings de viñetas por bullet normal */
-  wc.querySelectorAll('span[style*="Wingdings"], span[style*="wingdings"]').forEach(s => {
-    s.textContent = '•';
-    s.removeAttribute('style');
-  });
-
-  /* Imágenes: quitar width/height inline para que el CSS controle el tamaño */
-  wc.querySelectorAll('img').forEach(img => {
-    img.removeAttribute('width');
-    img.removeAttribute('height');
-    img.removeAttribute('id');
-  });
+/* ── Helper: scroll del contenido principal hasta un heading ── */
+function scrollToHeading(el) {
+  const container = $('contentMain');
+  /* Calcular posición absoluta del heading dentro del scroll container */
+  let top = el.offsetTop;
+  let parent = el.offsetParent;
+  while (parent && parent !== container) {
+    top += parent.offsetTop;
+    parent = parent.offsetParent;
+  }
+  container.scrollTo({ top: top - 68, behavior: 'smooth' });
 }
 
-/* ══════════════════════════════════════════════════
-   TOC — genera la tabla de contenidos automáticamente
-   leyendo los h3 / h4 / h5 del contenido de Word
-══════════════════════════════════════════════════ */
+/* ══════════════════════════════════════════
+   3. TOC: construye marcadores colapsables
+      Soporta h3–h8 y clases de Word (MsoHeading7, etc.)
+══════════════════════════════════════════ */
 function buildTOC() {
-  const wc  = document.getElementById('word-content');
-  const ul  = document.getElementById('tocList');
-  if (!wc || !ul) return;
+  const wc  = $('word-content');
+  const nav = $('tocNav');
 
-  const headings = wc.querySelectorAll('h3, h4, h5');
-  let counter = 0;
+  const headings = Array.from(
+    wc.querySelectorAll('h3,h4,h5,h6,h7,h8,p.MsoHeading7,p.MsoHeading8,[class*="Heading7"],[class*="Heading8"]')
+  );
+  if (!headings.length) return;
+
+  let counter     = 0;
+  let curDetails  = null;
+  let curChildren = null;
+
+  function getLevel(el) {
+    const m = el.tagName.toUpperCase().match(/^H(\d+)$/);
+    if (m) return parseInt(m[1]);
+    if (el.className.match(/Heading7/i)) return 7;
+    if (el.className.match(/Heading8/i)) return 8;
+    return 5;
+  }
 
   headings.forEach(h => {
-    const level = parseInt(h.tagName[1]);    /* 3, 4 ó 5 */
-    const id    = 'sec-' + (counter++);
-    h.id = id;
+    if (!h.id) h.id = `hd-${++counter}`;
+    const text  = h.innerText.trim().replace(/\s+/g, ' ');
+    const level = getLevel(h);
 
-    /* Texto limpio: quitar números sueltos y espacios de Word */
-    let text = h.textContent
-      .replace(/\s+/g, ' ')
-      .trim();
-    if (!text) return;
+    if (level === 3) {
+      curDetails = document.createElement('details');
+      curDetails.className = 'toc-group';
+      curDetails.open = true;
+      curDetails.dataset.hid = h.id;   /* para que el tracker lo encuentre */
 
-    const li = document.createElement('li');
-    li.className   = 'toc-item';
-    li.dataset.level = level;
-    li.dataset.id    = id;
+      const summary = document.createElement('summary');
 
-    const a  = document.createElement('a');
-    a.href   = '#' + id;
-    a.title  = text;          /* tooltip con texto completo */
-    a.textContent = text.length > 52 ? text.slice(0, 49) + '…' : text;
+      const arrowSpan = document.createElement('span');
+      arrowSpan.className = 'toc-arrow';
+      arrowSpan.textContent = '▶';
+      /* El triángulo solo toggle — comportamiento nativo del <details> */
 
-    li.appendChild(a);
-    ul.appendChild(li);
+      const textSpan = document.createElement('span');
+      textSpan.className = 'toc-h3-text';
+      textSpan.textContent = text;
+      textSpan.title = text;
+
+      /* Click en el TEXTO → scroll al heading, SIN tocar el estado open/closed */
+      textSpan.addEventListener('click', e => {
+        e.preventDefault();
+        e.stopPropagation();
+        scrollToHeading(h);
+        tocSetActive(summary, null);
+      });
+
+      summary.appendChild(arrowSpan);
+      summary.appendChild(textSpan);
+      curDetails.appendChild(summary);
+
+      curChildren = document.createElement('ul');
+      curChildren.className = 'toc-children';
+      curDetails.appendChild(curChildren);
+      nav.appendChild(curDetails);
+
+    } else {
+      if (!curChildren) {
+        curChildren = document.createElement('ul');
+        curChildren.className = 'toc-children';
+        nav.appendChild(curChildren);
+      }
+
+      const li = document.createElement('li');
+      const a  = document.createElement('a');
+      a.href        = '#' + h.id;
+      a.className   = `toc-item lv${level}`;
+      a.textContent = text;
+      a.title       = text;
+
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        scrollToHeading(h);
+        /* Solo abrir el <details> PADRE de este item, sin abrir otros */
+        a.closest('details')?.setAttribute('open', '');
+        tocSetActive(null, a);
+      });
+
+      li.appendChild(a);
+      curChildren.appendChild(li);
+    }
   });
 }
 
-/* ══════════════════════════════════════════════════
-   TOC HIGHLIGHT — resaltar el ítem activo al scroll
-══════════════════════════════════════════════════ */
-function setupHighlight() {
-  const items = document.querySelectorAll('.toc-item');
-  if (!items.length) return;
+/* ══════════════════════════════════════════
+   4. TRACKING ACTIVO via IntersectionObserver
+      Reglas:
+      · Solo marca activo — NUNCA abre grupos cerrados
+      · Auto-scrollea el sidebar suavemente hacia el item activo
+      · Debounce para evitar saltos al scroll rápido
+══════════════════════════════════════════ */
 
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      items.forEach(li => li.classList.remove('active'));
-      const active = document.querySelector(`.toc-item[data-id="${e.target.id}"]`);
-      if (active) {
-        active.classList.add('active');
-        /* Auto-scroll del sidebar */
-        active.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
-      }
-    });
-  }, { rootMargin: '-8% 0px -78% 0px' });
+/* Elemento activo actual */
+let _activeTocEl = null;
+let _tocScrollTimer = null;
 
-  document.querySelectorAll('#word-content h3, #word-content h4, #word-content h5')
-    .forEach(h => { if (h.id) obs.observe(h); });
+function tocSetActive(summary, link) {
+  /* Limpiar activo anterior */
+  if (_activeTocEl) _activeTocEl.classList.remove('toc-active');
+
+  const target = link || summary;
+  if (!target) return;
+
+  target.classList.add('toc-active');
+  _activeTocEl = target;
+
+  /* Auto-scroll del sidebar hacia el item activo — suave, sin saltos */
+  clearTimeout(_tocScrollTimer);
+  _tocScrollTimer = setTimeout(() => {
+    const nav = $('tocNav');
+    if (!nav || !target) return;
+
+    const navRect    = nav.getBoundingClientRect();
+    const itemRect   = target.getBoundingClientRect();
+
+    /* Solo scrollear si el item está fuera del área visible del sidebar */
+    const margin = 40;
+    if (itemRect.top < navRect.top + margin || itemRect.bottom > navRect.bottom - margin) {
+      const offset = target.offsetTop - nav.offsetTop - nav.clientHeight / 2 + target.clientHeight / 2;
+      nav.scrollTo({ top: offset, behavior: 'smooth' });
+    }
+  }, 80);  /* debounce 80ms */
 }
 
-/* ══════════════════════════════════════════════════
-   INIT
-══════════════════════════════════════════════════ */
-(function init() {
-  syncThemeBtn();
-  cleanWordStyles();   /* 1. Limpia estilos de Word */
-  buildHero();         /* 2. Llena el hero con los <meta> */
-  buildTOC();          /* 3. Construye el TOC */
-  setupHighlight();    /* 4. Activa el highlight al scroll */
+function initActiveTracking() {
+  const heads = Array.from(
+    $('word-content').querySelectorAll('h3,h4,h5,h6,h7,h8,p.MsoHeading7,p.MsoHeading8')
+  );
+  if (!heads.length) return;
 
-  /* Habilitar transiciones después del primer render */
-  requestAnimationFrame(() => requestAnimationFrame(() => {
-    document.documentElement.setAttribute('data-ready', '');
-  }));
+  const nav = $('tocNav');
+
+  const obs = new IntersectionObserver(entries => {
+    /* Tomar solo las entradas que están intersectando */
+    const visible = entries.filter(e => e.isIntersecting);
+    if (!visible.length) return;
+
+    /* La más cercana al top de la pantalla */
+    visible.sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+    const target = visible[0].target;
+    const id = target.id;
+
+    /* Buscar el link correspondiente en el TOC */
+    const link = nav.querySelector(`.toc-item[href="#${id}"]`);
+
+    if (link) {
+      /* Es un h4-h8: marcar link, NO abrir el details padre si está cerrado */
+      tocSetActive(null, link);
+
+    } else {
+      /* Es un h3: marcar su summary */
+      const det = nav.querySelector(`details[data-hid="${id}"]`);
+      if (det) {
+        const summary = det.querySelector('summary');
+        tocSetActive(summary, null);
+      }
+    }
+
+  }, {
+    root: $('contentMain'),    /* el scroll container real */
+    rootMargin: '-60px 0px -60% 0px',
+    threshold: 0
+  });
+
+  heads.forEach(h => obs.observe(h));
+}
+
+/* ══════════════════════════════════════════
+   5. TOGGLE SIDEBAR
+══════════════════════════════════════════ */
+function initSidebarToggle() {
+  const sidebar  = $('tocSidebar');
+  const closeBtn = $('tocClose');
+  const openBtn  = $('tocOpenBtn');
+
+  closeBtn.addEventListener('click', () => {
+    sidebar.classList.add('collapsed');
+    openBtn.classList.add('visible');
+  });
+  openBtn.addEventListener('click', () => {
+    sidebar.classList.remove('collapsed');
+    openBtn.classList.remove('visible');
+  });
+}
+
+/* ══════════════════════════════════════════
+   6. TEMA CLARO/OSCURO
+══════════════════════════════════════════ */
+function syncThemeBtn() {
+  const dark = document.documentElement.dataset.theme !== 'light';
+  $('themeBtn').innerHTML = dark ? MOON : SUN;
+  $('themeBtn').title = dark ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro';
+}
+
+$('themeBtn').addEventListener('click', () => {
+  const next = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+  document.documentElement.dataset.theme = next;
+  localStorage.setItem('prontuario-theme', next);
+  syncThemeBtn();
+});
+
+/* ══════════════════════════════════════════
+   INIT
+══════════════════════════════════════════ */
+(function init() {
+  applyColor();   /* 1. color de materia */
+  buildHero();    /* 2. hero + extrae objetivo (sin duplicado) */
+  buildTOC();     /* 3. TOC colapsable con triángulos */
+  initSidebarToggle(); /* 4. botón colapsar/abrir */
+  syncThemeBtn(); /* 5. ícono del botón de tema */
+  initActiveTracking(); /* 6. highlight activo al hacer scroll */
 })();
 </script>
 
