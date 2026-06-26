@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark" data-accent="cyan">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- ✏️  Cambia este título por el nombre real de la materia -->
+  <title>Álgebra · Prontuario Mecatrónica · UNAM FI</title>
+  <meta name="description" content="Apuntes de Álgebra — Ingeniería Mecatrónica UNAM FI, Plan 2016.">
+  <link rel="icon" type="image/png" href="../../favicon.png">
+
+  <!-- Preloader de tema (evita flash de colores) -->
+  <script>
+    (function () {
+      var h = document.documentElement;
+      h.dataset.theme  = localStorage.getItem('theme')  || 'dark';
+      h.dataset.accent = localStorage.getItem('accentFixed') || 'cyan';
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html:not([data-ready]) *, html:not([data-ready]) *::before, html:not([data-ready]) *::after {
+      transition: none !important;
+    }
+
+    /* ══ TOKENS ══ */
+    :root {
+      --p:   #38BDF8; --p-d: rgba(56,189,248,0.09); --p-g: rgba(56,189,248,0.22);
+      --bg:      #07090F; --surface: #0D1322; --card: #101726;
+      --border:  rgba(255,255,255,0.08); --b-hover: rgba(255,255,255,0.20);
+      --text:    #E2E8F0; --text-d: #94A3B8; --text-m: #4B5563;
+      --shadow:  rgba(0,0,0,0.5);
+      --green: #34D399; --orange: #FB923C;
+      --mono: 'JetBrains Mono', monospace;
+      --disp: 'Space Grotesk', sans-serif;
+      --body: 'Inter', sans-serif;
+    }
+
+    /* Todos los acentos */
+    [data-accent="cyan"]      { --p:#38BDF8; --p-d:rgba(56,189,248,0.09);  --p-g:rgba(56,189,248,0.22); }
+    [data-accent="celeste"]   { --p:#7DD3FC; --p-d:rgba(125,211,252,0.09); --p-g:rgba(125,211,252,0.22); }
+    [data-accent="azul"]      { --p:#60A5FA; --p-d:rgba(96,165,250,0.09);  --p-g:rgba(96,165,250,0.22); }
+    [data-accent="indigo"]    { --p:#818CF8; --p-d:rgba(129,140,248,0.09); --p-g:rgba(129,140,248,0.22); }
+    [data-accent="violeta"]   { --p:#A78BFA; --p-d:rgba(167,139,250,0.09); --p-g:rgba(167,139,250,0.22); }
+    [data-accent="purpura"]   { --p:#C084FC; --p-d:rgba(192,132,252,0.09); --p-g:rgba(192,132,252,0.22); }
+    [data-accent="fuchsia"]   { --p:#E879F9; --p-d:rgba(232,121,249,0.09); --p-g:rgba(232,121,249,0.22); }
+    [data-accent="rosa"]      { --p:#F472B6; --p-d:rgba(244,114,182,0.09); --p-g:rgba(244,114,182,0.22); }
+    [data-accent="rojo"]      { --p:#F87171; --p-d:rgba(248,113,113,0.09); --p-g:rgba(248,113,113,0.22); }
+    [data-accent="coral"]     { --p:#FF7F6B; --p-d:rgba(255,127,107,0.09); --p-g:rgba(255,127,107,0.22); }
+    [data-accent="naranja"]   { --p:#FB923C; --p-d:rgba(251,146,60,0.09);  --p-g:rgba(251,146,60,0.22); }
+    [data-accent="amarillo"]  { --p:#FBBF24; --p-d:rgba(251,191,36,0.09);  --p-g:rgba(251,191,36,0.22); }
+    [data-accent="lima"]      { --p:#A3E635; --p-d:rgba(163,230,53,0.09);  --p-g:rgba(163,230,53,0.22); }
+    [data-accent="esmeralda"] { --p:#10B981; --p-d:rgba(16,185,129,0.09);  --p-g:rgba(16,185,129,0.22); }
+    [data-accent="verde"]     { --p:#34D399; --p-d:rgba(52,211,153,0.09);  --p-g:rgba(52,211,153,0.22); }
+    [data-accent="blanco"]    { --p:#CBD5E1; --p-d:rgba(203,213,225,0.09); --p-g:rgba(203,213,225,0.22); }
+
+    /* Light theme */
+    [data-theme="light"] {
+      --bg:#EDF2F8; --surface:#FFFFFF; --card:#FFFFFF;
+      --border:rgba(15,23,42,0.11); --b-hover:rgba(15,23,42,0.32);
+      --text:#0F172A; --text-d:#334155; --text-m:#64748B;
+      --shadow:rgba(15,23,42,0.10);
+    }
+    [data-theme="light"] body {
+      background-image: radial-gradient(circle, rgba(15,23,42,0.06) 1px, transparent 1px);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--bg); color: var(--text); font-family: var(--body);
+      min-height: 100vh; transition: background-color 0.3s, color 0.3s;
+      background-image: radial-gradient(circle, var(--p-d) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+
+    /* ══ HEADER ══ */
+    header {
+      position: sticky; top: 0; z-index: 300;
+      background: color-mix(in srgb, var(--bg) 88%, transparent);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px; height: 58px;
+      display: flex; align-items: center; gap: 12px;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .hdr-brand { display: flex; align-items: center; gap: 9px; text-decoration: none; flex-shrink: 0; }
+    .hdr-logo  { width: 34px; height: 34px; border-radius: 7px; overflow: hidden; flex-shrink: 0; }
+    .hdr-logo img { width: 100%; height: 100%; object-fit: cover; }
+    .hdr-name  { font-family: var(--disp); font-size: 14px; font-weight: 600; color: var(--text); line-height: 1.15; }
+    .hdr-sub   { font-family: var(--mono); font-size: 9.5px; color: var(--text-m); letter-spacing: 0.07em; }
+    .hdr-spacer { flex: 1; }
+    .hdr-controls { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+    .theme-btn {
+      width: 32px; height: 32px; border-radius: 8px;
+      background: var(--surface); border: 1px solid var(--border);
+      color: var(--text-d); cursor: pointer;
+      display: grid; place-items: center;
+      transition: border-color 0.2s, color 0.2s, background 0.3s;
+    }
+    .theme-btn:hover { border-color: var(--p); color: var(--p); }
+    .back-btn {
+      display: flex; align-items: center; gap: 6px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 8px; padding: 6px 11px;
+      color: var(--text-d); font-family: var(--mono); font-size: 11px;
+      text-decoration: none; white-space: nowrap; flex-shrink: 0;
+      transition: border-color 0.2s, color 0.2s, background 0.3s;
+    }
+    .back-btn:hover { border-color: var(--p); color: var(--p); }
+
+    /* ══ BREADCRUMB ══ */
+    .breadcrumb {
+      max-width: 900px; margin: 0 auto;
+      padding: 20px 24px 0;
+      font-family: var(--mono); font-size: 11px; color: var(--text-m);
+      display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--p); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+
+    /* ══ HERO DE MATERIA ══ */
+    .subject-hero {
+      max-width: 900px; margin: 0 auto;
+      padding: 32px 24px 40px;
+    }
+    .sem-tag {
+      display: inline-block;
+      font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em;
+      color: var(--p); text-transform: uppercase;
+      border: 1px solid var(--p-g); border-radius: 4px;
+      padding: 3px 8px; margin-bottom: 14px;
+      transition: color 0.3s, border-color 0.3s;
+    }
+    .subject-hero h1 {
+      font-family: var(--disp); font-size: clamp(22px, 4vw, 40px);
+      font-weight: 700; letter-spacing: -0.02em; line-height: 1.1;
+      margin-bottom: 10px;
+    }
+    .subject-hero .clave {
+      font-family: var(--mono); font-size: 11px; color: var(--text-m);
+    }
+    .subject-hero p.obj {
+      margin-top: 16px; font-size: 14px; color: var(--text-d);
+      max-width: 700px; line-height: 1.75;
+    }
+
+    /* ══ LAYOUT ══ */
+    .page-layout {
+      max-width: 900px; margin: 0 auto;
+      padding: 0 24px 80px;
+      display: grid; grid-template-columns: 220px 1fr; gap: 32px;
+      align-items: start;
+    }
+    @media (max-width: 700px) {
+      .page-layout { grid-template-columns: 1fr; }
+      .sidebar { display: none; }
+    }
+
+    /* ══ SIDEBAR (tabla de contenidos) ══ */
+    .sidebar {
+      position: sticky; top: 74px;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 10px; padding: 16px;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .toc-title {
+      font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--text-m); margin-bottom: 12px;
+    }
+    .toc-list { list-style: none; }
+    .toc-list li { margin-bottom: 2px; }
+    .toc-list a {
+      display: block; padding: 5px 8px; border-radius: 6px;
+      font-size: 12px; color: var(--text-d); text-decoration: none;
+      transition: background 0.14s, color 0.14s;
+    }
+    .toc-list a:hover { background: var(--p-d); color: var(--p); }
+    .toc-list a.active { background: var(--p-d); color: var(--p); font-weight: 500; }
+    .toc-list .toc-sub { padding-left: 16px; font-size: 11px; }
+
+    /* ══ CONTENIDO PRINCIPAL ══ */
+    .content { min-width: 0; }
+
+    /* Sección de tema */
+    .topic {
+      margin-bottom: 48px;
+      scroll-margin-top: 80px;
+    }
+    .topic-header {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 20px; padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .topic-num {
+      font-family: var(--mono); font-size: 11px; color: var(--p);
+      min-width: 28px; flex-shrink: 0;
+    }
+    .topic h2 {
+      font-family: var(--disp); font-size: 18px; font-weight: 600;
+      color: var(--text);
+    }
+
+    /* Subtema */
+    .subtopic { margin-bottom: 28px; scroll-margin-top: 80px; }
+    .subtopic h3 {
+      font-family: var(--disp); font-size: 14px; font-weight: 600;
+      color: var(--text-d); margin-bottom: 10px;
+    }
+
+    /* Prosa / texto del apunte */
+    .prose {
+      font-size: 14px; color: var(--text-d); line-height: 1.8;
+    }
+    .prose p { margin-bottom: 12px; }
+    .prose strong { color: var(--text); font-weight: 600; }
+    .prose em { color: var(--p); font-style: italic; }
+    .prose ul, .prose ol {
+      padding-left: 20px; margin-bottom: 12px;
+    }
+    .prose li { margin-bottom: 4px; }
+
+    /* Definición destacada */
+    .def-box {
+      background: var(--surface); border: 1px solid var(--border);
+      border-left: 3px solid var(--p);
+      border-radius: 8px; padding: 14px 16px;
+      margin: 16px 0;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .def-label {
+      font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--p); margin-bottom: 6px;
+    }
+    .def-box p { margin: 0; font-size: 13.5px; color: var(--text-d); line-height: 1.7; }
+
+    /* Fórmula / ecuación */
+    .formula-box {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 8px; padding: 18px 20px;
+      margin: 16px 0; text-align: center;
+      font-family: var(--mono); font-size: 15px; color: var(--text);
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .formula-label {
+      font-family: var(--mono); font-size: 10px; color: var(--text-m);
+      margin-top: 8px;
+    }
+
+    /* Imagen con caption */
+    .img-wrap {
+      margin: 20px 0; text-align: center;
+    }
+    .img-wrap img {
+      max-width: 100%; border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+    .img-caption {
+      font-family: var(--mono); font-size: 10.5px; color: var(--text-m);
+      margin-top: 8px;
+    }
+
+    /* Tabla */
+    .tbl-wrap { overflow-x: auto; margin: 16px 0; }
+    table {
+      width: 100%; border-collapse: collapse;
+      font-size: 13px; color: var(--text-d);
+    }
+    th {
+      background: var(--surface); border: 1px solid var(--border);
+      padding: 8px 12px; font-family: var(--mono); font-size: 11px;
+      color: var(--text-m); text-align: left; letter-spacing: 0.06em;
+    }
+    td {
+      border: 1px solid var(--border); padding: 8px 12px;
+    }
+    tr:hover td { background: var(--p-d); }
+
+    /* Nota al margen */
+    .note {
+      background: var(--surface); border: 1px solid rgba(251,191,36,0.3);
+      border-radius: 8px; padding: 12px 14px; margin: 16px 0;
+      font-size: 13px; color: var(--text-d); line-height: 1.6;
+    }
+    .note::before { content: '⚠ '; color: #FBBF24; font-weight: bold; }
+
+    /* ══ FOOTER ══ */
+    footer {
+      border-top: 1px solid var(--border); padding: 20px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 10px; transition: border-color 0.3s;
+    }
+    .foot-l { font-family: var(--mono); font-size: 10.5px; color: var(--text-m); line-height: 1.7; }
+    .foot-r { display: flex; gap: 16px; }
+    .foot-r a { font-family: var(--mono); font-size: 10.5px; color: var(--text-m); text-decoration: none; transition: color 0.2s; }
+    .foot-r a:hover { color: var(--p); }
+
+    @media (max-width: 640px) {
+      header { padding: 0 14px; gap: 8px; }
+      .hdr-sub { display: none; }
+      .subject-hero, .page-layout, .breadcrumb { padding-left: 14px; padding-right: 14px; }
+      footer { padding: 16px 14px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ════ HEADER ════ -->
+<header>
+  <!-- ✏️  href="../../index.html" si estás en s1/algebra/  -->
+  <a class="hdr-brand" href="../../index.html">
+    <div class="hdr-logo">
+      <!-- ✏️  Misma imagen base64 del IM del index.html -->
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAArCAYAAAA65tviAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANNSURBVGhD7ZltaBt1HMc/17vLXV3KrQ9pVtuEmc6OLvSFCg0M36iVjWy+s9W5WmWI4liniDOvxGdQhMKYFAQpIqLDVwq2IPSN+Cp94UTZhmFRTFp1TbULpVsvueR81TL/tLkt3nLpzAfuzff35eDDPXDcT9KaDZvbAOlGRXyBHjoOHcMYHELr7kWSFbHiKnbJwlxIk5+bZWl6ikJuXqz8ixsSaT8wSuj4e+RmPiGfnMHMpLCtolhzFUlR0cJ9GLE4gfgY2ckEf33zqVjbwFGk/cAowZEXyJx5ibVfzovjmqBHooTHJ7j8xektZSqK+AI97PsoyaXXHvdMYh09EmXPG2e58Exs09tMVlT9dTFcJzjyIld/vUD+uy/FUc2xlnNIup87IgOs/PCtOKZJDK7HGBwin5wRY8/IJ2cwBofEGJxEtO5ezExKjD3DzKTQunvFGJxEJFm55W+nm8G2ilu+9iuKbCcaIvVGQ6TeaIhshtoWpO3ho7QffGrjaH1gBLnZvzFrue9BACTVh7H/0Mb8v+KqiK9rN4FHjhEcPsGdTyYIPnqcQHwMuaUVLbyXXcPjdB15GbW1E61nD12jCYLDJ1B2doinumlcFVk9n+Tnkw/x5+cTlAsmmQ9OkTp1mMJiFoBy0USSZZr33kvLwP3YBRO7WBBPUxWuijhhW0XWsin8/TF27BtkNfW9WKmamoo0aTrmHxlaBvajtgWx/l6kSWsWa1VRUxGQWJtPYa1eoZCbp7i8KBaqpsYiYK0sk371MX57/3nskiWOq6bmIrcKV0UkVcMXDCP7d4IEitGBrzOEJMti1XVcFdkRjXH3u1+xa+QkTT6d0HPv0PvmWXydIbHqOhV/Ptzz9WV+eqJfjD1l4LOLnDscFGN3r4iXNETqjYZIvfH/ELFLFpKiirFnSIq65WdNRRFzIY0W7hNjz9DCfZgLaTEGJ5H83CxGLC7GnmHE4uTnZsUYnESWpqcIxMfQI1FxVHP0SJRAfIyl6SlxBE4ihdw82ckE4fEJT2XWFz3ZycSmuxGc9iMA19I/UjavcdcrHyLpfkpX85RWrkC5LFZdRVJU9N39tB98mtCzb/H7x29vua3C6aPxem6LZeh2oOIzsp1oiNQb/wC/2QLl/sw38AAAAABJRU5ErkJggg==" alt="IM">
+    </div>
+    <div>
+      <div class="hdr-name">Prontuario Mecatrónica</div>
+      <div class="hdr-sub">UNAM · FI · DIMEI · Plan 2016</div>
+    </div>
+  </a>
+
+  <div class="hdr-spacer"></div>
+
+  <div class="hdr-controls">
+    <a class="back-btn" href="../../index.html">
+      ← Índice
+    </a>
+    <button class="theme-btn" id="themeBtn" title="Cambiar tema"></button>
+  </div>
+</header>
+
+
+<!-- ════ BREADCRUMB ════ -->
+<!-- ✏️  Ajusta los textos y hrefs según el semestre y materia -->
+<nav class="breadcrumb">
+  <a href="../../index.html">Inicio</a>
+  <span>›</span>
+  <a href="../../index.html#sem1">Primer Semestre</a>
+  <span>›</span>
+  <span>Álgebra</span>
+</nav>
+
+
+<!-- ════ HERO ════ -->
+<div class="subject-hero">
+  <!-- ✏️  Ajusta el número de semestre -->
+  <div class="sem-tag">Primer Semestre</div>
+  <!-- ✏️  Nombre de la materia y clave -->
+  <h1>Álgebra</h1>
+  <div class="clave">Clave: 1120 · 8 créditos</div>
+  <!-- ✏️  Objetivo del curso -->
+  <p class="obj">
+    El alumno analiza las propiedades de los sistemas numéricos y las utiliza en la
+    resolución de problemas de polinomios, sistemas de ecuaciones lineales y matrices y
+    determinantes, y adquiere los conceptos que le permiten iniciar el estudio de la
+    física y la matemática aplicada.
+  </p>
+</div>
+
+
+<!-- ════ LAYOUT PRINCIPAL ════ -->
+<div class="page-layout">
+
+  <!-- ─── SIDEBAR: tabla de contenidos ─── -->
+  <!-- ✏️  Agrega un <li> por cada tema y subtema de tu materia -->
+  <aside class="sidebar">
+    <div class="toc-title">Contenido</div>
+    <ul class="toc-list">
+      <li><a href="#tema-1">1. Trigonometría</a></li>
+      <li><a href="#tema-1-1" class="toc-sub">1.1 Funciones trigonométricas</a></li>
+      <li><a href="#tema-1-2" class="toc-sub">1.2 Ángulos agudos</a></li>
+      <li><a href="#tema-1-3" class="toc-sub">1.3 Identidades</a></li>
+      <li><a href="#tema-2">2. Números Complejos</a></li>
+      <li><a href="#tema-3">3. Polinomios</a></li>
+      <!-- Continúa aquí... -->
+    </ul>
+  </aside>
+
+  <!-- ─── CONTENIDO ─── -->
+  <!-- ✏️  Aquí pegas el contenido exportado de Word / escrito a mano -->
+  <article class="content">
+
+    <!-- ═══ TEMA 1 ═══ -->
+    <section class="topic" id="tema-1">
+      <div class="topic-header">
+        <span class="topic-num">1.</span>
+        <h2>Trigonometría</h2>
+      </div>
+
+      <!-- Subtema 1.1 -->
+      <div class="subtopic" id="tema-1-1">
+        <h3>1.1 Definición de las funciones trigonométricas para un ángulo cualquiera</h3>
+        <div class="prose">
+          <p>
+            <strong>Razón:</strong> Es una comparación de dos magnitudes a través de un cociente.
+          </p>
+          <p>
+            <strong>Razones trigonométricas:</strong> Son las razones que existen entre los lados de
+            un triángulo rectángulo y cambian al variar el ángulo en cuestión; es decir, están en
+            función del ángulo.
+          </p>
+        </div>
+
+        <!-- Definición resaltada -->
+        <div class="def-box">
+          <div class="def-label">Definición</div>
+          <p>Para un triángulo rectángulo con ángulo θ, las funciones trigonométricas relacionan los
+          lados del triángulo (cateto opuesto, cateto adyacente e hipotenusa) con dicho ángulo.</p>
+        </div>
+
+        <!-- Imagen -->
+        <div class="img-wrap">
+          <!-- ✏️  Cambia la ruta a tu imagen exportada de Word -->
+          <img src="imagenes/triangulo-rectangulo.png" alt="Triángulo Rectángulo">
+          <div class="img-caption">Fig. 1 — Triángulo rectángulo y sus partes</div>
+        </div>
+      </div>
+
+      <!-- Subtema 1.2 -->
+      <div class="subtopic" id="tema-1-2">
+        <h3>1.2 Funciones trigonométricas para un ángulo agudo en un triángulo rectángulo</h3>
+        <div class="prose">
+          <p>Las seis funciones trigonométricas principales se definen como:</p>
+        </div>
+
+        <!-- Fórmulas -->
+        <div class="formula-box">
+          sen(α) = cateto opuesto / hipotenusa<br>
+          cos(α) = cateto adyacente / hipotenusa<br>
+          tan(α) = cateto opuesto / cateto adyacente
+          <div class="formula-label">Funciones trigonométricas básicas</div>
+        </div>
+
+        <!-- Tabla de funciones recíprocas -->
+        <div class="tbl-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Función</th>
+                <th>Definición</th>
+                <th>Recíproca</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>seno</td><td>CO / Hip</td><td>csc(α)</td></tr>
+              <tr><td>coseno</td><td>CA / Hip</td><td>sec(α)</td></tr>
+              <tr><td>tangente</td><td>CO / CA</td><td>cot(α)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Nota -->
+      <div class="note">
+        Recuerda que estas fórmulas sólo son válidas para ángulos agudos (0° &lt; α &lt; 90°) dentro
+        de un triángulo rectángulo. La sección 1.3 extiende las definiciones a ángulos cualesquiera.
+      </div>
+
+    </section><!-- /tema-1 -->
+
+
+    <!-- ═══ TEMA 2 ═══  ✏️  Continúa agregando temas -->
+    <section class="topic" id="tema-2">
+      <div class="topic-header">
+        <span class="topic-num">2.</span>
+        <h2>Números Complejos</h2>
+      </div>
+      <div class="prose">
+        <p>Contenido pendiente — agrega tus apuntes aquí.</p>
+      </div>
+    </section>
+
+  </article>
+</div>
+
+
+<!-- ════ FOOTER ════ -->
+<footer>
+  <div class="foot-l">
+    Ingeniería Mecatrónica · UNAM Facultad de Ingeniería · DIMEI<br>
+    Plan de Estudios 2016 — Prontuario personal · Wilbert83
+  </div>
+  <div class="foot-r">
+    <a href="../../index.html">Índice</a>
+    <a href="https://github.com/Wilbert83/INGENIERIA-MECATRONICA" target="_blank">GitHub</a>
+    <a href="https://fi.unam.mx" target="_blank">FI UNAM</a>
+  </div>
+</footer>
+
+
+<script>
+const MOON = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>`;
+const SUN  = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`;
+
+const themeBtn = document.getElementById('themeBtn');
+
+function syncThemeBtn() {
+  const dark = document.documentElement.dataset.theme !== 'light';
+  themeBtn.innerHTML = dark ? MOON : SUN;
+  themeBtn.title = dark ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro';
+}
+themeBtn.addEventListener('click', () => {
+  const next = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+  document.documentElement.dataset.theme = next;
+  localStorage.setItem('theme', next);
+  syncThemeBtn();
+});
+
+/* TOC: resalta el ítem activo al hacer scroll */
+const tocLinks = document.querySelectorAll('.toc-list a');
+const sections = document.querySelectorAll('[id^="tema-"]');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      tocLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
+    }
+  });
+}, { rootMargin: '-20% 0px -70% 0px' });
+sections.forEach(s => observer.observe(s));
+
+/* Restaurar acento del index (por si el usuario tiene uno fijo) */
+const fixedAccent = localStorage.getItem('accentFixed');
+if (fixedAccent) document.documentElement.dataset.accent = fixedAccent;
+
+syncThemeBtn();
+requestAnimationFrame(() => requestAnimationFrame(() => {
+  document.documentElement.setAttribute('data-ready', '');
+}));
+</script>
+
+</body>
+</html>
