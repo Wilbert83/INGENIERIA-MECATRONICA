@@ -1,537 +1,1937 @@
-<!DOCTYPE html>
-<html lang="es" data-theme="dark" data-accent="cyan">
+<html>
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- ‚úèÔ∏è  Cambia este t√≠tulo por el nombre real de la materia -->
-  <title>√Ålgebra ¬∑ Prontuario Mecatr√≥nica ¬∑ UNAM FI</title>
-  <meta name="description" content="Apuntes de √Ålgebra ‚Äî Ingenier√≠a Mecatr√≥nica UNAM FI, Plan 2016.">
-  <link rel="icon" type="image/png" href="../../favicon.png">
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Calibri Light";
+	panose-1:2 15 3 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:Georgia;
+	panose-1:2 4 5 2 5 4 5 2 3 3;}
+@font-face
+	{font-family:OpenSymbol;
+	panose-1:5 1 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Lucida Sans";
+	panose-1:2 11 6 2 3 5 4 2 2 4;}
+@font-face
+	{font-family:"Liberation Sans";
+	panose-1:2 11 6 4 2 2 2 2 2 4;}
+@font-face
+	{font-family:"Microsoft YaHei";
+	panose-1:2 11 5 3 2 2 4 2 2 4;}
+@font-face
+	{font-family:"Liberation Mono";
+	panose-1:2 7 4 9 2 2 5 2 4 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+h2
+	{mso-style-link:"TÌtulo 2 Car";
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	line-height:115%;
+	font-size:26.0pt;
+	font-family:"Times New Roman",serif;
+	color:#3494BA;
+	text-transform:uppercase;
+	letter-spacing:.5pt;
+	font-weight:normal;}
+h3
+	{mso-style-link:"TÌtulo 3 Car";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:18.0pt;
+	text-indent:-18.0pt;
+	background:#3494BA;
+	font-size:11.0pt;
+	font-family:"Arial",sans-serif;
+	color:white;
+	text-transform:uppercase;
+	letter-spacing:.75pt;
+	font-weight:normal;}
+h4
+	{mso-style-link:"TÌtulo 4 Car";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:29.2pt;
+	text-indent:-17.85pt;
+	background:#D4EAF3;
+	font-size:11.0pt;
+	font-family:"Arial",sans-serif;
+	text-transform:uppercase;
+	letter-spacing:.75pt;
+	font-weight:normal;}
+h5
+	{mso-style-link:"TÌtulo 5 Car";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	line-height:107%;
+	page-break-after:avoid;
+	font-size:11.0pt;
+	font-family:"Calibri Light",sans-serif;
+	color:#459EC4;
+	text-transform:uppercase;
+	font-weight:bold;}
+h6
+	{mso-style-link:"TÌtulo 6 Car";
+	margin-top:2.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	line-height:107%;
+	page-break-after:avoid;
+	font-size:11.0pt;
+	font-family:"Calibri Light",sans-serif;
+	color:#459EC4;
+	font-weight:normal;}
+em
+	{font-family:"Arial",sans-serif;
+	color:#1A495C;
+	text-transform:uppercase;
+	letter-spacing:.25pt;
+	font-weight:bold;
+	font-style:normal;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:36.0pt;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:36.0pt;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoIntenseQuote, li.MsoIntenseQuote, div.MsoIntenseQuote
+	{mso-style-link:"Cita destacada Car";
+	margin-top:18.0pt;
+	margin-right:43.2pt;
+	margin-bottom:18.0pt;
+	margin-left:43.2pt;
+	text-align:center;
+	line-height:107%;
+	border:none;
+	padding:0cm;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;
+	color:#459EC4;
+	font-style:italic;}
+span.MsoSubtleEmphasis
+	{font-family:"Arial",sans-serif;
+	color:#1A495C;
+	font-style:italic;}
+span.Ttulo2Car
+	{mso-style-name:"TÌtulo 2 Car";
+	mso-style-link:"TÌtulo 2";
+	font-family:"Times New Roman",serif;
+	color:#3494BA;
+	text-transform:uppercase;
+	letter-spacing:.5pt;}
+span.Ttulo3Car
+	{mso-style-name:"TÌtulo 3 Car";
+	mso-style-link:"TÌtulo 3";
+	font-family:"Arial",sans-serif;
+	color:white;
+	text-transform:uppercase;
+	letter-spacing:.75pt;
+	background:#3494BA;}
+span.Ttulo4Car
+	{mso-style-name:"TÌtulo 4 Car";
+	mso-style-link:"TÌtulo 4";
+	font-family:"Arial",sans-serif;
+	text-transform:uppercase;
+	letter-spacing:.75pt;
+	background:#D4EAF3;}
+span.Ttulo5Car
+	{mso-style-name:"TÌtulo 5 Car";
+	mso-style-link:"TÌtulo 5";
+	font-family:"Calibri Light",sans-serif;
+	color:#459EC4;
+	text-transform:uppercase;
+	font-weight:bold;}
+span.Ttulo6Car
+	{mso-style-name:"TÌtulo 6 Car";
+	mso-style-link:"TÌtulo 6";
+	font-family:"Calibri Light",sans-serif;
+	color:#459EC4;}
+span.CitadestacadaCar
+	{mso-style-name:"Cita destacada Car";
+	mso-style-link:"Cita destacada";
+	color:#459EC4;
+	font-style:italic;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+ /* Page Definitions */
+ @page WordSection1
+	{size:612.0pt 792.0pt;
+	margin:2.0cm 2.0cm 2.0cm 2.0cm;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
 
-  <!-- Preloader de tema (evita flash de colores) -->
-  <script>
-    (function () {
-      var h = document.documentElement;
-      h.dataset.theme  = localStorage.getItem('theme')  || 'dark';
-      h.dataset.accent = localStorage.getItem('accentFixed') || 'cyan';
-    })();
-  </script>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html:not([data-ready]) *, html:not([data-ready]) *::before, html:not([data-ready]) *::after {
-      transition: none !important;
-    }
-
-    /* ‚ïê‚ïê TOKENS ‚ïê‚ïê */
-    :root {
-      --p:   #38BDF8; --p-d: rgba(56,189,248,0.09); --p-g: rgba(56,189,248,0.22);
-      --bg:      #07090F; --surface: #0D1322; --card: #101726;
-      --border:  rgba(255,255,255,0.08); --b-hover: rgba(255,255,255,0.20);
-      --text:    #E2E8F0; --text-d: #94A3B8; --text-m: #4B5563;
-      --shadow:  rgba(0,0,0,0.5);
-      --green: #34D399; --orange: #FB923C;
-      --mono: 'JetBrains Mono', monospace;
-      --disp: 'Space Grotesk', sans-serif;
-      --body: 'Inter', sans-serif;
-    }
-
-    /* Todos los acentos */
-    [data-accent="cyan"]      { --p:#38BDF8; --p-d:rgba(56,189,248,0.09);  --p-g:rgba(56,189,248,0.22); }
-    [data-accent="celeste"]   { --p:#7DD3FC; --p-d:rgba(125,211,252,0.09); --p-g:rgba(125,211,252,0.22); }
-    [data-accent="azul"]      { --p:#60A5FA; --p-d:rgba(96,165,250,0.09);  --p-g:rgba(96,165,250,0.22); }
-    [data-accent="indigo"]    { --p:#818CF8; --p-d:rgba(129,140,248,0.09); --p-g:rgba(129,140,248,0.22); }
-    [data-accent="violeta"]   { --p:#A78BFA; --p-d:rgba(167,139,250,0.09); --p-g:rgba(167,139,250,0.22); }
-    [data-accent="purpura"]   { --p:#C084FC; --p-d:rgba(192,132,252,0.09); --p-g:rgba(192,132,252,0.22); }
-    [data-accent="fuchsia"]   { --p:#E879F9; --p-d:rgba(232,121,249,0.09); --p-g:rgba(232,121,249,0.22); }
-    [data-accent="rosa"]      { --p:#F472B6; --p-d:rgba(244,114,182,0.09); --p-g:rgba(244,114,182,0.22); }
-    [data-accent="rojo"]      { --p:#F87171; --p-d:rgba(248,113,113,0.09); --p-g:rgba(248,113,113,0.22); }
-    [data-accent="coral"]     { --p:#FF7F6B; --p-d:rgba(255,127,107,0.09); --p-g:rgba(255,127,107,0.22); }
-    [data-accent="naranja"]   { --p:#FB923C; --p-d:rgba(251,146,60,0.09);  --p-g:rgba(251,146,60,0.22); }
-    [data-accent="amarillo"]  { --p:#FBBF24; --p-d:rgba(251,191,36,0.09);  --p-g:rgba(251,191,36,0.22); }
-    [data-accent="lima"]      { --p:#A3E635; --p-d:rgba(163,230,53,0.09);  --p-g:rgba(163,230,53,0.22); }
-    [data-accent="esmeralda"] { --p:#10B981; --p-d:rgba(16,185,129,0.09);  --p-g:rgba(16,185,129,0.22); }
-    [data-accent="verde"]     { --p:#34D399; --p-d:rgba(52,211,153,0.09);  --p-g:rgba(52,211,153,0.22); }
-    [data-accent="blanco"]    { --p:#CBD5E1; --p-d:rgba(203,213,225,0.09); --p-g:rgba(203,213,225,0.22); }
-
-    /* Light theme */
-    [data-theme="light"] {
-      --bg:#EDF2F8; --surface:#FFFFFF; --card:#FFFFFF;
-      --border:rgba(15,23,42,0.11); --b-hover:rgba(15,23,42,0.32);
-      --text:#0F172A; --text-d:#334155; --text-m:#64748B;
-      --shadow:rgba(15,23,42,0.10);
-    }
-    [data-theme="light"] body {
-      background-image: radial-gradient(circle, rgba(15,23,42,0.06) 1px, transparent 1px);
-    }
-
-    html { scroll-behavior: smooth; }
-    body {
-      background-color: var(--bg); color: var(--text); font-family: var(--body);
-      min-height: 100vh; transition: background-color 0.3s, color 0.3s;
-      background-image: radial-gradient(circle, var(--p-d) 1px, transparent 1px);
-      background-size: 28px 28px;
-    }
-
-    /* ‚ïê‚ïê HEADER ‚ïê‚ïê */
-    header {
-      position: sticky; top: 0; z-index: 300;
-      background: color-mix(in srgb, var(--bg) 88%, transparent);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
-      padding: 0 24px; height: 58px;
-      display: flex; align-items: center; gap: 12px;
-      transition: background 0.3s, border-color 0.3s;
-    }
-    .hdr-brand { display: flex; align-items: center; gap: 9px; text-decoration: none; flex-shrink: 0; }
-    .hdr-logo  { width: 34px; height: 34px; border-radius: 7px; overflow: hidden; flex-shrink: 0; }
-    .hdr-logo img { width: 100%; height: 100%; object-fit: cover; }
-    .hdr-name  { font-family: var(--disp); font-size: 14px; font-weight: 600; color: var(--text); line-height: 1.15; }
-    .hdr-sub   { font-family: var(--mono); font-size: 9.5px; color: var(--text-m); letter-spacing: 0.07em; }
-    .hdr-spacer { flex: 1; }
-    .hdr-controls { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
-    .theme-btn {
-      width: 32px; height: 32px; border-radius: 8px;
-      background: var(--surface); border: 1px solid var(--border);
-      color: var(--text-d); cursor: pointer;
-      display: grid; place-items: center;
-      transition: border-color 0.2s, color 0.2s, background 0.3s;
-    }
-    .theme-btn:hover { border-color: var(--p); color: var(--p); }
-    .back-btn {
-      display: flex; align-items: center; gap: 6px;
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 8px; padding: 6px 11px;
-      color: var(--text-d); font-family: var(--mono); font-size: 11px;
-      text-decoration: none; white-space: nowrap; flex-shrink: 0;
-      transition: border-color 0.2s, color 0.2s, background 0.3s;
-    }
-    .back-btn:hover { border-color: var(--p); color: var(--p); }
-
-    /* ‚ïê‚ïê BREADCRUMB ‚ïê‚ïê */
-    .breadcrumb {
-      max-width: 900px; margin: 0 auto;
-      padding: 20px 24px 0;
-      font-family: var(--mono); font-size: 11px; color: var(--text-m);
-      display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
-    }
-    .breadcrumb a { color: var(--p); text-decoration: none; }
-    .breadcrumb a:hover { text-decoration: underline; }
-
-    /* ‚ïê‚ïê HERO DE MATERIA ‚ïê‚ïê */
-    .subject-hero {
-      max-width: 900px; margin: 0 auto;
-      padding: 32px 24px 40px;
-    }
-    .sem-tag {
-      display: inline-block;
-      font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em;
-      color: var(--p); text-transform: uppercase;
-      border: 1px solid var(--p-g); border-radius: 4px;
-      padding: 3px 8px; margin-bottom: 14px;
-      transition: color 0.3s, border-color 0.3s;
-    }
-    .subject-hero h1 {
-      font-family: var(--disp); font-size: clamp(22px, 4vw, 40px);
-      font-weight: 700; letter-spacing: -0.02em; line-height: 1.1;
-      margin-bottom: 10px;
-    }
-    .subject-hero .clave {
-      font-family: var(--mono); font-size: 11px; color: var(--text-m);
-    }
-    .subject-hero p.obj {
-      margin-top: 16px; font-size: 14px; color: var(--text-d);
-      max-width: 700px; line-height: 1.75;
-    }
-
-    /* ‚ïê‚ïê LAYOUT ‚ïê‚ïê */
-    .page-layout {
-      max-width: 900px; margin: 0 auto;
-      padding: 0 24px 80px;
-      display: grid; grid-template-columns: 220px 1fr; gap: 32px;
-      align-items: start;
-    }
-    @media (max-width: 700px) {
-      .page-layout { grid-template-columns: 1fr; }
-      .sidebar { display: none; }
-    }
-
-    /* ‚ïê‚ïê SIDEBAR (tabla de contenidos) ‚ïê‚ïê */
-    .sidebar {
-      position: sticky; top: 74px;
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 10px; padding: 16px;
-      transition: background 0.3s, border-color 0.3s;
-    }
-    .toc-title {
-      font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
-      text-transform: uppercase; color: var(--text-m); margin-bottom: 12px;
-    }
-    .toc-list { list-style: none; }
-    .toc-list li { margin-bottom: 2px; }
-    .toc-list a {
-      display: block; padding: 5px 8px; border-radius: 6px;
-      font-size: 12px; color: var(--text-d); text-decoration: none;
-      transition: background 0.14s, color 0.14s;
-    }
-    .toc-list a:hover { background: var(--p-d); color: var(--p); }
-    .toc-list a.active { background: var(--p-d); color: var(--p); font-weight: 500; }
-    .toc-list .toc-sub { padding-left: 16px; font-size: 11px; }
-
-    /* ‚ïê‚ïê CONTENIDO PRINCIPAL ‚ïê‚ïê */
-    .content { min-width: 0; }
-
-    /* Secci√≥n de tema */
-    .topic {
-      margin-bottom: 48px;
-      scroll-margin-top: 80px;
-    }
-    .topic-header {
-      display: flex; align-items: center; gap: 10px;
-      margin-bottom: 20px; padding-bottom: 10px;
-      border-bottom: 1px solid var(--border);
-    }
-    .topic-num {
-      font-family: var(--mono); font-size: 11px; color: var(--p);
-      min-width: 28px; flex-shrink: 0;
-    }
-    .topic h2 {
-      font-family: var(--disp); font-size: 18px; font-weight: 600;
-      color: var(--text);
-    }
-
-    /* Subtema */
-    .subtopic { margin-bottom: 28px; scroll-margin-top: 80px; }
-    .subtopic h3 {
-      font-family: var(--disp); font-size: 14px; font-weight: 600;
-      color: var(--text-d); margin-bottom: 10px;
-    }
-
-    /* Prosa / texto del apunte */
-    .prose {
-      font-size: 14px; color: var(--text-d); line-height: 1.8;
-    }
-    .prose p { margin-bottom: 12px; }
-    .prose strong { color: var(--text); font-weight: 600; }
-    .prose em { color: var(--p); font-style: italic; }
-    .prose ul, .prose ol {
-      padding-left: 20px; margin-bottom: 12px;
-    }
-    .prose li { margin-bottom: 4px; }
-
-    /* Definici√≥n destacada */
-    .def-box {
-      background: var(--surface); border: 1px solid var(--border);
-      border-left: 3px solid var(--p);
-      border-radius: 8px; padding: 14px 16px;
-      margin: 16px 0;
-      transition: background 0.3s, border-color 0.3s;
-    }
-    .def-label {
-      font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.12em;
-      text-transform: uppercase; color: var(--p); margin-bottom: 6px;
-    }
-    .def-box p { margin: 0; font-size: 13.5px; color: var(--text-d); line-height: 1.7; }
-
-    /* F√≥rmula / ecuaci√≥n */
-    .formula-box {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 8px; padding: 18px 20px;
-      margin: 16px 0; text-align: center;
-      font-family: var(--mono); font-size: 15px; color: var(--text);
-      transition: background 0.3s, border-color 0.3s;
-    }
-    .formula-label {
-      font-family: var(--mono); font-size: 10px; color: var(--text-m);
-      margin-top: 8px;
-    }
-
-    /* Imagen con caption */
-    .img-wrap {
-      margin: 20px 0; text-align: center;
-    }
-    .img-wrap img {
-      max-width: 100%; border-radius: 8px;
-      border: 1px solid var(--border);
-    }
-    .img-caption {
-      font-family: var(--mono); font-size: 10.5px; color: var(--text-m);
-      margin-top: 8px;
-    }
-
-    /* Tabla */
-    .tbl-wrap { overflow-x: auto; margin: 16px 0; }
-    table {
-      width: 100%; border-collapse: collapse;
-      font-size: 13px; color: var(--text-d);
-    }
-    th {
-      background: var(--surface); border: 1px solid var(--border);
-      padding: 8px 12px; font-family: var(--mono); font-size: 11px;
-      color: var(--text-m); text-align: left; letter-spacing: 0.06em;
-    }
-    td {
-      border: 1px solid var(--border); padding: 8px 12px;
-    }
-    tr:hover td { background: var(--p-d); }
-
-    /* Nota al margen */
-    .note {
-      background: var(--surface); border: 1px solid rgba(251,191,36,0.3);
-      border-radius: 8px; padding: 12px 14px; margin: 16px 0;
-      font-size: 13px; color: var(--text-d); line-height: 1.6;
-    }
-    .note::before { content: '‚ö† '; color: #FBBF24; font-weight: bold; }
-
-    /* ‚ïê‚ïê FOOTER ‚ïê‚ïê */
-    footer {
-      border-top: 1px solid var(--border); padding: 20px 24px;
-      display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 10px; transition: border-color 0.3s;
-    }
-    .foot-l { font-family: var(--mono); font-size: 10.5px; color: var(--text-m); line-height: 1.7; }
-    .foot-r { display: flex; gap: 16px; }
-    .foot-r a { font-family: var(--mono); font-size: 10.5px; color: var(--text-m); text-decoration: none; transition: color 0.2s; }
-    .foot-r a:hover { color: var(--p); }
-
-    @media (max-width: 640px) {
-      header { padding: 0 14px; gap: 8px; }
-      .hdr-sub { display: none; }
-      .subject-hero, .page-layout, .breadcrumb { padding-left: 14px; padding-right: 14px; }
-      footer { padding: 16px 14px; }
-    }
-  </style>
 </head>
 
-<body>
+<body lang=ES-MX link="#0563C1" vlink=purple style='word-wrap:break-word'>
 
-<!-- ‚ïê‚ïê‚ïê‚ïê HEADER ‚ïê‚ïê‚ïê‚ïê -->
-<header>
-  <!-- ‚úèÔ∏è  href="../../index.html" si est√°s en s1/algebra/  -->
-  <a class="hdr-brand" href="../../index.html">
-    <div class="hdr-logo">
-      <!-- ‚úèÔ∏è  Misma imagen base64 del IM del index.html -->
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAArCAYAAAA65tviAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANNSURBVGhD7ZltaBt1HMc/17vLXV3KrQ9pVtuEmc6OLvSFCg0M36iVjWy+s9W5WmWI4liniDOvxGdQhMKYFAQpIqLDVwq2IPSN+Cp94UTZhmFRTFp1TbULpVsvueR81TL/tLkt3nLpzAfuzff35eDDPXDcT9KaDZvbAOlGRXyBHjoOHcMYHELr7kWSFbHiKnbJwlxIk5+bZWl6ikJuXqz8ixsSaT8wSuj4e+RmPiGfnMHMpLCtolhzFUlR0cJ9GLE4gfgY2ckEf33zqVjbwFGk/cAowZEXyJx5ibVfzovjmqBHooTHJ7j8xektZSqK+AI97PsoyaXXHvdMYh09EmXPG2e58Exs09tMVlT9dTFcJzjyIld/vUD+uy/FUc2xlnNIup87IgOs/PCtOKZJDK7HGBwin5wRY8/IJ2cwBofEGJxEtO5ezExKjD3DzKTQunvFGJxEJFm55W+nm8G2ilu+9iuKbCcaIvVGQ6TeaIhshtoWpO3ho7QffGrjaH1gBLnZvzFrue9BACTVh7H/0Mb8v+KqiK9rN4FHjhEcPsGdTyYIPnqcQHwMuaUVLbyXXcPjdB15GbW1E61nD12jCYLDJ1B2doinumlcFVk9n+Tnkw/x5+cTlAsmmQ9OkTp1mMJiFoBy0USSZZr33kvLwP3YBRO7WBBPUxWuijhhW0XWsin8/TF27BtkNfW9WKmamoo0aTrmHxlaBvajtgWx/l6kSWsWa1VRUxGQWJtPYa1eoZCbp7i8KBaqpsYiYK0sk371MX57/3nskiWOq6bmIrcKV0UkVcMXDCP7d4IEitGBrzOEJMti1XVcFdkRjXH3u1+xa+QkTT6d0HPv0PvmWXydIbHqOhV/Ptzz9WV+eqJfjD1l4LOLnDscFGN3r4iXNETqjYZIvfH/ELFLFpKiirFnSIq65WdNRRFzIY0W7hNjz9DCfZgLaTEGJ5H83CxGLC7GnmHE4uTnZsUYnESWpqcIxMfQI1FxVHP0SJRAfIyl6SlxBE4ihdw82ckE4fEJT2XWFz3ZycSmuxGc9iMA19I/UjavcdcrHyLpfkpX85RWrkC5LFZdRVJU9N39tB98mtCzb/H7x29vua3C6aPxem6LZeh2oOIzsp1oiNQb/wC/2QLl/sw38AAAAABJRU5ErkJggg==" alt="IM">
-    </div>
-    <div>
-      <div class="hdr-name">Prontuario Mecatr√≥nica</div>
-      <div class="hdr-sub">UNAM ¬∑ FI ¬∑ DIMEI ¬∑ Plan 2016</div>
-    </div>
-  </a>
+<div class=WordSection1>
 
-  <div class="hdr-spacer"></div>
+<h2><span class=Ttulo2Car><span style='color:#459EC4'>¡LGEBRA</span> </span>(1120)</h2>
 
-  <div class="hdr-controls">
-    <a class="back-btn" href="../../index.html">
-      ‚Üê √çndice
-    </a>
-    <button class="theme-btn" id="themeBtn" title="Cambiar tema"></button>
-  </div>
-</header>
+<p class=MsoNormal style='margin-top:5.0pt;margin-right:0cm;margin-bottom:10.0pt;
+margin-left:0cm;line-height:115%'><em><span style='font-size:10.0pt;line-height:
+115%'>Objetivo(s) del curso:</span></em></p>
 
+<p class=MsoNormal style='margin-top:5.0pt;margin-right:0cm;margin-bottom:10.0pt;
+margin-left:0cm;text-align:justify;line-height:115%'><span
+class=MsoSubtleEmphasis><span style='font-size:10.0pt;line-height:115%'>El
+alumno analizar· las propiedades de los sistemas numÈricos y las utilizar· en
+la resoluciÛn de problemas de polinomios, sistemas de ecuaciones lineales y
+matrices y determinantes, para que de manera conjunta estos conceptos le
+permitan iniciar el estudio de la fÌsica y la matem·tica aplicada.</span></span></p>
 
-<!-- ‚ïê‚ïê‚ïê‚ïê BREADCRUMB ‚ïê‚ïê‚ïê‚ïê -->
-<!-- ‚úèÔ∏è  Ajusta los textos y hrefs seg√∫n el semestre y materia -->
-<nav class="breadcrumb">
-  <a href="../../index.html">Inicio</a>
-  <span>‚Ä∫</span>
-  <a href="../../index.html#sem1">Primer Semestre</a>
-  <span>‚Ä∫</span>
-  <span>√Ålgebra</span>
-</nav>
+<h3 style='margin-left:21.3pt;text-indent:-17.85pt'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;
+</span>TrigonometrÌa.</h3>
 
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>1.1<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>DefiniciÛn de las funciones trigonomÈtricas
+para un ·ngulo cualquiera.</span></h4>
 
-<!-- ‚ïê‚ïê‚ïê‚ïê HERO ‚ïê‚ïê‚ïê‚ïê -->
-<div class="subject-hero">
-  <!-- ‚úèÔ∏è  Ajusta el n√∫mero de semestre -->
-  <div class="sem-tag">Primer Semestre</div>
-  <!-- ‚úèÔ∏è  Nombre de la materia y clave -->
-  <h1>√Ålgebra</h1>
-  <div class="clave">Clave: 1120 ¬∑ 8 cr√©ditos</div>
-  <!-- ‚úèÔ∏è  Objetivo del curso -->
-  <p class="obj">
-    El alumno analiza las propiedades de los sistemas num√©ricos y las utiliza en la
-    resoluci√≥n de problemas de polinomios, sistemas de ecuaciones lineales y matrices y
-    determinantes, y adquiere los conceptos que le permiten iniciar el estudio de la
-    f√≠sica y la matem√°tica aplicada.
-  </p>
+<h5>TRIGONOMETRÕA</h5>
+
+<p class=MsoNormal><b><i><span style='color:#459EC4'>RazÛn</span>:</i> </b>Es
+una comparaciÛn de dos magnitudes a travÈs de un cociente.</p>
+
+<p class=MsoNormal><b><i><span style='color:#459EC4'>Razones trigonomÈtricas</span>:</i></b>
+Son las razones que existen entre los lados de un tri·ngulo rect·ngulo y
+cambian al variar el ·ngulo en cuestiÛn; es decir, est·n en funciÛn del ·ngulo.</p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=653 height=177 id="Imagen 1" src="index_archivos/image001.gif"></p>
+
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>1.2<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>DefiniciÛn de las funciones trigonomÈtricas
+para un ·ngulo agudo en un tri·ngulo rect·ngulo.</span></h4>
+
+<h5 style='margin-bottom:0cm'>FUNCIONES TRIGONOM…TRICAS</h5>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=673 height=265 id=Imagen3 src="index_archivos/image002.gif"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm'>&nbsp;</p>
+
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>1.3<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Signo de las funciones trigonomÈtricas en los
+cuatro cuadrantes.</span></h4>
+
+<h5><span style='text-transform:none'>CONVENCI”N DE SIGNOS</span></h5>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=276 height=154 id=Imagen4 src="index_archivos/image003.jpg">†<img
+width=382 height=151 id=Imagen5 src="index_archivos/image004.jpg"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><b><i><span style='color:#459EC4'>Primer
+cuadrante</span></i></b>: <b>TODAS</b> las funciones trigonomÈtricas son
+positivas</p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=308 height=352 id=Imagen6 src="index_archivos/image005.jpg"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><b><i><span style='color:#459EC4'>Segundo
+cuadrante</span></i></b>: SÛlo las funciones <b>SENO</b> y <b>COSECANTE</b> son
+positivas</p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'>†<img
+width=309 height=284 id=Imagen7 src="index_archivos/image006.jpg"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><b><i><span style='color:#459EC4'>Tercer
+cuadrante</span></i></b>: SÛlo las funciones <b>TANGENTE</b> y <b>COTANGENTE</b>
+son positivas</p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'>†<img
+width=274 height=268 id=Imagen8 src="index_archivos/image007.jpg"></p>
+
+<p class=MsoNormal><b><i><span style='color:#459EC4'>Cuarto cuadrante</span></i></b>:
+SÛlo las funciones <b>COSENO</b> y <b>SECANTE</b> son positivas</p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'>† <img
+width=271 height=255 id=Imagen9 src="index_archivos/image008.jpg"></p>
+
+<h5><span style='text-transform:none'>C¡LCULO DE FUNCIONES TRIGONOM…TRICAS DE
+¡NGULOS CUALQUIERA</span></h5>
+
+<p class=MsoNormal><b><i><span style='color:#459EC4'>CÌrculo trigonomÈtrico</span></i></b>:
+Es una circunferencia de radio uno, normalmente con su centro en el origen, que
+se utiliza con el fin de poder estudiar f·cilmente las razones trigonomÈtricas
+y funciones trigonomÈtricas, mediante la representaciÛn de tri·ngulos
+rect·ngulos auxiliares.</p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'>†<img
+width=317 height=200 id=Imagen10 src="index_archivos/image009.gif"></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=546 height=459 id=Imagen11 src="index_archivos/image010.jpg"></p>
+
+<p class=MsoNormal><b><i><span style='color:#459EC4'>Gr·ficas de las funciones
+trigonometricas; </span></i></b>Las funcionestrigonomÈtricas son funciones
+periÛdicas</p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=547
+height=383 id=Imagen12 src="index_archivos/image011.jpg"></p>
+
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>1.4<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Valores de las funciones trigonomÈtricas para
+·ngulos de 30, 45 y 60 grados y sus m˙ltiplos.</span></h4>
+
+<h5>¡NGULOS NOTABLES</h5>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=471 height=365 id=Imagen13 src="index_archivos/image012.gif"></p>
+
+<h5><a name="_Hlk156151084">ANGULOS </a>COMPLEMENTARIOS</h5>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=198 height=304 id=Imagen14 src="index_archivos/image013.gif"></p>
+
+<h5>ANGULOS M⁄LTIPLOS DE 90∞</h5>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=605 height=188 id=Imagen15 src="index_archivos/image014.jpg"></p>
+
+<h5>¡NGULOS SUPLEMENTARIOS</h5>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=627 height=139 id=Imagen16 src="index_archivos/image015.gif"></p>
+
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>1.5<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Identidades trigonomÈtricas.</span></h4>
+
+<p class=MsoNormal style='margin-top:12.0pt'><b><i><span style='color:#459EC4'>Identidad
+trigonomÈtrica</span></i></b>: Es una proposiciÛn de igualdad en la cual
+intervienen funciones trigonomÈtricas y que se cumple para todo valor del
+argumento</p>
+
+<h5><span style='text-transform:none'>IDENTIDADES PITAG”RICAS</span></h5>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=307
+height=161 id=Imagen17 src="index_archivos/image016.gif"></p>
+
+<h5><span style='text-transform:none'>¡NGULO DOBLE</span></h5>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=308
+height=117 id=Imagen18 src="index_archivos/image017.gif"></p>
+
+<h5><span style='text-transform:none'>SUMA Y DIFERENCIA DE ¡NGULOS</span></h5>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=485
+height=159 id=Imagen19 src="index_archivos/image018.gif"></p>
+
+<h5><span style='text-transform:none'>¡NGULOS NEGATIVOS</span></h5>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=253
+height=143 id=Imagen20 src="index_archivos/image019.gif"></p>
+
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>1.6<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Teorema de Pit·goras.</span></h4>
+
+<div style='border-top:solid #4472C4 1.0pt;border-left:none;border-bottom:solid #4472C4 1.0pt;
+border-right:none;padding:10.0pt 0cm 10.0pt 0cm;margin-left:43.2pt;margin-right:
+43.2pt'>
+
+<p class=MsoIntenseQuote style='margin-top:18.0pt;margin-right:0cm;margin-bottom:
+0cm;margin-left:0cm'>†ìEn todo tri·ngulo rect·ngulo el cuadrado de la
+hipotenusa es igual a la suma de lo cuadrados de los catetosî</p>
+
 </div>
 
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=367 height=211 id=Imagen21 src="index_archivos/image020.jpg"></p>
 
-<!-- ‚ïê‚ïê‚ïê‚ïê LAYOUT PRINCIPAL ‚ïê‚ïê‚ïê‚ïê -->
-<div class="page-layout">
+<p class=MsoNormal>La suma de los ·ngulos internos de cualquier tri·ngulo
+siempre es igual a 180</p>
 
-  <!-- ‚îÄ‚îÄ‚îÄ SIDEBAR: tabla de contenidos ‚îÄ‚îÄ‚îÄ -->
-  <!-- ‚úèÔ∏è  Agrega un <li> por cada tema y subtema de tu materia -->
-  <aside class="sidebar">
-    <div class="toc-title">Contenido</div>
-    <ul class="toc-list">
-      <li><a href="#tema-1">1. Trigonometr√≠a</a></li>
-      <li><a href="#tema-1-1" class="toc-sub">1.1 Funciones trigonom√©tricas</a></li>
-      <li><a href="#tema-1-2" class="toc-sub">1.2 √Ångulos agudos</a></li>
-      <li><a href="#tema-1-3" class="toc-sub">1.3 Identidades</a></li>
-      <li><a href="#tema-2">2. N√∫meros Complejos</a></li>
-      <li><a href="#tema-3">3. Polinomios</a></li>
-      <!-- Contin√∫a aqu√≠... -->
-    </ul>
-  </aside>
+<p class=MsoNormal align=center style='text-align:center'><img width=323
+height=172 id=Imagen22 src="index_archivos/image021.gif">†<img width=229
+height=50 id=Imagen23 src="index_archivos/image022.gif"></p>
 
-  <!-- ‚îÄ‚îÄ‚îÄ CONTENIDO ‚îÄ‚îÄ‚îÄ -->
-  <!-- ‚úèÔ∏è  Aqu√≠ pegas el contenido exportado de Word / escrito a mano -->
-  <article class="content">
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>1.7<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Ley de senos y ley de cosenos.</span></h4>
 
-    <!-- ‚ïê‚ïê‚ïê TEMA 1 ‚ïê‚ïê‚ïê -->
-    <section class="topic" id="tema-1">
-      <div class="topic-header">
-        <span class="topic-num">1.</span>
-        <h2>Trigonometr√≠a</h2>
-      </div>
+<p class=MsoNormal style='margin-top:12.0pt;margin-right:0cm;margin-bottom:
+0cm;margin-left:0cm'><b><i><span style='color:#459EC4'>Tri·ngulos Oblicu·ngulos</span></i></b>:
+Son aquellos que no tienen ning˙n ·ngulo recto (90∞) </p>
 
-      <!-- Subtema 1.1 -->
-      <div class="subtopic" id="tema-1-1">
-        <h3>1.1 Definici√≥n de las funciones trigonom√©tricas para un √°ngulo cualquiera</h3>
-        <div class="prose">
-          <p>
-            <strong>Raz√≥n:</strong> Es una comparaci√≥n de dos magnitudes a trav√©s de un cociente.
-          </p>
-          <p>
-            <strong>Razones trigonom√©tricas:</strong> Son las razones que existen entre los lados de
-            un tri√°ngulo rect√°ngulo y cambian al variar el √°ngulo en cuesti√≥n; es decir, est√°n en
-            funci√≥n del √°ngulo.
-          </p>
-        </div>
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=441 height=337 id=Imagen24 src="index_archivos/image023.jpg"></p>
 
-        <!-- Definici√≥n resaltada -->
-        <div class="def-box">
-          <div class="def-label">Definici√≥n</div>
-          <p>Para un tri√°ngulo rect√°ngulo con √°ngulo Œ∏, las funciones trigonom√©tricas relacionan los
-          lados del tri√°ngulo (cateto opuesto, cateto adyacente e hipotenusa) con dicho √°ngulo.</p>
-        </div>
+<h5>LEY DE SENOS</h5>
 
-        <!-- Imagen -->
-        <div class="img-wrap">
-          <!-- ‚úèÔ∏è  Cambia la ruta a tu imagen exportada de Word -->
-          <img src="imagenes/triangulo-rectangulo.png" alt="Tri√°ngulo Rect√°ngulo">
-          <div class="img-caption">Fig. 1 ‚Äî Tri√°ngulo rect√°ngulo y sus partes</div>
-        </div>
-      </div>
+<p class=MsoNormal>Necesitamos conocer mÌnimo:</p>
 
-      <!-- Subtema 1.2 -->
-      <div class="subtopic" id="tema-1-2">
-        <h3>1.2 Funciones trigonom√©tricas para un √°ngulo agudo en un tri√°ngulo rect√°ngulo</h3>
-        <div class="prose">
-          <p>Las seis funciones trigonom√©tricas principales se definen como:</p>
-        </div>
+<p class=MsoListParagraphCxSpFirst style='text-indent:-18.0pt'><span
+style='font-family:Wingdings'>ÿ<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span>2 lados y el ·ngulo opuesto a cualquiera de ellos.</p>
 
-        <!-- F√≥rmulas -->
-        <div class="formula-box">
-          sen(Œ±) = cateto opuesto / hipotenusa<br>
-          cos(Œ±) = cateto adyacente / hipotenusa<br>
-          tan(Œ±) = cateto opuesto / cateto adyacente
-          <div class="formula-label">Funciones trigonom√©tricas b√°sicas</div>
-        </div>
+<p class=MsoListParagraphCxSpLast style='text-indent:-18.0pt'><span
+style='font-family:Wingdings'>ÿ<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span>2 ·ngulos y el lado opuesto a cualquiera de ellos.</p>
 
-        <!-- Tabla de funciones rec√≠procas -->
-        <div class="tbl-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>Funci√≥n</th>
-                <th>Definici√≥n</th>
-                <th>Rec√≠proca</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>seno</td><td>CO / Hip</td><td>csc(Œ±)</td></tr>
-              <tr><td>coseno</td><td>CA / Hip</td><td>sec(Œ±)</td></tr>
-              <tr><td>tangente</td><td>CO / CA</td><td>cot(Œ±)</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+<p class=MsoNormal align=center style='text-align:center'><img width=372
+height=92 id=Imagen25 src="index_archivos/image024.gif"></p>
 
-      <!-- Nota -->
-      <div class="note">
-        Recuerda que estas f√≥rmulas s√≥lo son v√°lidas para √°ngulos agudos (0¬∞ &lt; Œ± &lt; 90¬∞) dentro
-        de un tri√°ngulo rect√°ngulo. La secci√≥n 1.3 extiende las definiciones a √°ngulos cualesquiera.
-      </div>
+<h5>LEY DE COSENOS</h5>
 
-    </section><!-- /tema-1 -->
+<p class=MsoNormal>Necesitamos conocer mÌnimo:</p>
 
+<p class=MsoListParagraphCxSpFirst style='text-indent:-18.0pt'><span
+style='font-family:Wingdings'>ÿ<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span>Los 3 lados</p>
 
-    <!-- ‚ïê‚ïê‚ïê TEMA 2 ‚ïê‚ïê‚ïê  ‚úèÔ∏è  Contin√∫a agregando temas -->
-    <section class="topic" id="tema-2">
-      <div class="topic-header">
-        <span class="topic-num">2.</span>
-        <h2>N√∫meros Complejos</h2>
-      </div>
-      <div class="prose">
-        <p>Contenido pendiente ‚Äî agrega tus apuntes aqu√≠.</p>
-      </div>
-    </section>
+<p class=MsoListParagraphCxSpLast style='text-indent:-18.0pt'><span
+style='font-family:Wingdings'>ÿ<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span>2 lados y el ·ngulo comprendido entre ellos.</p>
 
-  </article>
+<p class=MsoNormal align=center style='text-align:center'><img width=384
+height=168 id=Imagen26 src="index_archivos/image025.gif"></p>
+
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>1.8<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Ecuaciones trigonomÈtricas de primer y segundo
+grado con una incÛgnita.</span></h4>
+
+<p class=MsoNormal style='margin-top:12.0pt'><b><i><span style='color:#459EC4'>EcuaciÛn
+trigonomÈtrica</span></i></b>: Es una igualdad en la que la incÛgnita est·
+afectada por una funciÛn trigonomÈtrica. Como estas funciones son periÛdicas,
+habr· por lo general infinitas soluciones.</p>
+
+<p class=MsoNormal><b><i><span style='color:#459EC4'>Pasos a seguir para
+resolver ecuaciones trigonomÈtricas:</span></i></b></p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-18.0pt'>1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Expresar
+todos los tÈrminos de la ecuaciÛn con el mismo argumento (·ngulo)</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-18.0pt'>2.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Aplicar
+identidades trigonomÈtricas</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-18.0pt'>3.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Desarrollar
+y reducir las expresiones trigonomÈtricas</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-18.0pt'>4.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Llegar
+a una sola expresiÛn trigonomÈtrica igualada a un n˙mero</p>
+
+<p class=MsoListParagraphCxSpLast style='text-indent:-18.0pt'>5.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Aplicar
+la funciÛn trigonomÈtrica inversa para obtener el valor de la incÛgnita</p>
+
+<h3 style='margin-left:21.3pt'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;
+</span>N˙meros reales.</h3>
+
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>2.1<span style='font:7.0pt "Times New Roman"'>
+</span><b><span style='color:black'>El conjunto de los n˙meros naturales</span></b><span
+style='color:black'>: definiciÛn del conjunto de los n˙meros naturales mediante
+los Postulados de Peano. DefiniciÛn y propiedades: adiciÛn, multiplicaciÛn y
+orden en los n˙meros naturales. DemostraciÛn por inducciÛn matem·tica.</span></h4>
+
+<h5><span style='text-transform:none'>CONJUNTO DE LOS N⁄MEROS </span></h5>
+
+<p class=MsoNormal><b><i><span style='color:#459EC4'>N˙mero</span></i></b>: Es
+un concepto matem·tico que expresa cantidad. Constituyen un patrÛn o referencia
+para establecer la comparaciÛn entre cantidades.</p>
+
+<p class=MsoNormal><b><i><span style='color:#459EC4'>Numeral</span></i></b>:
+Son los sÌmbolos que se emplean para representar n˙meros</p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><b><i><span style='color:#459EC4'>Conjuntos
+numÈricos</span></i></b>: Son las categorÌas en las que se clasifican los
+n˙meros, en funciÛn de sus diferentes caracterÌsticas (propiedades).</p>
+
+<p class=MsoNormal align=center style='margin-top:0cm;margin-right:0cm;
+margin-bottom:0cm;margin-left:35.4pt;text-align:center;text-indent:-35.4pt'><img
+width=282 height=281 id=Imagen27 src="index_archivos/image026.jpg"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><b><i><span style='color:#459EC4'>Sistema
+algebraico</span></i></b>: Es un conjunto provisto de una o varias operaciones
+(binarias)</p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=338 height=31 id=Imagen28 src="index_archivos/image027.gif"></p>
+
+<p class=MsoNormal><b><i><span style='color:#459EC4'>N˙meros naturales</span></i></b>:
+Es el conjunto de aquellos n˙meros que ocupamos para contar elementos, y se
+representa a partir del siguiente sÌmbolo: <span style='font-family:"Cambria Math",serif'>&#8469;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><b><i><span style='color:#459EC4'>Conjunto</span></i></b>:
+es una agrupaciÛn de elementos los cuales tienen una o m·s caracterÌsticas en
+com˙n.</p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=143 height=86 id=Imagen29 src="index_archivos/image028.gif"></p>
+
+<p class=MsoNormal>NotaciÛn:</p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-18.0pt'><span
+style='font-family:Wingdings'>ÿ<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span>Los conjuntos se denotan con letras may˙sculas.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-18.0pt'><span
+style='font-family:Wingdings'>ÿ<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span>Todos los elementos deben estar separados por comas.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-18.0pt'><span
+style='font-family:Wingdings'>ÿ<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span>El total de elementos debe estar encerrado entre llaves { }.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-18.0pt'><span
+style='font-family:Wingdings'>ÿ<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span>Conjuntos por extensiÛn: se escriben todos los elementos del
+conjunto.</p>
+
+<p class=MsoListParagraphCxSpMiddle align=center style='text-align:center'><img
+width=142 height=26 id=Imagen30 src="index_archivos/image029.gif"></p>
+
+<p class=MsoListParagraphCxSpLast style='text-indent:-18.0pt'><span
+style='font-family:Wingdings'>ÿ<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span>Conjuntos por comprensiÛn: se especifican las caracterÌsticas que
+cumplen los elementos del conjunto.</p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=460
+height=55 id=Imagen31 src="index_archivos/image030.gif"></p>
+
+<p class=MsoNormal><b><i><span style='color:#459EC4'>Cardinalidad</span></i></b>:
+es el n˙mero de elementos que pertenecen a un conjunto.</p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=152
+height=28 id=Imagen32 src="index_archivos/image031.gif"></p>
+
+<p class=MsoNormal><b><i><span style='color:#459EC4'>Conjunto finito</span></i></b>:
+se conoce el total de los elementos y se pueden enumerar (contar).</p>
+
+<p class=MsoNormal><b><i><span style='color:#459EC4'>Conjunto infinito</span></i></b>:
+no se conoce el total de los elementos (puede ser numerable o no numerable).</p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=163
+height=29 id=Imagen33 src="index_archivos/image032.gif"></p>
+
+<p class=MsoNormal><b><i><span style='color:#459EC4'>Conjunto vacÌo</span></i></b>:
+es aquel conjunto que carece de elementos.</p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=79
+height=34 id=Imagen34 src="index_archivos/image033.gif"></p>
+
+<p class=MsoNormal><b><i><span style='color:#459EC4'>Conjunto universal</span></i></b>:
+es el conjunto que contiene todos los elementos con los cuales se trabaja para
+una situaciÛn especÌfica.</p>
+
+<p class=MsoNormal><b><i><span style='color:#459EC4'>Subconjuntos de un
+conjunto</span></i></b>: conjunto de elementos que tienen las mismas
+caracterÌsticas y que est· incluido dentro de otro conjunto m·s amplio.</p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=337
+height=76 id=Imagen35 src="index_archivos/image034.gif"></p>
+
+<h5>OPERACIONES ENTRE CONJUNTOS</h5>
+
+<p class=MsoNormal><b><i><span style='color:#459EC4'>UniÛn</span></i></b>:
+consiste en reunir en un solo conjunto todos los elementos de los conjuntos que
+se unen.</p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=277
+height=92 id=Imagen36 src="index_archivos/image035.gif"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><b><i><span style='color:#459EC4'>IntersecciÛn</span></i></b>:
+consiste en reunir en un solo conjunto todos los elementos comunes de los
+conjuntos que se est·n analizando.</p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=200 height=78 id=Imagen37 src="index_archivos/image036.gif"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><b><i><span style='color:#459EC4'>Diferencia</span></i></b>:
+consiste en reunir en un solo conjunto todos los elementos contenidos en el
+conjunto de referencia que no se encuentran en el conjunto de operaciÛn.</p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=366 height=85 id=Imagen38 src="index_archivos/image037.gif"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><b><i><span style='color:#459EC4'>Complemento</span></i></b>:
+es el conjunto de todos los elementos que no est·n en el conjunto de referencia
+y que le faltan para ser igual al conjunto universal.</p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=253 height=109 id=Imagen39 src="index_archivos/image038.gif"></p>
+
+<h5>N⁄MEROS NATURALES</h5>
+
+<p class=MsoNormal><b><i><span style='color:#459EC4'>Postulados de Peano</span></i></b></p>
+
+<p class=MsoNormal>El conjunto <span style='font-family:"Cambria Math",serif'>&#8469;</span>
+de los n˙meros naturales es tal que:</p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-18.0pt'><span
+style='font-family:Wingdings'>ÿ<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span>1 <span style='font-family:"Cambria Math",serif'>&#120598;</span>
+<span style='font-family:"Cambria Math",serif'>&#8469;</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-18.0pt'><span
+style='font-family:Wingdings'>ÿ<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span>Para cada <span style='font-family:"Cambria Math",serif'>n</span>
+<span style='font-family:"Cambria Math",serif'>&#8712;</span> <span
+style='font-family:"Cambria Math",serif'>&#8469;</span> se tiene que <span
+style='font-family:"Cambria Math",serif'>n&#8727;&#8712;</span> <span
+style='font-family:"Cambria Math",serif'>&#8469;</span> llamado el siguiente de
+<span style='font-family:"Cambria Math",serif'>n</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-18.0pt'><span
+style='font-family:Wingdings'>ÿ<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span>Para cada <span style='font-family:"Cambria Math",serif'>n</span>
+<span style='font-family:"Cambria Math",serif'>&#8712;</span> <span
+style='font-family:"Cambria Math",serif'>&#8469;</span> se tiene que <span
+style='font-family:"Cambria Math",serif'>n&#8727;</span> &#8800; 1</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-18.0pt'><span
+style='font-family:Wingdings'>ÿ<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span>Si <span style='font-family:"Cambria Math",serif'>m</span>, <span
+style='font-family:"Cambria Math",serif'>n</span> <span style='font-family:
+"Cambria Math",serif'>&#120598;</span> <span style='font-family:"Cambria Math",serif'>&#8469;</span>
+y <span style='font-family:"Cambria Math",serif'>m&#8727;</span> = <span
+style='font-family:"Cambria Math",serif'>n&#8727;</span> entonces <span
+style='font-family:"Cambria Math",serif'>m</span> = <span style='font-family:
+"Cambria Math",serif'>n</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-18.0pt'><span
+style='font-family:Wingdings'>ÿ<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span>Todo subconjunto S de <span style='font-family:"Cambria Math",serif'>&#8469;</span>
+que tenga las propiedades:</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:53.4pt;text-indent:-18.0pt'><span
+style='font-family:"Courier New"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;
+</span></span>a) 1 <span style='font-family:"Cambria Math",serif'>&#8712;</span>
+<span style='font-family:"Cambria Math",serif'>&#119878;</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:53.4pt;text-indent:-18.0pt'><span
+style='font-family:"Courier New"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;
+</span></span>b) <span style='font-family:"Cambria Math",serif'>&#119896;</span>
+<span style='font-family:"Cambria Math",serif'>&#8712;</span> <span
+style='font-family:"Cambria Math",serif'>&#119878;</span> implica que <span
+style='font-family:"Cambria Math",serif'>&#119896;&#8727;</span> <span
+style='font-family:"Cambria Math",serif'>&#8712;</span> <span style='font-family:
+"Cambria Math",serif'>&#119878;</span> llamado</p>
+
+<p class=MsoListParagraphCxSpLast>Es el mismo conjunto <span style='font-family:
+"Cambria Math",serif'>&#8469;</span></p>
+
+<h5>OPERACIONES EN LOS N⁄MEROS NATURALES</h5>
+
+<p class=MsoNormal><b><i><span style='color:#459EC4'>AdiciÛn en los n˙meros
+naturales</span></i></b></p>
+
+<p class=MsoNormal>DefiniciÛn:</p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-18.0pt'><span
+style='font-family:Wingdings'>ÿ<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span style='font-family:"Cambria Math",serif'>n</span> + 1 = <span
+style='font-family:"Cambria Math",serif'>n&#8727;</span> para todo <span
+style='font-family:"Cambria Math",serif'>n</span> <span style='font-family:
+"Cambria Math",serif'>&#120598;</span> <span style='font-family:"Cambria Math",serif'>&#8469;</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-18.0pt'><span
+style='font-family:Wingdings'>ÿ<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span style='font-family:"Cambria Math",serif'>n</span> + <span
+style='font-family:"Cambria Math",serif'>m&#8727;</span> = (<span
+style='font-family:"Cambria Math",serif'>n</span> + <span style='font-family:
+"Cambria Math",serif'>m</span>)<span style='font-family:"Cambria Math",serif'>
+&#8727;</span> siempre que <span style='font-family:"Cambria Math",serif'>n</span>
++ <span style='font-family:"Cambria Math",serif'>m</span></p>
+
+<p class=MsoListParagraphCxSpLast>estÈ definido</p>
+
+<p class=MsoNormal><b><i><span style='color:#459EC4'>MultiplicaciÛn en los
+n˙meros naturales</span></i></b></p>
+
+<p class=MsoNormal>DefiniciÛn:</p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-18.0pt'><span
+style='font-family:Wingdings'>ÿ<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span style='font-family:"Cambria Math",serif'>n</span> &#8729; 1
+= <span style='font-family:"Cambria Math",serif'>n&#8727;</span> para todo <span
+style='font-family:"Cambria Math",serif'>n</span> <span style='font-family:
+"Cambria Math",serif'>&#120598;</span> <span style='font-family:"Cambria Math",serif'>&#8469;</span></p>
+
+<p class=MsoListParagraphCxSpLast style='text-indent:-18.0pt'><span
+style='font-family:Wingdings'>ÿ<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span style='font-family:"Cambria Math",serif'>n</span> &#8729; <span
+style='font-family:"Cambria Math",serif'>m&#8727;</span> = (<span
+style='font-family:"Cambria Math",serif'>n</span> &#8729; <span
+style='font-family:"Cambria Math",serif'>m</span>)<span style='font-family:
+"Cambria Math",serif'> + n</span></p>
+
+<p class=MsoNormal><b><i><span style='color:#459EC4'>Propiedades de la adiciÛn
+y la multiplicaciÛn</span></i></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=674
+height=212 id=Imagen40 src="index_archivos/image039.gif"></p>
+
+<h5><span style='text-transform:none'>ORDEN EN LOS </span>N⁄MEROS <span
+style='text-transform:none'>NATURALES </span></h5>
+
+<p class=MsoNormal>Dados dos naturales n y m, decimos que n es <b>menor</b> que
+m, lo que representamos mediante n &lt; m, si: <span style='font-family:"Cambria Math",serif'>&#8707;</span>
+<span style='font-family:"Cambria Math",serif'>&#119909;</span> <span
+style='font-family:"Cambria Math",serif'>&#8712;</span> <span style='font-family:
+"Cambria Math",serif'>&#8469;</span> tal que n + <span style='font-family:"Cambria Math",serif'>&#119909;</span>
+= m</p>
+
+<p class=MsoNormal>Dados dos naturales m y n, decimos que m es <b>mayor</b> que
+n, lo que representamos mediante m &gt; n, si: n &lt; m</p>
+
+<p class=MsoNormal><b><i><span style='color:#459EC4'>Ley de tricotomÌa</span></i></b>:
+Si m y n son n˙meros naturales cualesquiera, entonces se verifica una y sÛlo
+una de las siguientes proposiciones:</p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-18.0pt'><span
+style='font-family:Wingdings'>ÿ<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span>n &lt; m</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-18.0pt'><span
+style='font-family:Wingdings'>ÿ<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span>n = m</p>
+
+<p class=MsoListParagraphCxSpLast style='text-indent:-18.0pt'><span
+style='font-family:Wingdings'>ÿ<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span>m &lt; n</p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><b><i><span style='color:#459EC4'>Teoremas</span></i></b>:</p>
+
+<p class=MsoNormal><img width=412 height=85 id=Imagen41
+src="index_archivos/image040.gif"></p>
+
+<h5>INDUCCI”N MATEM¡TICA</h5>
+
+<p class=MsoNormal><b><i><span style='color:#459EC4'>InducciÛn matem·tica</span></i></b>:
+es un razonamiento utilizado en la demostraciÛn de proposiciones que dependen
+de un par·metro que sÛlo admite valores naturales.</p>
+
+<p class=MsoNormal><b><i><span style='color:#459EC4'>Pasos:</span></i></b></p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-18.0pt'>1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Demostrar
+que la proposiciÛn es v·lida para el primer valor admisible (n=1).</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-18.0pt'>2.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Suponer
+que la proposiciÛn es v·lida para el caso general, es decir, para el valor n=k
+(hipÛtesis de inducciÛn).</p>
+
+<p class=MsoListParagraphCxSpLast style='text-indent:-18.0pt'>3.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Demostrar
+a partir de la hipÛtesis que la proposiciÛn es v·lida para el siguiente valor
+de k, es decir, k+1 (tesis de inducciÛn).</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>2.2<span style='font:7.0pt "Times New Roman"'>
+</span><b><span style='color:black'>El conjunto de los n˙meros enteros</span></b><span
+style='color:black'>. DefiniciÛn y propiedades: igualdad, adiciÛn,
+multiplicaciÛn y orden en los enteros. RepresentaciÛn de los n˙meros enteros en
+la recta numÈrica.</span></h4>
+
+<h5>N⁄MEROS ENTEROS</h5>
+
+<p class=MsoNormal style='margin-bottom:0cm'><b><i><span style='color:#459EC4'>N˙meros
+enteros</span></i></b>: Es el conjunto de aquellos n˙meros que se obtienen
+mediante la diferencia de dos n˙meros naturales: <span style='font-family:"Cambria Math",serif'>&#8484;</span>
+= {<span style='font-family:"Cambria Math",serif'>&#119909;</span>|<span
+style='font-family:"Cambria Math",serif'>&#119909;</span> = <span
+style='font-family:"Cambria Math",serif'>m</span> &#8722; <span
+style='font-family:"Cambria Math",serif'>n</span>; <span style='font-family:
+"Cambria Math",serif'>m</span>, n <span style='font-family:"Cambria Math",serif'>&#8712;</span>
+<span style='font-family:"Cambria Math",serif'>&#8469;}, &#8469; &#8834;
+&#8484;</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=647
+height=28 id=Imagen42 src="index_archivos/image041.gif"></p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=645
+height=25 id=Imagen43 src="index_archivos/image042.gif"></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=384 height=25 id=Imagen44 src="index_archivos/image043.gif"></p>
+
+<h5 style='margin-top:0cm'>OPERACIONES EN LOS N⁄MEROS ENTEROS</h5>
+
+<p class=MsoNormal><b><i><span style='color:#459EC4'>AdiciÛn en los n˙meros
+enteros</span></i></b></p>
+
+<p class=MsoNormal>Sea a = m - n, b = p - q dos n˙meros enteros, con m, n, p, q
+<span style='font-family:"Cambria Math",serif'>&#8712;</span> N. El n˙mero a +
+b se define como: </p>
+
+<p class=MsoNormal align=center style='text-align:center'>a + b = (m + p) - (n
++ q)</p>
+
+<p class=MsoNormal><b><i><span style='color:#459EC4'>SustracciÛn en los n˙meros
+enteros</span></i></b></p>
+
+<p class=MsoNormal>Sea a, b <span style='font-family:"Cambria Math",serif'>&#8712;</span>
+Z, el n˙mero a - b se define como: </p>
+
+<p class=MsoNormal align=center style='text-align:center'>a ñ b = a + (-b)</p>
+
+<p class=MsoNormal><b><i><span style='color:#459EC4'>MultiplicaciÛn en los
+n˙meros enteros</span></i></b></p>
+
+<p class=MsoNormal>Sea a = m - n, b = p - q dos n˙meros enteros, con m, n, p, q
+<span style='font-family:"Cambria Math",serif'>&#8712;</span> N. El n˙mero a
+&#8729; b se define como:</p>
+
+<p class=MsoNormal align=center style='text-align:center'>a &#8729; b = (m ∑ p
++ n &#8729; q) - (n &#8729; p + m &#8729; q)</p>
+
+<p class=MsoNormal><b><i><span style='color:#459EC4'>Propiedades adicionales de
+la multiplicaciÛn</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><img width=315 height=70
+id=Imagen45 src="index_archivos/image044.gif"></p>
+
+<p class=MsoNormal><b><i><span style='color:#459EC4'>Propiedades de la adiciÛn
+y la multiplicaciÛn</span></i></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=665
+height=249 id=Imagen46 src="index_archivos/image045.gif"></p>
+
+<h5><span style='text-transform:none'>ORDEN EN LOS </span>N⁄MEROS ENTEROS</h5>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=665
+height=89 id=Imagen47 src="index_archivos/image046.gif"></p>
+
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>2.3<span style='font:7.0pt "Times New Roman"'>
+</span><b><span style='color:black'>El conjunto de los n˙meros racionales</span></b><span
+style='color:black'>: definiciÛn a partir de los n˙meros enteros. DefiniciÛn y
+propiedades: igualdad, adiciÛn, multiplicaciÛn y orden en los racionales.
+ExpresiÛn decimal de un n˙mero racional. Algoritmo de la divisiÛn en los
+enteros. Densidad de los n˙meros racionales y representaciÛn de Èstos en la
+recta numÈrica.</span></h4>
+
+<h5>N⁄MEROS <span style='text-transform:none'>RACIONALES</span></h5>
+
+<p class=MsoNormal><b><i><span style='color:#459EC4'>N˙meros racionales</span></i></b>:
+Es el conjunto de aquellos n˙meros que se obtienen mediante el cociente de dos
+n˙meros enteros (fracciones finitas o infinitas): <span style='font-family:
+"Cambria Math",serif'>&#8474;</span> = {<span style='font-family:"Cambria Math",serif'>&#119909;</span>|<span
+style='font-family:"Cambria Math",serif'>&#119909;</span> = <span
+style='font-family:"Cambria Math",serif'>a/b</span>;† a, b <span
+style='font-family:"Cambria Math",serif'>&#8712;</span> <span style='font-family:
+"Cambria Math",serif'>&#8484; }, &#8469; &#8834; &#8484; &#8834; &#8474;</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=665
+height=28 id=Imagen48 src="index_archivos/image047.gif"></p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=652
+height=241 id=Imagen49 src="index_archivos/image048.gif"></p>
+
+<h5>OPERACIONES EN LOS N⁄MEROS RACIONALES</h5>
+
+<p class=MsoNormal><b><i><span style='color:#459EC4'>AdiciÛn en los n˙meros
+racionales</span></i></b></p>
+
+<p class=MsoNormal><img width=461 height=79 id=Imagen50
+src="index_archivos/image049.gif"></p>
+
+<p class=MsoNormal><b><i><span style='color:#459EC4'>SustracciÛn en los n˙meros
+racionales</span></i></b></p>
+
+<p class=MsoNormal><img width=430 height=111 id=Imagen51
+src="index_archivos/image050.gif">†</p>
+
+<p class=MsoNormal><b><i><span style='color:#459EC4'>MultiplicaciÛn en los
+n˙meros racionales</span></i></b></p>
+
+<p class=MsoNormal><img width=509 height=83 id=Imagen52
+src="index_archivos/image051.gif"></p>
+
+<p class=MsoNormal><b><i><span style='color:#459EC4'>DivisiÛn en los n˙meros
+racionales</span></i></b></p>
+
+<p class=MsoNormal><img width=436 height=112 id=Imagen53
+src="index_archivos/image052.gif"></p>
+
+<p class=MsoNormal><b><i><span style='color:#459EC4'>Teorema de la densidad de
+los racionales </span></i></b></p>
+
+<p class=MsoNormal>Para todo <span style='font-family:"Cambria Math",serif'>&#119909;</span>,
+<span style='font-family:"Cambria Math",serif'>y</span> <span style='font-family:
+"Cambria Math",serif'>&#120598;</span> <span style='font-family:"Cambria Math",serif'>&#8474;</span>,
+con <span style='font-family:"Cambria Math",serif'>&#119909;</span> &lt; <span
+style='font-family:"Cambria Math",serif'>y</span> existe un n˙mero racional
+entre <span style='font-family:"Cambria Math",serif'>&#119909;</span> y <span
+style='font-family:"Cambria Math",serif'>y</span> tal que: <span
+style='font-family:"Cambria Math",serif'>&#119909;</span> &lt; (<span
+style='font-family:"Cambria Math",serif'>&#119909;</span>+<span
+style='font-family:"Cambria Math",serif'>y) </span>/ 2 &lt; <span
+style='font-family:"Cambria Math",serif'>&#119909;</span></p>
+
+<p class=MsoNormal><b><i><span style='color:#459EC4'>Propiedades de la adiciÛn
+y la multiplicaciÛn</span></i></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=667
+height=268 id=Imagen54 src="index_archivos/image053.gif"></p>
+
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>2.4<span style='font:7.0pt "Times New Roman"'>
+</span><b><span style='color:black'>El conjunto de los n˙meros reales</span></b><span
+style='color:black'>: existencia de n˙meros irracionales (algebraicos y
+trascendentes). DefiniciÛn del conjunto de los n˙meros reales; representaciÛn
+de los n˙meros reales en la recta numÈrica. Propiedades: adiciÛn,
+multiplicaciÛn y orden en los reales. Completitud de los reales. DefiniciÛn y
+propiedades del valor absoluto. ResoluciÛn de desigualdades e inecuaciones.</span></h4>
+
+<h5>N⁄MEROS <span style='text-transform:none'>IRRACIONALES</span></h5>
+
+<p class=MsoNormal><b><i><span style='color:#459EC4'>N˙meros irracionales</span></i></b>:
+Es el conjunto de aquellos n˙meros que no se pueden expresar como el cociente o
+razÛn de dos n˙meros enteros. Son n˙meros decimales que poseen infinitas cifras
+decimales no periÛdicas): <span style='font-family:"Cambria Math",serif'>&#8474;</span>&#8242;
+= {Ö<span style='font-family:"Cambria Math",serif'>, ln 2, &#120593;, e, &#120587;,
+Ö} = &#8477; &#8722; &#8474;</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=542
+height=385 id=Imagen55 src="index_archivos/image054.jpg"></p>
+
+<h5>N⁄MEROS <span style='text-transform:none'>REALES</span></h5>
+
+<p class=MsoNormal><b><i><span style='color:#459EC4'>N˙meros reales</span></i></b>:
+es el conjunto que contiene tanto a los n˙meros racionales como a los
+irracionales:</p>
+
+<p class=MsoNormal>†<span style='font-family:"Cambria Math",serif'>&#8477; =
+&#8474; &#8746; &#921; = &#8474; &#8746; &#8474;&#8242;</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=498
+height=104 id=Imagen56 src="index_archivos/image055.gif"></p>
+
+<h5>OPERACIONES EN LOS N⁄MEROS <span style='text-transform:none'>REALES</span></h5>
+
+<p class=MsoNormal><b><i><span style='color:#459EC4'>DivisiÛn en los n˙meros
+reales</span></i></b></p>
+
+<p class=MsoNormal><img width=349 height=52 id=Imagen57
+src="index_archivos/image056.gif"></p>
+
+<p class=MsoNormal><b><i><span style='color:#459EC4'>SustracciÛn en los n˙meros
+reales</span></i></b></p>
+
+<p class=MsoNormal><img width=353 height=48 id=Imagen58
+src="index_archivos/image057.gif">†</p>
+
+<p class=MsoNormal><b><i><span style='color:#459EC4'>Signo de los n˙meros
+reales</span></i></b></p>
+
+<p class=MsoNormal><img width=241 height=73 id=Imagen59
+src="index_archivos/image058.gif"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><b><i><span style='color:#459EC4'>Propiedades
+adicionales de la multiplicaciÛn </span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><img width=367 height=85
+id=Imagen60 src="index_archivos/image059.gif"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><img width=429 height=87
+id=Imagen61 src="index_archivos/image060.gif"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><img width=327 height=97
+id=Imagen62 src="index_archivos/image061.gif"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><b><i><span style='color:#459EC4'>Propiedades
+de la adiciÛn y la multiplicaciÛn</span></i></b></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=658 height=234 id=Imagen63 src="index_archivos/image062.gif"></p>
+
+<h5 style='margin:0cm'><span style='text-transform:none'>ORDEN EN LOS </span>N⁄MEROS
+<span style='text-transform:none'>REALES (DESIGUALDADES E INECUACIONES)</span></h5>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=420 height=320 id=Imagen64 src="index_archivos/image063.jpg"></p>
+
+<p class=MsoNormal><b><i><span style='color:#459EC4'>Desigualdad</span></i></b>:
+es una expresiÛn que indica que una cantidad es mayor o menor que otra.</p>
+
+<p class=MsoNormal><b><i><span style='color:#3896BC'>InecuaciÛn</span></i></b>:
+es una desigualdad en la que hay una o m·s cantidades desconocidas (incÛgnitas)
+y que sÛlo de verifica para determinados valores de las incÛgnitas.</p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><b><i><span style='color:#459EC4'>Valor
+absoluto</span></i></b></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=238 height=108 id=Imagen65 src="index_archivos/image064.jpg"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><img width=409 height=219
+id=Imagen66 src="index_archivos/image065.gif"></p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=363
+height=476 id=Imagen67 src="index_archivos/image066.gif"></p>
+
+<h3 style='margin-left:21.3pt'>3.<span style='font:7.0pt "Times New Roman"'> </span>N˙meros
+complejos.</h3>
+
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>3.1<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Forma binÛmica: definiciÛn de n˙mero complejo,
+de igualdad y de conjugado. RepresentaciÛn gr·fica. Operaciones y sus
+propiedades: adiciÛn, sustracciÛn, multiplicaciÛn y divisiÛn. Propiedades del
+conjugado.</span></h4>
+
+<h5>N⁄MEROS <span style='text-transform:none'>COMPLEJOS</span></h5>
+
+<p class=MsoNormal><b><i><span style='color:#3896BC'>N˙meros complejos</span></i></b>:
+es el conjunto que contiene tanto a los n˙meros reales como a los n˙meros
+imaginario:</p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Cambria Math",serif'>&#8450;</span><span
+lang=EN-US> = </span><span lang=EN-US style='font-family:"Cambria Math",serif'>&#8477;</span><span
+lang=EN-US> </span><span lang=EN-US style='font-family:"Cambria Math",serif'>&#8746;</span><span
+lang=EN-US> Im = { </span><span lang=EN-US style='font-family:"Cambria Math",serif'>z</span><span
+lang=EN-US> |</span><span lang=EN-US style='font-family:"Cambria Math",serif'>z</span><span
+lang=EN-US> = </span><span lang=EN-US style='font-family:"Cambria Math",serif'>a
++ i b</span><span lang=EN-US>; a, b </span><span lang=EN-US style='font-family:
+"Cambria Math",serif'>&#8712;</span><span lang=EN-US> </span><span lang=EN-US
+style='font-family:"Cambria Math",serif'>&#8477;; i<sup>2</sup> = -1 }, &#8477;
+= &#8474; &#8746; &#8474;¥</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><img width=415 height=36
+id=Imagen68 src="index_archivos/image067.gif"></p>
+
+<h5 style='margin-top:0cm'><span style='text-transform:none'>FORMA BIN”MICA</span></h5>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><a
+name="_Hlk156237397"><img width=285 height=161 id=Imagen69
+src="index_archivos/image068.gif"></a></p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=308
+height=224 id=Imagen70 src="index_archivos/image069.gif"></p>
+
+<p class=MsoNormal><b><i><span style='color:#3896BC'>Unidad imaginaria</span></i></b></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=340 height=228 id=Imagen71 src="index_archivos/image070.gif"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><b><i><span style='color:#3896BC'>Diagrama
+de Argand o Plano complejo</span></i></b></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'>†<img
+width=281 height=284 id=Imagen72 src="index_archivos/image071.gif"></p>
+
+<h5><span style='text-transform:none'>FORMA VECTORIAL O FORMA CARTESIANA</span></h5>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=237 height=199 id=Imagen73 src="index_archivos/image072.gif"></p>
+
+<p class=MsoNormal><b><i><span style='color:#3896BC'>Conjugado de un n˙mero</span></i></b>:
+Sea <span style='font-family:"Cambria Math",serif'>z</span> = <span
+style='font-family:"Cambria Math",serif'>&#119886;</span> + <span
+style='font-family:"Cambria Math",serif'>b&#119894;</span> un n˙mero complejo.
+El conjugado de <span style='font-family:"Cambria Math",serif'>z</span>, que
+representamos con <img width=11 height=15 id=Imagen74
+src="index_archivos/image073.gif">, se define como: <img width=86 height=19
+id=Imagen75 src="index_archivos/image074.gif"></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=261 height=289 id=Imagen76 src="index_archivos/image075.gif"></p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=314
+height=269 id=Imagen77 src="index_archivos/image076.gif"></p>
+
+<h5>OPERACIONES EN LOS N⁄MEROS COMPLEJOS EN <span style='text-transform:none'>FORMA
+BIN”MICA</span></h5>
+
+<p class=MsoNormal><img width=662 height=288 id=Imagen78
+src="index_archivos/image077.gif"></p>
+
+<p class=MsoNormal><b><i><span style='color:#459EC4'>Propiedades de la adiciÛn
+y la multiplicaciÛn</span></i></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=676
+height=233 id=Imagen79 src="index_archivos/image078.gif"></p>
+
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>3.2<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Forma polar o trigonomÈtrica: definiciÛn de
+mÛdulo, de argumento y de igualdad de n˙meros complejos en forma polar.
+Operaciones en forma polar: multiplicaciÛn, divisiÛn, potenciaciÛn y
+radicaciÛn.</span></h4>
+
+<h5 style='margin-bottom:0cm'><span style='text-transform:none'>FORMA POLAR O
+TRIGONOM…TRICA</span></h5>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=356 height=259 id=Imagen80 src="index_archivos/image079.gif"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><b><i><span style='color:#3896BC'>Diagrama
+de Argand o Plano complejo</span></i></b></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=224 height=195 id=Imagen81 src="index_archivos/image080.gif"></p>
+
+<h5 style='margin:0cm'>OPERACIONES EN LOS N⁄MEROS COMPLEJOS EN FORMA POLAR O
+TRIGONOM…TRICA</h5>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=593
+height=278 id=Imagen82 src="index_archivos/image081.gif"></p>
+
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>3.3<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Forma exponencial o de Euler. Operaciones en
+forma exponencial: multiplicaciÛn, divisiÛn, potenciaciÛn y radicaciÛn.</span></h4>
+
+<h5 style='margin-bottom:0cm'><span style='text-transform:none'>FORMA
+EXPONENCIAL </span></h5>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=314 height=248 id=Imagen83 src="index_archivos/image082.gif"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><b><i><span style='color:#3896BC'>Diagrama
+de </span><span style='color:#439DC3'>Argand</span><span style='color:#3896BC'>
+o Plano complejo</span></i></b></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=231 height=201 id=Imagen84 src="index_archivos/image083.gif"></p>
+
+<h5 style='margin:0cm'>OPERACIONES EN LOS N⁄MEROS COMPLEJOS EN FORMA
+EXPONENCIAL</h5>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=663
+height=315 id=Imagen85 src="index_archivos/image084.gif"></p>
+
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>3.4<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>ResoluciÛn de ecuaciones con una incÛgnita que
+involucren n˙meros complejos.</span></h4>
+
+<p class=MsoNormal><img width=660 height=696 id=Imagen86
+src="index_archivos/image085.gif"></p>
+
+<p class=MsoNormal><img width=659 height=615 id=Imagen87
+src="index_archivos/image086.gif"></p>
+
+<p class=MsoNormal><img width=660 height=854 id=Imagen88
+src="index_archivos/image087.gif"></p>
+
+<p class=MsoNormal><img width=654 height=896 id=Imagen89
+src="index_archivos/image088.gif"></p>
+
+<p class=MsoNormal><img width=658 height=347 id=Imagen90
+src="index_archivos/image089.gif"></p>
+
+<p class=MsoNormal><img width=676 height=877 id=Imagen91
+src="index_archivos/image090.gif"></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3 style='margin-left:21.3pt'>4.<span style='font:7.0pt "Times New Roman"'> </span>Polinomios.</h3>
+
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>4.1<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>DefiniciÛn de polinomio. DefiniciÛn y
+propiedades: adiciÛn, multiplicaciÛn de polinomios y multiplicaciÛn de un
+polinomio por un escalar.</span></h4>
+
+<h5>POLINOMIO</h5>
+
+<p class=MsoNormal style='margin-bottom:0cm'><b><i><span style='color:#439DC3'>TÈrmino
+o monomio</span></i></b></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=241 height=97 id=Imagen92 src="index_archivos/image091.gif"></p>
+
+<p class=MsoNormal><b><i><span style='color:#439DC3'>TÈrminos semejantes</span></i></b>:
+son aquellos tÈrminos o monomios cuya parte literal es la misma y sÛlo cambian
+sus coeficientes.</p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=305 height=33 id=Imagen93 src="index_archivos/image092.gif"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><b><i><span style='color:#439DC3'>Binomio</span></i></b>:
+es la suma algebraica de 2 tÈrminos o monomios.</p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=189 height=30 id=Imagen94 src="index_archivos/image093.gif"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><b><i><span style='color:#439DC3'>Trinomio</span></i></b>:
+es la suma algebraica de 3 tÈrminos o monomios.</p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=233 height=26 id=Imagen95 src="index_archivos/image094.gif"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><b><i><span style='color:#439DC3'>Polinomio</span></i></b>:
+Es una expresiÛn algebraica que constituye la suma o la resta de un n˙mero
+finito de tÈrminos o monomios, que presenta la siguiente forma.</p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=376 height=27 id=Imagen96 src="index_archivos/image095.gif"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'>Donde los coeficientes son:</p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=212 height=26 id=Imagen97 src="index_archivos/image096.gif"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'>Y los tÈrminos del polinomio son:</p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=257 height=33 id=Imagen98 src="index_archivos/image097.gif"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'>Una forma simplificada de expresar
+un polinomio es utilizando el operador sumatoria o suma abreviada.</p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=429 height=69 id=Imagen99 src="index_archivos/image098.gif"></p>
+
+<p class=MsoNormal><b><i><span style='color:#439DC3'>Grado de un polinomio</span></i></b>:
+Corresponde al mayor exponente presente en los tÈrminos del polinomio.</p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=340 height=67 id=Imagen100 src="index_archivos/image099.gif"></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=388 height=105 id=Imagen101 src="index_archivos/image100.gif"></p>
+
+<h5>OPERACIONES DE POLINOMIOS</h5>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=649
+height=147 id=Imagen102 src="index_archivos/image101.gif"></p>
+
+<p class=MsoNormal><b><i><span style='color:#439DC3'>Igualdad de polinomios</span></i></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=520
+height=32 id=Imagen103 src="index_archivos/image102.gif"></p>
+
+<p class=MsoNormal><b><i><span style='color:#439DC3'>AdiciÛn de polinomios</span></i></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=371
+height=81 id=Imagen104 src="index_archivos/image103.gif"></p>
+
+<p class=MsoNormal><b><i><span style='color:#439DC3'>SustracciÛn de polinomios</span></i></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=385
+height=27 id=Imagen105 src="index_archivos/image104.gif"></p>
+
+<p class=MsoNormal><b><i><span style='color:#439DC3'>MultiplicaciÛn de
+polinomios</span></i></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=621
+height=102 id=Imagen106 src="index_archivos/image105.gif"></p>
+
+<p class=MsoNormal><b><i><span style='color:#459EC4'>Propiedades de la adiciÛn
+y la multiplicaciÛn</span></i></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=665
+height=276 id=Imagen107 src="index_archivos/image106.gif"></p>
+
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>4.2<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>DivisiÛn de polinomios: divisibilidad y
+algoritmo de la divisiÛn. Teorema del residuo y del factor. DivisiÛn sintÈtica.</span></h4>
+
+<h5>ALGORITMO DE LA DIVISI”N </h5>
+
+<p class=MsoNormal style='margin-bottom:0cm'><img width=323 height=151
+id=Imagen108 src="index_archivos/image107.gif"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><img width=322 height=54
+id=Imagen109 src="index_archivos/image108.gif"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><img width=510 height=65
+id=Imagen110 src="index_archivos/image109.gif"></p>
+
+<h5 style='margin-top:0cm'>TEOREMA DEL RESIDUO</h5>
+
+<p class=MsoNormal style='margin-bottom:0cm'><img width=382 height=241
+id=Imagen111 src="index_archivos/image110.gif"></p>
+
+<h5>TEOREMA DEL FACTOR</h5>
+
+<p class=MsoNormal><img width=376 height=222 id=Imagen112
+src="index_archivos/image111.gif"></p>
+
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>4.3<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>RaÌces de un polinomio: definiciÛn de raÌz,
+teorema fundamental del ·lgebra y n˙mero de raÌces de un polinomio.</span></h4>
+
+<h5 style='margin-bottom:0cm'><span style='text-transform:none'>RAÕCES DE UN
+POLINOMIO</span></h5>
+
+<p class=MsoNormal style='margin-bottom:0cm'><img width=421 height=250
+id=Imagen113 src="index_archivos/image112.gif">†</p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><b><i><span style='color:#439DC3'>Conceptos
+equivalentes</span></i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><img width=428 height=235
+id=Imagen114 src="index_archivos/image113.gif"></p>
+
+<h5><span style='text-transform:none'>TEOREMA FUNDAMENTAL DEL ¡LGEBRA</span></h5>
+
+<p class=MsoNormal><img width=421 height=263 id=Imagen115
+src="index_archivos/image114.gif"></p>
+
+<h5 style='margin-bottom:0cm'>RESUMEN</h5>
+
+<p class=MsoNormal style='margin-bottom:0cm'><img width=466 height=246
+id=Imagen116 src="index_archivos/image115.gif"></p>
+
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>4.4<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>TÈcnicas elementales para buscar raÌces:
+posibles raÌces racionales y regla de los signos de Descartes.</span></h4>
+
+<h5><span style='text-transform:none'>RAÕCES RACIONALES</span></h5>
+
+<p class=MsoNormal><img width=519 height=262 id=Imagen117
+src="index_archivos/image116.gif"></p>
+
+<h5><span style='text-transform:none'>REGLA DE LOS SIGNOS DE DESCARTES</span></h5>
+
+<p class=MsoNormal><img width=658 height=230 id=Imagen118
+src="index_archivos/image117.gif"></p>
+
+<h5><span style='text-transform:none'>TEOREMA DE LAS COTAS DE LAS RAÕCES REALES</span></h5>
+
+<p class=MsoNormal><img width=658 height=251 id=Imagen119
+src="index_archivos/image118.gif"></p>
+
+<h5><span style='text-transform:none'>RAICES IRRACIONALES</span></h5>
+
+<p class=MsoNormal style='margin-bottom:0cm'><img width=667 height=121
+id=Imagen120 src="index_archivos/image119.gif"></p>
+
+<p class=MsoNormal><img width=665 height=81 id=Imagen121
+src="index_archivos/image120.gif"></p>
+
+<h5><span style='text-transform:none'>RAICES COMPLEJAS</span></h5>
+
+<p class=MsoNormal><img width=661 height=114 id=Imagen122
+src="index_archivos/image121.gif"></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3 style='margin-left:21.3pt'>5.<span style='font:7.0pt "Times New Roman"'> </span>Sistemas
+de ecuaciones.</h3>
+
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>5.1<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>DefiniciÛn de ecuaciÛn lineal y de su
+soluciÛn. DefiniciÛn de sistema de ecuaciones lineales y de su soluciÛn.
+ClasificaciÛn de los sistemas de ecuaciones lineales en cuanto a la existencia
+y al n˙mero de soluciones. Sistemas homogÈneos, soluciones triviales y varias
+soluciones.</span></h4>
+
+<h5>ECUACI”N LINEAL</h5>
+
+<p class=MsoNormal style='margin-bottom:0cm'><img width=428 height=288
+id=Imagen123 src="index_archivos/image122.gif"></p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=329
+height=427 id=Imagen124 src="index_archivos/image123.gif"></p>
+
+<h5><span style='text-transform:none'>SISTEMAS DE ECUACI”N </span><span
+style='color:#3896BC;text-transform:none'>LINEAL</span></h5>
+
+<p class=MsoNormal><b><i><span style='color:#3896BC'>Sistema de ecuaciones
+lineales</span></i></b>: es un conjunto de al menos 2 ecuaciones lineales que
+contienen las mismas variables y que comparten la misma soluciÛn.</p>
+
+<p class=MsoNormal>Un sistema de m ecuaciones lineales con n incÛgnitas sobre C
+es una expresiÛn de la forma:</p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=639 height=193 id=Imagen125 src="index_archivos/image124.gif"></p>
+
+<p class=MsoNormal><img width=639 height=46 id=Imagen126
+src="index_archivos/image125.gif"></p>
+
+<h5>SISTEMAS HOMOG…NEOS</h5>
+
+<p class=MsoNormal style='margin-bottom:0cm'>Un <b><i><span style='color:#3896BC'>sistema
+de ecuaciones lineales es homogÈneo</span></i></b><span style='color:#3896BC'> </span>cuando
+todos sus tÈrminos independientes son iguales a cero, es decir: <img width=194
+height=17 id=Imagen127 src="index_archivos/image126.gif"></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=601 height=229 id=Imagen128 src="index_archivos/image127.gif"></p>
+
+<h5 style='margin:0cm'>CLASIFICACI”N DE LOS SISTEMAS DE ECUACIONES LINEALES</h5>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=278 height=201 id=Imagen129 src="index_archivos/image128.gif"></p>
+
+<h5>REPRESENTACI”N MATRICIAL DE SISTEMAS DE ECUACIONES </h5>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=595 height=282 id=Imagen130 src="index_archivos/image129.gif"></p>
+
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>5.2<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Sistemas equivalentes y transformaciones
+elementales. ResoluciÛn de sistemas de ecuaciones lineales por el mÈtodo de
+Gauss.</span></h4>
+
+<h5>SISTEMAS EQUIVALENTES</h5>
+
+<p class=MsoNormal>Cuando dos sistemas de ecuaciones lineales tienen las mismas
+soluciones se dice que son equivalentes.</p>
+
+<p class=MsoNormal>Uno de los mÈtodos que se emplean para obtener las
+soluciones de un sistema de ecuaciones lineales se basa en el empleo de ciertas
+transformaciones, llamadas transformaciones elementales, que no alteran las
+soluciones del sistema; es decir, transformaciones que al aplicarse a un
+sistema dan como resultado un sistema equivalente.</p>
+
+<p class=MsoNormal>Las transformaciones elementales pueden ser de tres tipos y
+consisten en:</p>
+
+<p class=MsoListParagraphCxSpFirst style='margin-left:54.0pt;text-indent:-36.0pt'>i.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Intercambiar dos ecuaciones</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:54.0pt;text-indent:-36.0pt'>ii.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Multiplicar una ecuaciÛn por un n˙mero diferente de cero</p>
+
+<p class=MsoListParagraphCxSpLast style='margin-left:54.0pt;text-indent:-36.0pt'>iii.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Multiplicar una ecuaciÛn por un n˙mero y sumarla a otra ecuaciÛn,
+reemplazando esta ˙ltima por el resultado obtenido</p>
+
+<h5>M…TODO DE GAUSS</h5>
+
+<p class=MsoNormal>El procedimiento m·s cÛmodo para obtener las soluciones de
+un sistema de ecuaciones lineales es, tal vez, el conocido como <b><i><span
+style='color:#3896BC'>mÈtodo de Gauss</span></i></b>.</p>
+
+<p class=MsoNormal>Este mÈtodo consiste en la eliminaciÛn consecutiva de las
+incÛgnitas con el propÛsito de llegar a un sistema que tenga forma <b><i><span
+style='color:#3896BC'>escalonada</span></i></b>.</p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=363 height=86 id=Imagen131 src="index_archivos/image130.gif"></p>
+
+<p class=MsoNormal>Para llevar a cabo dicha eliminaciÛn sin alterar las
+soluciones del sistema, se recurre a las <b><i><span style='color:#3896BC'>transformaciones
+elementales</span></i></b><span style='color:#3896BC'> </span>que hemos
+descrito.</p>
+
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>5.3<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>AplicaciÛn de las ecuaciones lineales para la
+soluciÛn de problemas de modelos fÌsicos y matem·ticos.</span></h4>
+
+<p class=MsoNormal style='margin-bottom:0cm'><img width=610 height=341
+id=Imagen132 src="index_archivos/image131.gif"></p>
+
+<p class=MsoNormal><img width=628 height=497 id=Imagen133
+src="index_archivos/image132.gif"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><img width=654 height=232
+id=Imagen134 src="index_archivos/image133.gif"></p>
+
+<p class=MsoNormal><img width=663 height=639 id=Imagen135
+src="index_archivos/image134.gif"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><img width=537 height=263
+id=Imagen136 src="index_archivos/image135.gif"
+alt="Tabla&#10;&#10;El contenido generado por IA puede ser incorrecto."></p>
+
+<h3 style='margin-left:21.3pt'>6.<span style='font:7.0pt "Times New Roman"'> </span>Matrices
+y determinantes.</h3>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.25pt'>6.1<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>DefiniciÛn de matriz y de igualdad de
+matrices. Operaciones con matrices y sus propiedades: adiciÛn, sustracciÛn,
+multiplicaciÛn por un escalar y multiplicaciÛn. Matriz identidad.</span></h4>
+
+<h5>MATRIZ</h5>
+
+<p class=MsoNormal><b><i><span style='color:#3896BC'>Matriz</span></i></b>: Es
+un conjunto de elementos (n˙meros, objetos, operadores, etc.) dispuestos en un
+arreglo bidimensional, de renglones y columnas, encerrados entre parÈntesis o
+corchetes, que obedecen ciertas reglas algebraicas</p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=665
+height=256 id=Imagen137 src="index_archivos/image136.gif"></p>
+
+<h5>TIPO DE MATRICES</h5>
+
+<p class=MsoNormal><b><i><span style='color:#3896BC'>Vector (matriz) renglÛn o
+vector (matriz) columna</span></i></b>: Es una matriz formada por un solo
+renglÛn o una sola columna, respectivamente.</p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=346
+height=106 id=Imagen138 src="index_archivos/image137.gif"></p>
+
+<p class=MsoNormal><b><i><span style='color:#3896BC'>Matriz nula</span></i></b>:
+Es una matriz donde todos sus elementos son ceros.</p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=114
+height=44 id=Imagen139 src="index_archivos/image138.gif"></p>
+
+<p class=MsoNormal><b><i><span style='color:#3896BC'>Matriz rectangular</span></i></b>:
+Es aquella matriz cuyo n˙mero de renglones es diferente al n˙mero de columnas,
+es decir: <span style='font-family:"Cambria Math",serif'>&#119950;</span>
+&#8800; <span style='font-family:"Cambria Math",serif'>&#119950;</span></p>
+
+<p class=MsoNormal><b><i><span style='color:#3896BC'>Matriz cuadrada</span></i></b>:
+Es aquella matriz cuyo n˙mero de renglones es igual al n˙mero de columnas: <span
+style='font-family:"Cambria Math",serif'>&#119950;</span> =<i> </i><i><span
+style='font-family:"Cambria Math",serif'>n</span></i></p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=401
+height=86 id=Imagen140 src="index_archivos/image139.gif"></p>
+
+<h5><img width=154 height=1 src="index_archivos/image140.gif" align=left
+hspace=12>OPERACIONES ENTRE MATRICES</h5>
+
+<p class=MsoNormal>Sean dos matrices: </p>
+
+<p class=MsoNormal><img width=148 height=1 src="index_archivos/image141.gif"
+align=left hspace=12><b><i><span style='color:#3896BC'>Igualdad de matrices</span></i></b>:
+Dos matrices son iguales si son del mismo orden y si los elementos de la misma
+posiciÛn son iguales en ambas, es decir: </p>
+
+<p class=MsoNormal><b><i><span style='color:#3896BC'>Suma de matrices</span></i></b>:
+Esta operaciÛn ˙nicamente se puede realizar entre matrices del mismo orden.
+Para realizarla se suman elemento por elemento en sus posiciones
+correspondientes:</p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=390
+height=32 id=Imagen143 src="index_archivos/image142.gif"></p>
+
+<p class=MsoNormal><b><i><span style='color:#3896BC'>Diferencia de matrices</span></i></b>:
+Esta operaciÛn ˙nicamente se puede realizar entre matrices del mismo orden.
+Para realizarla se cambia el signo de cada uno de los elementos de la segunda
+matriz y posteriormente se realiza la suma de elemento por elemento en sus
+posiciones correspondientes.</p>
+
+<p class=MsoNormal><img width=647 height=35 id=Imagen144
+src="index_archivos/image143.gif"></p>
+
+<p class=MsoNormal><b><i><span style='color:#459EC4'>Propiedades de la adiciÛn</span></i></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=664
+height=256 id=Imagen145 src="index_archivos/image144.gif"></p>
+
+<p class=MsoNormal><img width=360 height=18 id=Imagen146
+src="index_archivos/image145.gif"></p>
+
+<p class=MsoNormal><img width=74 height=1 src="index_archivos/image146.gif"
+align=left hspace=12><b><i><span style='color:#3896BC'>MultiplicaciÛn de
+matrices por un escalar</span></i></b>: Esta operaciÛn se realiza multiplicando
+el escalar por cada uno de los elementos de la matriz, es decir: </p>
+
+<p class=MsoNormal><b><i><span style='color:#459EC4'>Propiedades por un escalar</span></i></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=299
+height=107 id=Imagen148 src="index_archivos/image147.gif"></p>
+
+<p class=MsoNormal><img width=351 height=25 id=Imagen149
+src="index_archivos/image148.gif"></p>
+
+<p class=MsoNormal><b><i><span style='color:#3896BC'>Producto de </span><span
+style='color:#439DC3'>matrices</span></i></b>: Esta operaciÛn ˙nicamente se
+puede realizar entre matrices donde el n˙mero de columnas de la primera matriz
+es igual al n˙mero de renglones de la segunda:</p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=643
+height=118 id=Imagen150 src="index_archivos/image149.gif"></p>
+
+<p class=MsoNormal>El elemento que se encuentra en la posiciÛn correspondiente
+al renglÛn i y la columna j de la matriz producto AB, se obtiene sumando los
+productos de los elementos del renglÛn i de la matriz A por sus elementos
+correspondientes en la columna j de la matriz B:</p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=649
+height=98 id=Imagen151 src="index_archivos/image150.gif"></p>
+
+<p class=MsoNormal><b><i><span style='color:#439DC3'>Matriz identidad:</span></i></b><span
+style='color:#439DC3'> </span>es una matriz cuadrada de orden n tal que todos
+los elementos de su diagonal principal son uno y los elementos fuera de ella
+son cero. Ejemplos</p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=507
+height=97 id=Imagen152 src="index_archivos/image151.gif"></p>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.25pt'>6.2<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>DefiniciÛn y propiedades de la inversa de una
+matriz. C·lculo de la inversa por transformaciones elementales.</span></h4>
+
+<h5><span style='text-transform:none'>TIPOS Y </span>PROPIEDADES</h5>
+
+<p class=MsoNormal><b><i><span style='color:#439DC3'>Matriz inversa:</span></i></b><span
+style='color:#439DC3'> </span>la matriz cuadrada de orden n <span
+style='font-family:"Cambria Math",serif'>&#119860;</span> tiene una matriz
+inversa <span style='font-family:"Cambria Math",serif'>&#119860;</span><sup>&#8722;1</sup>
+la cual cumple que:</p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=133
+height=31 id=Imagen153 src="index_archivos/image152.gif"></p>
+
+<p class=MsoNormal>Una de las condiciones necesarias para que una matriz tenga
+inversa es que debe ser una matriz cuadrada. Adem·s, la inversa deber· ser
+tambiÈn cuadrada y del mismo orden que A</p>
+
+<p class=MsoNormal><b><i><span style='color:#439DC3'>Matriz no singular:</span></i></b><span
+style='color:#439DC3'> </span>es aquella matriz <span style='font-family:"Cambria Math",serif'>&#119860;</span>
+que SÕ tiene una matriz inversa <span style='font-family:"Cambria Math",serif'>&#119860;</span><sup>&#8722;1</sup></p>
+
+<p class=MsoNormal><b><i><span style='color:#439DC3'>Matriz singular:</span></i></b><span
+style='color:#439DC3'> </span>es aquella matriz <span style='font-family:"Cambria Math",serif'>&#119860;</span>
+que NO tiene una matriz inversa <span style='font-family:"Cambria Math",serif'>&#119860;</span><sup>&#8722;1</sup></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><img width=589 height=136
+id=Imagen154 src="index_archivos/image153.gif"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><img width=508 height=314
+id=Imagen155 src="index_archivos/image154.gif"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><img width=480 height=372
+id=Imagen156 src="index_archivos/image155.gif"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'>&nbsp;</p>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.25pt'>6.3<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>Ecuaciones matriciales y su resoluciÛn.
+RepresentaciÛn y resoluciÛn matricial de los sistemas de ecuaciones lineales.</span></h4>
+
+<p class=MsoNormal style='margin-bottom:0cm'><img width=665 height=501
+id=Imagen157 src="index_archivos/image156.gif"></p>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.25pt'>6.4<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>Matrices triangulares, diagonales y sus
+propiedades. DefiniciÛn de traza de una matriz y sus propiedades.</span></h4>
+
+<h5><span style='text-transform:none'>TIPOS Y </span>PROPIEDADES</h5>
+
+<p class=MsoNormal><b><i><span style='color:#439DC3'>Traza de una matriz
+cuadrada</span></i></b><span style='color:#439DC3'>: </span>es la suma de los
+elementos de su diagonal principal: </p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=365
+height=97 id=Imagen158 src="index_archivos/image157.gif">††††††††† <img
+width=95 height=54 id=Imagen159 src="index_archivos/image158.gif"
+alt="Texto&#10;&#10;El contenido generado por IA puede ser incorrecto."></p>
+
+<p class=MsoNormal><b><i><span style='color:#439DC3'>Matriz diagonal:</span></i></b><span
+style='color:#439DC3'> </span>es una matriz cuadrada en donde los elementos de
+su diagonal principal son diferentes de cero y los dem·s son ceros. Ejemplos: </p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=343
+height=83 id=Imagen160 src="index_archivos/image159.gif"></p>
+
+<p class=MsoNormal><b><i><span style='color:#439DC3'>Matriz triangular
+superior:</span></i></b><span style='color:#439DC3'> </span>es una matriz
+cuadrada en la cual todos los elementos por debajo de la diagonal principal son
+cero. Ejemplos:</p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=364
+height=159 id=Imagen161 src="index_archivos/image160.gif"></p>
+
+<p class=MsoNormal><b><i><span style='color:#439DC3'>Matriz triangular
+inferior:</span></i></b><span style='color:#439DC3'> </span>es una matriz
+cuadrada en la cual todos los elementos por arriba de la diagonal principal son
+cero. Ejemplos:</p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=365
+height=167 id=Imagen162 src="index_archivos/image161.gif"></p>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.25pt'>6.5<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>TransposiciÛn de una matriz y sus propiedades.
+Matrices simÈtricas, antisimÈtricas y ortogonales. ConjugaciÛn de una matriz y
+sus propiedades. Matrices hermitianas, antihermitianas y unitarias. Potencia de
+una matriz y sus propiedades.</span></h4>
+
+<h5><span style='text-transform:none'>TIPOS Y </span>PROPIEDADES</h5>
+
+<p class=MsoNormal><b><i><span style='color:#439DC3'>Matriz transpuesta:</span></i></b>
+la matriz transpuesta de A es la matriz en donde los renglones de A ahora son
+las columnas de la transpuesta, es decir:</p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=661
+height=272 id=Imagen163 src="index_archivos/image162.gif"></p>
+
+<p class=MsoNormal><b><i><span style='color:#439DC3'>Matriz conjugada:</span></i></b><span
+style='color:#439DC3'> </span>Sea A una matriz de n˙meros complejos, su matriz
+conjugada es aquella matriz en donde se reemplaza cada elemento por su
+respectivo complejo conjugado: &#256;</p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=462
+height=180 id=Imagen164 src="index_archivos/image163.gif"></p>
+
+<p class=MsoNormal><b><i><span style='color:#439DC3'>Matriz simÈtrica: </span></i></b>es
+aquella matriz cuadrada que es igual a su propia matriz transpuesta: <span
+style='font-family:"Cambria Math",serif'>&#119860;</span> = <span
+style='font-family:"Cambria Math",serif'>&#119860;<sup>&#119879;</sup></span></p>
+
+<p class=MsoNormal><b><i><span style='color:#439DC3'>Matriz antisimÈtrica: </span></i></b>es
+aquella matriz cuadrada que es igual al negativo de su propia transpuesta: <span
+style='font-family:"Cambria Math",serif'>&#119860;</span> = &#8722;<span
+style='font-family:"Cambria Math",serif'>&#119860;<sup>&#119879;</sup></span></p>
+
+<p class=MsoNormal><b><i><span style='color:#439DC3'>Matriz ortogonal: </span></i></b>es
+aquella matriz cuadrada cuya matriz transpuesta es igual a su inversa: <span
+style='font-family:"Cambria Math",serif'>&#119860;<sup>&#119879;</sup></span> =
+<span style='font-family:"Cambria Math",serif'>&#119860;</span><sup>&#8722;1</sup></p>
+
+<p class=MsoNormal><b><i>El determinante de una matriz ortogonal es igual a 1</i></b></p>
+
+<p class=MsoNormal><b><i><span style='color:#439DC3'>Matriz unitaria:</span></i></b><span
+style='color:#439DC3'> </span>es aquella matriz cuadrada cuya matriz conjugada
+transpuesta es igual a su inversa: <span style='font-family:"Cambria Math",serif'>&#119860;<sup>&#8727;</sup></span>
+= <span style='font-family:"Cambria Math",serif'>&#119860;</span><sup>&#8722;1</sup></p>
+
+<p class=MsoNormal><b><i>El determinante de una matriz unitaria es igual a 1</i></b></p>
+
+<p class=MsoNormal><b><i><span style='color:#439DC3'>Matriz hermitiana: </span></i></b>es
+aquella matriz cuadrada de n˙meros complejos que es igual a su propia
+transpuesta conjugada: <span style='font-family:"Cambria Math",serif'>&#119860;</span>
+= (&#256;)<sup><span style='font-family:"Cambria Math",serif'>&#119879;</span></sup>
+= <span style='font-family:"Cambria Math",serif'>&#119860;<sup>&#8727;</sup></span></p>
+
+<p class=MsoNormal><b><i><span style='color:#439DC3'>Matriz antihermitiana:</span></i></b>
+es aquella matriz cuadrada de n˙meros complejos que es igual al negativo de su
+transpuesta conjugada: <span style='font-family:"Cambria Math",serif'>&#119860;</span>
+= &#8722;(&#256;)<sup><span style='font-family:"Cambria Math",serif'>&#119879;</span></sup>
+= -<span style='font-family:"Cambria Math",serif'>&#119860;<sup>&#8727;</sup></span></p>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.25pt'>6.6<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>DefiniciÛn de determinante de una matriz y sus
+propiedades. C·lculo de determinantes: regla de Sarrus, desarrollo por
+cofactores y mÈtodo de condensaciÛn.</span></h4>
+
+<p class=MsoNormal style='line-height:normal'><b><i><span style='color:#439DC3'>Determinante:</span></i></b><span
+style='color:#439DC3'> </span>es un n˙mero asociado a una matriz cuadrada que
+se puede obtener a partir de diferentes mÈtodos: det (<span style='font-family:
+"Cambria Math",serif'>&#119860;)</span> = [<span style='font-family:"Cambria Math",serif'>&#119860;]</span></p>
+
+<p class=MsoNormal><b><i><span style='color:#439DC3'>Matriz no singular:</span></i></b>
+es aquella matriz <span style='font-family:"Cambria Math",serif'>&#119860;</span>
+que SÕ tiene una matriz inversa <span style='font-family:"Cambria Math",serif'>&#119860;</span><sup>&#8722;1</sup>
+(det (<span style='font-family:"Cambria Math",serif'>&#119860;)</span> &#8800;
+0)</p>
+
+<p class=MsoNormal><b><i><span style='color:#439DC3'>Matriz singular:</span></i></b><span
+style='color:#439DC3'> </span>es aquella matriz <span style='font-family:"Cambria Math",serif'>&#119860;</span>
+que NO tiene una matriz inversa <span style='font-family:"Cambria Math",serif'>&#119860;</span><sup>&#8722;1</sup>
+(det (<span style='font-family:"Cambria Math",serif'>&#119860;)</span> = 0)</p>
+
+<h5>PROPIEDADES DE LOS DETERMINANTES:</h5>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-18.0pt'>1)<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Si
+todos los elementos de una fila o columna de un determinante son nulos, el
+valor del determinante es nulo.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-18.0pt'>2)<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Si
+un determinante tiene dos filas o columnas proporcionales el determinante es
+cero.</p>
+
+<p class=MsoListParagraphCxSpLast style='text-indent:-18.0pt'>3)<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Si
+todos los elementos de una fila o columna se multiplican por un escalar, el
+valor del determinante queda multiplicado por dicho escalar</p>
+
+<p class=MsoNormal style='margin-left:18.0pt'><img width=135 height=99
+id=Imagen165 src="index_archivos/image164.gif"
+alt="Texto&#10;&#10;El contenido generado por IA puede ser incorrecto."></p>
+
+<h6>REGLA DE SARRUS</h6>
+
+<p class=MsoNormal>el determinante se obtiene de restar la multiplicaciÛn de
+los elementos de la diagonal principal de la matriz y la multiplicaciÛn de los
+elementos de la diagonal secundaria de la misma matriz.</p>
+
+<p class=MsoNormal>El inconveniente es que la regla de Sarrus ˙nicamente se
+puede utilizar para determinantes de matrices de 2x2 y 3x3.</p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=658
+height=280 id=Imagen166 src="index_archivos/image165.gif"></p>
+
+<h6>MENORES Y COFACTORES</h6>
+
+<p class=MsoNormal>Menor: el menor o menor complementario de una matriz A es el
+determinante de alguna submatriz, obtenido de A mediante la eliminaciÛn de una
+o m·s de sus filas o columnas [<span style='font-family:"Cambria Math",serif'>&#119872;<sub>&#119894;&#119894;</sub>]</span>.</p>
+
+<p class=MsoNormal><b><i><span style='color:#439DC3'>Cofactor:</span></i></b>
+el cofactor del elemento de la matriz [<span style='font-family:"Cambria Math",serif'>&#119886;<sub>&#119894;&#119894;</sub></span>]
+se denota como [<i><span style='font-family:"Cambria Math",serif'>C</span></i><sub><span
+style='font-family:"Cambria Math",serif'>&#119894;&#119894;</span></sub>] y
+est· dado por:</p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=664
+height=203 id=Imagen167 src="index_archivos/image166.gif"></p>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.25pt'>6.7<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>C·lculo de la inversa por medio de la adjunta.
+Regla de Cramer para la resoluciÛn de sistemas de ecuaciones lineales de orden
+superior a tres.</span></h4>
+
+<h5>MATRIZ INVERSA Y MATRIZ ADJUNTA</h5>
+
+<p class=MsoNormal><b><i><span style='color:#439DC3'>Matriz inversa:</span></i></b><span
+style='color:#439DC3'> </span>la matriz cuadrada de orden n <span
+style='font-family:"Cambria Math",serif'>&#119860;</span> tiene una matriz
+inversa <span style='font-family:"Cambria Math",serif'>&#119860;</span><sup>&#8722;1</sup>
+la cual cumple que:</p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=159
+height=25 id=Imagen168 src="index_archivos/image167.gif"></p>
+
+<p class=MsoNormal>Una de las condiciones necesarias para que una matriz tenga
+inversa es que debe ser una matriz cuadrada. Adem·s, la inversa deber· ser
+tambiÈn cuadrada y del mismo orden que A.</p>
+
+<p class=MsoNormal><b><i><span style='color:#439DC3'>Matriz no singular:</span></i></b><span
+style='color:#439DC3'> </span>es aquella matriz <span style='font-family:"Cambria Math",serif'>&#119860;</span>
+que SÕ tiene una matriz inversa <span style='font-family:"Cambria Math",serif'>&#119860;</span><sup>&#8722;1</sup></p>
+
+<p class=MsoNormal><b><i><span style='color:#439DC3'>Matriz singular:</span></i></b><span
+style='color:#439DC3'> </span>es aquella matriz <span style='font-family:"Cambria Math",serif'>&#119860;</span>
+que NO tiene una matriz inversa <span style='font-family:"Cambria Math",serif'>&#119860;</span><sup>&#8722;1</sup></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=571 height=132 id=Imagen169 src="index_archivos/image168.gif"></p>
+
+<h6>C¡LCULO DE LA INVERSA POR DETERMINANTES</h6>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=185 height=58 id=Imagen170 src="index_archivos/image169.gif"></p>
+
+<p class=MsoNormal>Donde <i>Adj</i>(A) se le conoce como la matriz adjunta de
+A.</p>
+
+<p class=MsoNormal><b><i><span style='color:#439DC3'>Matriz adjunta:</span></i></b><span
+style='color:#439DC3'> </span>la matriz adjunta <i>Adj</i>(A) de la matriz
+cuadrada de orden n <span style='font-family:"Cambria Math",serif'>&#119860;</span>
+es la matriz de cofactores de su transpuesta.</p>
+
+<p class=MsoNormal>Esto significa que para encontrar la matriz adjunta primero
+se transpone la matriz original y despuÈs, con base en ella, se calcula la
+matriz de cofactores.</p>
+
+<h5>RESOLUCI”N DE SISTEMAS DE ECUACIONES LINEALES</h5>
+
+<h6>REGLA DE CRAMER</h6>
+
+<p class=MsoNormal>Se dice que un sistema con n ecuaciones lineales y n
+incÛgnitas es de Cramer cuando el determinante de la matriz de los coeficientes
+es distinto a cero. AsÌ todo sistema de Cramer es consistente determinado, es
+decir, tiene soluciÛn ˙nica.</p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=449 height=397 id=Imagen171 src="index_archivos/image170.gif"></p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=547
+height=462 id=Imagen172 src="index_archivos/image171.gif"></p>
+
+<p class=MsoNormal>Con la regla de Cramer se tienen los siguientes casos: </p>
+
+<p class=MsoNormal><img width=553 height=387 id=Imagen173
+src="index_archivos/image172.gif"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><img width=604 height=423
+id=Imagen174 src="index_archivos/image173.gif"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><img width=510 height=447
+id=Imagen175 src="index_archivos/image174.gif"></p>
+
+<p class=MsoNormal><img width=546 height=870 id=Imagen176
+src="index_archivos/image175.gif"></p>
+
+<p class=MsoNormal><img width=665 height=462 id=Imagen177
+src="index_archivos/image176.gif"></p>
+
+<h3 style='margin-top:5.0pt;margin-right:0cm;margin-bottom:12.0pt;margin-left:
+21.3pt'>7.<span style='font:7.0pt "Times New Roman"'> </span>BibliografÌa </h3>
+
+<p class=MsoNormal>Arzamendi, P. Sergio Roberto. <i>Cuaderno de ejercicios de
+·lgebra.</i></p>
+
+<p class=MsoNormal>LeÛn C·rdenas, Javier. <i>¡lgebra.</i></p>
+
+<p class=MsoNormal>Lehmann, Charles H. <i>¡lgebra.</i></p>
+
+<p class=MsoNormal>Solar G., Eduardo, y Speziale de G., Leda. <i>¡lgebra I.</i></p>
+
+<p class=MsoNormal>Vel·zquez T., Juan. <i>FascÌculo de inducciÛn matem·tica.</i></p>
+
 </div>
-
-
-<!-- ‚ïê‚ïê‚ïê‚ïê FOOTER ‚ïê‚ïê‚ïê‚ïê -->
-<footer>
-  <div class="foot-l">
-    Ingenier√≠a Mecatr√≥nica ¬∑ UNAM Facultad de Ingenier√≠a ¬∑ DIMEI<br>
-    Plan de Estudios 2016 ‚Äî Prontuario personal ¬∑ Wilbert83
-  </div>
-  <div class="foot-r">
-    <a href="../../index.html">√çndice</a>
-    <a href="https://github.com/Wilbert83/INGENIERIA-MECATRONICA" target="_blank">GitHub</a>
-    <a href="https://fi.unam.mx" target="_blank">FI UNAM</a>
-  </div>
-</footer>
-
-
-<script>
-const MOON = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>`;
-const SUN  = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`;
-
-const themeBtn = document.getElementById('themeBtn');
-
-function syncThemeBtn() {
-  const dark = document.documentElement.dataset.theme !== 'light';
-  themeBtn.innerHTML = dark ? MOON : SUN;
-  themeBtn.title = dark ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro';
-}
-themeBtn.addEventListener('click', () => {
-  const next = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
-  document.documentElement.dataset.theme = next;
-  localStorage.setItem('theme', next);
-  syncThemeBtn();
-});
-
-/* TOC: resalta el √≠tem activo al hacer scroll */
-const tocLinks = document.querySelectorAll('.toc-list a');
-const sections = document.querySelectorAll('[id^="tema-"]');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      tocLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
-    }
-  });
-}, { rootMargin: '-20% 0px -70% 0px' });
-sections.forEach(s => observer.observe(s));
-
-/* Restaurar acento del index (por si el usuario tiene uno fijo) */
-const fixedAccent = localStorage.getItem('accentFixed');
-if (fixedAccent) document.documentElement.dataset.accent = fixedAccent;
-
-syncThemeBtn();
-requestAnimationFrame(() => requestAnimationFrame(() => {
-  document.documentElement.setAttribute('data-ready', '');
-}));
-</script>
 
 </body>
+
 </html>
