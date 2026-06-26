@@ -1,233 +1,501 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="es" data-theme="dark" data-accent="cyan">
 <head>
-<meta http-equiv=Content-Type content="text/html; charset=charset=utf-8">
-<meta name=Generator content="Microsoft Word 15 (filtered)">
-<style>
-<!--
- /* Font Definitions */
- @font-face
-	{font-family:Wingdings;
-	panose-1:5 0 0 0 0 0 0 0 0 0;}
-@font-face
-	{font-family:"Cambria Math";
-	panose-1:2 4 5 3 5 4 6 3 2 4;}
-@font-face
-	{font-family:Calibri;
-	panose-1:2 15 5 2 2 2 4 3 2 4;}
-@font-face
-	{font-family:"Calibri Light";
-	panose-1:2 15 3 2 2 2 4 3 2 4;}
-@font-face
-	{font-family:Tahoma;
-	panose-1:2 11 6 4 3 5 4 4 2 4;}
-@font-face
-	{font-family:Georgia;
-	panose-1:2 4 5 2 5 4 5 2 3 3;}
-@font-face
-	{font-family:OpenSymbol;
-	panose-1:5 1 0 0 0 0 0 0 0 0;}
-@font-face
-	{font-family:"Lucida Sans";
-	panose-1:2 11 6 2 3 5 4 2 2 4;}
-@font-face
-	{font-family:"Liberation Sans";
-	panose-1:2 11 6 4 2 2 2 2 2 4;}
-@font-face
-	{font-family:"Microsoft YaHei";
-	panose-1:2 11 5 3 2 2 4 2 2 4;}
-@font-face
-	{font-family:"Liberation Mono";
-	panose-1:2 7 4 9 2 2 5 2 4 4;}
- /* Style Definitions */
- p.MsoNormal, li.MsoNormal, div.MsoNormal
-	{margin-top:0cm;
-	margin-right:0cm;
-	margin-bottom:6.0pt;
-	margin-left:0cm;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Calibri",sans-serif;}
-h2
-	{mso-style-link:"Título 2 Car";
-	margin-top:12.0pt;
-	margin-right:0cm;
-	margin-bottom:0cm;
-	margin-left:0cm;
-	line-height:115%;
-	font-size:26.0pt;
-	font-family:"Times New Roman",serif;
-	color:#3494BA;
-	text-transform:uppercase;
-	letter-spacing:.5pt;
-	font-weight:normal;}
-h3
-	{mso-style-link:"Título 3 Car";
-	margin-top:0cm;
-	margin-right:0cm;
-	margin-bottom:0cm;
-	margin-left:18.0pt;
-	text-indent:-18.0pt;
-	background:#3494BA;
-	font-size:11.0pt;
-	font-family:"Arial",sans-serif;
-	color:white;
-	text-transform:uppercase;
-	letter-spacing:.75pt;
-	font-weight:normal;}
-h4
-	{mso-style-link:"Título 4 Car";
-	margin-top:0cm;
-	margin-right:0cm;
-	margin-bottom:0cm;
-	margin-left:29.2pt;
-	text-indent:-17.85pt;
-	background:#D4EAF3;
-	font-size:11.0pt;
-	font-family:"Arial",sans-serif;
-	text-transform:uppercase;
-	letter-spacing:.75pt;
-	font-weight:normal;}
-h5
-	{mso-style-link:"Título 5 Car";
-	margin-top:6.0pt;
-	margin-right:0cm;
-	margin-bottom:6.0pt;
-	margin-left:0cm;
-	line-height:107%;
-	page-break-after:avoid;
-	font-size:11.0pt;
-	font-family:"Calibri Light",sans-serif;
-	color:#459EC4;
-	text-transform:uppercase;
-	font-weight:bold;}
-h6
-	{mso-style-link:"Título 6 Car";
-	margin-top:2.0pt;
-	margin-right:0cm;
-	margin-bottom:0cm;
-	margin-left:0cm;
-	line-height:107%;
-	page-break-after:avoid;
-	font-size:11.0pt;
-	font-family:"Calibri Light",sans-serif;
-	color:#459EC4;
-	font-weight:normal;}
-em
-	{font-family:"Arial",sans-serif;
-	color:#1A495C;
-	text-transform:uppercase;
-	letter-spacing:.25pt;
-	font-weight:bold;
-	font-style:normal;}
-p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
-	{margin-top:0cm;
-	margin-right:0cm;
-	margin-bottom:6.0pt;
-	margin-left:36.0pt;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Calibri",sans-serif;}
-p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
-	{margin-top:0cm;
-	margin-right:0cm;
-	margin-bottom:0cm;
-	margin-left:36.0pt;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Calibri",sans-serif;}
-p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
-	{margin-top:0cm;
-	margin-right:0cm;
-	margin-bottom:0cm;
-	margin-left:36.0pt;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Calibri",sans-serif;}
-p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
-	{margin-top:0cm;
-	margin-right:0cm;
-	margin-bottom:6.0pt;
-	margin-left:36.0pt;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Calibri",sans-serif;}
-p.MsoIntenseQuote, li.MsoIntenseQuote, div.MsoIntenseQuote
-	{mso-style-link:"Cita destacada Car";
-	margin-top:18.0pt;
-	margin-right:43.2pt;
-	margin-bottom:18.0pt;
-	margin-left:43.2pt;
-	text-align:center;
-	line-height:107%;
-	border:none;
-	padding:0cm;
-	font-size:11.0pt;
-	font-family:"Calibri",sans-serif;
-	color:#459EC4;
-	font-style:italic;}
-span.MsoSubtleEmphasis
-	{font-family:"Arial",sans-serif;
-	color:#1A495C;
-	font-style:italic;}
-span.Ttulo2Car
-	{mso-style-name:"Título 2 Car";
-	mso-style-link:"Título 2";
-	font-family:"Times New Roman",serif;
-	color:#3494BA;
-	text-transform:uppercase;
-	letter-spacing:.5pt;}
-span.Ttulo3Car
-	{mso-style-name:"Título 3 Car";
-	mso-style-link:"Título 3";
-	font-family:"Arial",sans-serif;
-	color:white;
-	text-transform:uppercase;
-	letter-spacing:.75pt;
-	background:#3494BA;}
-span.Ttulo4Car
-	{mso-style-name:"Título 4 Car";
-	mso-style-link:"Título 4";
-	font-family:"Arial",sans-serif;
-	text-transform:uppercase;
-	letter-spacing:.75pt;
-	background:#D4EAF3;}
-span.Ttulo5Car
-	{mso-style-name:"Título 5 Car";
-	mso-style-link:"Título 5";
-	font-family:"Calibri Light",sans-serif;
-	color:#459EC4;
-	text-transform:uppercase;
-	font-weight:bold;}
-span.Ttulo6Car
-	{mso-style-name:"Título 6 Car";
-	mso-style-link:"Título 6";
-	font-family:"Calibri Light",sans-serif;
-	color:#459EC4;}
-span.CitadestacadaCar
-	{mso-style-name:"Cita destacada Car";
-	mso-style-link:"Cita destacada";
-	color:#459EC4;
-	font-style:italic;}
-.MsoChpDefault
-	{font-family:"Calibri",sans-serif;}
- /* Page Definitions */
- @page WordSection1
-	{size:612.0pt 792.0pt;
-	margin:2.0cm 2.0cm 2.0cm 2.0cm;}
-div.WordSection1
-	{page:WordSection1;}
- /* List Definitions */
- ol
-	{margin-bottom:0cm;}
-ul
-	{margin-bottom:0cm;}
--->
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- ══════════════════════════════════════════════════
+    ✏️  CAMBIA ESTOS 4 DATOS para cada materia:
+  ══════════════════════════════════════════════════ -->
+  <title>Álgebra · Prontuario Mecatrónica · UNAM FI</title>
+  <meta name="SEMESTRE"  content="Primer Semestre">
+  <meta name="MATERIA"   content="Álgebra">
+  <meta name="CLAVE"     content="1120">
+  <meta name="CREDITOS"  content="8">
+  <!-- ══════════════════════════════════════════════════ -->
+
+  <link rel="icon" type="image/png" href="../../favicon.png">
+
+  <!-- Preloader de tema — SINCRONO, evita flash de colores -->
+  <script>
+    (function(){
+      var h = document.documentElement;
+      h.dataset.theme = localStorage.getItem('theme') || 'dark';
+      var f = localStorage.getItem('accentFixed');
+      if (f) h.dataset.accent = f;
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+  /* ══════════════════════════════════════════════════
+     RESET + sin transiciones en el primer render
+  ══════════════════════════════════════════════════ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html:not([data-ready]) *, html:not([data-ready]) *::before,
+  html:not([data-ready]) *::after { transition: none !important; }
+
+  /* ══════════════════════════════════════════════════
+     DESIGN TOKENS
+  ══════════════════════════════════════════════════ */
+  :root {
+    --p:   #38BDF8;
+    --p-d: rgba(56,189,248,0.09);
+    --p-g: rgba(56,189,248,0.22);
+    --bg:      #07090F;
+    --surface: #0D1322;
+    --card:    #101726;
+    --border:  rgba(255,255,255,0.08);
+    --b-hover: rgba(255,255,255,0.22);
+    --text:    #E2E8F0;
+    --text-d:  #94A3B8;
+    --text-m:  #4B5563;
+    --shadow:  rgba(0,0,0,0.5);
+    --green:   #34D399;
+    --orange:  #FB923C;
+    --mono: 'JetBrains Mono', monospace;
+    --disp: 'Space Grotesk', sans-serif;
+    --body: 'Inter', sans-serif;
+    /* Colores de headings Word en modo OSCURO */
+    --wh3-bg:   #0F2D3D;
+    --wh3-fg:   #7DD3FC;
+    --wh4-bg:   #0A2030;
+    --wh4-fg:   #94A3B8;
+  }
+
+  /* ── Todos los acentos ── */
+  [data-accent="cyan"]      { --p:#38BDF8; --p-d:rgba(56,189,248,.09);  --p-g:rgba(56,189,248,.22); }
+  [data-accent="celeste"]   { --p:#7DD3FC; --p-d:rgba(125,211,252,.09); --p-g:rgba(125,211,252,.22); }
+  [data-accent="azul"]      { --p:#60A5FA; --p-d:rgba(96,165,250,.09);  --p-g:rgba(96,165,250,.22); }
+  [data-accent="indigo"]    { --p:#818CF8; --p-d:rgba(129,140,248,.09); --p-g:rgba(129,140,248,.22); }
+  [data-accent="violeta"]   { --p:#A78BFA; --p-d:rgba(167,139,250,.09); --p-g:rgba(167,139,250,.22); }
+  [data-accent="purpura"]   { --p:#C084FC; --p-d:rgba(192,132,252,.09); --p-g:rgba(192,132,252,.22); }
+  [data-accent="fuchsia"]   { --p:#E879F9; --p-d:rgba(232,121,249,.09); --p-g:rgba(232,121,249,.22); }
+  [data-accent="rosa"]      { --p:#F472B6; --p-d:rgba(244,114,182,.09); --p-g:rgba(244,114,182,.22); }
+  [data-accent="rojo"]      { --p:#F87171; --p-d:rgba(248,113,113,.09); --p-g:rgba(248,113,113,.22); }
+  [data-accent="coral"]     { --p:#FF7F6B; --p-d:rgba(255,127,107,.09); --p-g:rgba(255,127,107,.22); }
+  [data-accent="naranja"]   { --p:#FB923C; --p-d:rgba(251,146,60,.09);  --p-g:rgba(251,146,60,.22); }
+  [data-accent="amarillo"]  { --p:#FBBF24; --p-d:rgba(251,191,36,.09);  --p-g:rgba(251,191,36,.22); }
+  [data-accent="lima"]      { --p:#A3E635; --p-d:rgba(163,230,53,.09);  --p-g:rgba(163,230,53,.22); }
+  [data-accent="esmeralda"] { --p:#10B981; --p-d:rgba(16,185,129,.09);  --p-g:rgba(16,185,129,.22); }
+  [data-accent="verde"]     { --p:#34D399; --p-d:rgba(52,211,153,.09);  --p-g:rgba(52,211,153,.22); }
+  [data-accent="blanco"]    { --p:#CBD5E1; --p-d:rgba(203,213,225,.09); --p-g:rgba(203,213,225,.22); }
+
+  /* ── Light theme ── */
+  [data-theme="light"] {
+    --bg:      #EDF2F8;
+    --surface: #FFFFFF;
+    --card:    #F8FAFC;
+    --border:  rgba(15,23,42,0.11);
+    --b-hover: rgba(15,23,42,0.32);
+    --text:    #0F172A;
+    --text-d:  #334155;
+    --text-m:  #64748B;
+    --shadow:  rgba(15,23,42,0.10);
+    /* Headings de Word en modo CLARO — respeta colores originales */
+    --wh3-bg:  #3494BA;
+    --wh3-fg:  #FFFFFF;
+    --wh4-bg:  #D4EAF3;
+    --wh4-fg:  #0F172A;
+  }
+  [data-theme="light"] body {
+    background-image: radial-gradient(circle, rgba(15,23,42,0.06) 1px, transparent 1px);
+  }
+
+  /* ══════════════════════════════════════════════════
+     BASE
+  ══════════════════════════════════════════════════ */
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--body);
+    min-height: 100vh;
+    transition: background-color 0.3s, color 0.3s;
+    background-image: radial-gradient(circle, var(--p-d) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  /* ══════════════════════════════════════════════════
+     HEADER
+  ══════════════════════════════════════════════════ */
+  header {
+    position: sticky; top: 0; z-index: 300;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px; height: 56px;
+    display: flex; align-items: center; gap: 10px;
+    transition: background 0.3s, border-color 0.3s;
+  }
+  .hdr-brand {
+    display: flex; align-items: center; gap: 9px;
+    text-decoration: none; flex-shrink: 0;
+  }
+  .hdr-logo { width: 32px; height: 32px; border-radius: 6px; overflow: hidden; }
+  .hdr-logo img { width: 100%; height: 100%; object-fit: cover; }
+  .hdr-name { font-family: var(--disp); font-size: 13px; font-weight: 600; color: var(--text); line-height: 1.2; transition: color 0.3s; }
+  .hdr-sub  { font-family: var(--mono); font-size: 9px; color: var(--text-m); letter-spacing: .06em; transition: color 0.3s; }
+  .hdr-spacer { flex: 1; }
+  .hdr-controls { display: flex; align-items: center; gap: 8px; }
+  .back-btn {
+    display: flex; align-items: center; gap: 5px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 7px; padding: 5px 10px;
+    color: var(--text-d); font-family: var(--mono); font-size: 11px;
+    text-decoration: none; flex-shrink: 0;
+    transition: border-color 0.2s, color 0.2s, background 0.3s;
+  }
+  .back-btn:hover { border-color: var(--p); color: var(--p); }
+  .theme-btn {
+    width: 30px; height: 30px; border-radius: 7px;
+    background: var(--surface); border: 1px solid var(--border);
+    color: var(--text-d); cursor: pointer;
+    display: grid; place-items: center;
+    transition: border-color 0.2s, color 0.2s, background 0.3s;
+  }
+  .theme-btn:hover { border-color: var(--p); color: var(--p); }
+
+  /* ══════════════════════════════════════════════════
+     HERO (generado por JS con los <meta>)
+  ══════════════════════════════════════════════════ */
+  .subject-hero {
+    max-width: 1140px; margin: 0 auto;
+    padding: 28px 32px 22px;
+    border-bottom: 1px solid var(--border);
+    transition: border-color 0.3s;
+  }
+  .sem-tag {
+    display: inline-block; font-family: var(--mono); font-size: 10px;
+    letter-spacing: .15em; color: var(--p); text-transform: uppercase;
+    border: 1px solid var(--p-g); border-radius: 4px;
+    padding: 3px 8px; margin-bottom: 10px;
+    transition: color 0.3s, border-color 0.3s;
+  }
+  .subject-hero h1 {
+    font-family: var(--disp); font-size: clamp(26px,4vw,46px);
+    font-weight: 700; letter-spacing: -.025em; line-height: 1.05;
+    margin-bottom: 6px; color: var(--text);
+    transition: color 0.3s;
+  }
+  .subject-hero .clave {
+    font-family: var(--mono); font-size: 11px; color: var(--text-m);
+    margin-bottom: 12px; transition: color 0.3s;
+  }
+  .subject-hero .obj {
+    font-size: 13.5px; color: var(--text-d); line-height: 1.75;
+    max-width: 800px; transition: color 0.3s;
+  }
+
+  /* ══════════════════════════════════════════════════
+     PAGE LAYOUT
+  ══════════════════════════════════════════════════ */
+  .page-wrap {
+    max-width: 1140px; margin: 0 auto;
+    display: grid; grid-template-columns: 230px 1fr;
+    align-items: start;
+  }
+  @media (max-width: 800px) {
+    .page-wrap { grid-template-columns: 1fr; }
+    .sidebar   { display: none; }
+  }
+
+  /* ══════════════════════════════════════════════════
+     SIDEBAR / TOC
+  ══════════════════════════════════════════════════ */
+  .sidebar {
+    position: sticky; top: 56px;
+    height: calc(100vh - 56px);
+    overflow-y: auto; overflow-x: hidden;
+    border-right: 1px solid var(--border);
+    background: var(--surface);
+    transition: background 0.3s, border-color 0.3s;
+  }
+  .sidebar::-webkit-scrollbar { width: 3px; }
+  .sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+  .toc-title {
+    font-family: var(--mono); font-size: 9px; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--text-m);
+    padding: 16px 16px 10px;
+    border-bottom: 1px solid var(--border);
+    transition: color 0.3s, border-color 0.3s;
+  }
+  .toc-list { list-style: none; padding: 6px 0; }
+  .toc-item a {
+    display: block; padding: 4px 14px;
+    font-size: 12px; color: var(--text-d); text-decoration: none;
+    border-left: 2px solid transparent;
+    line-height: 1.4; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    transition: background .12s, color .12s, border-color .12s;
+  }
+  .toc-item a:hover { color: var(--p); background: var(--p-d); }
+  .toc-item.active > a {
+    color: var(--p) !important;
+    background: var(--p-d);
+    border-left-color: var(--p);
+  }
+  .toc-item[data-level="3"] > a { font-weight: 600; font-size: 12px; padding-left: 14px; }
+  .toc-item[data-level="4"] > a { font-size: 11.5px; padding-left: 26px; }
+  .toc-item[data-level="5"] > a { font-size: 11px; padding-left: 38px; color: var(--text-m); }
+
+  /* ══════════════════════════════════════════════════
+     CONTENT AREA
+  ══════════════════════════════════════════════════ */
+  .content-area {
+    padding: 32px 44px 80px;
+    min-width: 0;
+  }
+  @media (max-width: 600px) {
+    .content-area { padding: 20px 16px 60px; }
+  }
+
+  /* ══════════════════════════════════════════════════
+     WORD CONTENT — estilos para lo que pegas del .htm
+  ══════════════════════════════════════════════════ */
+  #word-content {
+    max-width: 700px;             /* ancho "hoja de Word" */
+    font-family: 'Inter', Calibri, Arial, sans-serif;
+    font-size: 13.5px;
+    line-height: 1.72;
+    color: var(--text-d);
+    transition: color 0.3s;
+  }
+
+  /* Párrafos genéricos de Word */
+  #word-content p,
+  #word-content .MsoNormal,
+  #word-content [class*="Mso"]:not(h2):not(h3):not(h4):not(h5):not(h6) {
+    margin-bottom: 9px;
+    line-height: 1.72;
+    font-size: 13.5px;
+    color: var(--text-d);
+    transition: color 0.3s;
+  }
+
+  /* h2 — título de la materia (se ocultará del body, ya está en el hero) */
+  #word-content h2 { display: none; }
+
+  /* h3 — tema principal: "1. Trigonometría" */
+  #word-content h3 {
+    font-family: var(--disp);
+    font-size: 14.5px;
+    font-weight: 700;
+    background: var(--wh3-bg);
+    color: var(--wh3-fg) !important;
+    padding: 7px 14px;
+    margin: 32px 0 0;
+    border-radius: 6px 6px 0 0;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    text-indent: 0 !important;
+    scroll-margin-top: 68px;
+    transition: background 0.3s, color 0.3s;
+  }
+  #word-content h3:first-child { margin-top: 0; }
+
+  /* h4 — subtema: "1.1 Definición de…" */
+  #word-content h4 {
+    font-family: var(--disp);
+    font-size: 13px;
+    font-weight: 600;
+    background: var(--wh4-bg);
+    color: var(--wh4-fg) !important;
+    padding: 5px 14px 5px 24px;
+    margin: 2px 0 0;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    text-indent: 0 !important;
+    scroll-margin-top: 68px;
+    transition: background 0.3s, color 0.3s;
+  }
+  /* Si h4 viene directo tras h3, no hay gap */
+  #word-content h3 + h4 { margin-top: 2px; border-radius: 0; }
+  #word-content h4 + h4 { margin-top: 2px; }
+  /* Último h4 de un bloque → esquina inferior redondeada */
+  #word-content h4:not(:has(+ h4)) { border-radius: 0 0 4px 4px; margin-bottom: 12px; }
+
+  /* h5 — subtítulo de sección: "TRIGONOMETRÍA" */
+  #word-content h5 {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--p);
+    text-transform: uppercase;
+    letter-spacing: .13em;
+    margin: 18px 0 6px;
+    padding-bottom: 3px;
+    border-bottom: 1px solid var(--border);
+    scroll-margin-top: 68px;
+    transition: color 0.3s, border-color 0.3s;
+  }
+
+  /* h6 — tercer nivel */
+  #word-content h6 {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    font-weight: 500;
+    color: var(--text-m);
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    margin: 12px 0 5px;
+    scroll-margin-top: 68px;
+    transition: color 0.3s;
+  }
+
+  /* Términos destacados (bold+italic+azul de Word → acento del tema) */
+  #word-content b i,
+  #word-content i b { color: var(--p); transition: color 0.3s; }
+  #word-content b    { color: var(--text); transition: color 0.3s; }
+  #word-content em   { color: var(--p); font-style: normal; transition: color 0.3s; }
+  #word-content .MsoSubtleEmphasis { color: var(--text-d); font-style: italic; transition: color 0.3s; }
+
+  /* Imágenes */
+  #word-content img {
+    max-width: 100% !important;
+    height: auto !important;
+    display: block;
+    margin: 12px auto;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    transition: border-color 0.3s;
+  }
+
+  /* Listas de Word */
+  #word-content .MsoListParagraph,
+  #word-content .MsoListParagraphCxSpFirst,
+  #word-content .MsoListParagraphCxSpMiddle,
+  #word-content .MsoListParagraphCxSpLast {
+    padding-left: 8px;
+    margin-left: 18px;
+    margin-bottom: 4px;
+    list-style: disc;
+    font-size: 13.5px;
+    color: var(--text-d);
+    transition: color 0.3s;
+  }
+  #word-content ul, #word-content ol {
+    padding-left: 22px; margin-bottom: 10px;
+  }
+  #word-content li { margin-bottom: 3px; }
+
+  /* Citas destacadas (Pitágoras, etc.) */
+  #word-content .MsoIntenseQuote,
+  #word-content [class*="IntenseQuote"] {
+    background: var(--card);
+    border-left: 3px solid var(--p);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    border-right: none;
+    border-radius: 0 6px 6px 0;
+    padding: 12px 18px;
+    margin: 16px 0;
+    font-style: italic;
+    color: var(--p);
+    transition: background 0.3s, color 0.3s, border-color 0.3s;
+  }
+
+  /* divs con borde de Word (teoremas, etc.) */
+  #word-content div[style*="border-top:solid"],
+  #word-content div[style*="border-top: solid"],
+  #word-content div[style*="border:solid"],
+  #word-content div[style*="border: solid"] {
+    background: var(--card) !important;
+    border: 1px solid var(--border) !important;
+    border-left: 3px solid var(--p) !important;
+    border-radius: 0 6px 6px 0;
+    padding: 12px 18px !important;
+    margin: 16px 0;
+    transition: background 0.3s, border-color 0.3s;
+  }
+
+  /* Tablas */
+  #word-content table {
+    width: 100%; border-collapse: collapse;
+    margin: 14px 0; font-size: 13px;
+    color: var(--text-d); transition: color 0.3s;
+  }
+  #word-content th {
+    background: var(--surface); border: 1px solid var(--border);
+    padding: 7px 10px; font-family: var(--mono); font-size: 10px;
+    color: var(--text-m); text-align: left; letter-spacing: .05em;
+    transition: background 0.3s, border-color 0.3s, color 0.3s;
+  }
+  #word-content td {
+    border: 1px solid var(--border); padding: 7px 10px;
+    transition: border-color 0.3s;
+  }
+  #word-content tr:hover td { background: var(--p-d); }
+
+  /* Wrapper de Word */
+  .WordSection1 { all: unset; display: block; }
+
+  /* ══════════════════════════════════════════════════
+     FOOTER
+  ══════════════════════════════════════════════════ */
+  footer {
+    border-top: 1px solid var(--border); padding: 18px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 10px;
+    transition: border-color 0.3s;
+  }
+  .foot-l { font-family: var(--mono); font-size: 10.5px; color: var(--text-m); line-height: 1.7; transition: color 0.3s; }
+  .foot-r { display: flex; gap: 16px; }
+  .foot-r a { font-family: var(--mono); font-size: 10.5px; color: var(--text-m); text-decoration: none; transition: color .2s; }
+  .foot-r a:hover { color: var(--p); }
+  </style>
 </head>
 
-<body lang=ES-MX link="#0563C1" vlink=purple style='word-wrap:break-word'>
+<body>
+
+<!-- ══════════════════════════════════
+     HEADER
+══════════════════════════════════ -->
+<header>
+  <a class="hdr-brand" href="../../index.html">
+    <div class="hdr-logo">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAArCAYAAAA65tviAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANNSURBVGhD7ZltaBt1HMc/17vLXV3KrQ9pVtuEmc6OLvSFCg0M36iVjWy+s9W5WmWI4liniDOvxGdQhMKYFAQpIqLDVwq2IPSN+Cp94UTZhmFRTFp1TbULpVsvueR81TL/tLkt3nLpzAfuzff35eDDPXDcT9KaDZvbAOlGRXyBHjoOHcMYHELr7kWSFbHiKnbJwlxIk5+bZWl6ikJuXqz8ixsSaT8wSuj4e+RmPiGfnMHMpLCtolhzFUlR0cJ9GLE4gfgY2ckEf33zqVjbwFGk/cAowZEXyJx5ibVfzovjmqBHooTHJ7j8xektZSqK+AI97PsoyaXXHvdMYh09EmXPG2e58Exs09tMVlT9dTFcJzjyIld/vUD+uy/FUc2xlnNIup87IgOs/PCtOKZJDK7HGBwin5wRY8/IJ2cwBofEGJxEtO5ezExKjD3DzKTQunvFGJxEJFm55W+nm8G2ilu+9iuKbCcaIvVGQ6TeaIhshtoWpO3ho7QffGrjaH1gBLnZvzFrue9BACTVh7H/0Mb8v+KqiK9rN4FHjhEcPsGdTyYIPnqcQHwMuaUVLbyXXcPjdB15GbW1E61nD12jCYLDJ1B2doinumlcFVk9n+Tnkw/x5+cTlAsmmQ9OkTp1mMJiFoBy0USSZZr33kvLwP3YBRO7WBBPUxWuijhhW0XWsin8/TF27BtkNfW9WKmamoo0aTrmHxlaBvajtgWx/l6kSWsWa1VRUxGQWJtPYa1eoZCbp7i8KBaqpsYiYK0sk371MX57/3nskiWOq6bmIrcKV0UkVcMXDCP7d4IEitGBrzOEJMti1XVcFdkRjXH3u1+xa+QkTT6d0HPv0PvmWXydIbHqOhV/Ptzz9WV+eqJfjD1l4LOLnDscFGN3r4iXNETqjYZIvfH/ELFLFpKiirFnSIq65WdNRRFzIY0W7hNjz9DCfZgLaTEGJ5H83CxGLC7GnmHE4uTnZsUYnESWpqcIxMfQI1FxVHP0SJRAfIyl6SlxBE4ihdw82ckE4fEJT2XWFz3ZycSmuxGc9iMA19I/UjavcdcrHyLpfkpX85RWrkC5LFZdRVJU9N39tB98mtCzb/H7x29vua3C6aPxem6LZeh2oOIzsp1oiNQb/wC/2QLl/sw38AAAAABJRU5ErkJggg==" alt="IM">
+    </div>
+    <div>
+      <div class="hdr-name">Prontuario Mecatrónica</div>
+      <div class="hdr-sub">UNAM · FI · DIMEI · Plan 2016</div>
+    </div>
+  </a>
+
+  <div class="hdr-spacer"></div>
+
+  <div class="hdr-controls">
+    <a class="back-btn" href="../../index.html">← Índice</a>
+    <button class="theme-btn" id="themeBtn" title="Cambiar tema"></button>
+  </div>
+</header>
+
+
+<!-- ══════════════════════════════════
+     HERO — generado por JS
+══════════════════════════════════ -->
+<div class="subject-hero" id="subjectHero"></div>
+
+
+<!-- ══════════════════════════════════
+     LAYOUT
+══════════════════════════════════ -->
+<div class="page-wrap">
+
+  <aside class="sidebar" id="sidebar">
+    <div class="toc-title">Contenido</div>
+    <ul class="toc-list" id="tocList"></ul>
+  </aside>
+
+  <div class="content-area">
+
+    <!-- ▼▼▼ PEGA AQUÍ el contenido del <body> del .htm de Word ▼▼▼
+         Solo lo de adentro del <body>...</body>, nada del <head>.
+         Puedes pegar el <div class="WordSection1">...</div> completo.  -->
+    <div id="word-content">
 
 <div class=WordSection1>
 
@@ -1932,6 +2200,244 @@ src="index_archivos/image176.gif"></p>
 
 </div>
 
-</body>
 
+    </div>
+    <!-- ▲▲▲ FIN DEL CONTENIDO DE WORD ▲▲▲ -->
+
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════
+     FOOTER
+══════════════════════════════════ -->
+<footer>
+  <div class="foot-l">
+    Ingeniería Mecatrónica · UNAM Facultad de Ingeniería · DIMEI<br>
+    Plan de Estudios 2016 — Prontuario personal · Wilbert83
+  </div>
+  <div class="foot-r">
+    <a href="../../index.html">Índice</a>
+    <a href="https://github.com/Wilbert83/INGENIERIA-MECATRONICA" target="_blank">GitHub</a>
+    <a href="https://fi.unam.mx" target="_blank">FI UNAM</a>
+  </div>
+</footer>
+
+
+<!-- ══════════════════════════════════
+     SCRIPTS
+══════════════════════════════════ -->
+<script>
+'use strict';
+
+/* ── Iconos ── */
+const MOON = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>`;
+const SUN  = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`;
+
+/* ── Tema oscuro/claro ── */
+const themeBtn = document.getElementById('themeBtn');
+function syncThemeBtn() {
+  const dark = document.documentElement.dataset.theme !== 'light';
+  themeBtn.innerHTML = dark ? MOON : SUN;
+  themeBtn.title = dark ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro';
+}
+themeBtn.addEventListener('click', () => {
+  const next = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+  document.documentElement.dataset.theme = next;
+  localStorage.setItem('theme', next);
+  syncThemeBtn();
+});
+
+/* ── Acento: sincronizar con el color guardado del índice ── */
+const savedAccent = localStorage.getItem('accentFixed');
+if (savedAccent) document.documentElement.dataset.accent = savedAccent;
+
+/* ══════════════════════════════════════════════════
+   HERO — lee los <meta> y rellena el bloque superior
+══════════════════════════════════════════════════ */
+function getMeta(name) {
+  const el = document.querySelector(`meta[name="${name}"]`);
+  return el ? el.content.trim() : '';
+}
+function buildHero() {
+  const sem      = getMeta('SEMESTRE');
+  const materia  = getMeta('MATERIA');
+  const clave    = getMeta('CLAVE');
+  const creditos = getMeta('CREDITOS');
+
+  /* Extraer objetivo: busca el primer párrafo largo tras el h2 */
+  const wc = document.getElementById('word-content');
+  let obj = '';
+  if (wc) {
+    const paras = wc.querySelectorAll('p.MsoNormal, p');
+    for (const p of paras) {
+      const t = p.textContent.trim();
+      /* Párrafo del objetivo: largo, empieza con "El alumno…" o similar */
+      if (t.length > 50 && !/^objetivo/i.test(t)) { obj = t; break; }
+    }
+  }
+
+  document.getElementById('subjectHero').innerHTML =
+    (sem ? `<div class="sem-tag">${sem}</div>` : '') +
+    `<h1>${materia || 'Materia'}</h1>` +
+    `<div class="clave">Clave: ${clave} · ${creditos} créditos</div>` +
+    (obj ? `<p class="obj">${obj}</p>` : '');
+}
+
+/* ══════════════════════════════════════════════════
+   CLEAN — elimina estilos inline de Word que rompen
+   el cambio de tema oscuro ↔ claro
+══════════════════════════════════════════════════ */
+function cleanWordStyles() {
+  const wc = document.getElementById('word-content');
+  if (!wc) return;
+
+  /* Colores azules de Word que deben heredar del CSS */
+  const WORD_BLUES = ['#459ec4','#3494ba','#1a495c','rgb(69,158,196)','rgb(52,148,186)','rgb(26,73,92)'];
+  const isWordBlue = (v) => v && WORD_BLUES.some(b => v.toLowerCase().replace(/\s/g,'').includes(b));
+
+  /* Recorre todos los elementos */
+  wc.querySelectorAll('*').forEach(el => {
+    const s = el.style;
+    if (!s) return;
+
+    /* Quitar colores fijos que Word puso en headings */
+    if (['H2','H3','H4','H5','H6'].includes(el.tagName)) {
+      el.removeAttribute('style');
+      return;
+    }
+
+    /* En spans: quitar color si es el azul de Word */
+    if (isWordBlue(s.color)) s.removeProperty('color');
+
+    /* Quitar backgrounds que ocultan texto en modo oscuro */
+    const bg = (s.background || '') + (s.backgroundColor || '');
+    if (bg.toLowerCase().includes('#3494ba') ||
+        bg.toLowerCase().includes('#d4eaf3') ||
+        bg.toLowerCase().includes('white')   ||
+        bg.toLowerCase().includes('#ffffff')) {
+      s.removeProperty('background');
+      s.removeProperty('background-color');
+    }
+
+    /* Quitar color:white que oculta texto en modo claro */
+    if ((s.color || '').toLowerCase() === 'white' ||
+        (s.color || '').toLowerCase() === '#ffffff') {
+      s.removeProperty('color');
+    }
+
+    /* Limpiar font:7.0pt (espaciadores de Word) */
+    if ((s.fontSize || '') === '7pt' || (s.fontSize || '') === '7.0pt') {
+      el.textContent = el.textContent.replace(/\s+/g, ' ');
+    }
+  });
+
+  /* Sanear sangría/text-indent en h3 y h4 */
+  wc.querySelectorAll('h3, h4').forEach(h => {
+    h.style.removeProperty('text-indent');
+    h.style.removeProperty('margin-left');
+    h.style.removeProperty('margin-top');
+    h.style.removeProperty('margin-bottom');
+    /* Eliminar spans de espaciado 7pt de Word */
+    h.querySelectorAll('span').forEach(s => {
+      if ((s.style.fontSize || '').includes('7')) {
+        s.replaceWith(document.createTextNode(' '));
+      }
+    });
+  });
+
+  /* Reemplazar caracteres Wingdings de viñetas por bullet normal */
+  wc.querySelectorAll('span[style*="Wingdings"], span[style*="wingdings"]').forEach(s => {
+    s.textContent = '•';
+    s.removeAttribute('style');
+  });
+
+  /* Imágenes: quitar width/height inline para que el CSS controle el tamaño */
+  wc.querySelectorAll('img').forEach(img => {
+    img.removeAttribute('width');
+    img.removeAttribute('height');
+    img.removeAttribute('id');
+  });
+}
+
+/* ══════════════════════════════════════════════════
+   TOC — genera la tabla de contenidos automáticamente
+   leyendo los h3 / h4 / h5 del contenido de Word
+══════════════════════════════════════════════════ */
+function buildTOC() {
+  const wc  = document.getElementById('word-content');
+  const ul  = document.getElementById('tocList');
+  if (!wc || !ul) return;
+
+  const headings = wc.querySelectorAll('h3, h4, h5');
+  let counter = 0;
+
+  headings.forEach(h => {
+    const level = parseInt(h.tagName[1]);    /* 3, 4 ó 5 */
+    const id    = 'sec-' + (counter++);
+    h.id = id;
+
+    /* Texto limpio: quitar números sueltos y espacios de Word */
+    let text = h.textContent
+      .replace(/\s+/g, ' ')
+      .trim();
+    if (!text) return;
+
+    const li = document.createElement('li');
+    li.className   = 'toc-item';
+    li.dataset.level = level;
+    li.dataset.id    = id;
+
+    const a  = document.createElement('a');
+    a.href   = '#' + id;
+    a.title  = text;          /* tooltip con texto completo */
+    a.textContent = text.length > 52 ? text.slice(0, 49) + '…' : text;
+
+    li.appendChild(a);
+    ul.appendChild(li);
+  });
+}
+
+/* ══════════════════════════════════════════════════
+   TOC HIGHLIGHT — resaltar el ítem activo al scroll
+══════════════════════════════════════════════════ */
+function setupHighlight() {
+  const items = document.querySelectorAll('.toc-item');
+  if (!items.length) return;
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      items.forEach(li => li.classList.remove('active'));
+      const active = document.querySelector(`.toc-item[data-id="${e.target.id}"]`);
+      if (active) {
+        active.classList.add('active');
+        /* Auto-scroll del sidebar */
+        active.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+      }
+    });
+  }, { rootMargin: '-8% 0px -78% 0px' });
+
+  document.querySelectorAll('#word-content h3, #word-content h4, #word-content h5')
+    .forEach(h => { if (h.id) obs.observe(h); });
+}
+
+/* ══════════════════════════════════════════════════
+   INIT
+══════════════════════════════════════════════════ */
+(function init() {
+  syncThemeBtn();
+  cleanWordStyles();   /* 1. Limpia estilos de Word */
+  buildHero();         /* 2. Llena el hero con los <meta> */
+  buildTOC();          /* 3. Construye el TOC */
+  setupHighlight();    /* 4. Activa el highlight al scroll */
+
+  /* Habilitar transiciones después del primer render */
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    document.documentElement.setAttribute('data-ready', '');
+  }));
+})();
+</script>
+
+</body>
 </html>
