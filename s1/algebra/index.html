@@ -4,24 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- ═══════════════════════════════════════════════════════════
-       CAMBIA ESTOS DATOS POR CADA MATERIA
-  ════════════════════════════════════════════════════════════ -->
+  <!-- ════════════════════════════════════════════════════════
+       CAMBIA ESTOS 5 DATOS POR CADA MATERIA
+       COLOR: usa el color de identidad visual de la materia
+  ════════════════════════════════════════════════════════ -->
   <meta name="SEMESTRE"  content="Primer Semestre">
-  <meta name="MATERIA"   content="ÁLGEBRA">
+  <meta name="MATERIA"   content="Álgebra">
   <meta name="CLAVE"     content="1120">
   <meta name="CREDITOS"  content="8">
   <meta name="COLOR"     content="#fa2415">
   <!-- ════════════════════════════════════════════════════════ -->
 
   <title>Álgebra · Prontuario Mecatrónica · UNAM FI</title>
-  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAArCAYAAAA65tviAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANNSURBVGhD7ZltaBt1HMc/17vLXV3KrQ9pVtuEmc6OLvSFCg0M36iVjWy+s9W5WmWI4liniDOvxGdQhMKYFAQpIqLDVwq2IPSN+Cp94UTZhmFRTFp1TbULpVsvueR81TL/tLkt3nLpzAfuzff35eDDPXDcT9KaDZvbAOlGRXyBHjoOHcMYHELr7kWSFbHiKnbJwlxIk5+bZWl6ikJuXqz8ixsSaT8wSuj4e+RmPiGfnMHMpLCtolhzFUlR0cJ9GLE4gfgY2ckEf33zqVjbwFGk/cAowZEXyJx5ibVfzovjmqBHooTHJ7j8xektZSqK+AI97PsoyaXXHvdMYh09EmXPG2e58Exs09tMVlT9dTFcJzjyIld/vUD+uy/FUc2xlnNIup87IgOs/PCtOKZJDK7HGBwin5wRY8/IJ2cwBofEGJxEtO5ezExKjD3DzKTQunvFGJxEJFm55W+nm8G2ilu+9iuKbCcaIvVGQ6TeaIhshtoWpO3ho7QffGrjaH1gBLnZvzFrue9BACTVh7H/0Mb8v+KqiK9rN4FHjhEcPsGdTyYIPnqcQHwMuaUVLbyXXcPjdB15GbW1E61nD12jCYLDJ1B2doinumlcFVk9n+Tnkw/x5+cTlAsmmQ9OkTp1mMJiFoBy0USSZZr33kvLwP3YBRO7WBBPUxWuijhhW0XWsin8/TF27BtkNfW9WKmamoo0aTrmHxlaBvajtgWx/l6kSWsWa1VRUxGQWJtPYa1eoZCbp7i8KBaqpsYiYK0sk371MX57/3nskiWOq6bmIrcKV0UkVcMXDCP7d4IEitGBrzOEJMti1XVcFdkRjXH3u1+xa+QkTT6d0HPv0PvmWXydIbHqOhV/Ptzz9WV+eqJfjD1l4LOLnDscFGN3r4iXNETqjYZIvfH/ELFLFpKiirFnSIq65WdNRRFzIY0W7hNjz9DCfZgLaTEGJ5H83CxGLC7GnmHE4uTnZsUYnESWpqcIxMfQI1FxVHP0SJRAfIyl6SlxBE4ihdw82ckE4fEJT2XWFz3ZycSmuxGc9iMA19I/UjavcdcrHyLpfkpX85RWrkC5LFZdRVJU9N39tB98mtCzb/H7x29vua3C6aPxem6LZeh2oOIzsp1oiNQb/wC/2QLl/sw38AAAAABJRU5ErkJggg==">
+  <link rel="icon" type="image/png" href="../../favicon.png">
 
-  <!-- Preloader: evita flash de tema al cargar/volver -->
+  <!-- Preloader SÍNCRONO — evita flash de tema al cargar -->
   <script>
     (function(){
-      var h = document.documentElement;
-      h.dataset.theme = localStorage.getItem('prontuario-theme') || 'dark';
+      document.documentElement.dataset.theme =
+        localStorage.getItem('prontuario-theme') || 'dark';
     })();
   </script>
 
@@ -30,544 +31,457 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  /* ═══════════════════════════════════════════════════
+     RESET
+  ═══════════════════════════════════════════════════ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    /* ════════════════════════════════════════════════
-       DESIGN TOKENS
-    ════════════════════════════════════════════════ */
-    :root {
-      --color:      #3494BA;   /* sobreescrito por JS desde <meta name=COLOR> */
-      --font-mono:  'JetBrains Mono', monospace;
-      --font-disp:  'Space Grotesk', sans-serif;
-      --font-body:  'Inter', sans-serif;
-      --toc-w:      258px;
-      --hdr-h:      52px;
-    }
+  /* ═══════════════════════════════════════════════════
+     TOKENS — --color se sobreescribe por JS desde <meta>
+  ═══════════════════════════════════════════════════ */
+  :root {
+    --color:     #3494BA;
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-disp: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --toc-w:     258px;
+    --hdr-h:     52px;
+  }
 
-    /* ── Modo oscuro (defecto) ── */
-    [data-theme="dark"] {
-      --bg:       #07090F;
-      --surface:  #0D1322;
-      --card:     #101726;
-      --border:   rgba(255,255,255,0.08);
-      --text:     #E2E8F0;
-      --text-d:   #94A3B8;
-      --text-m:   #4B5563;
-      /* Headings */
-      --h3-bg:    var(--color);
-      --h3-fg:    #FFFFFF;
-      --h4-bg:    color-mix(in srgb, var(--color) 24%, #0D1322);
-      --h4-fg:    #E2E8F0;
-      --h5-fg:    color-mix(in srgb, var(--color) 88%, white);
-      --h6-fg:    color-mix(in srgb, var(--color) 72%, white);
-      --h7-fg:    color-mix(in srgb, var(--color) 56%, #94A3B8);
-    }
+  /* ── Dark ── */
+  [data-theme="dark"] {
+    --bg:      #07090F;
+    --surface: #0D1322;
+    --card:    #101726;
+    --border:  rgba(255,255,255,0.08);
+    --text:    #E2E8F0;
+    --text-d:  #94A3B8;
+    --text-m:  #4B5563;
+    --h3-bg:   var(--color);
+    --h3-fg:   #FFFFFF;
+    --h4-bg:   color-mix(in srgb, var(--color) 24%, #0D1322);
+    --h4-fg:   #E2E8F0;
+    --h5-fg:   color-mix(in srgb, var(--color) 88%, white);
+    --h6-fg:   color-mix(in srgb, var(--color) 72%, white);
+    --h7-fg:   color-mix(in srgb, var(--color) 56%, #94A3B8);
+  }
 
-    /* ── Modo claro ── */
-    [data-theme="light"] {
-      --bg:       #F0F4FA;
-      --surface:  #FFFFFF;
-      --card:     #FFFFFF;
-      --border:   rgba(15,23,42,0.10);
-      --text:     #0F172A;
-      --text-d:   #334155;
-      --text-m:   #64748B;
-      /* Headings */
-      --h3-bg:    var(--color);
-      --h3-fg:    #FFFFFF;
-      --h4-bg:    color-mix(in srgb, var(--color) 14%, white);
-      --h4-fg:    color-mix(in srgb, var(--color) 85%, #0F172A);
-      --h5-fg:    color-mix(in srgb, var(--color) 80%, #0F172A);
-      --h6-fg:    color-mix(in srgb, var(--color) 65%, #0F172A);
-      --h7-fg:    color-mix(in srgb, var(--color) 50%, #334155);
-    }
+  /* ── Light ── */
+  [data-theme="light"] {
+    --bg:      #D8E5F5;
+    --surface: #FFFFFF;
+    --card:    #F8FAFD;
+    --border:  rgba(15,23,42,0.12);
+    --text:    #0F172A;
+    --text-d:  #334155;
+    --text-m:  #64748B;
+    --h3-bg:   var(--color);
+    --h3-fg:   #FFFFFF;
+    --h4-bg:   color-mix(in srgb, var(--color) 14%, #EFF6FF);
+    --h4-fg:   color-mix(in srgb, var(--color) 90%, #0F172A);
+    --h5-fg:   color-mix(in srgb, var(--color) 80%, #0F172A);
+    --h6-fg:   color-mix(in srgb, var(--color) 65%, #0F172A);
+    --h7-fg:   color-mix(in srgb, var(--color) 50%, #334155);
+  }
+  [data-theme="light"] .toc-sidebar { box-shadow: 2px 0 12px rgba(15,23,42,0.08); }
+  [data-theme="light"] .hero        { box-shadow: 0 2px 10px rgba(15,23,42,0.06); }
 
-    /* ════════════════════════════════════════════════
-       BASE
-    ════════════════════════════════════════════════ */
-    html, body { height: 100%; }
-    html { scroll-behavior: smooth; }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--font-body);
-      font-size: 14px;
-      line-height: 1.7;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      transition: background 0.3s, color 0.3s;
-    }
-    /* Transición suave en todas las superficies al cambiar de tema */
-    .toc-sidebar, .site-header, .content-main, .hero,
-    .word-article, .toc-header, .toc-nav {
-      transition: background 0.3s, border-color 0.3s, box-shadow 0.3s, color 0.3s;
-    }
+  /* Fuerza herencia de color en spans/fonts del contenido Word
+     para que los colores inline no rompan el tema claro */
+  [data-theme="light"] .word-article span,
+  [data-theme="light"] .word-article font,
+  [data-theme="light"] .word-article p > span,
+  [data-theme="light"] .word-article li > span {
+    color: inherit !important;
+    background: transparent !important;
+  }
 
-    /* ════════════════════════════════════════════════
-       HEADER
-    ════════════════════════════════════════════════ */
-    .site-header {
-      flex-shrink: 0;
-      height: var(--hdr-h);
-      background: color-mix(in srgb, var(--bg) 88%, transparent);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border);
-      display: flex; align-items: center; gap: 10px;
-      padding: 0 18px;
-      position: relative;
-      z-index: 100;
-      transition: background 0.25s, border-color 0.25s;
-    }
+  /* ═══════════════════════════════════════════════════
+     BASE — body es columna: header | page-layout
+  ═══════════════════════════════════════════════════ */
+  html, body { height: 100%; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: var(--font-body); font-size: 14px; line-height: 1.7;
+    display: flex; flex-direction: column;
+    overflow: hidden;          /* el scroll ocurre en content-main */
+    transition: background 0.25s 0s, color 0.25s 0s;
+  }
 
-    /* Thin color strip — subject identity mark */
-    .hdr-strip {
-      width: 3px; height: 28px; border-radius: 2px;
-      background: var(--color); flex-shrink: 0;
-      transition: background 0.25s;
-    }
+  /* ═══════════════════════════════════════════════════
+     HEADER — sticky, fuera del scroll
+  ═══════════════════════════════════════════════════ */
+  .site-header {
+    flex-shrink: 0;            /* nunca se encoge */
+    height: var(--hdr-h);
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 10px; padding: 0 18px;
+    z-index: 100;
+    transition: background 0.25s 0.18s, border-color 0.25s 0.18s;
+  }
+  .hdr-strip {
+    width: 3px; height: 28px; border-radius: 2px;
+    background: var(--color); flex-shrink: 0; transition: background 0.25s 0s;
+  }
+  .hdr-logo {
+    width: 30px; height: 30px; border-radius: 6px;
+    overflow: hidden; flex-shrink: 0; text-decoration: none;
+  }
+  .hdr-logo img { width: 100%; height: 100%; object-fit: cover; }
+  .hdr-text { text-decoration: none; }
+  .hdr-name { font-family: var(--font-disp); font-size: 13px; font-weight: 600; color: var(--text); line-height: 1.2; transition: color 0.25s 0.18s; }
+  .hdr-sub  { font-family: var(--font-mono); font-size: 9px; color: var(--text-m); letter-spacing: .06em; transition: color 0.25s 0.18s; }
+  .hdr-space { flex: 1; }
+  .hdr-btn {
+    display: flex; align-items: center; gap: 5px;
+    padding: 6px 11px; border-radius: 7px;
+    background: var(--surface); border: 1px solid var(--border);
+    color: var(--text-d); font-family: var(--font-mono); font-size: 11px;
+    text-decoration: none; cursor: pointer; white-space: nowrap;
+    transition: border-color 0.18s, color 0.18s, background 0.3s;
+  }
+  .hdr-btn:hover { border-color: var(--color); color: var(--color); }
+  .theme-btn {
+    width: 32px; height: 32px; border-radius: 7px;
+    background: var(--surface); border: 1px solid var(--border);
+    color: var(--text-d); cursor: pointer;
+    display: grid; place-items: center; flex-shrink: 0;
+    transition: border-color 0.18s, color 0.18s, background 0.3s;
+  }
+  .theme-btn:hover { border-color: var(--color); color: var(--color); }
 
-    .hdr-logo {
-      width: 30px; height: 30px; border-radius: 6px;
-      overflow: hidden; flex-shrink: 0; text-decoration: none;
-    }
-    .hdr-logo img { width: 100%; height: 100%; object-fit: cover; }
+  /* ═══════════════════════════════════════════════════
+     PAGE LAYOUT
+     Estructura:
+       body
+       ├── site-header   (flex-shrink:0, altura fija)
+       └── page-layout   (flex:1, fila)
+               ├── toc-sidebar  (anchura fija)
+               └── content-main (flex:1, scrollable)
+                       ├── hero        (scrollea con el contenido)
+                       └── word-article
+  ═══════════════════════════════════════════════════ */
+  .page-layout {
+    flex: 1;                   /* ocupa todo lo que queda tras el header */
+    display: flex;
+    min-height: 0;             /* CRÍTICO: permite que los hijos definan su propio scroll */
+    overflow: hidden;
+  }
 
-    .hdr-text { text-decoration: none; }
-    .hdr-name { font-family: var(--font-disp); font-size: 13px; font-weight: 600; color: var(--text); line-height: 1.2; }
-    .hdr-sub  { font-family: var(--font-mono); font-size: 9px; color: var(--text-m); letter-spacing: 0.06em; }
+  /* ── HERO — dentro del scroll, se oculta al bajar ── */
+  .hero {
+    flex-shrink: 0;
+    padding: 40px 52px 32px;
+    background: color-mix(in srgb, var(--color) 6%, var(--bg));
+    border-bottom: 1px solid transparent;
+    transition: background 0.25s 0s, border-color 0.25s 0s, box-shadow 0.25s 0s;
+  }
+  [data-theme="dark"] .hero { border-bottom-color: var(--border); }
 
-    .hdr-space { flex: 1; }
+  .hero-semestre {
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: .18em; text-transform: uppercase; color: var(--color);
+    border: 1px solid color-mix(in srgb, var(--color) 40%, transparent);
+    border-radius: 4px; padding: 3px 9px;
+    display: inline-block; margin-bottom: 14px;
+    transition: color 0.25s 0s, border-color 0.3s;
+  }
+  .hero-title {
+    font-family: var(--font-disp); font-size: clamp(30px, 5vw, 52px);
+    font-weight: 700; letter-spacing: -.025em;
+    color: var(--text); line-height: 1.0; margin-bottom: 6px;
+    transition: color 0.25s 0s;
+  }
+  .hero-meta {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: .04em;
+    color: var(--text-m); margin-bottom: 20px; transition: color 0.25s 0s;
+  }
+  .hero-sep {
+    width: 36px; height: 3px; border-radius: 2px;
+    background: var(--color); margin-bottom: 16px; transition: background 0.25s 0s;
+  }
+  .hero-obj-lbl {
+    font-family: var(--font-mono); font-size: 9.5px;
+    letter-spacing: .12em; text-transform: uppercase;
+    color: var(--color); margin-bottom: 6px; transition: color 0.25s 0s;
+  }
+  .hero-obj-txt {
+    font-size: 14px; color: var(--text-d); line-height: 1.75;
+    max-width: 820px; font-style: italic; transition: color 0.25s 0s;
+  }
 
-    .hdr-btn {
-      display: flex; align-items: center; gap: 5px;
-      padding: 6px 11px; border-radius: 7px;
-      background: var(--surface); border: 1px solid var(--border);
-      color: var(--text-d); font-family: var(--font-mono); font-size: 11px;
-      text-decoration: none; cursor: pointer; white-space: nowrap;
-      transition: border-color 0.18s, color 0.18s, background 0.25s;
-    }
-    .hdr-btn:hover { border-color: var(--color); color: var(--color); }
+  /* ── Fila interior: sidebar + scroll ── */
+  /* body-row eliminado — page-layout cumple su función directamente */
 
-    .theme-btn {
-      width: 32px; height: 32px; border-radius: 7px;
-      background: var(--surface); border: 1px solid var(--border);
-      color: var(--text-d); cursor: pointer;
-      display: grid; place-items: center; flex-shrink: 0;
-      transition: border-color 0.18s, color 0.18s, background 0.25s;
-    }
-    .theme-btn:hover { border-color: var(--color); color: var(--color); }
+  /* ═══════════════════════════════════════════════════
+     TOC SIDEBAR
+  ═══════════════════════════════════════════════════ */
+  .toc-sidebar {
+    width: var(--toc-w); flex-shrink: 0;
+    background: var(--surface); border-right: 1px solid var(--border);
+    display: flex; flex-direction: column; overflow: hidden;
+    transition: width 0.22s ease, background 0.25s 0.18s, border-color 0.25s 0.18s, box-shadow 0.25s 0.18s;
+  }
+  .toc-sidebar.collapsed { width: 0; border-right-width: 0; }
 
-    /* ════════════════════════════════════════════════
-       PAGE LAYOUT
-    ════════════════════════════════════════════════ */
-    .page-layout {
-      flex: 1;
-      display: flex;
-      min-height: 0;   /* critical: allows children to scroll */
-      overflow: hidden;
-    }
+  .toc-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 10px 12px 9px; border-bottom: 1px solid var(--border);
+    flex-shrink: 0; gap: 6px; transition: border-color 0.25s 0s;
+  }
+  .toc-title {
+    font-family: var(--font-mono); font-size: 9.5px;
+    color: var(--text-m); letter-spacing: .1em;
+    text-transform: uppercase; white-space: nowrap; transition: color 0.25s 0s;
+  }
+  .toc-close {
+    width: 20px; height: 20px; background: transparent;
+    border: 1px solid var(--border); border-radius: 4px;
+    color: var(--text-m); display: grid; place-items: center;
+    cursor: pointer; font-size: 8px; flex-shrink: 0; padding: 0;
+    transition: border-color 0.18s, color 0.18s;
+  }
+  .toc-close:hover { border-color: var(--color); color: var(--color); }
 
-    /* ════════════════════════════════════════════════
-       TOC SIDEBAR
-    ════════════════════════════════════════════════ */
+  .toc-nav {
+    flex: 1; overflow-y: auto; overflow-x: hidden; padding: 4px 0 16px;
+    scrollbar-width: thin; scrollbar-color: var(--border) transparent;
+  }
+  .toc-nav::-webkit-scrollbar { width: 4px; }
+  .toc-nav::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+  /* ── H3: grupo colapsable ── */
+  .toc-group { margin: 0; }
+  .toc-group > summary {
+    display: flex; align-items: flex-start; gap: 0;
+    padding: 5px 10px 5px 6px; cursor: default;
+    font-size: 11.5px; color: var(--text-d);
+    list-style: none; line-height: 1.35; user-select: none;
+    transition: color 0.14s;
+  }
+  .toc-group > summary::-webkit-details-marker { display: none; }
+  .toc-group > summary.toc-active { color: var(--color); }
+
+  /* Triángulo: solo colapsa/expande */
+  .toc-arrow {
+    flex-shrink: 0; width: 20px; height: 20px;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 7px; color: var(--text-m); cursor: pointer;
+    border-radius: 3px; margin-top: 1px;
+    transition: transform 0.18s, color 0.18s, background 0.14s;
+  }
+  .toc-arrow:hover { color: var(--color); background: color-mix(in srgb, var(--color) 12%, transparent); }
+  .toc-group[open] > summary .toc-arrow { transform: rotate(90deg); }
+
+  /* Texto h3: solo hace scroll */
+  .toc-h3-text {
+    flex: 1; cursor: pointer; padding: 2px 4px; border-radius: 3px;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    transition: background 0.14s, color 0.14s;
+  }
+  .toc-h3-text:hover { background: color-mix(in srgb, var(--color) 10%, transparent); color: var(--text); }
+
+  /* ── H4–H8: items hijo ── */
+  .toc-children { list-style: none; padding: 0; margin: 0; }
+  .toc-item {
+    display: block; padding: 3px 12px 3px 22px;
+    font-size: 11px; color: var(--text-m); text-decoration: none;
+    line-height: 1.35; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    border-left: 2px solid transparent; margin-left: 8px;
+    transition: background 0.14s, color 0.14s, border-color 0.14s;
+  }
+  .toc-item:hover { color: var(--text); background: color-mix(in srgb, var(--color) 8%, transparent); }
+  .toc-item.toc-active { color: var(--color); border-left-color: var(--color); }
+  .toc-item.lv4 { padding-left: 14px; font-size: 11px; }
+  .toc-item.lv5 { padding-left: 24px; font-size: 10.5px; font-family: var(--font-mono); opacity: .9; }
+  .toc-item.lv6 { padding-left: 34px; font-size: 10px;   font-family: var(--font-mono); opacity: .8; }
+  .toc-item.lv7 { padding-left: 44px; font-size: 9.5px;  font-family: var(--font-mono); opacity: .7; }
+  .toc-item.lv8 { padding-left: 54px; font-size: 9px;    font-family: var(--font-mono); opacity: .6; }
+
+  /* ═══════════════════════════════════════════════════
+     CONTENT-MAIN — único elemento que hace scroll
+  ═══════════════════════════════════════════════════ */
+  .content-main {
+    flex: 1; min-width: 0;
+    overflow-y: auto; overflow-x: hidden;  /* ← AQUÍ ocurre todo el scroll */
+    display: flex; flex-direction: column;
+    scrollbar-width: thin; scrollbar-color: var(--border) transparent;
+    transition: background 0.25s 0s;
+  }
+  .content-main::-webkit-scrollbar { width: 6px; }
+  .content-main::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+  /* Botón flotante para reabrir TOC */
+  .toc-open-btn {
+    display: none; position: fixed;
+    top: calc(var(--hdr-h) + 10px); left: 0;
+    width: 26px; height: 26px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-left: none; border-radius: 0 6px 6px 0;
+    color: var(--text-m); cursor: pointer;
+    place-items: center; font-size: 9px; z-index: 50;
+    transition: color 0.18s, border-color 0.18s;
+  }
+  .toc-open-btn.visible { display: grid; }
+  .toc-open-btn:hover { color: var(--color); border-color: var(--color); }
+
+  /* ═══════════════════════════════════════════════════
+     WORD CONTENT WRAPPER
+  ═══════════════════════════════════════════════════ */
+  .word-article { padding: 36px 52px 72px; max-width: 940px; width: 100%; }
+
+  /* Herencia forzada en spans dentro de headings
+     (Word mete style="color:black" que rompe el tema oscuro) */
+  .word-article h2 span, .word-article h3 span, .word-article h4 span,
+  .word-article h5 span, .word-article h6 span, .word-article h7 span,
+  .word-article h8 span { color: inherit !important; background: inherit !important; font-size: inherit !important; }
+
+  /* H2 — oculto, el título ya está en el hero */
+  .word-article h2 { display: none !important; }
+
+  /* H3 — tema principal, fondo sólido con color de identidad */
+  .word-article h3 {
+    background: var(--h3-bg) !important; color: var(--h3-fg) !important;
+    padding: 8px 16px !important; border-radius: 4px !important;
+    margin: 32px 0 0 !important;
+    font-family: var(--font-disp) !important; font-size: 13px !important;
+    font-weight: 600 !important; letter-spacing: .08em !important;
+    text-transform: uppercase !important; text-indent: 0 !important;
+    line-height: 1.4 !important; transition: background 0.25s 0s, color 0.25s 0s !important;
+  }
+  .word-article h3:first-child { margin-top: 0 !important; }
+
+  /* H4 — subtema, fondo tenue */
+  .word-article h4 {
+    background: var(--h4-bg) !important; color: var(--h4-fg) !important;
+    padding: 6px 16px 6px 22px !important; border-radius: 0 0 4px 4px !important;
+    margin: 2px 0 12px !important;
+    font-family: var(--font-body) !important; font-size: 12px !important;
+    font-weight: 600 !important; letter-spacing: .06em !important;
+    text-transform: uppercase !important; text-indent: 0 !important;
+    line-height: 1.4 !important; transition: background 0.25s 0s, color 0.25s 0s !important;
+  }
+  .word-article h3 + h4 { border-radius: 0 0 4px 4px !important; margin-top: 2px !important; }
+  .word-article p + h4, .word-article div + h4 { margin-top: 20px !important; border-radius: 4px !important; }
+
+  /* H5 — sección sin fondo */
+  .word-article h5 {
+    background: none !important; color: var(--h5-fg) !important;
+    padding: 10px 0 3px !important; margin: 18px 0 7px !important;
+    font-family: var(--font-mono) !important; font-size: 10.5px !important;
+    font-weight: 600 !important; letter-spacing: .14em !important;
+    text-transform: uppercase !important;
+    border-bottom: 1px solid color-mix(in srgb, var(--color) 28%, transparent) !important;
+    line-height: 1.4 !important; transition: color 0.25s 0s, border-color 0.3s !important;
+  }
+
+  /* H6 */
+  .word-article h6 {
+    background: none !important; color: var(--h6-fg) !important;
+    padding: 8px 0 2px !important; margin: 14px 0 6px !important;
+    font-family: var(--font-body) !important; font-size: 12.5px !important;
+    font-weight: 600 !important; text-transform: none !important;
+    transition: color 0.25s 0s !important;
+  }
+
+  /* H7 / H8 — niveles profundos, también generados por Word */
+  .word-article h7,
+  .word-article p.MsoHeading7, .word-article [class*="Heading7"] {
+    display: block !important; background: none !important;
+    color: var(--h7-fg) !important; padding: 6px 0 2px !important;
+    margin: 12px 0 5px !important; font-family: var(--font-body) !important;
+    font-size: 12px !important; font-weight: 500 !important; font-style: italic;
+    transition: color 0.25s 0s !important;
+  }
+  .word-article h8,
+  .word-article p.MsoHeading8, .word-article [class*="Heading8"] {
+    display: block !important; background: none !important;
+    color: var(--text-d) !important; padding: 5px 0 2px !important;
+    margin: 10px 0 4px !important; font-family: var(--font-body) !important;
+    font-size: 11.5px !important; font-weight: 400 !important; font-style: italic;
+  }
+
+  /* Párrafos */
+  .word-article p {
+    margin-bottom: 10px !important; color: var(--text) !important;
+    font-size: 13.5px !important; line-height: 1.75 !important; transition: color 0.25s 0s;
+  }
+
+  /* Términos clave (bold+italic → em en Word) */
+  .word-article em { font-style: normal; font-weight: 700; color: var(--h5-fg); transition: color 0.25s 0s; }
+
+  /* Spans con color inline en dark → redirigir al tono del color de identidad */
+  [data-theme="dark"] .word-article p span[style*="color"]   { color: var(--h5-fg) !important; }
+  [data-theme="dark"] .word-article p b span[style*="color"] { color: var(--h5-fg) !important; }
+  [data-theme="dark"] .word-article p i span[style*="color"] { color: var(--h5-fg) !important; }
+
+  /* Cita destacada */
+  .word-article .MsoIntenseQuote {
+    border-left: 3px solid var(--color) !important;
+    padding: 10px 16px !important;
+    background: color-mix(in srgb, var(--color) 7%, var(--surface)) !important;
+    border-radius: 0 4px 4px 0 !important; color: var(--h5-fg) !important;
+    font-style: italic; margin: 16px 0 !important; transition: background 0.25s 0s !important;
+  }
+
+  /* Imágenes */
+  .word-article img {
+    max-width: 100% !important; height: auto !important;
+    display: block !important; margin: 14px auto !important;
+    border-radius: 6px; border: 1px solid var(--border); transition: border-color 0.25s 0s;
+  }
+
+  /* Tablas */
+  .word-article table { border-collapse: collapse; width: 100%; margin: 16px 0; font-size: 13px; }
+  .word-article td, .word-article th {
+    border: 1px solid var(--border); padding: 7px 10px; color: var(--text);
+    transition: border-color 0.25s 0s, color 0.25s 0s;
+  }
+  .word-article th {
+    background: color-mix(in srgb, var(--color) 15%, var(--surface));
+    font-weight: 600; transition: background 0.25s 0s;
+  }
+
+  /* Listas de Word */
+  .word-article ul, .word-article ol {
+    padding-left: 28px; margin-bottom: 10px;
+    color: var(--text); font-size: 13.5px; line-height: 1.75;
+  }
+  .word-article .MsoListParagraph,
+  .word-article .MsoListParagraphCxSpFirst,
+  .word-article .MsoListParagraphCxSpMiddle,
+  .word-article .MsoListParagraphCxSpLast {
+    padding-left: 20px !important; margin-bottom: 5px !important;
+    color: var(--text) !important; font-size: 13.5px !important;
+  }
+
+  /* ═══════════════════════════════════════════════════
+     RESPONSIVE
+  ═══════════════════════════════════════════════════ */
+  @media (max-width: 800px) {
     .toc-sidebar {
-      width: var(--toc-w);
-      flex-shrink: 0;
-      background: var(--surface);
-      border-right: 1px solid var(--border);
-      display: flex; flex-direction: column;
-      overflow: hidden;
-      transition: width 0.22s ease, background 0.25s, border-color 0.25s;
+      position: fixed; top: var(--hdr-h); left: 0; bottom: 0;
+      z-index: 90; box-shadow: none;
+      transition: width 0.22s ease, box-shadow 0.22s;
     }
-    .toc-sidebar.collapsed { width: 0; border-right-width: 0; }
-
-    .toc-header {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 10px 12px 9px;
-      border-bottom: 1px solid var(--border);
-      flex-shrink: 0; gap: 6px;
-      transition: border-color 0.25s;
-    }
-    .toc-title {
-      font-family: var(--font-mono); font-size: 9.5px;
-      color: var(--text-m); letter-spacing: 0.1em;
-      text-transform: uppercase; white-space: nowrap;
-    }
-    .toc-close {
-      width: 20px; height: 20px;
-      background: transparent; border: 1px solid var(--border);
-      border-radius: 4px; color: var(--text-m);
-      display: grid; place-items: center; cursor: pointer;
-      font-size: 8px; flex-shrink: 0; padding: 0;
-      transition: border-color 0.18s, color 0.18s;
-    }
-    .toc-close:hover { border-color: var(--color); color: var(--color); }
-
-    .toc-nav {
-      flex: 1; overflow-y: auto; overflow-x: hidden;
-      padding: 4px 0 16px;
-      scrollbar-width: thin;
-      scrollbar-color: var(--border) transparent;
-    }
-    .toc-nav::-webkit-scrollbar { width: 4px; }
-    .toc-nav::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
-
-    /* ── details/summary for H3 groups ── */
-    .toc-group { margin: 0; }
-
-    .toc-group > summary {
-      display: flex; align-items: flex-start; gap: 5px;
-      padding: 5px 12px 5px 8px;
-      font-size: 11.5px; color: var(--text-d);
-      cursor: pointer; list-style: none;
-      transition: background 0.14s, color 0.14s;
-      line-height: 1.35;
-      user-select: none;
-    }
-    .toc-group > summary::-webkit-details-marker { display: none; }
-    .toc-group > summary:hover {
-      background: color-mix(in srgb, var(--color) 10%, transparent);
-      color: var(--text);
-    }
-    .toc-group > summary.toc-active { color: var(--color); }
-
-    .toc-arrow {
-      flex-shrink: 0; margin-top: 2px;
-      font-size: 7px; color: var(--text-m);
-      transition: transform 0.18s, color 0.18s;
-      display: inline-block;
-    }
-    .toc-group[open] > summary .toc-arrow { transform: rotate(90deg); }
-
-    .toc-h3-text { flex: 1; }
-
-    /* ── sub-items h4-h8 ── */
-    .toc-children { list-style: none; padding: 0; margin: 0; }
-
-    .toc-item {
-      display: block;
-      padding: 3px 12px 3px 22px;
-      font-size: 11px; color: var(--text-m);
-      text-decoration: none; line-height: 1.35;
-      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-      border-left: 2px solid transparent;
-      margin-left: 8px;
-      transition: background 0.14s, color 0.14s, border-color 0.14s;
-    }
-    .toc-item:hover {
-      color: var(--text);
-      background: color-mix(in srgb, var(--color) 8%, transparent);
-    }
-    .toc-item.toc-active { color: var(--color); border-left-color: var(--color); }
-
-    .toc-item.lv4 { padding-left: 14px; font-size: 11px; }
-    .toc-item.lv5 { padding-left: 24px; font-size: 10.5px; font-family: var(--font-mono); opacity: 0.9; }
-    .toc-item.lv6 { padding-left: 34px; font-size: 10px;   font-family: var(--font-mono); opacity: 0.8; }
-    .toc-item.lv7 { padding-left: 44px; font-size: 9.5px;  font-family: var(--font-mono); opacity: 0.7; }
-    .toc-item.lv8 { padding-left: 54px; font-size: 9px;    font-family: var(--font-mono); opacity: 0.6; }
-
-    /* ════════════════════════════════════════════════
-       MAIN CONTENT
-    ════════════════════════════════════════════════ */
-    .content-main {
-      flex: 1; min-width: 0;
-      overflow-y: auto; overflow-x: hidden;
-      display: flex; flex-direction: column;
-      scrollbar-width: thin;
-      scrollbar-color: var(--border) transparent;
-    }
-    .content-main::-webkit-scrollbar { width: 6px; }
-    .content-main::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
-
-    /* Floating button to reopen TOC when collapsed */
-    .toc-open-btn {
-      display: none;
-      position: fixed;
-      top: calc(var(--hdr-h) + 10px); left: 0;
-      width: 26px; height: 26px;
-      background: var(--surface); border: 1px solid var(--border);
-      border-left: none; border-radius: 0 6px 6px 0;
-      color: var(--text-m); cursor: pointer;
-      place-items: center; font-size: 9px; z-index: 50;
-      transition: color 0.18s, border-color 0.18s;
-    }
-    .toc-open-btn.visible { display: grid; }
-    .toc-open-btn:hover { color: var(--color); border-color: var(--color); }
-
-    /* ── HERO ── */
-    .hero {
-      padding: 36px 44px 28px;
-      border-bottom: 1px solid transparent;  /* invisible — evita el flash del borde */
-      background: color-mix(in srgb, var(--color) 5%, var(--bg));
-      flex-shrink: 0;
-      transition: background 0.3s, border-color 0.3s;
-    }
-    /* Separador sutil bajo el hero solo en dark */
-    [data-theme="dark"] .hero {
-      border-bottom-color: var(--border);
-    }
-    .hero-semestre {
-      font-family: var(--font-mono); font-size: 10px;
-      letter-spacing: 0.18em; text-transform: uppercase;
-      color: var(--color);
-      border: 1px solid color-mix(in srgb, var(--color) 40%, transparent);
-      border-radius: 4px; padding: 3px 9px;
-      display: inline-block; margin-bottom: 12px;
-      transition: color 0.25s, border-color 0.25s;
-    }
-    .hero-title {
-      font-family: var(--font-disp);
-      font-size: clamp(28px, 5vw, 48px);
-      font-weight: 700; letter-spacing: -0.02em;
-      color: var(--text); line-height: 1.05; margin-bottom: 5px;
-    }
-    .hero-meta {
-      font-family: var(--font-mono); font-size: 11px;
-      color: var(--text-m); margin-bottom: 18px; letter-spacing: 0.04em;
-    }
-    .hero-sep {
-      width: 40px; height: 2px; border-radius: 2px;
-      background: var(--color); margin-bottom: 14px;
-      transition: background 0.25s;
-    }
-    .hero-obj-lbl {
-      font-family: var(--font-mono); font-size: 9.5px;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--color); margin-bottom: 6px;
-      transition: color 0.25s;
-    }
-    .hero-obj-txt {
-      font-size: 13.5px; color: var(--text-d);
-      line-height: 1.75; max-width: 700px; font-style: italic;
-      transition: color 0.25s;
-    }
-
-    /* ════════════════════════════════════════════════
-       WORD CONTENT WRAPPER
-    ════════════════════════════════════════════════ */
-    .word-article {
-      padding: 32px 44px 64px;
-      max-width: 920px; width: 100%;
-    }
-
-    /* ── Forzar herencia de color en spans dentro de headings ──
-       Esto soluciona el bug del h4 oscuro en tema oscuro:
-       Word añade style="color:black" en los spans dentro de h4,
-       aquí lo anulamos para que usen el color del heading padre. */
-    .word-article h2 span,
-    .word-article h3 span,
-    .word-article h4 span,
-    .word-article h5 span,
-    .word-article h6 span,
-    .word-article h7 span,
-    .word-article h8 span {
-      color: inherit !important;
-      background: inherit !important;
-      font-size: inherit !important;
-    }
-
-    /* ── H2: el título de la materia — oculto (está en el hero) ── */
-    .word-article h2 { display: none !important; }
-
-    /* ── H3: tema principal ── */
-    .word-article h3 {
-      background: var(--h3-bg) !important;
-      color: var(--h3-fg) !important;
-      padding: 8px 16px !important;
-      border-radius: 4px !important;
-      margin: 30px 0 12px !important;
-      font-family: var(--font-disp) !important;
-      font-size: 13px !important;
-      font-weight: 600 !important;
-      letter-spacing: 0.08em !important;
-      text-transform: uppercase !important;
-      text-indent: 0 !important;
-      line-height: 1.4 !important;
-      transition: background 0.25s, color 0.25s !important;
-    }
-
-    /* ── H4: subtema ── ESTE ERA EL QUE SE VEÍA OSCURO ── */
-    .word-article h4 {
-      background: var(--h4-bg) !important;
-      color: var(--h4-fg) !important;
-      padding: 6px 16px !important;
-      border-radius: 3px !important;
-      margin: 20px 0 8px !important;
-      font-family: var(--font-body) !important;
-      font-size: 12px !important;
-      font-weight: 600 !important;
-      letter-spacing: 0.06em !important;
-      text-transform: uppercase !important;
-      text-indent: 0 !important;
-      line-height: 1.4 !important;
-      transition: background 0.25s, color 0.25s !important;
-    }
-
-    /* ── H5: sección (sin fondo) ── */
-    .word-article h5 {
-      background: none !important;
-      color: var(--h5-fg) !important;
-      padding: 10px 0 3px !important;
-      margin: 16px 0 7px !important;
-      font-family: var(--font-mono) !important;
-      font-size: 10.5px !important;
-      font-weight: 600 !important;
-      letter-spacing: 0.14em !important;
-      text-transform: uppercase !important;
-      border-bottom: 1px solid color-mix(in srgb, var(--color) 28%, transparent) !important;
-      line-height: 1.4 !important;
-      transition: color 0.25s !important;
-    }
-
-    /* ── H6 ── */
-    .word-article h6 {
-      background: none !important;
-      color: var(--h6-fg) !important;
-      padding: 8px 0 2px !important;
-      margin: 14px 0 6px !important;
-      font-family: var(--font-body) !important;
-      font-size: 12.5px !important;
-      font-weight: 600 !important;
-      letter-spacing: 0.04em !important;
-      text-transform: none !important;
-      transition: color 0.25s !important;
-    }
-
-    /* ── H7/H8: niveles profundos (Word a veces genera estos) ── */
-    .word-article h7, .word-article [class*="Heading7"],
-    .word-article p.MsoHeading7 {
-      display: block !important;
-      background: none !important;
-      color: var(--h7-fg) !important;
-      padding: 6px 0 2px !important;
-      margin: 12px 0 5px !important;
-      font-family: var(--font-body) !important;
-      font-size: 12px !important;
-      font-weight: 500 !important;
-      font-style: italic;
-      transition: color 0.25s !important;
-    }
-
-    .word-article h8, .word-article [class*="Heading8"],
-    .word-article p.MsoHeading8 {
-      display: block !important;
-      background: none !important;
-      color: var(--text-d) !important;
-      padding: 5px 0 2px !important;
-      margin: 10px 0 4px !important;
-      font-family: var(--font-body) !important;
-      font-size: 11.5px !important;
-      font-weight: 400 !important;
-      font-style: italic;
-    }
-
-    /* ── Párrafos ── */
-    .word-article p {
-      margin-bottom: 10px !important;
-      color: var(--text) !important;
-      font-size: 13.5px !important;
-      line-height: 1.75 !important;
-      transition: color 0.25s;
-    }
-
-    /* Términos clave (em en Word = negrita+color) */
-    .word-article em {
-      font-style: normal;
-      font-weight: 700;
-      color: var(--h5-fg);
-      transition: color 0.25s;
-    }
-
-    /* Spans con color inline — en dark mode redirigimos al color del tema */
-    [data-theme="dark"] .word-article p span[style*="color"] { color: var(--h5-fg) !important; }
-    [data-theme="dark"] .word-article p b span[style*="color"] { color: var(--h5-fg) !important; }
-    [data-theme="dark"] .word-article p i span[style*="color"] { color: var(--h5-fg) !important; }
-
-    /* Cita destacada */
-    .word-article .MsoIntenseQuote {
-      border-left: 3px solid var(--color) !important;
-      padding: 10px 16px !important;
-      background: color-mix(in srgb, var(--color) 7%, var(--surface)) !important;
-      border-radius: 0 4px 4px 0 !important;
-      color: var(--h5-fg) !important;
-      font-style: italic;
-      margin: 16px 0 !important;
-      transition: background 0.25s !important;
-    }
-
-    /* ── Imágenes ── */
-    .word-article img {
-      max-width: 100% !important;
-      height: auto !important;
-      display: block !important;
-      margin: 12px auto !important;
-      border-radius: 6px;
-      border: 1px solid var(--border);
-      transition: border-color 0.25s;
-    }
-
-    /* ── Tablas ── */
-    .word-article table {
-      border-collapse: collapse; width: 100%; margin: 16px 0;
-      font-size: 13px;
-    }
-    .word-article td, .word-article th {
-      border: 1px solid var(--border);
-      padding: 7px 10px; color: var(--text);
-      transition: border-color 0.25s, color 0.25s;
-    }
-    .word-article th {
-      background: color-mix(in srgb, var(--color) 15%, var(--surface));
-      font-weight: 600;
-    }
-
-    /* ── Listas de Word ── */
-    .word-article ul, .word-article ol {
-      padding-left: 28px; margin-bottom: 10px;
-      color: var(--text); font-size: 13.5px; line-height: 1.75;
-    }
-    .word-article .MsoListParagraph,
-    .word-article .MsoListParagraphCxSpFirst,
-    .word-article .MsoListParagraphCxSpMiddle,
-    .word-article .MsoListParagraphCxSpLast {
-      padding-left: 20px !important;
-      margin-bottom: 5px !important;
-      color: var(--text) !important;
-      font-size: 13.5px !important;
-    }
-
-    /* ════════════════════════════════════════════════
-       RESPONSIVE
-    ════════════════════════════════════════════════ */
-    @media (max-width: 800px) {
-      .toc-sidebar {
-        position: fixed;
-        top: var(--hdr-h); left: 0; bottom: 0;
-        z-index: 90;
-        box-shadow: none;
-        transition: width 0.22s ease, box-shadow 0.22s;
-      }
-      .toc-sidebar:not(.collapsed) {
-        box-shadow: 4px 0 24px rgba(0,0,0,0.45);
-      }
-      .hero { padding: 24px 20px 20px; }
-      .word-article { padding: 20px 20px 48px; }
-    }
-    @media (max-width: 480px) {
-      .hdr-sub { display: none; }
-    }
+    .toc-sidebar:not(.collapsed) { box-shadow: 4px 0 24px rgba(0,0,0,0.45); }
+    .hero { padding: 24px 20px 20px; }
+    .word-article { padding: 20px 20px 48px; }
+  }
+  @media (max-width: 480px) { .hdr-sub { display: none; } }
   </style>
 </head>
 
 <body>
 
-<!-- ═══════════════════════════════════════
-     HEADER
-═══════════════════════════════════════ -->
+<!-- ══════════════════════════════════════
+     HEADER — siempre visible, nunca scrollea
+══════════════════════════════════════ -->
 <header class="site-header">
   <div class="hdr-strip"></div>
-  <a href="../../index.html" class="hdr-logo" title="Índice principal">
+  <a href="../../index.html" class="hdr-logo" title="Inicio">
     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAArCAYAAAA65tviAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANNSURBVGhD7ZltaBt1HMc/17vLXV3KrQ9pVtuEmc6OLvSFCg0M36iVjWy+s9W5WmWI4liniDOvxGdQhMKYFAQpIqLDVwq2IPSN+Cp94UTZhmFRTFp1TbULpVsvueR81TL/tLkt3nLpzAfuzff35eDDPXDcT9KaDZvbAOlGRXyBHjoOHcMYHELr7kWSFbHiKnbJwlxIk5+bZWl6ikJuXqz8ixsSaT8wSuj4e+RmPiGfnMHMpLCtolhzFUlR0cJ9GLE4gfgY2ckEf33zqVjbwFGk/cAowZEXyJx5ibVfzovjmqBHooTHJ7j8xektZSqK+AI97PsoyaXXHvdMYh09EmXPG2e58Exs09tMVlT9dTFcJzjyIld/vUD+uy/FUc2xlnNIup87IgOs/PCtOKZJDK7HGBwin5wRY8/IJ2cwBofEGJxEtO5ezExKjD3DzKTQunvFGJxEJFm55W+nm8G2ilu+9iuKbCcaIvVGQ6TeaIhshtoWpO3ho7QffGrjaH1gBLnZvzFrue9BACTVh7H/0Mb8v+KqiK9rN4FHjhEcPsGdTyYIPnqcQHwMuaUVLbyXXcPjdB15GbW1E61nD12jCYLDJ1B2doinumlcFVk9n+Tnkw/x5+cTlAsmmQ9OkTp1mMJiFoBy0USSZZr33kvLwP3YBRO7WBBPUxWuijhhW0XWsin8/TF27BtkNfW9WKmamoo0aTrmHxlaBvajtgWx/l6kSWsWa1VRUxGQWJtPYa1eoZCbp7i8KBaqpsYiYK0sk371MX57/3nskiWOq6bmIrcKV0UkVcMXDCP7d4IEitGBrzOEJMti1XVcFdkRjXH3u1+xa+QkTT6d0HPv0PvmWXydIbHqOhV/Ptzz9WV+eqJfjD1l4LOLnDscFGN3r4iXNETqjYZIvfH/ELFLFpKiirFnSIq65WdNRRFzIY0W7hNjz9DCfZgLaTEGJ5H83CxGLC7GnmHE4uTnZsUYnESWpqcIxMfQI1FxVHP0SJRAfIyl6SlxBE4ihdw82ckE4fEJT2XWFz3ZycSmuxGc9iMA19I/UjavcdcrHyLpfkpX85RWrkC5LFZdRVJU9N39tB98mtCzb/H7x29vua3C6aPxem6LZeh2oOIzsp1oiNQb/wC/2QLl/sw38AAAAABJRU5ErkJggg==" alt="IM">
   </a>
   <a href="../../index.html" class="hdr-text">
@@ -579,32 +493,32 @@
   <button class="theme-btn" id="themeBtn" title="Cambiar tema"></button>
 </header>
 
-
-<!-- ═══════════════════════════════════════
+<!-- ══════════════════════════════════════
      PAGE LAYOUT
-═══════════════════════════════════════ -->
+══════════════════════════════════════ -->
 <div class="page-layout">
 
-  <!-- ──────────────────── TOC SIDEBAR ──────────────────── -->
-  <aside class="toc-sidebar" id="tocSidebar">
-    <div class="toc-header">
-      <span class="toc-title">Contenido – Marcadores</span>
-      <button class="toc-close" id="tocClose" title="Ocultar panel">◀</button>
-    </div>
-    <nav class="toc-nav" id="tocNav"></nav>
-  </aside>
+    <!-- SIDEBAR: marcadores colapsables -->
+    <aside class="toc-sidebar" id="tocSidebar">
+      <div class="toc-header">
+        <span class="toc-title">Contenido – Marcadores</span>
+        <button class="toc-close" id="tocClose" title="Ocultar panel">◀</button>
+      </div>
+      <nav class="toc-nav" id="tocNav"></nav>
+    </aside>
 
-  <!-- ──────────────────── MAIN ──────────────────── -->
-  <div class="content-main" id="contentMain">
+    <!-- ÁREA DE SCROLL: hero + contenido de la materia -->
+    <div class="content-main" id="contentMain">
 
-    <!-- Botón flotante para reabrir el TOC -->
-    <button class="toc-open-btn" id="tocOpenBtn" title="Mostrar marcadores">▶</button>
+      <button class="toc-open-btn" id="tocOpenBtn" title="Mostrar marcadores">▶</button>
 
-    <!-- HERO — rellenado automáticamente por JS -->
-    <section class="hero" id="hero"></section>
+      <!-- HERO: dentro del scroll, se oculta al bajar -->
+      <section class="hero" id="hero"></section>
 
-    <!-- WORD CONTENT -->
-    <article class="word-article" id="word-content">
+      <article class="word-article" id="word-content">
+
+<div class=WordSection1>
+
 <h2><span class=Ttulo2Car><span style='color:#459EC4'>ÁLGEBRA</span> </span>(1120)</h2>
 
 <p class=MsoNormal style='margin-top:5.0pt;margin-right:0cm;margin-bottom:10.0pt;
@@ -636,7 +550,8 @@ Son las razones que existen entre los lados de un triángulo rectángulo y
 cambian al variar el ángulo en cuestión; es decir, están en función del ángulo.</p>
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
-width=653 height=177 id="Imagen 1" src="index_archivos/image001.gif"></p>
+width=653 height=177 id="Imagen 1"
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image001.gif"></p>
 
 <h4 style='margin-left:35.45pt;text-indent:-19.5pt'>1.2<span style='font:7.0pt "Times New Roman"'>
 </span><span style='color:black'>Definición de las funciones trigonométricas
@@ -645,7 +560,8 @@ para un ángulo agudo en un triángulo rectángulo.</span></h4>
 <h5 style='margin-bottom:0cm'>FUNCIONES TRIGONOMÉTRICAS</h5>
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
-width=673 height=265 id=Imagen3 src="index_archivos/image002.gif"></p>
+width=673 height=265 id=Imagen3
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image002.gif"></p>
 
 <p class=MsoNormal style='margin-bottom:0cm'>&nbsp;</p>
 
@@ -658,35 +574,40 @@ cuatro cuadrantes.</span></h4>
 <h5><span style='text-transform:none'>CONVENCIÓN DE SIGNOS</span></h5>
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
-width=276 height=154 id=Imagen4 src="index_archivos/image003.jpg"> <img
-width=382 height=151 id=Imagen5 src="index_archivos/image004.jpg"></p>
+width=276 height=154 id=Imagen4
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image003.jpg"> <img width=382
+height=151 id=Imagen5 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image004.jpg"></p>
 
 <p class=MsoNormal style='margin-bottom:0cm'><b><i><span style='color:#459EC4'>Primer
 cuadrante</span></i></b>: <b>TODAS</b> las funciones trigonométricas son
 positivas</p>
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
-width=308 height=352 id=Imagen6 src="index_archivos/image005.jpg"></p>
+width=308 height=352 id=Imagen6
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image005.jpg"></p>
 
 <p class=MsoNormal style='margin-bottom:0cm'><b><i><span style='color:#459EC4'>Segundo
 cuadrante</span></i></b>: Sólo las funciones <b>SENO</b> y <b>COSECANTE</b> son
 positivas</p>
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'> <img
-width=309 height=284 id=Imagen7 src="index_archivos/image006.jpg"></p>
+width=309 height=284 id=Imagen7
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image006.jpg"></p>
 
 <p class=MsoNormal style='margin-bottom:0cm'><b><i><span style='color:#459EC4'>Tercer
 cuadrante</span></i></b>: Sólo las funciones <b>TANGENTE</b> y <b>COTANGENTE</b>
 son positivas</p>
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'> <img
-width=274 height=268 id=Imagen8 src="index_archivos/image007.jpg"></p>
+width=274 height=268 id=Imagen8
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image007.jpg"></p>
 
 <p class=MsoNormal><b><i><span style='color:#459EC4'>Cuarto cuadrante</span></i></b>:
 Sólo las funciones <b>COSENO</b> y <b>SECANTE</b> son positivas</p>
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'>  <img
-width=271 height=255 id=Imagen9 src="index_archivos/image008.jpg"></p>
+width=271 height=255 id=Imagen9
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image008.jpg"></p>
 
 <h5><span style='text-transform:none'>CÁLCULO DE FUNCIONES TRIGONOMÉTRICAS DE
 ÁNGULOS CUALQUIERA</span></h5>
@@ -698,17 +619,19 @@ y funciones trigonométricas, mediante la representación de triángulos
 rectángulos auxiliares.</p>
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'> <img
-width=317 height=200 id=Imagen10 src="index_archivos/image009.gif"></p>
+width=317 height=200 id=Imagen10
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image009.gif"></p>
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
-width=546 height=459 id=Imagen11 src="index_archivos/image010.jpg"></p>
+width=546 height=459 id=Imagen11
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image010.jpg"></p>
 
 <p class=MsoNormal><b><i><span style='color:#459EC4'>Gráficas de las funciones
 trigonometricas; </span></i></b>Las funcionestrigonométricas son funciones
 periódicas</p>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=547
-height=383 id=Imagen12 src="index_archivos/image011.jpg"></p>
+height=383 id=Imagen12 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image011.jpg"></p>
 
 <h4 style='margin-left:35.45pt;text-indent:-19.5pt'>1.4<span style='font:7.0pt "Times New Roman"'>
 </span><span style='color:black'>Valores de las funciones trigonométricas para
@@ -717,22 +640,26 @@ height=383 id=Imagen12 src="index_archivos/image011.jpg"></p>
 <h5>ÁNGULOS NOTABLES</h5>
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
-width=471 height=365 id=Imagen13 src="index_archivos/image012.gif"></p>
+width=471 height=365 id=Imagen13
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image012.gif"></p>
 
 <h5><a name="_Hlk156151084">ANGULOS </a>COMPLEMENTARIOS</h5>
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
-width=198 height=304 id=Imagen14 src="index_archivos/image013.gif"></p>
+width=198 height=304 id=Imagen14
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image013.gif"></p>
 
 <h5>ANGULOS MÚLTIPLOS DE 90°</h5>
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
-width=605 height=188 id=Imagen15 src="index_archivos/image014.jpg"></p>
+width=605 height=188 id=Imagen15
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image014.jpg"></p>
 
 <h5>ÁNGULOS SUPLEMENTARIOS</h5>
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
-width=627 height=139 id=Imagen16 src="index_archivos/image015.gif"></p>
+width=627 height=139 id=Imagen16
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image015.gif"></p>
 
 <h4 style='margin-left:35.45pt;text-indent:-19.5pt'>1.5<span style='font:7.0pt "Times New Roman"'>
 </span><span style='color:black'>Identidades trigonométricas.</span></h4>
@@ -745,22 +672,22 @@ argumento</p>
 <h5><span style='text-transform:none'>IDENTIDADES PITAGÓRICAS</span></h5>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=307
-height=161 id=Imagen17 src="index_archivos/image016.gif"></p>
+height=161 id=Imagen17 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image016.gif"></p>
 
 <h5><span style='text-transform:none'>ÁNGULO DOBLE</span></h5>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=308
-height=117 id=Imagen18 src="index_archivos/image017.gif"></p>
+height=117 id=Imagen18 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image017.gif"></p>
 
 <h5><span style='text-transform:none'>SUMA Y DIFERENCIA DE ÁNGULOS</span></h5>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=485
-height=159 id=Imagen19 src="index_archivos/image018.gif"></p>
+height=159 id=Imagen19 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image018.gif"></p>
 
 <h5><span style='text-transform:none'>ÁNGULOS NEGATIVOS</span></h5>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=253
-height=143 id=Imagen20 src="index_archivos/image019.gif"></p>
+height=143 id=Imagen20 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image019.gif"></p>
 
 <h4 style='margin-left:35.45pt;text-indent:-19.5pt'>1.6<span style='font:7.0pt "Times New Roman"'>
 </span><span style='color:black'>Teorema de Pitágoras.</span></h4>
@@ -776,14 +703,16 @@ hipotenusa es igual a la suma de lo cuadrados de los catetos”</p>
 </div>
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
-width=367 height=211 id=Imagen21 src="index_archivos/image020.jpg"></p>
+width=367 height=211 id=Imagen21
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image020.jpg"></p>
 
 <p class=MsoNormal>La suma de los ángulos internos de cualquier triángulo
 siempre es igual a 180</p>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=323
-height=172 id=Imagen22 src="index_archivos/image021.gif"> <img width=229
-height=50 id=Imagen23 src="index_archivos/image022.gif"></p>
+height=172 id=Imagen22 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image021.gif"> <img
+width=229 height=50 id=Imagen23
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image022.gif"></p>
 
 <h4 style='margin-left:35.45pt;text-indent:-19.5pt'>1.7<span style='font:7.0pt "Times New Roman"'>
 </span><span style='color:black'>Ley de senos y ley de cosenos.</span></h4>
@@ -793,7 +722,8 @@ height=50 id=Imagen23 src="index_archivos/image022.gif"></p>
 Son aquellos que no tienen ningún ángulo recto (90°) </p>
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
-width=441 height=337 id=Imagen24 src="index_archivos/image023.jpg"></p>
+width=441 height=337 id=Imagen24
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image023.jpg"></p>
 
 <h5>LEY DE SENOS</h5>
 
@@ -808,7 +738,7 @@ style='font-family:Wingdings'>Ø<span style='font:7.0pt "Times New Roman"'>&nbsp
 </span></span>2 ángulos y el lado opuesto a cualquiera de ellos.</p>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=372
-height=92 id=Imagen25 src="index_archivos/image024.gif"></p>
+height=92 id=Imagen25 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image024.gif"></p>
 
 <h5>LEY DE COSENOS</h5>
 
@@ -823,7 +753,7 @@ style='font-family:Wingdings'>Ø<span style='font:7.0pt "Times New Roman"'>&nbsp
 </span></span>2 lados y el ángulo comprendido entre ellos.</p>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=384
-height=168 id=Imagen26 src="index_archivos/image025.gif"></p>
+height=168 id=Imagen26 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image025.gif"></p>
 
 <h4 style='margin-left:35.45pt;text-indent:-19.5pt'>1.8<span style='font:7.0pt "Times New Roman"'>
 </span><span style='color:black'>Ecuaciones trigonométricas de primer y segundo
@@ -881,14 +811,16 @@ números, en función de sus diferentes características (propiedades).</p>
 
 <p class=MsoNormal align=center style='margin-top:0cm;margin-right:0cm;
 margin-bottom:0cm;margin-left:35.4pt;text-align:center;text-indent:-35.4pt'><img
-width=282 height=281 id=Imagen27 src="index_archivos/image026.jpg"></p>
+width=282 height=281 id=Imagen27
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image026.jpg"></p>
 
 <p class=MsoNormal style='margin-bottom:0cm'><b><i><span style='color:#459EC4'>Sistema
 algebraico</span></i></b>: Es un conjunto provisto de una o varias operaciones
 (binarias)</p>
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
-width=338 height=31 id=Imagen28 src="index_archivos/image027.gif"></p>
+width=338 height=31 id=Imagen28
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image027.gif"></p>
 
 <p class=MsoNormal><b><i><span style='color:#459EC4'>Números naturales</span></i></b>:
 Es el conjunto de aquellos números que ocupamos para contar elementos, y se
@@ -899,7 +831,8 @@ es una agrupación de elementos los cuales tienen una o más características en
 común.</p>
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
-width=143 height=86 id=Imagen29 src="index_archivos/image028.gif"></p>
+width=143 height=86 id=Imagen29
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image028.gif"></p>
 
 <p class=MsoNormal>Notación:</p>
 
@@ -921,7 +854,8 @@ style='font-family:Wingdings'>Ø<span style='font:7.0pt "Times New Roman"'>&nbsp
 conjunto.</p>
 
 <p class=MsoListParagraphCxSpMiddle align=center style='text-align:center'><img
-width=142 height=26 id=Imagen30 src="index_archivos/image029.gif"></p>
+width=142 height=26 id=Imagen30
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image029.gif"></p>
 
 <p class=MsoListParagraphCxSpLast style='text-indent:-18.0pt'><span
 style='font-family:Wingdings'>Ø<span style='font:7.0pt "Times New Roman"'>&nbsp;
@@ -929,13 +863,13 @@ style='font-family:Wingdings'>Ø<span style='font:7.0pt "Times New Roman"'>&nbsp
 cumplen los elementos del conjunto.</p>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=460
-height=55 id=Imagen31 src="index_archivos/image030.gif"></p>
+height=55 id=Imagen31 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image030.gif"></p>
 
 <p class=MsoNormal><b><i><span style='color:#459EC4'>Cardinalidad</span></i></b>:
 es el número de elementos que pertenecen a un conjunto.</p>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=152
-height=28 id=Imagen32 src="index_archivos/image031.gif"></p>
+height=28 id=Imagen32 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image031.gif"></p>
 
 <p class=MsoNormal><b><i><span style='color:#459EC4'>Conjunto finito</span></i></b>:
 se conoce el total de los elementos y se pueden enumerar (contar).</p>
@@ -944,13 +878,13 @@ se conoce el total de los elementos y se pueden enumerar (contar).</p>
 no se conoce el total de los elementos (puede ser numerable o no numerable).</p>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=163
-height=29 id=Imagen33 src="index_archivos/image032.gif"></p>
+height=29 id=Imagen33 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image032.gif"></p>
 
 <p class=MsoNormal><b><i><span style='color:#459EC4'>Conjunto vacío</span></i></b>:
 es aquel conjunto que carece de elementos.</p>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=79
-height=34 id=Imagen34 src="index_archivos/image033.gif"></p>
+height=34 id=Imagen34 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image033.gif"></p>
 
 <p class=MsoNormal><b><i><span style='color:#459EC4'>Conjunto universal</span></i></b>:
 es el conjunto que contiene todos los elementos con los cuales se trabaja para
@@ -961,7 +895,7 @@ conjunto</span></i></b>: conjunto de elementos que tienen las mismas
 características y que está incluido dentro de otro conjunto más amplio.</p>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=337
-height=76 id=Imagen35 src="index_archivos/image034.gif"></p>
+height=76 id=Imagen35 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image034.gif"></p>
 
 <h5>OPERACIONES ENTRE CONJUNTOS</h5>
 
@@ -970,28 +904,31 @@ consiste en reunir en un solo conjunto todos los elementos de los conjuntos que
 se unen.</p>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=277
-height=92 id=Imagen36 src="index_archivos/image035.gif"></p>
+height=92 id=Imagen36 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image035.gif"></p>
 
 <p class=MsoNormal style='margin-bottom:0cm'><b><i><span style='color:#459EC4'>Intersección</span></i></b>:
 consiste en reunir en un solo conjunto todos los elementos comunes de los
 conjuntos que se están analizando.</p>
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
-width=200 height=78 id=Imagen37 src="index_archivos/image036.gif"></p>
+width=200 height=78 id=Imagen37
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image036.gif"></p>
 
 <p class=MsoNormal style='margin-bottom:0cm'><b><i><span style='color:#459EC4'>Diferencia</span></i></b>:
 consiste en reunir en un solo conjunto todos los elementos contenidos en el
 conjunto de referencia que no se encuentran en el conjunto de operación.</p>
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
-width=366 height=85 id=Imagen38 src="index_archivos/image037.gif"></p>
+width=366 height=85 id=Imagen38
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image037.gif"></p>
 
 <p class=MsoNormal style='margin-bottom:0cm'><b><i><span style='color:#459EC4'>Complemento</span></i></b>:
 es el conjunto de todos los elementos que no están en el conjunto de referencia
 y que le faltan para ser igual al conjunto universal.</p>
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
-width=253 height=109 id=Imagen39 src="index_archivos/image038.gif"></p>
+width=253 height=109 id=Imagen39
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image038.gif"></p>
 
 <h5>NÚMEROS NATURALES</h5>
 
@@ -1102,7 +1039,7 @@ style='font-family:"Cambria Math",serif'>m</span>)<span style='font-family:
 y la multiplicación</span></i></b></p>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=674
-height=212 id=Imagen40 src="index_archivos/image039.gif"></p>
+height=212 id=Imagen40 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image039.gif"></p>
 
 <h5><span style='text-transform:none'>ORDEN EN LOS </span>NÚMEROS <span
 style='text-transform:none'>NATURALES </span></h5>
@@ -1136,7 +1073,7 @@ style='font-family:Wingdings'>Ø<span style='font:7.0pt "Times New Roman"'>&nbsp
 <p class=MsoNormal style='margin-bottom:0cm'><b><i><span style='color:#459EC4'>Teoremas</span></i></b>:</p>
 
 <p class=MsoNormal><img width=412 height=85 id=Imagen41
-src="index_archivos/image040.gif"></p>
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image040.gif"></p>
 
 <h5>INDUCCIÓN MATEMÁTICA</h5>
 
@@ -1186,13 +1123,14 @@ style='font-family:"Cambria Math",serif'>n</span>; <span style='font-family:
 &#8484;</span></p>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=647
-height=28 id=Imagen42 src="index_archivos/image041.gif"></p>
+height=28 id=Imagen42 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image041.gif"></p>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=645
-height=25 id=Imagen43 src="index_archivos/image042.gif"></p>
+height=25 id=Imagen43 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image042.gif"></p>
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
-width=384 height=25 id=Imagen44 src="index_archivos/image043.gif"></p>
+width=384 height=25 id=Imagen44
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image043.gif"></p>
 
 <h5 style='margin-top:0cm'>OPERACIONES EN LOS NÚMEROS ENTEROS</h5>
 
@@ -1228,18 +1166,18 @@ números enteros</span></i></b></p>
 la multiplicación</span></i></b></p>
 
 <p class=MsoNormal style='margin-bottom:0cm'><img width=315 height=70
-id=Imagen45 src="index_archivos/image044.gif"></p>
+id=Imagen45 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image044.gif"></p>
 
 <p class=MsoNormal><b><i><span style='color:#459EC4'>Propiedades de la adición
 y la multiplicación</span></i></b></p>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=665
-height=249 id=Imagen46 src="index_archivos/image045.gif"></p>
+height=249 id=Imagen46 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image045.gif"></p>
 
 <h5><span style='text-transform:none'>ORDEN EN LOS </span>NÚMEROS ENTEROS</h5>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=665
-height=89 id=Imagen47 src="index_archivos/image046.gif"></p>
+height=89 id=Imagen47 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image046.gif"></p>
 
 <h4 style='margin-left:35.45pt;text-indent:-19.5pt'>2.3<span style='font:7.0pt "Times New Roman"'>
 </span><b><span style='color:black'>El conjunto de los números racionales</span></b><span
@@ -1261,10 +1199,10 @@ style='font-family:"Cambria Math",serif'>&#8712;</span> <span style='font-family
 "Cambria Math",serif'>&#8484; }, &#8469; &#8834; &#8484; &#8834; &#8474;</span></p>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=665
-height=28 id=Imagen48 src="index_archivos/image047.gif"></p>
+height=28 id=Imagen48 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image047.gif"></p>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=652
-height=241 id=Imagen49 src="index_archivos/image048.gif"></p>
+height=241 id=Imagen49 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image048.gif"></p>
 
 <h5>OPERACIONES EN LOS NÚMEROS RACIONALES</h5>
 
@@ -1272,25 +1210,25 @@ height=241 id=Imagen49 src="index_archivos/image048.gif"></p>
 racionales</span></i></b></p>
 
 <p class=MsoNormal><img width=461 height=79 id=Imagen50
-src="index_archivos/image049.gif"></p>
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image049.gif"></p>
 
 <p class=MsoNormal><b><i><span style='color:#459EC4'>Sustracción en los números
 racionales</span></i></b></p>
 
 <p class=MsoNormal><img width=430 height=111 id=Imagen51
-src="index_archivos/image050.gif"> </p>
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image050.gif"> </p>
 
 <p class=MsoNormal><b><i><span style='color:#459EC4'>Multiplicación en los
 números racionales</span></i></b></p>
 
 <p class=MsoNormal><img width=509 height=83 id=Imagen52
-src="index_archivos/image051.gif"></p>
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image051.gif"></p>
 
 <p class=MsoNormal><b><i><span style='color:#459EC4'>División en los números
 racionales</span></i></b></p>
 
 <p class=MsoNormal><img width=436 height=112 id=Imagen53
-src="index_archivos/image052.gif"></p>
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image052.gif"></p>
 
 <p class=MsoNormal><b><i><span style='color:#459EC4'>Teorema de la densidad de
 los racionales </span></i></b></p>
@@ -1311,7 +1249,7 @@ style='font-family:"Cambria Math",serif'>&#119909;</span></p>
 y la multiplicación</span></i></b></p>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=667
-height=268 id=Imagen54 src="index_archivos/image053.gif"></p>
+height=268 id=Imagen54 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image053.gif"></p>
 
 <h4 style='margin-left:35.45pt;text-indent:-19.5pt'>2.4<span style='font:7.0pt "Times New Roman"'>
 </span><b><span style='color:black'>El conjunto de los números reales</span></b><span
@@ -1331,7 +1269,7 @@ decimales no periódicas): <span style='font-family:"Cambria Math",serif'>&#8474
 …} = &#8477; &#8722; &#8474;</span></p>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=542
-height=385 id=Imagen55 src="index_archivos/image054.jpg"></p>
+height=385 id=Imagen55 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image054.jpg"></p>
 
 <h5>NÚMEROS <span style='text-transform:none'>REALES</span></h5>
 
@@ -1343,7 +1281,7 @@ irracionales:</p>
 &#8474; &#8746; &#921; = &#8474; &#8746; &#8474;&#8242;</span></p>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=498
-height=104 id=Imagen56 src="index_archivos/image055.gif"></p>
+height=104 id=Imagen56 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image055.gif"></p>
 
 <h5>OPERACIONES EN LOS NÚMEROS <span style='text-transform:none'>REALES</span></h5>
 
@@ -1351,43 +1289,45 @@ height=104 id=Imagen56 src="index_archivos/image055.gif"></p>
 reales</span></i></b></p>
 
 <p class=MsoNormal><img width=349 height=52 id=Imagen57
-src="index_archivos/image056.gif"></p>
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image056.gif"></p>
 
 <p class=MsoNormal><b><i><span style='color:#459EC4'>Sustracción en los números
 reales</span></i></b></p>
 
 <p class=MsoNormal><img width=353 height=48 id=Imagen58
-src="index_archivos/image057.gif"> </p>
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image057.gif"> </p>
 
 <p class=MsoNormal><b><i><span style='color:#459EC4'>Signo de los números
 reales</span></i></b></p>
 
 <p class=MsoNormal><img width=241 height=73 id=Imagen59
-src="index_archivos/image058.gif"></p>
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image058.gif"></p>
 
 <p class=MsoNormal style='margin-bottom:0cm'><b><i><span style='color:#459EC4'>Propiedades
 adicionales de la multiplicación </span></i></b></p>
 
 <p class=MsoNormal style='margin-bottom:0cm'><img width=367 height=85
-id=Imagen60 src="index_archivos/image059.gif"></p>
+id=Imagen60 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image059.gif"></p>
 
 <p class=MsoNormal style='margin-bottom:0cm'><img width=429 height=87
-id=Imagen61 src="index_archivos/image060.gif"></p>
+id=Imagen61 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image060.gif"></p>
 
 <p class=MsoNormal style='margin-bottom:0cm'><img width=327 height=97
-id=Imagen62 src="index_archivos/image061.gif"></p>
+id=Imagen62 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image061.gif"></p>
 
 <p class=MsoNormal style='margin-bottom:0cm'><b><i><span style='color:#459EC4'>Propiedades
 de la adición y la multiplicación</span></i></b></p>
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
-width=658 height=234 id=Imagen63 src="index_archivos/image062.gif"></p>
+width=658 height=234 id=Imagen63
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image062.gif"></p>
 
 <h5 style='margin:0cm'><span style='text-transform:none'>ORDEN EN LOS </span>NÚMEROS
 <span style='text-transform:none'>REALES (DESIGUALDADES E INECUACIONES)</span></h5>
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
-width=420 height=320 id=Imagen64 src="index_archivos/image063.jpg"></p>
+width=420 height=320 id=Imagen64
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image063.jpg"></p>
 
 <p class=MsoNormal><b><i><span style='color:#459EC4'>Desigualdad</span></i></b>:
 es una expresión que indica que una cantidad es mayor o menor que otra.</p>
@@ -1400,13 +1340,14 @@ y que sólo de verifica para determinados valores de las incógnitas.</p>
 absoluto</span></i></b></p>
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
-width=238 height=108 id=Imagen65 src="index_archivos/image064.jpg"></p>
+width=238 height=108 id=Imagen65
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image064.jpg"></p>
 
 <p class=MsoNormal style='margin-bottom:0cm'><img width=409 height=219
-id=Imagen66 src="index_archivos/image065.gif"></p>
+id=Imagen66 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image065.gif"></p>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=363
-height=476 id=Imagen67 src="index_archivos/image066.gif"></p>
+height=476 id=Imagen67 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image066.gif"></p>
 
 <h3 style='margin-left:21.3pt'>3.<span style='font:7.0pt "Times New Roman"'> </span>Números
 complejos.</h3>
@@ -1435,32 +1376,35 @@ style='font-family:"Cambria Math",serif'>&#8477;; i<sup>2</sup> = -1 }, &#8477;
 = &#8474; &#8746; &#8474;´</span></p>
 
 <p class=MsoNormal style='margin-bottom:0cm'><img width=415 height=36
-id=Imagen68 src="index_archivos/image067.gif"></p>
+id=Imagen68 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image067.gif"></p>
 
 <h5 style='margin-top:0cm'><span style='text-transform:none'>FORMA BINÓMICA</span></h5>
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><a
 name="_Hlk156237397"><img width=285 height=161 id=Imagen69
-src="index_archivos/image068.gif"></a></p>
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image068.gif"></a></p>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=308
-height=224 id=Imagen70 src="index_archivos/image069.gif"></p>
+height=224 id=Imagen70 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image069.gif"></p>
 
 <p class=MsoNormal><b><i><span style='color:#3896BC'>Unidad imaginaria</span></i></b></p>
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
-width=340 height=228 id=Imagen71 src="index_archivos/image070.gif"></p>
+width=340 height=228 id=Imagen71
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image070.gif"></p>
 
 <p class=MsoNormal style='margin-bottom:0cm'><b><i><span style='color:#3896BC'>Diagrama
 de Argand o Plano complejo</span></i></b></p>
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'> <img
-width=281 height=284 id=Imagen72 src="index_archivos/image071.gif"></p>
+width=281 height=284 id=Imagen72
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image071.gif"></p>
 
 <h5><span style='text-transform:none'>FORMA VECTORIAL O FORMA CARTESIANA</span></h5>
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
-width=237 height=199 id=Imagen73 src="index_archivos/image072.gif"></p>
+width=237 height=199 id=Imagen73
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image072.gif"></p>
 
 <p class=MsoNormal><b><i><span style='color:#3896BC'>Conjugado de un número</span></i></b>:
 Sea <span style='font-family:"Cambria Math",serif'>z</span> = <span
@@ -1468,26 +1412,28 @@ style='font-family:"Cambria Math",serif'>&#119886;</span> + <span
 style='font-family:"Cambria Math",serif'>b&#119894;</span> un número complejo.
 El conjugado de <span style='font-family:"Cambria Math",serif'>z</span>, que
 representamos con <img width=11 height=15 id=Imagen74
-src="index_archivos/image073.gif">, se define como: <img width=86 height=19
-id=Imagen75 src="index_archivos/image074.gif"></p>
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image073.gif">, se define como: <img
+width=86 height=19 id=Imagen75
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image074.gif"></p>
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
-width=261 height=289 id=Imagen76 src="index_archivos/image075.gif"></p>
+width=261 height=289 id=Imagen76
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image075.gif"></p>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=314
-height=269 id=Imagen77 src="index_archivos/image076.gif"></p>
+height=269 id=Imagen77 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image076.gif"></p>
 
 <h5>OPERACIONES EN LOS NÚMEROS COMPLEJOS EN <span style='text-transform:none'>FORMA
 BINÓMICA</span></h5>
 
 <p class=MsoNormal><img width=662 height=288 id=Imagen78
-src="index_archivos/image077.gif"></p>
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image077.gif"></p>
 
 <p class=MsoNormal><b><i><span style='color:#459EC4'>Propiedades de la adición
 y la multiplicación</span></i></b></p>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=676
-height=233 id=Imagen79 src="index_archivos/image078.gif"></p>
+height=233 id=Imagen79 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image078.gif"></p>
 
 <h4 style='margin-left:35.45pt;text-indent:-19.5pt'>3.2<span style='font:7.0pt "Times New Roman"'>
 </span><span style='color:black'>Forma polar o trigonométrica: definición de
@@ -1499,19 +1445,21 @@ radicación.</span></h4>
 TRIGONOMÉTRICA</span></h5>
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
-width=356 height=259 id=Imagen80 src="index_archivos/image079.gif"></p>
+width=356 height=259 id=Imagen80
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image079.gif"></p>
 
 <p class=MsoNormal style='margin-bottom:0cm'><b><i><span style='color:#3896BC'>Diagrama
 de Argand o Plano complejo</span></i></b></p>
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
-width=224 height=195 id=Imagen81 src="index_archivos/image080.gif"></p>
+width=224 height=195 id=Imagen81
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image080.gif"></p>
 
 <h5 style='margin:0cm'>OPERACIONES EN LOS NÚMEROS COMPLEJOS EN FORMA POLAR O
 TRIGONOMÉTRICA</h5>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=593
-height=278 id=Imagen82 src="index_archivos/image081.gif"></p>
+height=278 id=Imagen82 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image081.gif"></p>
 
 <h4 style='margin-left:35.45pt;text-indent:-19.5pt'>3.3<span style='font:7.0pt "Times New Roman"'>
 </span><span style='color:black'>Forma exponencial o de Euler. Operaciones en
@@ -1521,42 +1469,44 @@ forma exponencial: multiplicación, división, potenciación y radicación.</spa
 EXPONENCIAL </span></h5>
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
-width=314 height=248 id=Imagen83 src="index_archivos/image082.gif"></p>
+width=314 height=248 id=Imagen83
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image082.gif"></p>
 
 <p class=MsoNormal style='margin-bottom:0cm'><b><i><span style='color:#3896BC'>Diagrama
 de </span><span style='color:#439DC3'>Argand</span><span style='color:#3896BC'>
 o Plano complejo</span></i></b></p>
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
-width=231 height=201 id=Imagen84 src="index_archivos/image083.gif"></p>
+width=231 height=201 id=Imagen84
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image083.gif"></p>
 
 <h5 style='margin:0cm'>OPERACIONES EN LOS NÚMEROS COMPLEJOS EN FORMA
 EXPONENCIAL</h5>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=663
-height=315 id=Imagen85 src="index_archivos/image084.gif"></p>
+height=315 id=Imagen85 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image084.gif"></p>
 
 <h4 style='margin-left:35.45pt;text-indent:-19.5pt'>3.4<span style='font:7.0pt "Times New Roman"'>
 </span><span style='color:black'>Resolución de ecuaciones con una incógnita que
 involucren números complejos.</span></h4>
 
 <p class=MsoNormal><img width=660 height=696 id=Imagen86
-src="index_archivos/image085.gif"></p>
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image085.gif"></p>
 
 <p class=MsoNormal><img width=659 height=615 id=Imagen87
-src="index_archivos/image086.gif"></p>
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image086.gif"></p>
 
 <p class=MsoNormal><img width=660 height=854 id=Imagen88
-src="index_archivos/image087.gif"></p>
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image087.gif"></p>
 
 <p class=MsoNormal><img width=654 height=896 id=Imagen89
-src="index_archivos/image088.gif"></p>
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image088.gif"></p>
 
 <p class=MsoNormal><img width=658 height=347 id=Imagen90
-src="index_archivos/image089.gif"></p>
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image089.gif"></p>
 
 <p class=MsoNormal><img width=676 height=877 id=Imagen91
-src="index_archivos/image090.gif"></p>
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image090.gif"></p>
 
 <p class=MsoNormal>&nbsp;</p>
 
@@ -1573,90 +1523,100 @@ polinomio por un escalar.</span></h4>
 o monomio</span></i></b></p>
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
-width=241 height=97 id=Imagen92 src="index_archivos/image091.gif"></p>
+width=241 height=97 id=Imagen92
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image091.gif"></p>
 
 <p class=MsoNormal><b><i><span style='color:#439DC3'>Términos semejantes</span></i></b>:
 son aquellos términos o monomios cuya parte literal es la misma y sólo cambian
 sus coeficientes.</p>
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
-width=305 height=33 id=Imagen93 src="index_archivos/image092.gif"></p>
+width=305 height=33 id=Imagen93
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image092.gif"></p>
 
 <p class=MsoNormal style='margin-bottom:0cm'><b><i><span style='color:#439DC3'>Binomio</span></i></b>:
 es la suma algebraica de 2 términos o monomios.</p>
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
-width=189 height=30 id=Imagen94 src="index_archivos/image093.gif"></p>
+width=189 height=30 id=Imagen94
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image093.gif"></p>
 
 <p class=MsoNormal style='margin-bottom:0cm'><b><i><span style='color:#439DC3'>Trinomio</span></i></b>:
 es la suma algebraica de 3 términos o monomios.</p>
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
-width=233 height=26 id=Imagen95 src="index_archivos/image094.gif"></p>
+width=233 height=26 id=Imagen95
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image094.gif"></p>
 
 <p class=MsoNormal style='margin-bottom:0cm'><b><i><span style='color:#439DC3'>Polinomio</span></i></b>:
 Es una expresión algebraica que constituye la suma o la resta de un número
 finito de términos o monomios, que presenta la siguiente forma.</p>
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
-width=376 height=27 id=Imagen96 src="index_archivos/image095.gif"></p>
+width=376 height=27 id=Imagen96
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image095.gif"></p>
 
 <p class=MsoNormal style='margin-bottom:0cm'>Donde los coeficientes son:</p>
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
-width=212 height=26 id=Imagen97 src="index_archivos/image096.gif"></p>
+width=212 height=26 id=Imagen97
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image096.gif"></p>
 
 <p class=MsoNormal style='margin-bottom:0cm'>Y los términos del polinomio son:</p>
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
-width=257 height=33 id=Imagen98 src="index_archivos/image097.gif"></p>
+width=257 height=33 id=Imagen98
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image097.gif"></p>
 
 <p class=MsoNormal style='margin-bottom:0cm'>Una forma simplificada de expresar
 un polinomio es utilizando el operador sumatoria o suma abreviada.</p>
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
-width=429 height=69 id=Imagen99 src="index_archivos/image098.gif"></p>
+width=429 height=69 id=Imagen99
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image098.gif"></p>
 
 <p class=MsoNormal><b><i><span style='color:#439DC3'>Grado de un polinomio</span></i></b>:
 Corresponde al mayor exponente presente en los términos del polinomio.</p>
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
-width=340 height=67 id=Imagen100 src="index_archivos/image099.gif"></p>
+width=340 height=67 id=Imagen100
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image099.gif"></p>
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
-width=388 height=105 id=Imagen101 src="index_archivos/image100.gif"></p>
+width=388 height=105 id=Imagen101
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image100.gif"></p>
 
 <h5>OPERACIONES DE POLINOMIOS</h5>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=649
-height=147 id=Imagen102 src="index_archivos/image101.gif"></p>
+height=147 id=Imagen102 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image101.gif"></p>
 
 <p class=MsoNormal><b><i><span style='color:#439DC3'>Igualdad de polinomios</span></i></b></p>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=520
-height=32 id=Imagen103 src="index_archivos/image102.gif"></p>
+height=32 id=Imagen103 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image102.gif"></p>
 
 <p class=MsoNormal><b><i><span style='color:#439DC3'>Adición de polinomios</span></i></b></p>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=371
-height=81 id=Imagen104 src="index_archivos/image103.gif"></p>
+height=81 id=Imagen104 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image103.gif"></p>
 
 <p class=MsoNormal><b><i><span style='color:#439DC3'>Sustracción de polinomios</span></i></b></p>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=385
-height=27 id=Imagen105 src="index_archivos/image104.gif"></p>
+height=27 id=Imagen105 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image104.gif"></p>
 
 <p class=MsoNormal><b><i><span style='color:#439DC3'>Multiplicación de
 polinomios</span></i></b></p>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=621
-height=102 id=Imagen106 src="index_archivos/image105.gif"></p>
+height=102 id=Imagen106 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image105.gif"></p>
 
 <p class=MsoNormal><b><i><span style='color:#459EC4'>Propiedades de la adición
 y la multiplicación</span></i></b></p>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=665
-height=276 id=Imagen107 src="index_archivos/image106.gif"></p>
+height=276 id=Imagen107 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image106.gif"></p>
 
 <h4 style='margin-left:35.45pt;text-indent:-19.5pt'>4.2<span style='font:7.0pt "Times New Roman"'>
 </span><span style='color:black'>División de polinomios: divisibilidad y
@@ -1665,23 +1625,23 @@ algoritmo de la división. Teorema del residuo y del factor. División sintétic
 <h5>ALGORITMO DE LA DIVISIÓN </h5>
 
 <p class=MsoNormal style='margin-bottom:0cm'><img width=323 height=151
-id=Imagen108 src="index_archivos/image107.gif"></p>
+id=Imagen108 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image107.gif"></p>
 
 <p class=MsoNormal style='margin-bottom:0cm'><img width=322 height=54
-id=Imagen109 src="index_archivos/image108.gif"></p>
+id=Imagen109 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image108.gif"></p>
 
 <p class=MsoNormal style='margin-bottom:0cm'><img width=510 height=65
-id=Imagen110 src="index_archivos/image109.gif"></p>
+id=Imagen110 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image109.gif"></p>
 
 <h5 style='margin-top:0cm'>TEOREMA DEL RESIDUO</h5>
 
 <p class=MsoNormal style='margin-bottom:0cm'><img width=382 height=241
-id=Imagen111 src="index_archivos/image110.gif"></p>
+id=Imagen111 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image110.gif"></p>
 
 <h5>TEOREMA DEL FACTOR</h5>
 
 <p class=MsoNormal><img width=376 height=222 id=Imagen112
-src="index_archivos/image111.gif"></p>
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image111.gif"></p>
 
 <h4 style='margin-left:35.45pt;text-indent:-19.5pt'>4.3<span style='font:7.0pt "Times New Roman"'>
 </span><span style='color:black'>Raíces de un polinomio: definición de raíz,
@@ -1691,23 +1651,23 @@ teorema fundamental del álgebra y número de raíces de un polinomio.</span></h
 POLINOMIO</span></h5>
 
 <p class=MsoNormal style='margin-bottom:0cm'><img width=421 height=250
-id=Imagen113 src="index_archivos/image112.gif"> </p>
+id=Imagen113 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image112.gif"> </p>
 
 <p class=MsoNormal style='margin-bottom:0cm'><b><i><span style='color:#439DC3'>Conceptos
 equivalentes</span></i></b></p>
 
 <p class=MsoNormal style='margin-bottom:0cm'><img width=428 height=235
-id=Imagen114 src="index_archivos/image113.gif"></p>
+id=Imagen114 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image113.gif"></p>
 
 <h5><span style='text-transform:none'>TEOREMA FUNDAMENTAL DEL ÁLGEBRA</span></h5>
 
 <p class=MsoNormal><img width=421 height=263 id=Imagen115
-src="index_archivos/image114.gif"></p>
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image114.gif"></p>
 
 <h5 style='margin-bottom:0cm'>RESUMEN</h5>
 
 <p class=MsoNormal style='margin-bottom:0cm'><img width=466 height=246
-id=Imagen116 src="index_archivos/image115.gif"></p>
+id=Imagen116 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image115.gif"></p>
 
 <h4 style='margin-left:35.45pt;text-indent:-19.5pt'>4.4<span style='font:7.0pt "Times New Roman"'>
 </span><span style='color:black'>Técnicas elementales para buscar raíces:
@@ -1716,30 +1676,30 @@ posibles raíces racionales y regla de los signos de Descartes.</span></h4>
 <h5><span style='text-transform:none'>RAÍCES RACIONALES</span></h5>
 
 <p class=MsoNormal><img width=519 height=262 id=Imagen117
-src="index_archivos/image116.gif"></p>
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image116.gif"></p>
 
 <h5><span style='text-transform:none'>REGLA DE LOS SIGNOS DE DESCARTES</span></h5>
 
 <p class=MsoNormal><img width=658 height=230 id=Imagen118
-src="index_archivos/image117.gif"></p>
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image117.gif"></p>
 
 <h5><span style='text-transform:none'>TEOREMA DE LAS COTAS DE LAS RAÍCES REALES</span></h5>
 
 <p class=MsoNormal><img width=658 height=251 id=Imagen119
-src="index_archivos/image118.gif"></p>
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image118.gif"></p>
 
 <h5><span style='text-transform:none'>RAICES IRRACIONALES</span></h5>
 
 <p class=MsoNormal style='margin-bottom:0cm'><img width=667 height=121
-id=Imagen120 src="index_archivos/image119.gif"></p>
+id=Imagen120 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image119.gif"></p>
 
 <p class=MsoNormal><img width=665 height=81 id=Imagen121
-src="index_archivos/image120.gif"></p>
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image120.gif"></p>
 
 <h5><span style='text-transform:none'>RAICES COMPLEJAS</span></h5>
 
 <p class=MsoNormal><img width=661 height=114 id=Imagen122
-src="index_archivos/image121.gif"></p>
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image121.gif"></p>
 
 <p class=MsoNormal>&nbsp;</p>
 
@@ -1770,10 +1730,10 @@ soluciones.</span></h4>
 <h5>ECUACIÓN LINEAL</h5>
 
 <p class=MsoNormal style='margin-bottom:0cm'><img width=428 height=288
-id=Imagen123 src="index_archivos/image122.gif"></p>
+id=Imagen123 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image122.gif"></p>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=329
-height=427 id=Imagen124 src="index_archivos/image123.gif"></p>
+height=427 id=Imagen124 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image123.gif"></p>
 
 <h5><span style='text-transform:none'>SISTEMAS DE ECUACIÓN </span><span
 style='color:#3896BC;text-transform:none'>LINEAL</span></h5>
@@ -1786,30 +1746,34 @@ contienen las mismas variables y que comparten la misma solución.</p>
 es una expresión de la forma:</p>
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
-width=639 height=193 id=Imagen125 src="index_archivos/image124.gif"></p>
+width=639 height=193 id=Imagen125
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image124.gif"></p>
 
 <p class=MsoNormal><img width=639 height=46 id=Imagen126
-src="index_archivos/image125.gif"></p>
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image125.gif"></p>
 
 <h5>SISTEMAS HOMOGÉNEOS</h5>
 
 <p class=MsoNormal style='margin-bottom:0cm'>Un <b><i><span style='color:#3896BC'>sistema
 de ecuaciones lineales es homogéneo</span></i></b><span style='color:#3896BC'> </span>cuando
 todos sus términos independientes son iguales a cero, es decir: <img width=194
-height=17 id=Imagen127 src="index_archivos/image126.gif"></p>
+height=17 id=Imagen127 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image126.gif"></p>
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
-width=601 height=229 id=Imagen128 src="index_archivos/image127.gif"></p>
+width=601 height=229 id=Imagen128
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image127.gif"></p>
 
 <h5 style='margin:0cm'>CLASIFICACIÓN DE LOS SISTEMAS DE ECUACIONES LINEALES</h5>
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
-width=278 height=201 id=Imagen129 src="index_archivos/image128.gif"></p>
+width=278 height=201 id=Imagen129
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image128.gif"></p>
 
 <h5>REPRESENTACIÓN MATRICIAL DE SISTEMAS DE ECUACIONES </h5>
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
-width=595 height=282 id=Imagen130 src="index_archivos/image129.gif"></p>
+width=595 height=282 id=Imagen130
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image129.gif"></p>
 
 <h4 style='margin-left:35.45pt;text-indent:-19.5pt'>5.2<span style='font:7.0pt "Times New Roman"'>
 </span><span style='color:black'>Sistemas equivalentes y transformaciones
@@ -1854,7 +1818,8 @@ incógnitas con el propósito de llegar a un sistema que tenga forma <b><i><span
 style='color:#3896BC'>escalonada</span></i></b>.</p>
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
-width=363 height=86 id=Imagen131 src="index_archivos/image130.gif"></p>
+width=363 height=86 id=Imagen131
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image130.gif"></p>
 
 <p class=MsoNormal>Para llevar a cabo dicha eliminación sin alterar las
 soluciones del sistema, se recurre a las <b><i><span style='color:#3896BC'>transformaciones
@@ -1866,19 +1831,19 @@ descrito.</p>
 solución de problemas de modelos físicos y matemáticos.</span></h4>
 
 <p class=MsoNormal style='margin-bottom:0cm'><img width=610 height=341
-id=Imagen132 src="index_archivos/image131.gif"></p>
+id=Imagen132 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image131.gif"></p>
 
 <p class=MsoNormal><img width=628 height=497 id=Imagen133
-src="index_archivos/image132.gif"></p>
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image132.gif"></p>
 
 <p class=MsoNormal style='margin-bottom:0cm'><img width=654 height=232
-id=Imagen134 src="index_archivos/image133.gif"></p>
+id=Imagen134 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image133.gif"></p>
 
 <p class=MsoNormal><img width=663 height=639 id=Imagen135
-src="index_archivos/image134.gif"></p>
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image134.gif"></p>
 
 <p class=MsoNormal style='margin-bottom:0cm'><img width=537 height=263
-id=Imagen136 src="index_archivos/image135.gif"
+id=Imagen136 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image135.gif"
 alt="Tabla&#10;&#10;El contenido generado por IA puede ser incorrecto."></p>
 
 <h3 style='margin-left:21.3pt'>6.<span style='font:7.0pt "Times New Roman"'> </span>Matrices
@@ -1897,7 +1862,7 @@ arreglo bidimensional, de renglones y columnas, encerrados entre paréntesis o
 corchetes, que obedecen ciertas reglas algebraicas</p>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=665
-height=256 id=Imagen137 src="index_archivos/image136.gif"></p>
+height=256 id=Imagen137 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image136.gif"></p>
 
 <h5>TIPO DE MATRICES</h5>
 
@@ -1906,13 +1871,13 @@ vector (matriz) columna</span></i></b>: Es una matriz formada por un solo
 renglón o una sola columna, respectivamente.</p>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=346
-height=106 id=Imagen138 src="index_archivos/image137.gif"></p>
+height=106 id=Imagen138 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image137.gif"></p>
 
 <p class=MsoNormal><b><i><span style='color:#3896BC'>Matriz nula</span></i></b>:
 Es una matriz donde todos sus elementos son ceros.</p>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=114
-height=44 id=Imagen139 src="index_archivos/image138.gif"></p>
+height=44 id=Imagen139 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image138.gif"></p>
 
 <p class=MsoNormal><b><i><span style='color:#3896BC'>Matriz rectangular</span></i></b>:
 Es aquella matriz cuyo número de renglones es diferente al número de columnas,
@@ -1925,17 +1890,19 @@ style='font-family:"Cambria Math",serif'>&#119950;</span> =<i> </i><i><span
 style='font-family:"Cambria Math",serif'>n</span></i></p>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=401
-height=86 id=Imagen140 src="index_archivos/image139.gif"></p>
+height=86 id=Imagen140 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image139.gif"></p>
 
-<h5><img width=154 height=1 src="index_archivos/image140.gif" align=left
-hspace=12>OPERACIONES ENTRE MATRICES</h5>
+<h5><img width=154 height=1
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image140.gif" align=left hspace=12>OPERACIONES
+ENTRE MATRICES</h5>
 
 <p class=MsoNormal>Sean dos matrices: </p>
 
-<p class=MsoNormal><img width=148 height=1 src="index_archivos/image141.gif"
-align=left hspace=12><b><i><span style='color:#3896BC'>Igualdad de matrices</span></i></b>:
-Dos matrices son iguales si son del mismo orden y si los elementos de la misma
-posición son iguales en ambas, es decir: </p>
+<p class=MsoNormal><img width=148 height=1
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image141.gif" align=left hspace=12><b><i><span
+style='color:#3896BC'>Igualdad de matrices</span></i></b>: Dos matrices son
+iguales si son del mismo orden y si los elementos de la misma posición son
+iguales en ambas, es decir: </p>
 
 <p class=MsoNormal><b><i><span style='color:#3896BC'>Suma de matrices</span></i></b>:
 Esta operación únicamente se puede realizar entre matrices del mismo orden.
@@ -1943,7 +1910,7 @@ Para realizarla se suman elemento por elemento en sus posiciones
 correspondientes:</p>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=390
-height=32 id=Imagen143 src="index_archivos/image142.gif"></p>
+height=32 id=Imagen143 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image142.gif"></p>
 
 <p class=MsoNormal><b><i><span style='color:#3896BC'>Diferencia de matrices</span></i></b>:
 Esta operación únicamente se puede realizar entre matrices del mismo orden.
@@ -1952,28 +1919,29 @@ matriz y posteriormente se realiza la suma de elemento por elemento en sus
 posiciones correspondientes.</p>
 
 <p class=MsoNormal><img width=647 height=35 id=Imagen144
-src="index_archivos/image143.gif"></p>
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image143.gif"></p>
 
 <p class=MsoNormal><b><i><span style='color:#459EC4'>Propiedades de la adición</span></i></b></p>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=664
-height=256 id=Imagen145 src="index_archivos/image144.gif"></p>
+height=256 id=Imagen145 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image144.gif"></p>
 
 <p class=MsoNormal><img width=360 height=18 id=Imagen146
-src="index_archivos/image145.gif"></p>
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image145.gif"></p>
 
-<p class=MsoNormal><img width=74 height=1 src="index_archivos/image146.gif"
-align=left hspace=12><b><i><span style='color:#3896BC'>Multiplicación de
-matrices por un escalar</span></i></b>: Esta operación se realiza multiplicando
-el escalar por cada uno de los elementos de la matriz, es decir: </p>
+<p class=MsoNormal><img width=74 height=1
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image146.gif" align=left hspace=12><b><i><span
+style='color:#3896BC'>Multiplicación de matrices por un escalar</span></i></b>:
+Esta operación se realiza multiplicando el escalar por cada uno de los
+elementos de la matriz, es decir: </p>
 
 <p class=MsoNormal><b><i><span style='color:#459EC4'>Propiedades por un escalar</span></i></b></p>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=299
-height=107 id=Imagen148 src="index_archivos/image147.gif"></p>
+height=107 id=Imagen148 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image147.gif"></p>
 
 <p class=MsoNormal><img width=351 height=25 id=Imagen149
-src="index_archivos/image148.gif"></p>
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image148.gif"></p>
 
 <p class=MsoNormal><b><i><span style='color:#3896BC'>Producto de </span><span
 style='color:#439DC3'>matrices</span></i></b>: Esta operación únicamente se
@@ -1981,7 +1949,7 @@ puede realizar entre matrices donde el número de columnas de la primera matriz
 es igual al número de renglones de la segunda:</p>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=643
-height=118 id=Imagen150 src="index_archivos/image149.gif"></p>
+height=118 id=Imagen150 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image149.gif"></p>
 
 <p class=MsoNormal>El elemento que se encuentra en la posición correspondiente
 al renglón i y la columna j de la matriz producto AB, se obtiene sumando los
@@ -1989,7 +1957,7 @@ productos de los elementos del renglón i de la matriz A por sus elementos
 correspondientes en la columna j de la matriz B:</p>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=649
-height=98 id=Imagen151 src="index_archivos/image150.gif"></p>
+height=98 id=Imagen151 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image150.gif"></p>
 
 <p class=MsoNormal><b><i><span style='color:#439DC3'>Matriz identidad:</span></i></b><span
 style='color:#439DC3'> </span>es una matriz cuadrada de orden n tal que todos
@@ -1997,7 +1965,7 @@ los elementos de su diagonal principal son uno y los elementos fuera de ella
 son cero. Ejemplos</p>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=507
-height=97 id=Imagen152 src="index_archivos/image151.gif"></p>
+height=97 id=Imagen152 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image151.gif"></p>
 
 <h4 style='margin-left:35.45pt;text-indent:-21.25pt'>6.2<span style='font:7.0pt "Times New Roman"'>&nbsp;
 </span><span style='color:black'>Definición y propiedades de la inversa de una
@@ -2012,7 +1980,7 @@ inversa <span style='font-family:"Cambria Math",serif'>&#119860;</span><sup>&#87
 la cual cumple que:</p>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=133
-height=31 id=Imagen153 src="index_archivos/image152.gif"></p>
+height=31 id=Imagen153 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image152.gif"></p>
 
 <p class=MsoNormal>Una de las condiciones necesarias para que una matriz tenga
 inversa es que debe ser una matriz cuadrada. Además, la inversa deberá ser
@@ -2027,13 +1995,13 @@ style='color:#439DC3'> </span>es aquella matriz <span style='font-family:"Cambri
 que NO tiene una matriz inversa <span style='font-family:"Cambria Math",serif'>&#119860;</span><sup>&#8722;1</sup></p>
 
 <p class=MsoNormal style='margin-bottom:0cm'><img width=589 height=136
-id=Imagen154 src="index_archivos/image153.gif"></p>
+id=Imagen154 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image153.gif"></p>
 
 <p class=MsoNormal style='margin-bottom:0cm'><img width=508 height=314
-id=Imagen155 src="index_archivos/image154.gif"></p>
+id=Imagen155 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image154.gif"></p>
 
 <p class=MsoNormal style='margin-bottom:0cm'><img width=480 height=372
-id=Imagen156 src="index_archivos/image155.gif"></p>
+id=Imagen156 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image155.gif"></p>
 
 <p class=MsoNormal style='margin-bottom:0cm'>&nbsp;</p>
 
@@ -2042,7 +2010,7 @@ id=Imagen156 src="index_archivos/image155.gif"></p>
 Representación y resolución matricial de los sistemas de ecuaciones lineales.</span></h4>
 
 <p class=MsoNormal style='margin-bottom:0cm'><img width=665 height=501
-id=Imagen157 src="index_archivos/image156.gif"></p>
+id=Imagen157 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image156.gif"></p>
 
 <h4 style='margin-left:35.45pt;text-indent:-21.25pt'>6.4<span style='font:7.0pt "Times New Roman"'>&nbsp;
 </span><span style='color:black'>Matrices triangulares, diagonales y sus
@@ -2055,8 +2023,9 @@ cuadrada</span></i></b><span style='color:#439DC3'>: </span>es la suma de los
 elementos de su diagonal principal: </p>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=365
-height=97 id=Imagen158 src="index_archivos/image157.gif">          <img
-width=95 height=54 id=Imagen159 src="index_archivos/image158.gif"
+height=97 id=Imagen158 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image157.gif">         
+<img width=95 height=54 id=Imagen159
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image158.gif"
 alt="Texto&#10;&#10;El contenido generado por IA puede ser incorrecto."></p>
 
 <p class=MsoNormal><b><i><span style='color:#439DC3'>Matriz diagonal:</span></i></b><span
@@ -2064,7 +2033,7 @@ style='color:#439DC3'> </span>es una matriz cuadrada en donde los elementos de
 su diagonal principal son diferentes de cero y los demás son ceros. Ejemplos: </p>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=343
-height=83 id=Imagen160 src="index_archivos/image159.gif"></p>
+height=83 id=Imagen160 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image159.gif"></p>
 
 <p class=MsoNormal><b><i><span style='color:#439DC3'>Matriz triangular
 superior:</span></i></b><span style='color:#439DC3'> </span>es una matriz
@@ -2072,7 +2041,7 @@ cuadrada en la cual todos los elementos por debajo de la diagonal principal son
 cero. Ejemplos:</p>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=364
-height=159 id=Imagen161 src="index_archivos/image160.gif"></p>
+height=159 id=Imagen161 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image160.gif"></p>
 
 <p class=MsoNormal><b><i><span style='color:#439DC3'>Matriz triangular
 inferior:</span></i></b><span style='color:#439DC3'> </span>es una matriz
@@ -2080,7 +2049,7 @@ cuadrada en la cual todos los elementos por arriba de la diagonal principal son
 cero. Ejemplos:</p>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=365
-height=167 id=Imagen162 src="index_archivos/image161.gif"></p>
+height=167 id=Imagen162 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image161.gif"></p>
 
 <h4 style='margin-left:35.45pt;text-indent:-21.25pt'>6.5<span style='font:7.0pt "Times New Roman"'>&nbsp;
 </span><span style='color:black'>Transposición de una matriz y sus propiedades.
@@ -2095,7 +2064,7 @@ la matriz transpuesta de A es la matriz en donde los renglones de A ahora son
 las columnas de la transpuesta, es decir:</p>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=661
-height=272 id=Imagen163 src="index_archivos/image162.gif"></p>
+height=272 id=Imagen163 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image162.gif"></p>
 
 <p class=MsoNormal><b><i><span style='color:#439DC3'>Matriz conjugada:</span></i></b><span
 style='color:#439DC3'> </span>Sea A una matriz de números complejos, su matriz
@@ -2103,7 +2072,7 @@ conjugada es aquella matriz en donde se reemplaza cada elemento por su
 respectivo complejo conjugado: &#256;</p>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=462
-height=180 id=Imagen164 src="index_archivos/image163.gif"></p>
+height=180 id=Imagen164 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image163.gif"></p>
 
 <p class=MsoNormal><b><i><span style='color:#439DC3'>Matriz simétrica: </span></i></b>es
 aquella matriz cuadrada que es igual a su propia matriz transpuesta: <span
@@ -2180,7 +2149,7 @@ todos los elementos de una fila o columna se multiplican por un escalar, el
 valor del determinante queda multiplicado por dicho escalar</p>
 
 <p class=MsoNormal style='margin-left:18.0pt'><img width=135 height=99
-id=Imagen165 src="index_archivos/image164.gif"
+id=Imagen165 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image164.gif"
 alt="Texto&#10;&#10;El contenido generado por IA puede ser incorrecto."></p>
 
 <h6>REGLA DE SARRUS</h6>
@@ -2193,7 +2162,7 @@ elementos de la diagonal secundaria de la misma matriz.</p>
 puede utilizar para determinantes de matrices de 2x2 y 3x3.</p>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=658
-height=280 id=Imagen166 src="index_archivos/image165.gif"></p>
+height=280 id=Imagen166 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image165.gif"></p>
 
 <h6>MENORES Y COFACTORES</h6>
 
@@ -2208,7 +2177,7 @@ style='font-family:"Cambria Math",serif'>&#119894;&#119894;</span></sub>] y
 está dado por:</p>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=664
-height=203 id=Imagen167 src="index_archivos/image166.gif"></p>
+height=203 id=Imagen167 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image166.gif"></p>
 
 <h4 style='margin-left:35.45pt;text-indent:-21.25pt'>6.7<span style='font:7.0pt "Times New Roman"'>&nbsp;
 </span><span style='color:black'>Cálculo de la inversa por medio de la adjunta.
@@ -2224,7 +2193,7 @@ inversa <span style='font-family:"Cambria Math",serif'>&#119860;</span><sup>&#87
 la cual cumple que:</p>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=159
-height=25 id=Imagen168 src="index_archivos/image167.gif"></p>
+height=25 id=Imagen168 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image167.gif"></p>
 
 <p class=MsoNormal>Una de las condiciones necesarias para que una matriz tenga
 inversa es que debe ser una matriz cuadrada. Además, la inversa deberá ser
@@ -2239,12 +2208,14 @@ style='color:#439DC3'> </span>es aquella matriz <span style='font-family:"Cambri
 que NO tiene una matriz inversa <span style='font-family:"Cambria Math",serif'>&#119860;</span><sup>&#8722;1</sup></p>
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
-width=571 height=132 id=Imagen169 src="index_archivos/image168.gif"></p>
+width=571 height=132 id=Imagen169
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image168.gif"></p>
 
 <h6>CÁLCULO DE LA INVERSA POR DETERMINANTES</h6>
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
-width=185 height=58 id=Imagen170 src="index_archivos/image169.gif"></p>
+width=185 height=58 id=Imagen170
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image169.gif"></p>
 
 <p class=MsoNormal>Donde <i>Adj</i>(A) se le conoce como la matriz adjunta de
 A.</p>
@@ -2268,27 +2239,28 @@ es distinto a cero. Así todo sistema de Cramer es consistente determinado, es
 decir, tiene solución única.</p>
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
-width=449 height=397 id=Imagen171 src="index_archivos/image170.gif"></p>
+width=449 height=397 id=Imagen171
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image170.gif"></p>
 
 <p class=MsoNormal align=center style='text-align:center'><img width=547
-height=462 id=Imagen172 src="index_archivos/image171.gif"></p>
+height=462 id=Imagen172 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image171.gif"></p>
 
 <p class=MsoNormal>Con la regla de Cramer se tienen los siguientes casos: </p>
 
 <p class=MsoNormal><img width=553 height=387 id=Imagen173
-src="index_archivos/image172.gif"></p>
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image172.gif"></p>
 
 <p class=MsoNormal style='margin-bottom:0cm'><img width=604 height=423
-id=Imagen174 src="index_archivos/image173.gif"></p>
+id=Imagen174 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image173.gif"></p>
 
 <p class=MsoNormal style='margin-bottom:0cm'><img width=510 height=447
-id=Imagen175 src="index_archivos/image174.gif"></p>
+id=Imagen175 src="capitulo_01_ÁLGEBRA_(1120)_archivos/image174.gif"></p>
 
 <p class=MsoNormal><img width=546 height=870 id=Imagen176
-src="index_archivos/image175.gif"></p>
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image175.gif"></p>
 
 <p class=MsoNormal><img width=665 height=462 id=Imagen177
-src="index_archivos/image176.gif"></p>
+src="capitulo_01_ÁLGEBRA_(1120)_archivos/image176.gif"></p>
 
 <h3 style='margin-top:5.0pt;margin-right:0cm;margin-bottom:12.0pt;margin-left:
 21.3pt'>7.<span style='font:7.0pt "Times New Roman"'> </span>Bibliografía </h3>
@@ -2303,308 +2275,275 @@ src="index_archivos/image176.gif"></p>
 <p class=MsoNormal>Solar G., Eduardo, y Speziale de G., Leda. <i>Álgebra I.</i></p>
 
 <p class=MsoNormal>Velázquez T., Juan. <i>Fascículo de inducción matemática.</i></p>
-    </article>
 
-  </div><!-- /content-main -->
+</div>
 
+      </article>
+
+    </div><!-- /content-main -->
 </div><!-- /page-layout -->
 
 
-<!-- ═══════════════════════════════════════
+<!-- ══════════════════════════════════════
      SCRIPTS
-═══════════════════════════════════════ -->
+══════════════════════════════════════ -->
 <script>
-/* ── Constantes SVG para botón de tema ── */
+'use strict';
+
 const MOON = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>`;
 const SUN  = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`;
 
-/* ── Helpers ── */
-const $  = id => document.getElementById(id);
-const getMeta = n => (document.querySelector(`meta[name="${n}"]`) || {}).content || '';
+const $       = id => document.getElementById(id);
+const getMeta = n  => (document.querySelector(`meta[name="${n}"]`) || {}).content || '';
 
-/* ══════════════════════════════════════════
-   1. COLOR DE LA MATERIA desde <meta name="COLOR">
-══════════════════════════════════════════ */
+/* ────────────────────────────────────────
+   1. COLOR de identidad de la materia
+──────────────────────────────────────── */
 function applyColor() {
   const c = getMeta('COLOR') || '#3494BA';
   document.documentElement.style.setProperty('--color', c);
 }
 
-/* ══════════════════════════════════════════
-   2. HERO: llena desde meta + extrae objetivo
-      El objetivo se muestra UNA sola vez aquí.
-      Se elimina del word-content para evitar duplicado.
-══════════════════════════════════════════ */
+/* ────────────────────────────────────────
+   2. LIMPIEZA automática del HTML de Word
+──────────────────────────────────────── */
+function cleanWordHTML() {
+  const wc = $('word-content');
+  if (!wc) return;
+
+  /* Quitar TODOS los estilos inline de headings */
+  wc.querySelectorAll('h1,h2,h3,h4,h5,h6,h7,h8').forEach(h => {
+    h.removeAttribute('style');
+    h.querySelectorAll('span').forEach(s => {
+      const fs = s.style.fontSize || '';
+      if (fs.includes('7') && fs.includes('pt')) {
+        s.replaceWith(document.createTextNode(' ')); /* elimina espaciadores 7pt de Word */
+      } else {
+        s.removeAttribute('style');
+      }
+    });
+  });
+
+  /* Quitar colores/backgrounds problemáticos en el resto */
+  const BLUES = ['#459ec4','#3494ba','#1a495c','rgb(69,158,196)','rgb(52,148,186)'];
+  const isWordBlue = v => v && BLUES.some(b => v.toLowerCase().replace(/\s/g,'').includes(b));
+
+  wc.querySelectorAll('*').forEach(el => {
+    const s = el.style;
+    if (!s || !s.length) return;
+
+    if (isWordBlue(s.color)) s.removeProperty('color');
+
+    const bg = (s.background + s.backgroundColor).toLowerCase().replace(/\s/g,'');
+    if (bg.includes('#3494ba') || bg.includes('#d4eaf3') ||
+        bg.includes('white')   || bg.includes('#ffffff')) {
+      s.removeProperty('background');
+      s.removeProperty('background-color');
+    }
+
+    const col = (s.color || '').toLowerCase().replace(/\s/g,'');
+    if (['white','#ffffff','#fff','black','#000000','#000','windowtext'].includes(col))
+      s.removeProperty('color');
+  });
+
+  /* Wingdings → bullet normal */
+  wc.querySelectorAll('span[style*="Wingdings"],span[style*="wingdings"]').forEach(s => {
+    s.textContent = '•'; s.removeAttribute('style');
+  });
+
+  /* Imágenes: quitar width/height inline */
+  wc.querySelectorAll('img').forEach(img => {
+    img.removeAttribute('width');
+    img.removeAttribute('height');
+  });
+}
+
+/* ────────────────────────────────────────
+   3. HERO — lee <meta>, extrae objetivo del
+      word-content y lo elimina para no duplicarlo
+──────────────────────────────────────── */
 function buildHero() {
-  const semestre = getMeta('SEMESTRE') || 'Semestre';
-  const materia  = getMeta('MATERIA')  || 'Materia';
+  const semestre = getMeta('SEMESTRE');
+  const materia  = getMeta('MATERIA') || 'Materia';
   const clave    = getMeta('CLAVE');
   const creditos = getMeta('CREDITOS');
-  
   const wc = $('word-content');
 
-  /* Eliminar h2 (título de la materia — ya está en el hero) */
-  const h2 = wc.querySelector('h2');
-  if (h2) h2.remove();
+  wc.querySelector('h2')?.remove(); /* título ya aparece en el hero */
 
-  /* Extraer objetivo: busca el primer <em> que contenga "Objetivo"
-     y el siguiente párrafo con el texto del objetivo */
-  let objLabel = '';
-  let objHTML  = '';
-
-  const ems = wc.querySelectorAll('em');
-  for (const em of ems) {
+  let objLabel = '', objHTML = '';
+  for (const em of wc.querySelectorAll('em')) {
     if (em.textContent.toLowerCase().includes('objetivo')) {
       const emPara = em.closest('p');
       if (emPara) {
         objLabel = 'Objetivo(s) del curso';
-        /* El siguiente párrafo hermano tiene el texto del objetivo */
         let sib = emPara.nextElementSibling;
-        while (sib && sib.tagName === 'P' && sib.textContent.trim() === '') {
-          sib = sib.nextElementSibling; /* saltamos párrafos vacíos */
-        }
-        if (sib && sib.tagName === 'P') {
-          objHTML = sib.innerHTML;
-          sib.remove();
-        }
+        while (sib && sib.tagName === 'P' && !sib.textContent.trim())
+          sib = sib.nextElementSibling;
+        if (sib?.tagName === 'P') { objHTML = sib.innerHTML; sib.remove(); }
         emPara.remove();
       }
       break;
     }
   }
 
-  /* Construir hero */
-  const metaStr = [clave ? `Clave: ${clave}` : '', creditos ? `${creditos} créditos` : ''].filter(Boolean).join(' · ');
+  const metaStr = [clave && `Clave: ${clave}`, creditos && `${creditos} créditos`]
+    .filter(Boolean).join(' · ');
 
-  $('hero').innerHTML = `
-    <div class="hero-semestre">${semestre}</div>
-    <h1 class="hero-title">${materia}</h1>
-    ${metaStr ? `<div class="hero-meta">${metaStr}</div>` : ''}
-    <div class="hero-sep"></div>
-    ${objLabel ? `<div class="hero-obj-lbl">${objLabel}:</div>` : ''}
-    ${objHTML  ? `<p class="hero-obj-txt">${objHTML}</p>`       : ''}
-  `;
+  $('hero').innerHTML =
+    (semestre ? `<div class="hero-semestre">${semestre}</div>` : '') +
+    `<h1 class="hero-title">${materia}</h1>` +
+    (metaStr  ? `<div class="hero-meta">${metaStr}</div>` : '') +
+    `<div class="hero-sep"></div>` +
+    (objLabel ? `<div class="hero-obj-lbl">${objLabel}:</div>` : '') +
+    (objHTML  ? `<p class="hero-obj-txt">${objHTML}</p>` : '');
 
-  /* Actualizar <title> */
   document.title = `${materia} · Prontuario Mecatrónica · UNAM FI`;
 }
 
-/* ── Helper: scroll del contenido principal hasta un heading ── */
+/* ────────────────────────────────────────
+   4. TOC — colapsable h3→h8
+      · Triángulo: solo colapsa/expande
+      · Texto h3 : solo scroll (sin toggle)
+      · Items h4+: scroll + abre solo su padre
+──────────────────────────────────────── */
 function scrollToHeading(el) {
-  const container = $('contentMain');
-  /* Calcular posición absoluta del heading dentro del scroll container */
-  let top = el.offsetTop;
-  let parent = el.offsetParent;
-  while (parent && parent !== container) {
-    top += parent.offsetTop;
-    parent = parent.offsetParent;
-  }
-  container.scrollTo({ top: top - 68, behavior: 'smooth' });
+  const cont = $('contentMain');
+  let top = 0, cur = el;
+  while (cur && cur !== cont) { top += cur.offsetTop; cur = cur.offsetParent; }
+  cont.scrollTo({ top: top - 68, behavior: 'smooth' });
 }
 
-/* ══════════════════════════════════════════
-   3. TOC: construye marcadores colapsables
-      Soporta h3–h8 y clases de Word (MsoHeading7, etc.)
-══════════════════════════════════════════ */
 function buildTOC() {
   const wc  = $('word-content');
   const nav = $('tocNav');
+  const heads = Array.from(wc.querySelectorAll(
+    'h3,h4,h5,h6,h7,h8,p.MsoHeading7,p.MsoHeading8,[class*="Heading7"],[class*="Heading8"]'
+  ));
+  if (!heads.length) return;
 
-  const headings = Array.from(
-    wc.querySelectorAll('h3,h4,h5,h6,h7,h8,p.MsoHeading7,p.MsoHeading8,[class*="Heading7"],[class*="Heading8"]')
-  );
-  if (!headings.length) return;
+  let idx = 0, curDet = null, curList = null;
 
-  let counter     = 0;
-  let curDetails  = null;
-  let curChildren = null;
-
-  function getLevel(el) {
+  const getLevel = el => {
     const m = el.tagName.toUpperCase().match(/^H(\d+)$/);
-    if (m) return parseInt(m[1]);
-    if (el.className.match(/Heading7/i)) return 7;
-    if (el.className.match(/Heading8/i)) return 8;
-    return 5;
-  }
+    if (m) return +m[1];
+    return el.className.match(/Heading8/i) ? 8 : 7;
+  };
 
-  headings.forEach(h => {
-    if (!h.id) h.id = `hd-${++counter}`;
+  heads.forEach(h => {
+    if (!h.id) h.id = `hd-${++idx}`;
     const text  = h.innerText.trim().replace(/\s+/g, ' ');
     const level = getLevel(h);
 
     if (level === 3) {
-      curDetails = document.createElement('details');
-      curDetails.className = 'toc-group';
-      curDetails.open = true;
-      curDetails.dataset.hid = h.id;   /* para que el tracker lo encuentre */
+      curDet = document.createElement('details');
+      curDet.className = 'toc-group';
+      curDet.open = false;
+      curDet.dataset.hid = h.id;
 
-      const summary = document.createElement('summary');
+      const sum  = document.createElement('summary');
+      const arr  = document.createElement('span');
+      arr.className = 'toc-arrow'; arr.textContent = '▶';
 
-      const arrowSpan = document.createElement('span');
-      arrowSpan.className = 'toc-arrow';
-      arrowSpan.textContent = '▶';
-      /* El triángulo solo toggle — comportamiento nativo del <details> */
-
-      const textSpan = document.createElement('span');
-      textSpan.className = 'toc-h3-text';
-      textSpan.textContent = text;
-      textSpan.title = text;
-
-      /* Click en el TEXTO → scroll al heading, SIN tocar el estado open/closed */
-      textSpan.addEventListener('click', e => {
-        e.preventDefault();
-        e.stopPropagation();
-        scrollToHeading(h);
-        tocSetActive(summary, null);
+      const txt  = document.createElement('span');
+      txt.className = 'toc-h3-text'; txt.textContent = text; txt.title = text;
+      txt.addEventListener('click', e => {
+        e.preventDefault(); e.stopPropagation();
+        scrollToHeading(h); tocSetActive(sum, null);
       });
 
-      summary.appendChild(arrowSpan);
-      summary.appendChild(textSpan);
-      curDetails.appendChild(summary);
-
-      curChildren = document.createElement('ul');
-      curChildren.className = 'toc-children';
-      curDetails.appendChild(curChildren);
-      nav.appendChild(curDetails);
+      sum.appendChild(arr); sum.appendChild(txt); curDet.appendChild(sum);
+      curList = document.createElement('ul');
+      curList.className = 'toc-children';
+      curDet.appendChild(curList);
+      nav.appendChild(curDet);
 
     } else {
-      if (!curChildren) {
-        curChildren = document.createElement('ul');
-        curChildren.className = 'toc-children';
-        nav.appendChild(curChildren);
-      }
-
+      if (!curList) { curList = document.createElement('ul'); curList.className = 'toc-children'; nav.appendChild(curList); }
       const li = document.createElement('li');
       const a  = document.createElement('a');
-      a.href        = '#' + h.id;
-      a.className   = `toc-item lv${level}`;
-      a.textContent = text;
-      a.title       = text;
-
+      a.href = '#' + h.id; a.className = `toc-item lv${level}`;
+      a.textContent = text; a.title = text;
       a.addEventListener('click', e => {
         e.preventDefault();
         scrollToHeading(h);
-        /* Solo abrir el <details> PADRE de este item, sin abrir otros */
         a.closest('details')?.setAttribute('open', '');
         tocSetActive(null, a);
       });
-
-      li.appendChild(a);
-      curChildren.appendChild(li);
+      li.appendChild(a); curList.appendChild(li);
     }
   });
 }
 
-/* ══════════════════════════════════════════
-   4. TRACKING ACTIVO via IntersectionObserver
-      Reglas:
-      · Solo marca activo — NUNCA abre grupos cerrados
-      · Auto-scrollea el sidebar suavemente hacia el item activo
-      · Debounce para evitar saltos al scroll rápido
-══════════════════════════════════════════ */
+/* ────────────────────────────────────────
+   5. TRACKING — resalta item activo al scroll
+      · No abre grupos cerrados
+      · Auto-scrollea el sidebar (debounce 80ms)
+──────────────────────────────────────── */
+let _active = null, _timer = null;
 
-/* Elemento activo actual */
-let _activeTocEl = null;
-let _tocScrollTimer = null;
+function tocSetActive(sum, link) {
+  if (_active) _active.classList.remove('toc-active');
+  const t = link || sum; if (!t) return;
+  t.classList.add('toc-active'); _active = t;
 
-function tocSetActive(summary, link) {
-  /* Limpiar activo anterior */
-  if (_activeTocEl) _activeTocEl.classList.remove('toc-active');
-
-  const target = link || summary;
-  if (!target) return;
-
-  target.classList.add('toc-active');
-  _activeTocEl = target;
-
-  /* Auto-scroll del sidebar hacia el item activo — suave, sin saltos */
-  clearTimeout(_tocScrollTimer);
-  _tocScrollTimer = setTimeout(() => {
-    const nav = $('tocNav');
-    if (!nav || !target) return;
-
-    const navRect    = nav.getBoundingClientRect();
-    const itemRect   = target.getBoundingClientRect();
-
-    /* Solo scrollear si el item está fuera del área visible del sidebar */
-    const margin = 40;
-    if (itemRect.top < navRect.top + margin || itemRect.bottom > navRect.bottom - margin) {
-      const offset = target.offsetTop - nav.offsetTop - nav.clientHeight / 2 + target.clientHeight / 2;
-      nav.scrollTo({ top: offset, behavior: 'smooth' });
-    }
-  }, 80);  /* debounce 80ms */
+  clearTimeout(_timer);
+  _timer = setTimeout(() => {
+    const nav = $('tocNav'); if (!nav || !t) return;
+    const nr = nav.getBoundingClientRect(), ir = t.getBoundingClientRect();
+    if (ir.top < nr.top + 40 || ir.bottom > nr.bottom - 40)
+      nav.scrollTo({ top: t.offsetTop - nav.offsetTop - nav.clientHeight / 2 + t.clientHeight / 2, behavior: 'smooth' });
+  }, 80);
 }
 
 function initActiveTracking() {
-  const heads = Array.from(
-    $('word-content').querySelectorAll('h3,h4,h5,h6,h7,h8,p.MsoHeading7,p.MsoHeading8')
-  );
+  const heads = Array.from($('word-content').querySelectorAll(
+    'h3,h4,h5,h6,h7,h8,p.MsoHeading7,p.MsoHeading8'
+  ));
   if (!heads.length) return;
-
   const nav = $('tocNav');
 
   const obs = new IntersectionObserver(entries => {
-    /* Tomar solo las entradas que están intersectando */
-    const visible = entries.filter(e => e.isIntersecting);
-    if (!visible.length) return;
-
-    /* La más cercana al top de la pantalla */
-    visible.sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-    const target = visible[0].target;
-    const id = target.id;
-
-    /* Buscar el link correspondiente en el TOC */
+    const vis = entries.filter(e => e.isIntersecting);
+    if (!vis.length) return;
+    vis.sort((a,b) => a.boundingClientRect.top - b.boundingClientRect.top);
+    const id   = vis[0].target.id;
     const link = nav.querySelector(`.toc-item[href="#${id}"]`);
 
     if (link) {
-      /* Es un h4-h8: marcar link, NO abrir el details padre si está cerrado */
-      tocSetActive(null, link);
-
-    } else {
-      /* Es un h3: marcar su summary */
-      const det = nav.querySelector(`details[data-hid="${id}"]`);
-      if (det) {
-        const summary = det.querySelector('summary');
-        tocSetActive(summary, null);
+      /* Si el grupo padre está cerrado, resaltar el summary del grupo en su lugar */
+      const det = link.closest('details');
+      if (det && !det.open) {
+        tocSetActive(det.querySelector('summary'), null);
+      } else {
+        tocSetActive(null, link);
       }
+    } else {
+      const det = nav.querySelector(`details[data-hid="${id}"]`);
+      if (det) tocSetActive(det.querySelector('summary'), null);
     }
-
-  }, {
-    root: $('contentMain'),    /* el scroll container real */
-    rootMargin: '-60px 0px -60% 0px',
-    threshold: 0
-  });
+  }, { root: $('contentMain'), rootMargin: '-60px 0px -60% 0px', threshold: 0 });
 
   heads.forEach(h => obs.observe(h));
 }
 
-/* ══════════════════════════════════════════
-   5. TOGGLE SIDEBAR
-══════════════════════════════════════════ */
+/* ────────────────────────────────────────
+   6. TOGGLE SIDEBAR
+──────────────────────────────────────── */
 function initSidebarToggle() {
-  const sidebar  = $('tocSidebar');
-  const closeBtn = $('tocClose');
-  const openBtn  = $('tocOpenBtn');
-
-  closeBtn.addEventListener('click', () => {
-    sidebar.classList.add('collapsed');
-    openBtn.classList.add('visible');
-  });
-  openBtn.addEventListener('click', () => {
-    sidebar.classList.remove('collapsed');
-    openBtn.classList.remove('visible');
-  });
+  const sb = $('tocSidebar'), ob = $('tocOpenBtn');
+  $('tocClose').addEventListener('click', () => { sb.classList.add('collapsed');    ob.classList.add('visible'); });
+  ob.addEventListener('click',           () => { sb.classList.remove('collapsed'); ob.classList.remove('visible'); });
 }
 
-/* ══════════════════════════════════════════
-   6. TEMA CLARO/OSCURO
-══════════════════════════════════════════ */
+/* ────────────────────────────────────────
+   7. TEMA CLARO / OSCURO
+──────────────────────────────────────── */
 function syncThemeBtn() {
   const dark = document.documentElement.dataset.theme !== 'light';
   $('themeBtn').innerHTML = dark ? MOON : SUN;
   $('themeBtn').title = dark ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro';
 }
-
 $('themeBtn').addEventListener('click', () => {
   const next = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
   document.documentElement.dataset.theme = next;
@@ -2612,16 +2551,17 @@ $('themeBtn').addEventListener('click', () => {
   syncThemeBtn();
 });
 
-/* ══════════════════════════════════════════
+/* ────────────────────────────────────────
    INIT
-══════════════════════════════════════════ */
+──────────────────────────────────────── */
 (function init() {
-  applyColor();   /* 1. color de materia */
-  buildHero();    /* 2. hero + extrae objetivo (sin duplicado) */
-  buildTOC();     /* 3. TOC colapsable con triángulos */
-  initSidebarToggle(); /* 4. botón colapsar/abrir */
-  syncThemeBtn(); /* 5. ícono del botón de tema */
-  initActiveTracking(); /* 6. highlight activo al hacer scroll */
+  applyColor();          /* 1. color de materia */
+  cleanWordHTML();       /* 2. limpia estilos inline de Word */
+  buildHero();           /* 3. hero + extrae objetivo */
+  buildTOC();            /* 4. TOC colapsable */
+  initSidebarToggle();   /* 5. botón colapsar/abrir */
+  syncThemeBtn();        /* 6. ícono tema */
+  initActiveTracking();  /* 7. highlight al scroll */
 })();
 </script>
 
