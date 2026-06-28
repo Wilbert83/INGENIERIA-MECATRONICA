@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ════════════════════════════════════════════════════════
+       CAMBIA ESTOS 5 DATOS POR CADA MATERIA
+       COLOR: usa el color de identidad visual de la materia
+  ════════════════════════════════════════════════════════ -->
+  <meta name="SEMESTRE"  content="Primer Semestre">
+  <meta name="MATERIA"   content="FUNDAMENTOS DE PROGRAMACIÓN">
+  <meta name="CLAVE"     content="1122">
+  <meta name="CREDITOS"  content="8">
+  <meta name="COLOR"     content="#B3E4E8">
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <title>Álgebra · Prontuario Mecatrónica · UNAM FI</title>
+  <link rel="icon" type="image/png" href="../../favicon.png">
+
+  <!-- Preloader SÍNCRONO — evita flash de tema al cargar -->
+  <script>
+    (function(){
+      document.documentElement.dataset.theme =
+        localStorage.getItem('prontuario-theme') || 'dark';
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+  /* ═══════════════════════════════════════════════════
+     RESET
+  ═══════════════════════════════════════════════════ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* ═══════════════════════════════════════════════════
+     TOKENS — --color se sobreescribe por JS desde <meta>
+  ═══════════════════════════════════════════════════ */
+  :root {
+    --color:     #3494BA;
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-disp: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --toc-w:     258px;
+    --hdr-h:     52px;
+  }
+
+  /* ── Dark ── */
+  [data-theme="dark"] {
+    --bg:      #07090F;
+    --surface: #0D1322;
+    --card:    #101726;
+    --border:  rgba(255,255,255,0.08);
+    --text:    #E2E8F0;
+    --text-d:  #94A3B8;
+    --text-m:  #4B5563;
+    --h3-bg:   var(--color);
+    --h3-fg:   #FFFFFF;
+    --h4-bg:   color-mix(in srgb, var(--color) 24%, #0D1322);
+    --h4-fg:   #E2E8F0;
+    --h5-fg:   color-mix(in srgb, var(--color) 88%, white);
+    --h6-fg:   color-mix(in srgb, var(--color) 72%, white);
+    --h7-fg:   color-mix(in srgb, var(--color) 56%, #94A3B8);
+  }
+
+  /* ── Light ── */
+  [data-theme="light"] {
+    --bg:      #D8E5F5;
+    --surface: #FFFFFF;
+    --card:    #F8FAFD;
+    --border:  rgba(15,23,42,0.12);
+    --text:    #0F172A;
+    --text-d:  #334155;
+    --text-m:  #64748B;
+    --h3-bg:   var(--color);
+    --h3-fg:   #FFFFFF;
+    --h4-bg:   color-mix(in srgb, var(--color) 14%, #EFF6FF);
+    --h4-fg:   color-mix(in srgb, var(--color) 90%, #0F172A);
+    --h5-fg:   color-mix(in srgb, var(--color) 80%, #0F172A);
+    --h6-fg:   color-mix(in srgb, var(--color) 65%, #0F172A);
+    --h7-fg:   color-mix(in srgb, var(--color) 50%, #334155);
+  }
+  [data-theme="light"] .toc-sidebar { box-shadow: 2px 0 12px rgba(15,23,42,0.08); }
+  [data-theme="light"] .hero        { box-shadow: 0 2px 10px rgba(15,23,42,0.06); }
+
+  /* Fuerza herencia de color en spans/fonts del contenido Word
+     para que los colores inline no rompan el tema claro */
+  [data-theme="light"] .word-article span,
+  [data-theme="light"] .word-article font,
+  [data-theme="light"] .word-article p > span,
+  [data-theme="light"] .word-article li > span {
+    color: inherit !important;
+    background: transparent !important;
+  }
+
+  /* ═══════════════════════════════════════════════════
+     BASE — body es columna: header | page-layout
+  ═══════════════════════════════════════════════════ */
+  html, body { height: 100%; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: var(--font-body); font-size: 14px; line-height: 1.7;
+    display: flex; flex-direction: column;
+    overflow: hidden;          /* el scroll ocurre en content-main */
+    transition: background 0.25s 0s, color 0.25s 0s;
+  }
+
+  /* ═══════════════════════════════════════════════════
+     HEADER — sticky, fuera del scroll
+  ═══════════════════════════════════════════════════ */
+  .site-header {
+    flex-shrink: 0;            /* nunca se encoge */
+    height: var(--hdr-h);
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 10px; padding: 0 18px;
+    z-index: 100;
+    transition: background 0.25s 0.18s, border-color 0.25s 0.18s;
+  }
+  .hdr-strip {
+    width: 3px; height: 28px; border-radius: 2px;
+    background: var(--color); flex-shrink: 0; transition: background 0.25s 0s;
+  }
+  .hdr-logo {
+    width: 30px; height: 30px; border-radius: 6px;
+    overflow: hidden; flex-shrink: 0; text-decoration: none;
+  }
+  .hdr-logo img { width: 100%; height: 100%; object-fit: cover; }
+  .hdr-text { text-decoration: none; }
+  .hdr-name { font-family: var(--font-disp); font-size: 13px; font-weight: 600; color: var(--text); line-height: 1.2; transition: color 0.25s 0.18s; }
+  .hdr-sub  { font-family: var(--font-mono); font-size: 9px; color: var(--text-m); letter-spacing: .06em; transition: color 0.25s 0.18s; }
+  .hdr-space { flex: 1; }
+  .hdr-btn {
+    display: flex; align-items: center; gap: 5px;
+    padding: 6px 11px; border-radius: 7px;
+    background: var(--surface); border: 1px solid var(--border);
+    color: var(--text-d); font-family: var(--font-mono); font-size: 11px;
+    text-decoration: none; cursor: pointer; white-space: nowrap;
+    transition: border-color 0.18s, color 0.18s, background 0.3s;
+  }
+  .hdr-btn:hover { border-color: var(--color); color: var(--color); }
+  .theme-btn {
+    width: 32px; height: 32px; border-radius: 7px;
+    background: var(--surface); border: 1px solid var(--border);
+    color: var(--text-d); cursor: pointer;
+    display: grid; place-items: center; flex-shrink: 0;
+    transition: border-color 0.18s, color 0.18s, background 0.3s;
+  }
+  .theme-btn:hover { border-color: var(--color); color: var(--color); }
+
+  /* ═══════════════════════════════════════════════════
+     PAGE LAYOUT
+     Estructura:
+       body
+       ├── site-header   (flex-shrink:0, altura fija)
+       └── page-layout   (flex:1, fila)
+               ├── toc-sidebar  (anchura fija)
+               └── content-main (flex:1, scrollable)
+                       ├── hero        (scrollea con el contenido)
+                       └── word-article
+  ═══════════════════════════════════════════════════ */
+  .page-layout {
+    flex: 1;                   /* ocupa todo lo que queda tras el header */
+    display: flex;
+    min-height: 0;             /* CRÍTICO: permite que los hijos definan su propio scroll */
+    overflow: hidden;
+  }
+
+  /* ── HERO — dentro del scroll, se oculta al bajar ── */
+  .hero {
+    flex-shrink: 0;
+    padding: 40px 52px 32px;
+    background: color-mix(in srgb, var(--color) 6%, var(--bg));
+    border-bottom: 1px solid transparent;
+    transition: background 0.25s 0s, border-color 0.25s 0s, box-shadow 0.25s 0s;
+  }
+  [data-theme="dark"] .hero { border-bottom-color: var(--border); }
+
+  .hero-semestre {
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: .18em; text-transform: uppercase; color: var(--color);
+    border: 1px solid color-mix(in srgb, var(--color) 40%, transparent);
+    border-radius: 4px; padding: 3px 9px;
+    display: inline-block; margin-bottom: 14px;
+    transition: color 0.25s 0s, border-color 0.3s;
+  }
+  .hero-title {
+    font-family: var(--font-disp); font-size: clamp(30px, 5vw, 52px);
+    font-weight: 700; letter-spacing: -.025em;
+    color: var(--text); line-height: 1.0; margin-bottom: 6px;
+    transition: color 0.25s 0s;
+  }
+  .hero-meta {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: .04em;
+    color: var(--text-m); margin-bottom: 20px; transition: color 0.25s 0s;
+  }
+  .hero-sep {
+    width: 36px; height: 3px; border-radius: 2px;
+    background: var(--color); margin-bottom: 16px; transition: background 0.25s 0s;
+  }
+  .hero-obj-lbl {
+    font-family: var(--font-mono); font-size: 9.5px;
+    letter-spacing: .12em; text-transform: uppercase;
+    color: var(--color); margin-bottom: 6px; transition: color 0.25s 0s;
+  }
+  .hero-obj-txt {
+    font-size: 14px; color: var(--text-d); line-height: 1.75;
+    max-width: 820px; font-style: italic; transition: color 0.25s 0s;
+  }
+
+  /* ── Fila interior: sidebar + scroll ── */
+  /* body-row eliminado — page-layout cumple su función directamente */
+
+  /* ═══════════════════════════════════════════════════
+     TOC SIDEBAR
+  ═══════════════════════════════════════════════════ */
+  .toc-sidebar {
+    width: var(--toc-w); flex-shrink: 0;
+    background: var(--surface); border-right: 1px solid var(--border);
+    display: flex; flex-direction: column; overflow: hidden;
+    transition: width 0.22s ease, background 0.25s 0.18s, border-color 0.25s 0.18s, box-shadow 0.25s 0.18s;
+  }
+  .toc-sidebar.collapsed { width: 0; border-right-width: 0; }
+
+  .toc-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 10px 12px 9px; border-bottom: 1px solid var(--border);
+    flex-shrink: 0; gap: 6px; transition: border-color 0.25s 0s;
+  }
+  .toc-title {
+    font-family: var(--font-mono); font-size: 9.5px;
+    color: var(--text-m); letter-spacing: .1em;
+    text-transform: uppercase; white-space: nowrap; transition: color 0.25s 0s;
+  }
+  .toc-close {
+    width: 20px; height: 20px; background: transparent;
+    border: 1px solid var(--border); border-radius: 4px;
+    color: var(--text-m); display: grid; place-items: center;
+    cursor: pointer; font-size: 8px; flex-shrink: 0; padding: 0;
+    transition: border-color 0.18s, color 0.18s;
+  }
+  .toc-close:hover { border-color: var(--color); color: var(--color); }
+
+  .toc-nav {
+    flex: 1; overflow-y: auto; overflow-x: hidden; padding: 4px 0 16px;
+    scrollbar-width: thin; scrollbar-color: var(--border) transparent;
+  }
+  .toc-nav::-webkit-scrollbar { width: 4px; }
+  .toc-nav::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+  /* ── H3: grupo colapsable ── */
+  .toc-group { margin: 0; }
+  .toc-group > summary {
+    display: flex; align-items: flex-start; gap: 0;
+    padding: 5px 10px 5px 6px; cursor: default;
+    font-size: 11.5px; color: var(--text-d);
+    list-style: none; line-height: 1.35; user-select: none;
+    transition: color 0.14s;
+  }
+  .toc-group > summary::-webkit-details-marker { display: none; }
+  .toc-group > summary.toc-active { color: var(--color); }
+
+  /* Triángulo: solo colapsa/expande */
+  .toc-arrow {
+    flex-shrink: 0; width: 20px; height: 20px;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 7px; color: var(--text-m); cursor: pointer;
+    border-radius: 3px; margin-top: 1px;
+    transition: transform 0.18s, color 0.18s, background 0.14s;
+  }
+  .toc-arrow:hover { color: var(--color); background: color-mix(in srgb, var(--color) 12%, transparent); }
+  .toc-group[open] > summary .toc-arrow { transform: rotate(90deg); }
+
+  /* Texto h3: solo hace scroll */
+  .toc-h3-text {
+    flex: 1; cursor: pointer; padding: 2px 4px; border-radius: 3px;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    transition: background 0.14s, color 0.14s;
+  }
+  .toc-h3-text:hover { background: color-mix(in srgb, var(--color) 10%, transparent); color: var(--text); }
+
+  /* ── H4–H8: items hijo ── */
+  .toc-children { list-style: none; padding: 0; margin: 0; }
+  .toc-item {
+    display: block; padding: 3px 12px 3px 22px;
+    font-size: 11px; color: var(--text-m); text-decoration: none;
+    line-height: 1.35; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    border-left: 2px solid transparent; margin-left: 8px;
+    transition: background 0.14s, color 0.14s, border-color 0.14s;
+  }
+  .toc-item:hover { color: var(--text); background: color-mix(in srgb, var(--color) 8%, transparent); }
+  .toc-item.toc-active { color: var(--color); border-left-color: var(--color); }
+  .toc-item.lv4 { padding-left: 14px; font-size: 11px; }
+  .toc-item.lv5 { padding-left: 24px; font-size: 10.5px; font-family: var(--font-mono); opacity: .9; }
+  .toc-item.lv6 { padding-left: 34px; font-size: 10px;   font-family: var(--font-mono); opacity: .8; }
+  .toc-item.lv7 { padding-left: 44px; font-size: 9.5px;  font-family: var(--font-mono); opacity: .7; }
+  .toc-item.lv8 { padding-left: 54px; font-size: 9px;    font-family: var(--font-mono); opacity: .6; }
+
+  /* ═══════════════════════════════════════════════════
+     CONTENT-MAIN — único elemento que hace scroll
+  ═══════════════════════════════════════════════════ */
+  .content-main {
+    flex: 1; min-width: 0;
+    overflow-y: auto; overflow-x: hidden;  /* ← AQUÍ ocurre todo el scroll */
+    display: flex; flex-direction: column;
+    scrollbar-width: thin; scrollbar-color: var(--border) transparent;
+    transition: background 0.25s 0s;
+  }
+  .content-main::-webkit-scrollbar { width: 6px; }
+  .content-main::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+  /* Botón flotante para reabrir TOC */
+  .toc-open-btn {
+    display: none; position: fixed;
+    top: calc(var(--hdr-h) + 10px); left: 0;
+    width: 26px; height: 26px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-left: none; border-radius: 0 6px 6px 0;
+    color: var(--text-m); cursor: pointer;
+    place-items: center; font-size: 9px; z-index: 50;
+    transition: color 0.18s, border-color 0.18s;
+  }
+  .toc-open-btn.visible { display: grid; }
+  .toc-open-btn:hover { color: var(--color); border-color: var(--color); }
+
+  /* ═══════════════════════════════════════════════════
+     WORD CONTENT WRAPPER
+  ═══════════════════════════════════════════════════ */
+  .word-article { padding: 36px 52px 72px; max-width: 940px; width: 100%; }
+
+  /* Herencia forzada en spans dentro de headings
+     (Word mete style="color:black" que rompe el tema oscuro) */
+  .word-article h2 span, .word-article h3 span, .word-article h4 span,
+  .word-article h5 span, .word-article h6 span, .word-article h7 span,
+  .word-article h8 span { color: inherit !important; background: inherit !important; font-size: inherit !important; }
+
+  /* H2 — oculto, el título ya está en el hero */
+  .word-article h2 { display: none !important; }
+
+  /* H3 — tema principal, fondo sólido con color de identidad */
+  .word-article h3 {
+    background: var(--h3-bg) !important; color: var(--h3-fg) !important;
+    padding: 8px 16px !important; border-radius: 4px !important;
+    margin: 32px 0 0 !important;
+    font-family: var(--font-disp) !important; font-size: 13px !important;
+    font-weight: 600 !important; letter-spacing: .08em !important;
+    text-transform: uppercase !important; text-indent: 0 !important;
+    line-height: 1.4 !important; transition: background 0.25s 0s, color 0.25s 0s !important;
+  }
+  .word-article h3:first-child { margin-top: 0 !important; }
+
+  /* H4 — subtema, fondo tenue */
+  .word-article h4 {
+    background: var(--h4-bg) !important; color: var(--h4-fg) !important;
+    padding: 6px 16px 6px 22px !important; border-radius: 0 0 4px 4px !important;
+    margin: 2px 0 12px !important;
+    font-family: var(--font-body) !important; font-size: 12px !important;
+    font-weight: 600 !important; letter-spacing: .06em !important;
+    text-transform: uppercase !important; text-indent: 0 !important;
+    line-height: 1.4 !important; transition: background 0.25s 0s, color 0.25s 0s !important;
+  }
+  .word-article h3 + h4 { border-radius: 0 0 4px 4px !important; margin-top: 2px !important; }
+  .word-article p + h4, .word-article div + h4 { margin-top: 20px !important; border-radius: 4px !important; }
+
+  /* H5 — sección sin fondo */
+  .word-article h5 {
+    background: none !important; color: var(--h5-fg) !important;
+    padding: 10px 0 3px !important; margin: 18px 0 7px !important;
+    font-family: var(--font-mono) !important; font-size: 10.5px !important;
+    font-weight: 600 !important; letter-spacing: .14em !important;
+    text-transform: uppercase !important;
+    border-bottom: 1px solid color-mix(in srgb, var(--color) 28%, transparent) !important;
+    line-height: 1.4 !important; transition: color 0.25s 0s, border-color 0.3s !important;
+  }
+
+  /* H6 */
+  .word-article h6 {
+    background: none !important; color: var(--h6-fg) !important;
+    padding: 8px 0 2px !important; margin: 14px 0 6px !important;
+    font-family: var(--font-body) !important; font-size: 12.5px !important;
+    font-weight: 600 !important; text-transform: none !important;
+    transition: color 0.25s 0s !important;
+  }
+
+  /* H7 / H8 — niveles profundos, también generados por Word */
+  .word-article h7,
+  .word-article p.MsoHeading7, .word-article [class*="Heading7"] {
+    display: block !important; background: none !important;
+    color: var(--h7-fg) !important; padding: 6px 0 2px !important;
+    margin: 12px 0 5px !important; font-family: var(--font-body) !important;
+    font-size: 12px !important; font-weight: 500 !important; font-style: italic;
+    transition: color 0.25s 0s !important;
+  }
+  .word-article h8,
+  .word-article p.MsoHeading8, .word-article [class*="Heading8"] {
+    display: block !important; background: none !important;
+    color: var(--text-d) !important; padding: 5px 0 2px !important;
+    margin: 10px 0 4px !important; font-family: var(--font-body) !important;
+    font-size: 11.5px !important; font-weight: 400 !important; font-style: italic;
+  }
+
+  /* Párrafos */
+  .word-article p {
+    margin-bottom: 10px !important; color: var(--text) !important;
+    font-size: 13.5px !important; line-height: 1.75 !important; transition: color 0.25s 0s;
+  }
+
+  /* Términos clave (bold+italic → em en Word) */
+  .word-article em { font-style: normal; font-weight: 700; color: var(--h5-fg); transition: color 0.25s 0s; }
+
+  /* Spans con color inline en dark → redirigir al tono del color de identidad */
+  [data-theme="dark"] .word-article p span[style*="color"]   { color: var(--h5-fg) !important; }
+  [data-theme="dark"] .word-article p b span[style*="color"] { color: var(--h5-fg) !important; }
+  [data-theme="dark"] .word-article p i span[style*="color"] { color: var(--h5-fg) !important; }
+
+  /* Cita destacada */
+  .word-article .MsoIntenseQuote {
+    border-left: 3px solid var(--color) !important;
+    padding: 10px 16px !important;
+    background: color-mix(in srgb, var(--color) 7%, var(--surface)) !important;
+    border-radius: 0 4px 4px 0 !important; color: var(--h5-fg) !important;
+    font-style: italic; margin: 16px 0 !important; transition: background 0.25s 0s !important;
+  }
+
+  /* Imágenes */
+  .word-article img {
+    max-width: 100% !important; height: auto !important;
+    display: block !important; margin: 14px auto !important;
+    border-radius: 6px; border: 1px solid var(--border); transition: border-color 0.25s 0s;
+  }
+
+  /* Tablas */
+  .word-article table { border-collapse: collapse; width: 100%; margin: 16px 0; font-size: 13px; }
+  .word-article td, .word-article th {
+    border: 1px solid var(--border); padding: 7px 10px; color: var(--text);
+    transition: border-color 0.25s 0s, color 0.25s 0s;
+  }
+  .word-article th {
+    background: color-mix(in srgb, var(--color) 15%, var(--surface));
+    font-weight: 600; transition: background 0.25s 0s;
+  }
+
+  /* Listas de Word */
+  .word-article ul, .word-article ol {
+    padding-left: 28px; margin-bottom: 10px;
+    color: var(--text); font-size: 13.5px; line-height: 1.75;
+  }
+  .word-article .MsoListParagraph,
+  .word-article .MsoListParagraphCxSpFirst,
+  .word-article .MsoListParagraphCxSpMiddle,
+  .word-article .MsoListParagraphCxSpLast {
+    padding-left: 20px !important; margin-bottom: 5px !important;
+    color: var(--text) !important; font-size: 13.5px !important;
+  }
+
+  /* ═══════════════════════════════════════════════════
+     RESPONSIVE
+  ═══════════════════════════════════════════════════ */
+  @media (max-width: 800px) {
+    .toc-sidebar {
+      position: fixed; top: var(--hdr-h); left: 0; bottom: 0;
+      z-index: 90; box-shadow: none;
+      transition: width 0.22s ease, box-shadow 0.22s;
+    }
+    .toc-sidebar:not(.collapsed) { box-shadow: 4px 0 24px rgba(0,0,0,0.45); }
+    .hero { padding: 24px 20px 20px; }
+    .word-article { padding: 20px 20px 48px; }
+  }
+  @media (max-width: 480px) { .hdr-sub { display: none; } }
+  </style>
+</head>
+
+<body>
+
+<!-- ══════════════════════════════════════
+     HEADER — siempre visible, nunca scrollea
+══════════════════════════════════════ -->
+<header class="site-header">
+  <div class="hdr-strip"></div>
+  <a href="../../index.html" class="hdr-logo" title="Inicio">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAArCAYAAAA65tviAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANNSURBVGhD7ZltaBt1HMc/17vLXV3KrQ9pVtuEmc6OLvSFCg0M36iVjWy+s9W5WmWI4liniDOvxGdQhMKYFAQpIqLDVwq2IPSN+Cp94UTZhmFRTFp1TbULpVsvueR81TL/tLkt3nLpzAfuzff35eDDPXDcT9KaDZvbAOlGRXyBHjoOHcMYHELr7kWSFbHiKnbJwlxIk5+bZWl6ikJuXqz8ixsSaT8wSuj4e+RmPiGfnMHMpLCtolhzFUlR0cJ9GLE4gfgY2ckEf33zqVjbwFGk/cAowZEXyJx5ibVfzovjmqBHooTHJ7j8xektZSqK+AI97PsoyaXXHvdMYh09EmXPG2e58Exs09tMVlT9dTFcJzjyIld/vUD+uy/FUc2xlnNIup87IgOs/PCtOKZJDK7HGBwin5wRY8/IJ2cwBofEGJxEtO5ezExKjD3DzKTQunvFGJxEJFm55W+nm8G2ilu+9iuKbCcaIvVGQ6TeaIhshtoWpO3ho7QffGrjaH1gBLnZvzFrue9BACTVh7H/0Mb8v+KqiK9rN4FHjhEcPsGdTyYIPnqcQHwMuaUVLbyXXcPjdB15GbW1E61nD12jCYLDJ1B2doinumlcFVk9n+Tnkw/x5+cTlAsmmQ9OkTp1mMJiFoBy0USSZZr33kvLwP3YBRO7WBBPUxWuijhhW0XWsin8/TF27BtkNfW9WKmamoo0aTrmHxlaBvajtgWx/l6kSWsWa1VRUxGQWJtPYa1eoZCbp7i8KBaqpsYiYK0sk371MX57/3nskiWOq6bmIrcKV0UkVcMXDCP7d4IEitGBrzOEJMti1XVcFdkRjXH3u1+xa+QkTT6d0HPv0PvmWXydIbHqOhV/Ptzz9WV+eqJfjD1l4LOLnDscFGN3r4iXNETqjYZIvfH/ELFLFpKiirFnSIq65WdNRRFzIY0W7hNjz9DCfZgLaTEGJ5H83CxGLC7GnmHE4uTnZsUYnESWpqcIxMfQI1FxVHP0SJRAfIyl6SlxBE4ihdw82ckE4fEJT2XWFz3ZycSmuxGc9iMA19I/UjavcdcrHyLpfkpX85RWrkC5LFZdRVJU9N39tB98mtCzb/H7x29vua3C6aPxem6LZeh2oOIzsp1oiNQb/wC/2QLl/sw38AAAAABJRU5ErkJggg==" alt="IM">
+  </a>
+  <a href="../../index.html" class="hdr-text">
+    <div class="hdr-name">Prontuario Mecatrónica</div>
+    <div class="hdr-sub">UNAM · FI · DIMEI · Plan 2016</div>
+  </a>
+  <div class="hdr-space"></div>
+  <a href="../../index.html" class="hdr-btn">← Índice</a>
+  <button class="theme-btn" id="themeBtn" title="Cambiar tema"></button>
+</header>
+
+<!-- ══════════════════════════════════════
+     PAGE LAYOUT
+══════════════════════════════════════ -->
+<div class="page-layout">
+
+    <!-- SIDEBAR: marcadores colapsables -->
+    <aside class="toc-sidebar" id="tocSidebar">
+      <div class="toc-header">
+        <span class="toc-title">Contenido – Marcadores</span>
+        <button class="toc-close" id="tocClose" title="Ocultar panel">◀</button>
+      </div>
+      <nav class="toc-nav" id="tocNav"></nav>
+    </aside>
+
+    <!-- ÁREA DE SCROLL: hero + contenido de la materia -->
+    <div class="content-main" id="contentMain">
+
+      <button class="toc-open-btn" id="tocOpenBtn" title="Mostrar marcadores">▶</button>
+
+      <!-- HERO: dentro del scroll, se oculta al bajar -->
+      <section class="hero" id="hero"></section>
+
+      <article class="word-article" id="word-content">
+
+
+<div class=WordSection1>
+
+<h2><span class=Ttulo2Car>FUNDAMENTOS DE PROGRAMACIÓN </span>(1122)</h2>
+
+<p class=MsoNormal style='margin-top:5.0pt;margin-right:0cm;margin-bottom:10.0pt;
+margin-left:0cm;line-height:115%'><em><span style='font-size:10.0pt;line-height:
+115%'>Objetivo(s) del curso:</span></em></p>
+
+<p class=MsoNormal style='margin-top:5.0pt;margin-right:0cm;margin-bottom:10.0pt;
+margin-left:0cm;text-align:justify;line-height:115%'><span
+class=MsoSubtleEmphasis><span style='font-size:10.0pt;line-height:115%'>El
+alumno resolverá problemas aplicando los fundamentos de programación para
+diseñar programas en el lenguaje estructurado C, apoyándose en metodologías
+para la solución de problemas.</span></span></p>
+
+<h3 style='margin-left:21.3pt'>1.<span style='font:7.0pt "Times New Roman"'> </span>Panorama
+general.</h3>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.3pt'>1.1<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>Evolución de la programación.</span></h4>
+
+<h5>PROGRAMACIÓN</h5>
+
+<p class=MsoNormal>La <b><i><span style='color:#00B0F0'>Programación</span></i></b><span
+style='color:#00B0F0'> </span>como disciplina comenzó formalmente con el
+desarrollo de las primeras computadoras en los años 40, destacándose los
+aportes de John von Neumann. Desde entonces, se han creado cientos de lenguajes
+de programación, que se clasifican en:</p>
+
+<ul style='margin-top:0cm' type=disc>
+ <li class=MsoNormal><b>Lenguajes estructurados</b>: como PASCAL, C, BASIC y
+     FORTRAN.</li>
+ <li class=MsoNormal><b>Lenguajes orientados a objetos</b>: como C++, SMALLTALK
+     y JAVA.</li>
+ <li class=MsoNormal><b>Lenguajes simbólicos</b>: como LISP.</li>
+ <li class=MsoNormal><b>Lenguajes lógicos</b>: como PROLOG.</li>
+</ul>
+
+<p class=MsoNormal>Estos lenguajes han evolucionado para hacer más eficiente la
+escritura, depuración y mantenimiento del código. La metodología estructurada
+(de arriba hacia abajo) facilita la comprensión y gestión de los programas.</p>
+
+<h5>EL ORIGEN DE LA PROGRAMACIÓN</h5>
+
+<p class=MsoNormal>El primer lenguaje de programación fue inventado por Joseph
+Marie Jacquard en 1801, el inventor del telar programable. Jacquard creó unas
+tarjetas programables que podían insertarse en el telar para leer los códigos
+que contenían las instrucciones y automatizar el proceso. Esto permite que
+cualquier persona con un telar y tarjetas perforadas pueda crear una variedad
+de diseños de tejidos sin convertirse en un experto en el campo.</p>
+
+<p class=MsoNormal>En 1833, treinta años después, Charles Babbage crea la
+conocida como máquina diferencial, capaz de resolver no solo sumas y restas,
+sino también ecuaciones.</p>
+
+<p class=MsoNormal>Ada Lovelace, una mujer formada únicamente en matemáticas
+(considerada una de las primeras programadoras), decidió traducir las memorias
+del matemático italiano Luigi Menabrea. Al hacerlo, elaboró a mano un lenguaje
+de programación que podía calcular la secuencia de Bernoulli con una máquina
+Bebáz, desde se momento creo el primer algoritmo informático en la historia de
+la programación (1842).</p>
+
+<p class=MsoNormal>1936. En este año surgió un avance tecnológico con la
+máquina de Turing, inventado por Alan Turing, quien fue matemático y teórico
+informático que revolucionó el mundo de la informática. Esto demuestra que con
+la ayuda de algoritmos pueden resolver cualquier problema matemático.</p>
+
+<p class=MsoNormal>En 1957 se desarrolló el primer lenguaje de programación
+real con muchas mejoras y mejoras funcionales, su creador fue John W. Backus,
+creó el primer lenguaje de programación de alto nivel, el primero utilizado por
+los programadores. El lenguaje utilizado es más cercano al lenguaje que
+conocemos.</p>
+
+<p class=MsoNormal><b><i><span style='color:#00B0F0'>FORTRAN</span></i></b><span
+style='color:#00B0F0'> </span>(<i>Formula Translating System</i>) es el
+lenguaje de programación más antiguo que todavía se usa en la actualidad. </p>
+
+<p class=MsoNormal>El lenguaje todavía se usa en las industrias automotriz,
+gubernamental, aeroespacial y de investigación. Por ejemplo, es muy efectivo
+para predecir el clima.</p>
+
+<h5>HISTORIA DE LOS LENGUAJES DE PROGRAMACIÓN</h5>
+
+<p class=MsoNormal><b><span style='color:#00B0F0'>1959: COBOL</span></b></p>
+
+<p class=MsoNormal><b><i>Cobol</i></b> (<i>Common Business Oriented Language</i>)
+se encuentra detrás de la mayor parte de sistemas de transacciones de empresas,
+como los procesos de las tarjetas de crédito, telefonía, gobierno, señales de
+tráfico, entre otros. </p>
+
+<p class=MsoNormal>Este lenguaje de programación, desarrollado por Grace Murray
+Hopper, es un lenguaje uniforme para transacciones empresariales. El objetivo
+de su creación era desarrollar un lenguaje que fuera compatible para cualquier
+ordenador.</p>
+
+<p class=MsoNormal><b><span style='color:#00B0F0'>1964: BASIC</span></b></p>
+
+<p class=MsoNormal>Desarrollado por alumnos de Darmouth College, <b><i>Basic</i></b>
+fue diseñado como un lenguaje simplificado para aquellos que no contaban con
+grandes conocimientos técnicos o matemáticos. </p>
+
+<p class=MsoNormal>Una versión modificada de Basic, elaborada por Bill Gates y
+Paul Allen, fue el primer producto de Microsoft. En 1977, Basic fue integrado
+en el Apple II para su puesta en marcha. </p>
+
+<p class=MsoNormal><b><span style='color:#00B0F0'>1969: C</span></b></p>
+
+<p class=MsoNormal>El lenguaje de programación <b><i>C</i></b> se desarrolló
+entre 1969 y 1973, por Dennis Ritchie para los laboratorios Bell Telephone, con
+el objetivo de utilizarlos en el sistema Unix. C llegó a ser tan potente que
+gran parte del núcleo de Unix se reescribió con C. De hecho, en la actualidad,
+Linux sigue basado en C. </p>
+
+<p class=MsoNormal><b><span style='color:#00B0F0'>1970: PASCAL</span></b></p>
+
+<p class=MsoNormal><b><i>Pascal</i></b> se creó por Niklaus Wirth, que le puso
+en nombre en honor a <i>Blaise Pascar</i>, el inventor de las calculadoras
+matemáticas. </p>
+
+<p class=MsoNormal>Este lenguaje se desarrolló como una herramienta de
+enseñanza y formación, aunque su uso es comercial. Por ejemplo, es el lenguaje
+de programación que se utiliza en Skype. </p>
+
+<p class=MsoNormal><b><span style='color:#00B0F0'>1983: C++</span></b></p>
+
+<p class=MsoNormal>En los mismos laboratorios Bells, Bjarne Stroustrup modificó
+el lenguaje C, por lo que surgió <b><i>C++</i></b>. Este lenguaje de
+programación es uno de los más populares, y se encuentra en el Top Ten de los
+lenguajes de programación desde 1986. Hoy en día se utiliza en Firefox, Adobe
+PDF Reader y Office. </p>
+
+<p class=MsoNormal><b><span style='color:#00B0F0'>1991: PYTHON</span></b></p>
+
+<p class=MsoNormal>Guido Van Rossum fue el creador de <b><i>Python</i></b>, el
+lenguaje de programación más mundialmente reconocido. Fue creado para resolver
+lenguajes en el lenguaje ABC y, hoy en día, se sigue utilizando con esta
+finalidad y también, para más usos. La Nasa, Google y Youtube son algunas de
+las empresas que lo utilizan.</p>
+
+<p class=MsoNormal><b><span style='color:#00B0F0'>1993: RUBY</span></b></p>
+
+<p class=MsoNormal><b><i>Ruby</i></b> fue creado por Yukihiro Matsumoto, que
+utilizó partes de sus lenguajes de programación preferidos: Perl, Smalltalk,
+Eiffel, Ada y Lisp. Ahora se utiliza por Basecamp.</p>
+
+<p class=MsoNormal><b><span style='color:#00B0F0'>1995: PHP, JAVA y JAVASCRIPT</span></b></p>
+
+<p class=MsoNormal>Este lenguaje de programación fue desarrollado por Rasmus
+Lerdoff para reemplazar unos scripts de Perl utilizados para el mantenimiento
+de su web personal. En la actualidad <b><i>PHP</i></b> es parte de una
+arquitectura web integrada en veinte millones de sitios web. Facebook utiliza
+este lenguaje hoy en día.</p>
+
+<p class=MsoNormal>En el mismo año, también se creó Java, por un grupo de
+trabajadores de Sun Microsystems, con el objetivo de poner en marcha los
+decodificadores para una televisión interactiva. Actualmente, <b><i>Java</i></b>
+está presente en más de mil millones de ordenadores en todo el mundo y, muchos
+sitios webs, no pueden funcionar sin Java. </p>
+
+<p class=MsoNormal>Por otro lado, se desarrolló <b><i>JavaScript</i></b>.
+Aunque compartan parte del nombre <b><i><span style='color:#00B0F0'>Java</span></i></b>
+y <b><i><span style='color:#00B0F0'>JavaScript</span></i></b><span
+style='color:#00B0F0'> </span>no están relacionados, ya que tienen una
+semántica muy diferente. Este último fue creado por Brendan Eich, de Netscape
+y, hoy en día, de este lenguaje de programación depende AJAX.</p>
+
+<p class=MsoNormal><b><span style='color:#00B0F0'>2001: C# y VISUAL BASIC</span></b></p>
+
+<p class=MsoNormal>La llegada de los 2000, llegaron nuevos programas de
+programación, como <b><i>C#</i></b> y <b><i>Visual Basic</i></b>. Junto a los
+años noventa, C# culmina como el mejor momento de la historia respecto a los
+lenguajes de programación. C# es uno de los lenguajes de programación más
+importantes para crear programas de todo tipo. </p>
+
+<p class=MsoNormal><b><span style='color:#00B0F0'>2009: GO (DE GOOGLE)</span></b></p>
+
+<p class=MsoNormal>Se trata, nada más y nada menos, que el lenguaje de
+programación creado por Google. 2009, <b><i>Go</i></b>, de Google. Se inspira
+en C, pero es más complejo. </p>
+
+<p class=MsoNormal><b><span style='color:#00B0F0'>2012: KOTLIN</span></b></p>
+
+<p class=MsoNormal>Hoy en día, este es uno de los lenguajes de programación de
+moda, no porque sea el más sencillo, sino que Google lo ha señalado como el
+lenguaje de programación óptimo para Android.</p>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.3pt'>1.2<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>Beneficios de la programación (a la sociedad,
+a la industria, a la medicina, entre otros).</span></h4>
+
+<p class=MsoNormal style='margin-top:12.0pt'>La programación ha transformado
+diversos campos, proporcionando herramientas para:</p>
+
+<ul style='margin-top:0cm' type=disc>
+ <li class=MsoNormal><b>Sociedad</b>: automatización de tareas cotidianas.</li>
+ <li class=MsoNormal><b>Industria</b>: optimización de procesos productivos y
+     gestión de recursos.</li>
+ <li class=MsoNormal><b>Medicina</b>: desarrollo de sistemas diagnósticos y
+     control de equipos médicos.</li>
+</ul>
+
+<p class=MsoNormal>Estos beneficios se basan en la capacidad de la programación
+para crear algoritmos y soluciones adaptadas a necesidades específicas&#8203;.</p>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.3pt'>1.3<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>Algoritmos en la solución de problemas y sus
+retos.</span></h4>
+
+<p class=MsoNormal style='margin-top:12.0pt'>Los algoritmos son esenciales en
+la programación. Para ser efectivos deben cumplir con:</p>
+
+<p class=MsoListParagraphCxSpFirst style='margin-left:21.3pt;text-indent:-18.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Precisión: definir pasos claros y específicos.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:21.3pt;text-indent:-18.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Determinismo: producir siempre los mismos resultados con los
+mismos datos de entrada.</p>
+
+<p class=MsoListParagraphCxSpLast style='margin-left:21.3pt;text-indent:-18.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Finitud: tener una cantidad limitada de pasos.</p>
+
+<p class=MsoNormal>Un algoritmo consta de tres módulos principales: entrada de
+datos, procesamiento de la solución y salida de resultados. La construcción de
+algoritmos requiere un análisis crítico y un razonamiento estructurado.</p>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.3pt'>1.4<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>Explicar el propósito y el papel de los
+fundamentos de la programación en la ingeniería.</span></h4>
+
+<p class=MsoNormal style='margin-bottom:0cm'>La programación se fundamenta en
+principios algorítmicos y estructurados que permiten:</p>
+
+<ul style='margin-top:0cm' type=disc>
+ <li class=MsoNormal>Resolver problemas complejos de manera sistemática.</li>
+ <li class=MsoNormal>Representar soluciones mediante diagramas de flujo y
+     pseudocódigo antes de implementarlas en un lenguaje de programación.</li>
+ <li class=MsoNormal>Fomentar el desarrollo de habilidades críticas como
+     análisis, síntesis y solución de problemas en el ámbito de la ingeniería</li>
+</ul>
+
+<h3 style='margin-left:21.3pt'>2.<span style='font:7.0pt "Times New Roman"'> </span>Resolución
+de problemas.</h3>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.3pt'>2.1<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>Definición, planteamiento y modelado del
+problema.</span></h4>
+
+<p class=MsoNormal style='margin-top:12.0pt'><b><span style='color:#00B0F0'>Definición
+del problema</span></b><br>
+Resolver problemas requiere un análisis sistemático y una modelación
+algorítmica para construir una solución general. La resolución de problemas
+algorítmicos incluye:</p>
+
+<h5><em><span style='line-height:107%;color:#459EC4;text-transform:none;
+letter-spacing:0pt;font-weight:normal'>2.1.1 Formular el problema.</span></em></h5>
+
+<p class=MsoNormal>Identificar los datos de entrada, salida y restricciones
+relevantes.</p>
+
+<h5><em><span style='line-height:107%;color:#459EC4;text-transform:none;
+letter-spacing:0pt;font-weight:normal'>2.1.2 Analizar el problema.</span></em></h5>
+
+<p class=MsoNormal>Estudiar sus elementos esenciales para comprenderlo a fondo.</p>
+
+<h5><em><span style='line-height:107%;color:#459EC4;text-transform:none;
+letter-spacing:0pt;font-weight:normal'>2.1.3 Diseñar una estrategia de búsqueda
+de la solución.</span></em></h5>
+
+<p class=MsoNormal>Establecer un plan claro para buscar la solución.</p>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.3pt'>2.2<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>Algoritmos para la resolución del problema.</span></h4>
+
+<h5>2.2.1 Definición y representación de algoritmos.</h5>
+
+<p class=MsoNormal>Un algoritmo es un conjunto finito de pasos ordenados que
+lleva a la solución de un problema. Las principales características incluyen
+precisión, determinismo y finitud.<br>
+Los algoritmos pueden representarse a través de:</p>
+
+<ul style='margin-top:0cm' type=disc>
+ <li class=MsoNormal>Pseudocódigo.</li>
+ <li class=MsoNormal>Diagramas de flujo: Representación gráfica que detalla los
+     pasos del algoritmo&#8203;</li>
+</ul>
+
+<h5>2.2.2 Conversión del planteamiento del problema al algoritmo.</h5>
+
+<p class=MsoNormal>El proceso incluye convertir la comprensión del problema en
+pasos claros que pueden ser seguidos por una máquina. Esto generalmente
+comienza con pseudocódigo o diagramas de flujo y termina en un programa
+funcional&#8203;.</p>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.3pt'>2.3<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>Definición del modelo computacional.</span></h4>
+
+<h5>2.3.1 Máquina de Von Neuman.</h5>
+
+<p class=MsoNormal>Arquitectura basada en el almacenamiento de datos y
+programas en una memoria unificada, fundamental en la mayoría de las
+computadoras modernas.</p>
+
+<h5>2.3.2 Máquina de Turing.</h5>
+
+<p class=MsoNormal>Modelo teórico que define las capacidades fundamentales de
+cálculo, utilizado para analizar la complejidad computacional de problemas</p>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.3pt'>2.4<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>Refinamiento del algoritmo paso a paso.</span></h4>
+
+<h5>2.4.1 Planteamiento de la solución del problema.</h5>
+
+<p class=MsoNormal>Crear una estructura inicial que abarque la solución general
+del problema.</p>
+
+<h5>2.4.2 Descomposición de la solución del problema en submódulos.</h5>
+
+<p class=MsoNormal><b>División en submódulos:</b> Descomponer el problema en
+partes más manejables, facilitando su resolución.</p>
+
+<h5>2.4.3 Aplicación de las estructuras básicas de control: secuencial,
+condicional e iterativo.</h5>
+
+<p class=MsoNormal><b>Estructuras de control:</b> Aplicar estructuras básicas
+como:</p>
+
+<ul style='margin-top:0cm' type=disc>
+ <li class=MsoNormal>Secuencial: Pasos en orden lineal.</li>
+ <li class=MsoNormal>Condicional: Decisiones basadas en condiciones.</li>
+ <li class=MsoNormal>Iterativo: Repetición de pasos hasta cumplir una
+     condición.</li>
+</ul>
+
+<h3 style='margin-left:21.3pt'>3.<span style='font:7.0pt "Times New Roman"'> </span>Fundamentos
+para la construcción de código a partir del algoritmo.</h3>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.3pt'>3.1<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>Sintaxis básica y semántica.</span></h4>
+
+<p class=MsoNormal style='margin-top:12.0pt'>Sintaxis: Reglas que determinan
+cómo escribir instrucciones válidas en el lenguaje de programación C.</p>
+
+<p class=MsoNormal>Semántica: Relaciona estas reglas con el significado y
+propósito de las instrucciones escritas. Una estructura sintácticamente
+correcta puede carecer de sentido si no se sigue la semántica.</p>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.3pt'>3.2<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>Variables, tipos, expresiones y asignación.</span></h4>
+
+<p class=MsoNormal style='margin-top:12.0pt'>Variables: Almacenan valores que
+pueden cambiar durante la ejecución de un programa. Deben tener nombres
+representativos.</p>
+
+<p class=MsoNormal>Tipos: Determinan la naturaleza del dato almacenado
+(enteros, reales, caracteres, cadenas, etc.).</p>
+
+<p class=MsoNormal>Expresiones: Combinan operadores y variables para producir
+valores.</p>
+
+<p class=MsoNormal>Asignación: Operación que almacena el resultado de una
+expresión en una variable.</p>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.3pt'>3.3<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>Estructuras de control condicional e
+iterativo.</span></h4>
+
+<p class=MsoListParagraphCxSpFirst style='margin-top:12.0pt;margin-right:0cm;
+margin-bottom:0cm;margin-left:36.0pt;text-indent:-18.0pt;line-height:normal'><span
+style='font-size:10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Condicionales: Permiten decisiones en función de condiciones.
+Ejemplo:<span style='font-size:12.0pt;font-family:"Times New Roman",serif'> </span><span
+style='font-size:10.0pt;font-family:"Courier New"'>if-else</span><span
+style='font-size:12.0pt;font-family:"Times New Roman",serif'>.</span></p>
+
+<p class=MsoListParagraphCxSpLast style='text-indent:-18.0pt'><span
+style='font-size:10.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Iterativos: Repetición de bloques de código hasta que se cumpla
+una condición. Ejemplo:<span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'> </span><span style='font-size:10.0pt;
+line-height:107%;font-family:"Courier New"'>for</span><span style='font-size:
+12.0pt;line-height:107%;font-family:"Times New Roman",serif'>, </span><span
+style='font-size:10.0pt;line-height:107%;font-family:"Courier New"'>while</span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>.</span></p>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.3pt'>3.4<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>Funciones y paso de parámetros.</span></h4>
+
+<p class=MsoNormal style='margin-top:12.0pt'>Las funciones encapsulan bloques
+de código para ser reutilizados.</p>
+
+<p class=MsoNormal>Los parámetros pueden pasarse por valor (se copia el dato) o
+por referencia (se manipula directamente la memoria original).</p>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.3pt'>3.5<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>Descomposición estructurada.</span></h4>
+
+<p class=MsoNormal style='margin-top:12.0pt'>Divide un problema en submódulos
+más pequeños y manejables.</p>
+
+<p class=MsoNormal>Cada submódulo debe cumplir una función específica y debe
+integrarse fácilmente al sistema completo.</p>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.3pt'>3.6<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>Manejo de E/S.</span></h4>
+
+<p class=MsoListParagraphCxSpFirst style='margin-top:12.0pt;margin-right:0cm;
+margin-bottom:0cm;margin-left:36.0pt;text-indent:-18.0pt;line-height:normal'><span
+style='font-size:10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Entrada: Recopila datos del usuario mediante funciones como<span
+style='font-size:12.0pt;font-family:"Times New Roman",serif'> </span><span
+style='font-size:10.0pt;font-family:"Courier New"'>scanf</span><span
+style='font-size:12.0pt;font-family:"Times New Roman",serif'>.</span></p>
+
+<p class=MsoListParagraphCxSpLast style='text-indent:-18.0pt'><span
+style='font-size:10.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Salida: Presenta información al usuario con funciones como<span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'> </span><span
+style='font-size:10.0pt;line-height:107%;font-family:"Courier New"'>printf</span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>.</span></p>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.3pt'>3.7<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>Estrategias de depuración.</span></h4>
+
+<h5>3.7.1 Tipo de errores.</h5>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-18.0pt'><span
+style='font-size:10.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b>Sintácticos:</b> Violaciones de reglas del lenguaje.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-18.0pt'><span
+style='font-size:10.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b>Lógicos:</b> Comportamiento inesperado a pesar de la sintaxis
+correcta.</p>
+
+<p class=MsoListParagraphCxSpLast style='text-indent:-18.0pt'><span
+style='font-size:10.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b>De ejecución:</b> Ejemplo, división por cero.</p>
+
+<h5>3.7.2 Técnicas de depuración.</h5>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-18.0pt'><span
+style='font-size:10.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Uso de depuradores para rastrear errores paso a paso.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-18.0pt'><span
+style='font-size:10.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Inclusión de mensajes de salida para verificar valores
+intermedios.</p>
+
+<p class=MsoListParagraphCxSpLast style='text-indent:-18.0pt'><span
+style='font-size:10.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Pruebas unitarias de pequeños bloques del programa.</p>
+
+<h3 style='margin-left:21.3pt'>4.<span style='font:7.0pt "Times New Roman"'> </span>Paradigmas
+de programación.</h3>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.3pt'>4.1<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>Programación estructurada</span></h4>
+
+<p class=MsoNormal style='margin-top:12.0pt'>Los paradigmas de programación son
+enfoques o estilos que guían la forma en que se desarrollan y estructuran los
+programas de software. Cada paradigma ofrece una perspectiva distinta para
+resolver problemas y es más adecuado según las características específicas del
+problema a abordar. A continuación, se detallan los principales paradigmas:</p>
+
+<p class=MsoNormal style='margin-top:12.0pt'>La <b>programación estructurada</b>
+es un paradigma que promueve la escritura de código de manera clara y ordenada,
+utilizando estructuras de control como bucles y condicionales, y evitando el
+uso de instrucciones de salto como goto. Este enfoque facilita la comprensión,
+mantenimiento y depuración del código. Lenguajes como C, Pascal y Fortran son
+ejemplos de lenguajes que soportan este paradigma.</p>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.3pt'>4.2<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>Programación orientada a objetos.</span></h4>
+
+<p class=MsoNormal style='margin-top:12.0pt'>La <b>programación orientada a
+objetos (POO)</b> organiza el código en &quot;objetos&quot; que representan
+entidades del mundo real, encapsulando tanto datos como comportamientos. Este
+paradigma facilita la reutilización y modularidad del código, permitiendo
+construir sistemas más complejos de manera más manejable. Lenguajes como Java,
+Python y C++ son ampliamente utilizados en POO.</p>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.3pt'>4.3<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>Programación lógica.</span></h4>
+
+<p class=MsoNormal style='margin-top:12.0pt'>La <b>programación lógica</b> se
+basa en la declaración de hechos y reglas, y la computación se realiza mediante
+la inferencia lógica. En este paradigma, se especifica <i>qué</i> se desea
+lograr, dejando al sistema la tarea de determinar <i>cómo</i> hacerlo. Prolog
+es uno de los lenguajes más representativos de este enfoque.</p>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.3pt'>4.4<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>Programación paralela.</span></h4>
+
+<p class=MsoNormal style='margin-top:12.0pt'>La <b>programación paralela</b> se
+centra en la ejecución simultánea de múltiples tareas o procesos para mejorar
+el rendimiento y la eficiencia, especialmente en sistemas con múltiples
+procesadores o núcleos. Este paradigma es esencial en aplicaciones que
+requieren procesamiento intensivo y busca reducir los tiempos de ejecución
+mediante la concurrencia.</p>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.3pt'>4.5<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>Principales usos de los paradigmas para la
+solución de problemas.</span></h4>
+
+<p class=MsoNormal>Cada paradigma de programación es más adecuado según el tipo
+de problema a resolver:</p>
+
+<ul style='margin-top:0cm' type=disc>
+ <li class=MsoNormal><b>Programación Estructurada</b>: Ideal para problemas
+     bien definidos con flujos de control claros y secuenciales.</li>
+ <li class=MsoNormal><b>Programación Orientada a Objetos</b>: Adecuada para
+     sistemas complejos que pueden modelarse mediante objetos interactuantes,
+     como aplicaciones gráficas y sistemas de gestión.</li>
+ <li class=MsoNormal><b>Programación Lógica</b>: Útil en aplicaciones de
+     inteligencia artificial, sistemas expertos y resolución de problemas que
+     requieren inferencia lógica.</li>
+ <li class=MsoNormal><b>Programación Paralela</b>: Esencial en aplicaciones que
+     demandan alto rendimiento, como simulaciones científicas, procesamiento de
+     imágenes y análisis de grandes volúmenes de datos.</li>
+</ul>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.3pt'>4.6<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>Nuevas tendencias.</span></h4>
+
+<p class=MsoNormal style='margin-top:12.0pt'>La evolución de la tecnología ha
+dado lugar a nuevos paradigmas y enfoques en la programación:</p>
+
+<ul style='margin-top:0cm' type=disc>
+ <li class=MsoNormal><b>Programación Funcional</b>: Enfatiza el uso de
+     funciones puras y evita el estado mutable, facilitando la concurrencia y
+     la prueba de programas. Lenguajes como Haskell y Scala son ejemplos de
+     este paradigma. </li>
+ <li class=MsoNormal><b>Programación Reactiva</b>: Se centra en la propagación
+     de cambios y la gestión de flujos de datos asíncronos, siendo útil en
+     aplicaciones que requieren alta interactividad y respuesta en tiempo real.
+     </li>
+ <li class=MsoNormal><b>Programación Basada en Eventos</b>: Utilizada en el
+     desarrollo de interfaces de usuario y sistemas que responden a eventos
+     externos, como clics de ratón o entradas de teclado.</li>
+</ul>
+
+<h3 style='margin-left:21.3pt'>5.<span style='font:7.0pt "Times New Roman"'> </span>Cómputo
+aplicado a diferentes áreas de la ingeniería y otras disciplinas.</h3>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.3pt'>5.1<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>Tendencia de desarrollo de software.</span></h4>
+
+<h5>5.1.1 Software propietario.</h5>
+
+<p class=MsoNormal>Software propietario: Se refiere al software que es
+propiedad de una empresa o individuo, y su código fuente no está disponible al
+público para su modificación o distribución.</p>
+
+<h5>5.1.2 Software libre.</h5>
+
+<p class=MsoNormal>Software libre: este tipo de software es de uso,
+modificación y distribución gratuitos. El código fuente está disponible
+públicamente y cualquiera puede cambiarlo o mejorarlo.</p>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.3pt'>5.2<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>Aplicaciones.</span></h4>
+
+<h5>5.2.1 Ciencias físicas y de la ingeniería.</h5>
+
+<p class=MsoNormal>La informática se utiliza ampliamente en las ciencias
+físicas y la ingeniería para simulaciones, modelados y resolución de ecuaciones
+complejas que no se pueden realizar manualmente. Ayuda a crear modelos para
+sistemas, predecir comportamientos y probar teorías.</p>
+
+<h5>5.2.2 Ciencias médicas y de la salud.</h5>
+
+<p class=MsoNormal>La atención sanitaria se beneficia de las tecnologías
+informáticas para diagnóstico, imágenes médicas, gestión de datos de pacientes
+y desarrollo de dispositivos médicos. Permite avances en la investigación, la
+optimización del tratamiento y la medicina personalizada.</p>
+
+<h5>5.2.3 Leyes, ciencias sociales y del comportamiento.</h5>
+
+<p class=MsoNormal>El derecho y las ciencias sociales utilizan la informática
+para analizar grandes conjuntos de datos, realizar análisis estadísticos y
+modelar comportamientos sociales. Por ejemplo, los modelos predictivos se
+pueden aplicar en criminología, economía y sociología.</p>
+
+<h5>5.2.4 Artes y humanidades.</h5>
+
+<p class=MsoNormal>Las artes y las humanidades utilizan la informática para la
+creación de medios digitales, la preservación de arte, exposiciones virtuales e
+incluso procesos creativos basados &#8203;&#8203;en inteligencia artificial.
+Permite nuevas formas de expresión y análisis del patrimonio cultural.</p>
+
+<h5>5.2.5 Otras disciplinas.</h5>
+
+<p class=MsoNormal>Otras disciplinas que se benefician de la informática
+incluyen la educación, los negocios, la agricultura y las ciencias ambientales.
+El uso de software para el análisis de datos, la toma de decisiones y la
+automatización se extiende a diversos campos, mejorando la eficiencia y la
+innovación.</p>
+
+<h3 style='margin-left:21.3pt'>6.<span style='font:7.0pt "Times New Roman"'> </span>Bibliografía.</h3>
+
+<p class=MsoNormal style='margin-top:12.0pt'>CAIRÓ, Osvaldo - <i>Metodología de
+la Programación. Algoritmos, Diagramas de Flujo y Programas</i>.</p>
+
+<p class=MsoNormal style='margin-top:12.0pt'><a
+href="https://repositorio-uapa.cuaieed.unam.mx/repositorio/moodle/pluginfile.php/2655/mod_resource/content/1/UAPA-Lenguajes-Programacion/index.html">https://repositorio-uapa.cuaieed.unam.mx/repositorio/moodle/pluginfile.php/2655/mod_resource/content/1/UAPA-Lenguajes-Programacion/index.html</a>
+</p>
+
+<p class=MsoNormal style='margin-top:12.0pt'><u><span style='text-decoration:
+ none'>&nbsp;</span></u></p>
+
+<p class=MsoNormal style='margin-top:12.0pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-top:12.0pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-top:12.0pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-top:12.0pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-top:12.0pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-top:12.0pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-top:12.0pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-top:12.0pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-top:12.0pt'>&nbsp;</p>
+
+</div>
+
+
+      </article>
+
+    </div><!-- /content-main -->
+</div><!-- /page-layout -->
+
+
+<!-- ══════════════════════════════════════
+     SCRIPTS
+══════════════════════════════════════ -->
+<script>
+'use strict';
+
+const MOON = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>`;
+const SUN  = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`;
+
+const $       = id => document.getElementById(id);
+const getMeta = n  => (document.querySelector(`meta[name="${n}"]`) || {}).content || '';
+
+/* ────────────────────────────────────────
+   1. COLOR de identidad de la materia
+──────────────────────────────────────── */
+function applyColor() {
+  const c = getMeta('COLOR') || '#3494BA';
+  document.documentElement.style.setProperty('--color', c);
+}
+
+/* ────────────────────────────────────────
+   2. LIMPIEZA automática del HTML de Word
+──────────────────────────────────────── */
+function cleanWordHTML() {
+  const wc = $('word-content');
+  if (!wc) return;
+
+  /* Quitar TODOS los estilos inline de headings */
+  wc.querySelectorAll('h1,h2,h3,h4,h5,h6,h7,h8').forEach(h => {
+    h.removeAttribute('style');
+    h.querySelectorAll('span').forEach(s => {
+      const fs = s.style.fontSize || '';
+      if (fs.includes('7') && fs.includes('pt')) {
+        s.replaceWith(document.createTextNode(' ')); /* elimina espaciadores 7pt de Word */
+      } else {
+        s.removeAttribute('style');
+      }
+    });
+  });
+
+  /* Quitar colores/backgrounds problemáticos en el resto */
+  const BLUES = ['#459ec4','#3494ba','#1a495c','rgb(69,158,196)','rgb(52,148,186)'];
+  const isWordBlue = v => v && BLUES.some(b => v.toLowerCase().replace(/\s/g,'').includes(b));
+
+  wc.querySelectorAll('*').forEach(el => {
+    const s = el.style;
+    if (!s || !s.length) return;
+
+    if (isWordBlue(s.color)) s.removeProperty('color');
+
+    const bg = (s.background + s.backgroundColor).toLowerCase().replace(/\s/g,'');
+    if (bg.includes('#3494ba') || bg.includes('#d4eaf3') ||
+        bg.includes('white')   || bg.includes('#ffffff')) {
+      s.removeProperty('background');
+      s.removeProperty('background-color');
+    }
+
+    const col = (s.color || '').toLowerCase().replace(/\s/g,'');
+    if (['white','#ffffff','#fff','black','#000000','#000','windowtext'].includes(col))
+      s.removeProperty('color');
+  });
+
+  /* Wingdings → bullet normal */
+  wc.querySelectorAll('span[style*="Wingdings"],span[style*="wingdings"]').forEach(s => {
+    s.textContent = '•'; s.removeAttribute('style');
+  });
+
+  /* Imágenes: quitar width/height inline */
+  wc.querySelectorAll('img').forEach(img => {
+    img.removeAttribute('width');
+    img.removeAttribute('height');
+  });
+}
+
+/* ────────────────────────────────────────
+   3. HERO — lee <meta>, extrae objetivo del
+      word-content y lo elimina para no duplicarlo
+──────────────────────────────────────── */
+function buildHero() {
+  const semestre = getMeta('SEMESTRE');
+  const materia  = getMeta('MATERIA') || 'Materia';
+  const clave    = getMeta('CLAVE');
+  const creditos = getMeta('CREDITOS');
+  const wc = $('word-content');
+
+  wc.querySelector('h2')?.remove(); /* título ya aparece en el hero */
+
+  let objLabel = '', objHTML = '';
+  for (const em of wc.querySelectorAll('em')) {
+    if (em.textContent.toLowerCase().includes('objetivo')) {
+      const emPara = em.closest('p');
+      if (emPara) {
+        objLabel = 'Objetivo(s) del curso';
+        let sib = emPara.nextElementSibling;
+        while (sib && sib.tagName === 'P' && !sib.textContent.trim())
+          sib = sib.nextElementSibling;
+        if (sib?.tagName === 'P') { objHTML = sib.innerHTML; sib.remove(); }
+        emPara.remove();
+      }
+      break;
+    }
+  }
+
+  const metaStr = [clave && `Clave: ${clave}`, creditos && `${creditos} créditos`]
+    .filter(Boolean).join(' · ');
+
+  $('hero').innerHTML =
+    (semestre ? `<div class="hero-semestre">${semestre}</div>` : '') +
+    `<h1 class="hero-title">${materia}</h1>` +
+    (metaStr  ? `<div class="hero-meta">${metaStr}</div>` : '') +
+    `<div class="hero-sep"></div>` +
+    (objLabel ? `<div class="hero-obj-lbl">${objLabel}:</div>` : '') +
+    (objHTML  ? `<p class="hero-obj-txt">${objHTML}</p>` : '');
+
+  document.title = `${materia} · Prontuario Mecatrónica · UNAM FI`;
+}
+
+/* ────────────────────────────────────────
+   4. TOC — colapsable h3→h8
+      · Triángulo: solo colapsa/expande
+      · Texto h3 : solo scroll (sin toggle)
+      · Items h4+: scroll + abre solo su padre
+──────────────────────────────────────── */
+function scrollToHeading(el) {
+  const cont = $('contentMain');
+  let top = 0, cur = el;
+  while (cur && cur !== cont) { top += cur.offsetTop; cur = cur.offsetParent; }
+  cont.scrollTo({ top: top - 68, behavior: 'smooth' });
+}
+
+function buildTOC() {
+  const wc  = $('word-content');
+  const nav = $('tocNav');
+  const heads = Array.from(wc.querySelectorAll(
+    'h3,h4,h5,h6,h7,h8,p.MsoHeading7,p.MsoHeading8,[class*="Heading7"],[class*="Heading8"]'
+  ));
+  if (!heads.length) return;
+
+  let idx = 0, curDet = null, curList = null;
+
+  const getLevel = el => {
+    const m = el.tagName.toUpperCase().match(/^H(\d+)$/);
+    if (m) return +m[1];
+    return el.className.match(/Heading8/i) ? 8 : 7;
+  };
+
+  heads.forEach(h => {
+    if (!h.id) h.id = `hd-${++idx}`;
+    const text  = h.innerText.trim().replace(/\s+/g, ' ');
+    const level = getLevel(h);
+
+    if (level === 3) {
+      curDet = document.createElement('details');
+      curDet.className = 'toc-group';
+      curDet.open = false;
+      curDet.dataset.hid = h.id;
+
+      const sum  = document.createElement('summary');
+      const arr  = document.createElement('span');
+      arr.className = 'toc-arrow'; arr.textContent = '▶';
+
+      const txt  = document.createElement('span');
+      txt.className = 'toc-h3-text'; txt.textContent = text; txt.title = text;
+      txt.addEventListener('click', e => {
+        e.preventDefault(); e.stopPropagation();
+        scrollToHeading(h); tocSetActive(sum, null);
+      });
+
+      sum.appendChild(arr); sum.appendChild(txt); curDet.appendChild(sum);
+      curList = document.createElement('ul');
+      curList.className = 'toc-children';
+      curDet.appendChild(curList);
+      nav.appendChild(curDet);
+
+    } else {
+      if (!curList) { curList = document.createElement('ul'); curList.className = 'toc-children'; nav.appendChild(curList); }
+      const li = document.createElement('li');
+      const a  = document.createElement('a');
+      a.href = '#' + h.id; a.className = `toc-item lv${level}`;
+      a.textContent = text; a.title = text;
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        scrollToHeading(h);
+        a.closest('details')?.setAttribute('open', '');
+        tocSetActive(null, a);
+      });
+      li.appendChild(a); curList.appendChild(li);
+    }
+  });
+}
+
+/* ────────────────────────────────────────
+   5. TRACKING — resalta item activo al scroll
+      · No abre grupos cerrados
+      · Auto-scrollea el sidebar (debounce 80ms)
+──────────────────────────────────────── */
+let _active = null, _timer = null;
+
+function tocSetActive(sum, link) {
+  if (_active) _active.classList.remove('toc-active');
+  const t = link || sum; if (!t) return;
+  t.classList.add('toc-active'); _active = t;
+
+  clearTimeout(_timer);
+  _timer = setTimeout(() => {
+    const nav = $('tocNav'); if (!nav || !t) return;
+    const nr = nav.getBoundingClientRect(), ir = t.getBoundingClientRect();
+    if (ir.top < nr.top + 40 || ir.bottom > nr.bottom - 40)
+      nav.scrollTo({ top: t.offsetTop - nav.offsetTop - nav.clientHeight / 2 + t.clientHeight / 2, behavior: 'smooth' });
+  }, 80);
+}
+
+function initActiveTracking() {
+  const heads = Array.from($('word-content').querySelectorAll(
+    'h3,h4,h5,h6,h7,h8,p.MsoHeading7,p.MsoHeading8'
+  ));
+  if (!heads.length) return;
+  const nav = $('tocNav');
+
+  const obs = new IntersectionObserver(entries => {
+    const vis = entries.filter(e => e.isIntersecting);
+    if (!vis.length) return;
+    vis.sort((a,b) => a.boundingClientRect.top - b.boundingClientRect.top);
+    const id   = vis[0].target.id;
+    const link = nav.querySelector(`.toc-item[href="#${id}"]`);
+
+    if (link) {
+      /* Si el grupo padre está cerrado, resaltar el summary del grupo en su lugar */
+      const det = link.closest('details');
+      if (det && !det.open) {
+        tocSetActive(det.querySelector('summary'), null);
+      } else {
+        tocSetActive(null, link);
+      }
+    } else {
+      const det = nav.querySelector(`details[data-hid="${id}"]`);
+      if (det) tocSetActive(det.querySelector('summary'), null);
+    }
+  }, { root: $('contentMain'), rootMargin: '-60px 0px -60% 0px', threshold: 0 });
+
+  heads.forEach(h => obs.observe(h));
+}
+
+/* ────────────────────────────────────────
+   6. TOGGLE SIDEBAR
+──────────────────────────────────────── */
+function initSidebarToggle() {
+  const sb = $('tocSidebar'), ob = $('tocOpenBtn');
+  $('tocClose').addEventListener('click', () => { sb.classList.add('collapsed');    ob.classList.add('visible'); });
+  ob.addEventListener('click',           () => { sb.classList.remove('collapsed'); ob.classList.remove('visible'); });
+}
+
+/* ────────────────────────────────────────
+   7. TEMA CLARO / OSCURO
+──────────────────────────────────────── */
+function syncThemeBtn() {
+  const dark = document.documentElement.dataset.theme !== 'light';
+  $('themeBtn').innerHTML = dark ? MOON : SUN;
+  $('themeBtn').title = dark ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro';
+}
+$('themeBtn').addEventListener('click', () => {
+  const next = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+  document.documentElement.dataset.theme = next;
+  localStorage.setItem('prontuario-theme', next);
+  syncThemeBtn();
+});
+
+/* ────────────────────────────────────────
+   INIT
+──────────────────────────────────────── */
+(function init() {
+  applyColor();          /* 1. color de materia */
+  cleanWordHTML();       /* 2. limpia estilos inline de Word */
+  buildHero();           /* 3. hero + extrae objetivo */
+  buildTOC();            /* 4. TOC colapsable */
+  initSidebarToggle();   /* 5. botón colapsar/abrir */
+  syncThemeBtn();        /* 6. ícono tema */
+  initActiveTracking();  /* 7. highlight al scroll */
+})();
+</script>
+
+</body>
+</html>
