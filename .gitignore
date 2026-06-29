@@ -1,0 +1,53 @@
+# ══════════════════════════════════════════════════
+#  .gitignore — Prontuario Mecatrónica UNAM
+#  Proyecto: HTML / CSS / JS estático (sin build)
+# ══════════════════════════════════════════════════
+
+# ── Archivos de sistema operativo ──────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ── Editores ────────────────────────────────────────
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# ── Word / Office ────────────────────────────────────
+# Archivos temporales de Word al editar
+~$*.docx
+~$*.doc
+*.tmp
+
+# Guardar los .htm de Word originales localmente
+# pero NO subirlos (solo los index.html procesados)
+*.htm
+!index.html          # el index principal SÍ va
+!s*/*/index.html     # los index de materia SÍ van
+
+# ── Archivos de trabajo local ────────────────────────
+borrador/
+_borrador/
+notas-personales/
+wip/
+TODO.md
+NOTAS.md
+
+# ── Node (por si se usa Live Server u otra herramienta) ─
+node_modules/
+npm-debug.log*
+package-lock.json
+
+# ── Misceláneos ─────────────────────────────────────
+*.log
+*.bak
+*.orig
