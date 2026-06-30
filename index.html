@@ -142,7 +142,9 @@
 
     .hdr-brand { display: flex; align-items: center; gap: 9px; text-decoration: none; flex-shrink: 0; }
     .hdr-logo  { width: 34px; height: 34px; border-radius: 7px; overflow: hidden; flex-shrink: 0; }
-    .hdr-logo img { width: 100%; height: 100%; object-fit: cover; }
+    .hdr-logo svg { width: 100%; height: 100%; display: block; }
+    .hdr-logo-bg   { fill: var(--surface); stroke: var(--p); stroke-width: 1.5; transition: fill 0.3s, stroke 0.3s; }
+    .hdr-logo-text { fill: var(--p); transition: fill 0.3s; }
     .hdr-name  { font-family: var(--disp); font-size: 14px; font-weight: 600; color: var(--text); line-height: 1.15; }
     .hdr-sub   { font-family: var(--mono); font-size: 9.5px; color: var(--text-m); letter-spacing: 0.07em; }
 
@@ -356,7 +358,7 @@
 <header>
   <a class="hdr-brand" href="#">
     <div class="hdr-logo">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAArCAYAAAA65tviAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANNSURBVGhD7ZltaBt1HMc/17vLXV3KrQ9pVtuEmc6OLvSFCg0M36iVjWy+s9W5WmWI4liniDOvxGdQhMKYFAQpIqLDVwq2IPSN+Cp94UTZhmFRTFp1TbULpVsvueR81TL/tLkt3nLpzAfuzff35eDDPXDcT9KaDZvbAOlGRXyBHjoOHcMYHELr7kWSFbHiKnbJwlxIk5+bZWl6ikJuXqz8ixsSaT8wSuj4e+RmPiGfnMHMpLCtolhzFUlR0cJ9GLE4gfgY2ckEf33zqVjbwFGk/cAowZEXyJx5ibVfzovjmqBHooTHJ7j8xektZSqK+AI97PsoyaXXHvdMYh09EmXPG2e58Exs09tMVlT9dTFcJzjyIld/vUD+uy/FUc2xlnNIup87IgOs/PCtOKZJDK7HGBwin5wRY8/IJ2cwBofEGJxEtO5ezExKjD3DzKTQunvFGJxEJFm55W+nm8G2ilu+9iuKbCcaIvVGQ6TeaIhshtoWpO3ho7QffGrjaH1gBLnZvzFrue9BACTVh7H/0Mb8v+KqiK9rN4FHjhEcPsGdTyYIPnqcQHwMuaUVLbyXXcPjdB15GbW1E61nD12jCYLDJ1B2doinumlcFVk9n+Tnkw/x5+cTlAsmmQ9OkTp1mMJiFoBy0USSZZr33kvLwP3YBRO7WBBPUxWuijhhW0XWsin8/TF27BtkNfW9WKmamoo0aTrmHxlaBvajtgWx/l6kSWsWa1VRUxGQWJtPYa1eoZCbp7i8KBaqpsYiYK0sk371MX57/3nskiWOq6bmIrcKV0UkVcMXDCP7d4IEitGBrzOEJMti1XVcFdkRjXH3u1+xa+QkTT6d0HPv0PvmWXydIbHqOhV/Ptzz9WV+eqJfjD1l4LOLnDscFGN3r4iXNETqjYZIvfH/ELFLFpKiirFnSIq65WdNRRFzIY0W7hNjz9DCfZgLaTEGJ5H83CxGLC7GnmHE4uTnZsUYnESWpqcIxMfQI1FxVHP0SJRAfIyl6SlxBE4ihdw82ckE4fEJT2XWFz3ZycSmuxGc9iMA19I/UjavcdcrHyLpfkpX85RWrkC5LFZdRVJU9N39tB98mtCzb/H7x29vua3C6aPxem6LZeh2oOIzsp1oiNQb/wC/2QLl/sw38AAAAABJRU5ErkJggg==" alt="IM">
+      <svg viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg" aria-label="IM"><rect class="hdr-logo-bg" x="1" y="1" width="32" height="32" rx="7"/><text class="hdr-logo-text" x="17" y="21.5" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">IM</text></svg>
     </div>
     <div>
       <div class="hdr-name">Prontuario Mecatrónica</div>
