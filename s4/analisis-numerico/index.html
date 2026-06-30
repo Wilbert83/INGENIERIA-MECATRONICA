@@ -8,11 +8,11 @@
        CAMBIA ESTOS 5 DATOS POR CADA MATERIA
        COLOR: usa el color de identidad visual de la materia
   ════════════════════════════════════════════════════════ -->
-  <meta name="SEMESTRE"  content="Tercer Semestre">
-  <meta name="MATERIA"   content="PROBABILIDAD">
-  <meta name="CLAVE"     content="1436">
+  <meta name="SEMESTRE"  content="Cuarto Semestre">
+  <meta name="MATERIA"   content="ANÁLISIS NUMÉRICO">
+  <meta name="CLAVE"     content="1433">
   <meta name="CREDITOS"  content="8">
-  <meta name="COLOR"     content="#FF6699">
+  <meta name="COLOR"     content="#BF0000">
   <!-- ════════════════════════════════════════════════════════ -->
 
   <title>Álgebra · Prontuario Mecatrónica · UNAM FI</title>
@@ -520,7 +520,7 @@
 
 <div class=WordSection1>
 
-<h2><span class=Ttulo2Car><span style='color:#459EC4'>PROBABILIDAD </span></span>(1436)</h2>
+<h2><span class=Ttulo2Car>ANÁLISIS NUMÉRICO </span>(1433)</h2>
 
 <p class=MsoNormal style='margin-top:5.0pt;margin-right:0cm;margin-bottom:10.0pt;
 margin-left:0cm;line-height:115%'><em><span style='font-size:10.0pt;line-height:
@@ -529,195 +529,480 @@ margin-left:0cm;line-height:115%'><em><span style='font-size:10.0pt;line-height:
 <p class=MsoNormal style='margin-top:5.0pt;margin-right:0cm;margin-bottom:10.0pt;
 margin-left:0cm;text-align:justify;line-height:115%'><span
 class=MsoSubtleEmphasis><span style='font-size:10.0pt;line-height:115%'>El
-alumno aplicará los conceptos y la metodología básica de la teoría de la
-probabilidad para analizar algunos fenómenos aleatorios que ocurren en la
-naturaleza y la sociedad.</span></span></p>
+alumno utilizará métodos numéricos para obtener soluciones aproximadas de
+modelos matemáticos. Elegirá el método que le proporcione mínimo error y
+utilizará equipo de cómputo como herramienta para desarrollar programas.</span></span></p>
 
-<h3 style='margin-left:21.3pt'>1.<span style='font:7.0pt "Times New Roman"'> </span>Teoría
-de la probabilidad.</h3>
+<h3 style='margin-left:21.3pt'>1.<span style='font:7.0pt "Times New Roman"'> </span>Aproximación
+numérica y errores.</h3>
 
-<h4 style='margin-left:37.5pt;text-indent:-19.5pt'>1.1<span style='font:7.0pt "Times New Roman"'>
-</span><span style='color:black'>Concepto de probabilidad.</span></h4>
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>1.1<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Introducción histórica de los métodos
+numéricos.</span></h4>
 
-<h5>PROBABILIDAD</h5>
+<h5><span style='text-transform:none'>MÉTODOS NUMÉRICOS</span></h5>
 
-<p class=MsoNormal>El término <b><i><span style='color:#00B0F0'>Probabilidad</span></i></b><span
-style='color:#00B0F0'> </span>se refiere al estudio del azar y la incertidumbre
-en cualquier situación en la que varios posibles sucesos pueden ocurrir; la
-disciplina de la probabilidad proporciona métodos para cuantificar las
-oportunidades y probabilidades asociadas con los varios sucesos. </p>
+<p class=MsoNormal>Los <b><i><span style='color:#00B0F0'>Métodos Numéricos</span></i></b><span
+style='color:#00B0F0'> </span>constituyen técnicas mediante las cuales es
+posible formular problemas matemáticos, de tal forma que puedan resolverse
+utilizando operaciones aritméticas.</p>
 
-<p class=MsoNormal>El lenguaje de probabilidad se utiliza constantemente de
-manera informal tanto en el contexto escrito como en el hablado. Algunos
-ejemplos incluyen enunciados tales como &quot;E<i>s probable que el índice
-Dow-Jones se incremente al final del año</i>&quot;, &quot;<i>Existen 50-50
-probabilidades de que la persona en posesión de su cargo busque la reelección</i>&quot;</p>
+<p class=MsoNormal>Aunque existen muchos tipos de métodos numéricos, éstos
+comparten una característica común: invariablemente requieren de un buen número
+de tediosos cálculos aritméticos.</p>
 
-<p class=MsoNormal>El estudio de la <b><i><span style='color:#00B0F0'>probabilidad</span></i></b><span
-style='color:#00B0F0'> </span>como una rama de las matemáticas se remonta más
-de 300 años y su origen se relaciona con cuestiones que implican juegos de
-azar. </p>
+<p class=MsoNormal>A diferencia de las técnicas propias de la matemática
+analítica, los métodos numéricos requieren de una aproximación a la solución
+real al problema, misma que es corregida a través de la repetición de un cierto
+proceso que debe arrojar soluciones cada vez más cercanas al valor real. </p>
 
-<p class=MsoNormal>Muchos libros se han ocupado exclusivamente de la
-probabilidad, pero el objetivo en este caso es abarcar sólo la parte de la
-materia que tiene más aplicación directa en problemas de inferencia
-estadística.</p>
+<p class=MsoNormal>Cada corrección de un valor inicial se conoce como
+iteración.</p>
 
-<h4 style='margin-left:37.5pt;text-indent:-19.5pt'>1.2<span style='font:7.0pt "Times New Roman"'>
-</span><span style='color:black'>Principio fundamental de conteo, análisis
-combinatorio, teoría de conjuntos.</span></h4>
+<p class=MsoNormal>No existe unanimidad entre los expertos sobre si <b><i><span
+style='color:#00B0F0'>Análisis Numérico</span></i></b><span style='color:#00B0F0'>
+</span>es un sinónimo de métodos numéricos.</p>
 
-<h5>TEORÍA DE CONJUNTOS</h5>
+<p class=MsoNormal>Algunos consideran que los métodos numéricos son procesos
+con objetivos particulares los cuales conforman un proceso más complejo, el
+cual es específicamente la interpretación de los resultados, al cual denominan
+Análisis numérico.</p>
+
+<h5>ANTECEDENTES MATEMÁTICOS</h5>
+
+<p class=MsoNormal style='margin-bottom:0cm'><b>Raíces de ecuaciones:</b> Estos
+problemas están relacionados con encontrar el valor de una variable o parámetro
+que cumpla con una ecuación no lineal. Son muy útiles en proyectos de
+ingeniería, donde a menudo es imposible despejar analíticamente los parámetros
+de las ecuaciones de diseño.</p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=529
+height=300 id=Imagen309
+src="capitulo_04_ANÁLISIS_NUMÉRICO_(1433)_archivos/image001.jpg"
+alt="Imagen que contiene firmar, alambre, tráfico, luz&#10;&#10;Descripción generada automáticamente"></p>
+
+<p class=MsoNormal><b>Sistemas de ecuaciones algebraicas lineales:</b> Estos
+problemas son similares a los de raíces de ecuaciones, pero en lugar de una
+sola ecuación, buscamos un conjunto de valores que cumplan simultáneamente
+varias ecuaciones lineales. Estas ecuaciones surgen en muchos problemas de
+ingeniería, especialmente en modelos de sistemas grandes y complejos como
+estructuras, circuitos eléctricos y redes de flujo. También aparecen en otras
+áreas de los métodos numéricos como el ajuste de curvas y las ecuaciones
+diferenciales.</p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=623 height=348 id=Imagen310
+src="capitulo_04_ANÁLISIS_NUMÉRICO_(1433)_archivos/image002.jpg"
+alt="Imagen que contiene objeto, reloj, pájaro, oso&#10;&#10;Descripción generada automáticamente"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><b>Optimización:</b> En estos
+problemas se trata de determinar el valor o los valores de una variable
+independiente que corresponden al &quot;mejor&quot; o al valor óptimo de una
+función. La optimización se enfoca en identificar los máximos y mínimos. Estos
+problemas son comunes en el diseño de ingeniería y en otros métodos numéricos.
+En este texto, nos centraremos en la optimización tanto para una sola variable
+como para varias variables sin restricciones. Además, abordaremos la
+optimización restringida, poniendo especial énfasis en la programación lineal.</p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=606 height=321 id=Imagen311
+src="capitulo_04_ANÁLISIS_NUMÉRICO_(1433)_archivos/image003.jpg"
+alt="Diagrama&#10;&#10;Descripción generada automáticamente con confianza baja"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><b>Ajuste de curvas:</b> A menudo
+será necesario ajustar curvas a un conjunto de datos representados por puntos.
+Las técnicas desarrolladas para tal propósito se dividen en dos categorías
+generales: regresión e interpolación. La primera se emplea cuando hay un
+significativo grado de error asociado con los datos; con frecuencia los datos
+experimentales son de este tipo. Para estas situaciones, la estrategia es
+encontrar una curva que represente la tendencia general de los datos, sin
+necesidad de tocar los puntos individuales. En contraste, la interpolación se
+utiliza cuando el objetivo es determinar valores intermedios entre datos que
+estén, relativamente, libres de error. Tal es el caso de la información
+tabulada. En dichas situaciones, la estrategia consiste en ajustar una curva
+directamente mediante los puntos obtenidos como datos y usar la curva para
+predecir valores intermedios. &nbsp; </p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=586 height=323 id=Imagen312
+src="capitulo_04_ANÁLISIS_NUMÉRICO_(1433)_archivos/image004.jpg"
+alt="Gráfico, Gráfico de líneas&#10;&#10;Descripción generada automáticamente"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><b>Integración:</b> La integración
+representa gráficamente la interpretación de la integración numérica es la
+determinación del área bajo la curva. La integración tiene diversas
+aplicaciones en la práctica de la ingeniería, que van desde la determinación de
+los centroides de objetos con formas extrañas, hasta el cálculo de cantidades
+totales basadas en conjuntos de medidas discretas. Además, las fórmulas de
+integración numérica desempeñan un papel importante en la solución de
+ecuaciones diferenciales. &nbsp; </p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=589 height=306 id=Imagen313
+src="capitulo_04_ANÁLISIS_NUMÉRICO_(1433)_archivos/image005.jpg"
+alt="Imagen que contiene Diagrama&#10;&#10;Descripción generada automáticamente"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><b>Ecuaciones diferenciales
+ordinarias:</b> Éstas tienen una enorme importancia en la práctica de la
+ingeniería, lo cual se debe a que muchas leyes físicas están expresadas en
+términos de la razón de cambio de una cantidad, más que en términos de la
+cantidad misma. Entre los ejemplos tenemos los modelos de predicción
+demográfica (razón de cambio de la población), hasta la aceleración de un
+cuerpo que cae (razón de cambio de la velocidad). Se tratan dos tipos de
+problemas: problemas con valor inicial y problemas con valores en la frontera.
+Además veremos el cálculo de valores propios. &nbsp; </p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=610 height=341 id=Imagen314
+src="capitulo_04_ANÁLISIS_NUMÉRICO_(1433)_archivos/image006.jpg"
+alt="Un luz de freno&#10;&#10;Descripción generada automáticamente con confianza baja"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><b>Ecuaciones diferenciales
+parciales:</b> Las ecuaciones diferenciales parciales sirven para caracterizar
+sistemas de ingeniería, en los que el comportamiento de una cantidad física se
+expresa en términos de su razón de cambio con respecto a dos o más variables
+independientes. Entre los ejemplos tenemos la distribución de temperatura en
+estado estacionario sobre una placa caliente (espacio bidimensional) o la
+temperatura variable con el tiempo de una barra caliente (tiempo y una
+dimensión espacial). </p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=556
+height=317 id=Imagen315
+src="capitulo_04_ANÁLISIS_NUMÉRICO_(1433)_archivos/image007.jpg"
+alt="Patrón de fondo&#10;&#10;Descripción generada automáticamente"></p>
+
+<p class=MsoNormal>Para resolver numéricamente las ecuaciones diferenciales
+parciales se emplean dos métodos bastante diferentes. En el presente texto
+haremos énfasis en los métodos de las diferencias finitas que aproximan la
+solución usando puntos discretos. No obstante, también presentaremos una
+introducción a los métodos de elementos finitos, los cuales usan una
+aproximación con piezas discretas.</p>
+
+<h5>HISTORIA DE LOS MÉTODOS NUMÉRICOS</h5>
+
+<p class=MsoNormal>La historia de los métodos numéricos esta ligada a la
+colección de acontecimientos matemáticos en los que se resuelven problemas sin
+el uso de la matemática analítica.</p>
+
+<p class=MsoNormal>Algunos de los métodos más utilizados en la actualidad
+fueron creados mucho antes de la invención de la computadora; su aplicación era
+extenuante y complicada porque cada iteración requería de una diversidad de
+operaciones aritméticas que se realizaban por grupos enteros de calculistas,
+evidentemente, de forma manual. &nbsp; </p>
+
+<p class=MsoNormal>Todos los enterados en la materia estarán de acuerdo en que
+una computadora realiza una gran cantidad de operaciones en un intervalo muy
+pequeño; las supercomputadoras lo hacen pero en forma paralela. Esta capacidad
+es la que ha dado un sentido de aplicación a los métodos numéricos. &nbsp; </p>
+
+<p class=MsoNormal>Por lo anterior, la historia de los métodos numéricos es
+paralela, al menos desde la mitad del siglo XIX, a la historia de la
+computación. Las contribuciones más actuales radican en la creación de software
+que minimiza los errores y mejora las aproximaciones de los resultados.</p>
+
+<p class=MsoListParagraphCxSpFirst style='margin-left:21.3pt;text-indent:-18.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b>1650 a.C.:</b> Se crean <b><i><span style='color:#00B0F0'>los
+Papiros de Rhind</span></i></b><span style='color:#00B0F0'> </span>en los que
+se describe un método para resolver expresiones matemáticas sin álgebra.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:21.3pt;text-indent:-18.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b>250 a.C.:</b> Euclides crea el <b><i><span style='color:#00B0F0'>Método
+de Exhausción</span></i></b>, que consiste en aproximar figuras geométricas
+(triángulos, cuadrados, pentágonos, etc.) consecutivamente dentro de un círculo
+para obtener una aproximación a &#960;. &nbsp; </p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:21.3pt;text-indent:-18.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b>Siglo IX d.C.:</b> <b><i><span style='color:#00B0F0'>Al
+Juarismi</span></i></b><span style='color:#00B0F0'> </span>crea los algoritmos.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:21.3pt;text-indent:-18.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b>1623:</b> <b><i>John <span style='color:#00B0F0'>Napier</span></i></b><span
+style='color:#00B0F0'> </span>inventa los huesos de Napier, que son arreglos
+prácticos de logaritmos en tablas.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:21.3pt;text-indent:-18.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b>Siglo XVII:</b> <b><i><span style='color:#00B0F0'>Isaac Newton</span></i></b><span
+style='color:#00B0F0'> </span>crea los procesos de interpolación polinomial.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:21.3pt;text-indent:-18.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b>Siglo XVIII:</b> <b><i><span style='color:#00B0F0'>Leibniz</span></i></b><span
+style='color:#00B0F0'> </span>crea el Cálculo diferencial.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:21.3pt;text-indent:-18.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b>1768:</b> <b><i><span style='color:#00B0F0'>Euler</span></i></b><span
+style='color:#00B0F0'> </span>crea soluciones aproximadas a ecuaciones
+diferenciales con el principio de la integración numérica. <b><i><span
+style='color:#00B0F0'>Jacob Stirling</span></i></b><span style='color:#00B0F0'>
+</span>y <b><i><span style='color:#00B0F0'>Brook Taylor</span></i></b><span
+style='color:#00B0F0'> </span>presentan el Cálculo de diferencias finitas.
+&nbsp; </p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:21.3pt;text-indent:-18.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b>1822:</b> <b><i><span style='color:#00B0F0'>Charles Babbage</span></i></b><span
+style='color:#00B0F0'> </span>inventa la Máquina diferencial.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:21.3pt;text-indent:-18.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b>1843:</b> <b><i><span style='color:#00B0F0'>Ada, condesa de
+Lovelace</span></i></b>, publica sus notas sobre la máquina analítica de <b><i><span
+style='color:#00B0F0'>Charles Babbage</span></i></b>.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:21.3pt;text-indent:-18.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b>1890:</b> (<b><i><span style='color:#00B0F0'>IBM</span></i></b>)
+Tabula el censo estadounidense empleando las máquinas de tarjetas perforadas de
+Herman Hollerith.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:21.3pt;text-indent:-18.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b>1931:</b> <b><i><span style='color:#00B0F0'>Vannebar Bush</span></i></b><span
+style='color:#00B0F0'> </span>diseña el analizador diferencial, un computador
+analógico electromecánico. En 1945 publicará el artículo &quot;Cómo podremos
+pensar&quot; en el que describe la computadora personal.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:21.3pt;text-indent:-18.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b>1937:</b> <b><i><span style='color:#00B0F0'>Alan Turing </span></i></b>publica
+&quot;Sobre los números computables&quot;, donde describe un computador
+universal. Alan Turing mismo había construido un pequeño prototipo, en el que
+se usaba un computador Atanasoff conceptualizado en 1939. También <b><i><span
+style='color:#00B0F0'>John Vincent Atanasoff</span></i></b><span
+style='color:#00B0F0'> </span>parte de la máquina diferencial de Babbage para
+completarla en 1939.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:21.3pt;text-indent:-18.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b>1938:</b> <b><i><span style='color:#00B0F0'>William Hewlett</span></i></b><span
+style='color:#00B0F0'> </span>y <b><i><span style='color:#00B0F0'>David Packard</span></i></b><span
+style='color:#00B0F0'> </span>crean su empresa en Palo Alto, California,
+Estados Unidos.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:21.3pt;text-indent:-18.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b>1939:</b> <b><i><span style='color:#00B0F0'>Turing</span></i></b><span
+style='color:#00B0F0'> </span>comienza a descifrar los códigos secretos
+alemanes.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:21.3pt;text-indent:-18.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b>1941:</b> <b><i><span style='color:#00B0F0'>John von Neumann</span></i></b><span
+style='color:#00B0F0'> </span>redacta el primer informe sobre EDVAC. En
+distintas universidades de Estados Unidos se desarrollan proyectos sobre
+computadoras cuya aplicación (secreta) será apoyar a la milicia en cálculos
+balísticos (ecuaciones diferenciales). &nbsp; </p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:21.3pt;text-indent:-18.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b>1950:</b> Turing crea su famosa prueba sobre la inteligencia
+artificial; se suicidará en 1954. <b><i><span style='color:#00B0F0'>J.H.
+Wilkinson</span></i></b><span style='color:#00B0F0'> </span>acudió al
+Laboratorio Nacional de Física de Reino Unido para construir una versión más
+simple de la máquina de Turing: construyó la ACE (Automatic Computing Engine)
+para resolver cálculos con matrices. &nbsp; </p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:21.3pt;text-indent:-18.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b>1953:</b> <b><i><span style='color:#00B0F0'>John W. Backus</span></i></b>,
+empleado de IBM, desarrolla <b><i><span style='color:#00B0F0'>FORTRAN</span></i></b><span
+style='color:#00B0F0'> </span>(Fórmula Translating) como una alternativa al uso
+del lenguaje ensamblador; se usó por primera vez en una IBM 704.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:21.3pt;text-indent:-18.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b>1958:</b> Se anuncia la creación de la Agencia de Proyectos de
+Investigación Avanzada (<b><i><span style='color:#00B0F0'>ARPA</span></i></b>).</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:21.3pt;text-indent:-18.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b>1962:</b> <b><i><span style='color:#00B0F0'>Doug Engelbart</span></i></b><span
+style='color:#00B0F0'> </span>publica &quot;Aumentar el intelecto humano&quot;;
+en 1963, junto con <b><i><span style='color:#00B0F0'>Bill English</span></i></b><span
+style='color:#00B0F0'> </span>inventan el ratón.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:21.3pt;text-indent:-18.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b>1969:</b> Misión Apolo 11. <b><i><span style='color:#00B0F0'>Katherine
+Johnson</span></i></b><span style='color:#00B0F0'> </span>calcula la
+trayectoria del cohete Mercurio<b><i><span style='color:#00B0F0'>. Dorothy
+Vaughan</span></i></b><span style='color:#00B0F0'> </span>se convierte en la
+supervisora de IBM dentro de la NASA. <b><i><span style='color:#00B0F0'>Mary
+Jackson</span></i></b><span style='color:#00B0F0'> </span>es la primera
+ingeniera aeroespacial en Estados Unidos. <b><i><span style='color:#00B0F0'>Margaret
+Hamilton</span></i></b><span style='color:#00B0F0'> </span>escribe el código
+del programa que controla la nave. Todas ellas tuvieron una participación
+fundamental para que la misión fuera un éxito. &nbsp; </p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:21.3pt;text-indent:-18.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b>1970:</b> Investigadores visitantes en el Argonne National
+Laboratory de Estados Unidos traducen códigos de ALGOL para obtener
+eigenvalores planteados por Wilkinson para incluirlos en FORTRAN. De esta labor
+nace EISPACK en 1976 y posteriormente LINPACK en 1976. &nbsp; </p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:21.3pt;text-indent:-18.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b>1973:</b> <b><i><span style='color:#00B0F0'>Vint Cerf</span></i></b><span
+style='color:#00B0F0'> </span>y <b><i><span style='color:#00B0F0'>Bob Kahn</span></i></b><span
+style='color:#00B0F0'> </span>completan los protocolos TCP/IP.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:21.3pt;text-indent:-18.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b>1975:</b> <b><i><span style='color:#00B0F0'>Bill Gates</span></i></b><span
+style='color:#00B0F0'> </span>y <b><i><span style='color:#00B0F0'>Paul Allen</span></i></b><span
+style='color:#00B0F0'> </span>desarrollan el lenguaje de programación BASIC;
+fundan Microsoft. <b><i><span style='color:#00B0F0'>Steve Jobs</span></i></b><span
+style='color:#00B0F0'> </span>y <b><i><span style='color:#00B0F0'>Steve Wozniak</span></i></b><span
+style='color:#00B0F0'> </span>lanzan el Apple I. &nbsp; </p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:21.3pt;text-indent:-18.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b>1983:</b> <b><i><span style='color:#00B0F0'>Richard Stallman</span></i></b><span
+style='color:#00B0F0'> </span>empieza a desarrollar el proyecto GNU.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:21.3pt;text-indent:-18.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b>1984:</b> <b><i><span style='color:#00B0F0'>Cleve Moler</span></i></b>,
+a partir de EISPACK y LINPACK crea MATLAB; funda la empresa MathWorks</p>
+
+<p class=MsoListParagraphCxSpLast style='margin-left:21.3pt;text-indent:-18.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>1997. <b><i><span style='color:#00B0F0'>Deep Blue</span></i></b>,
+de IBM, derrota a <b><i><span style='color:#00B0F0'>Gari Kasparov</span></i></b><span
+style='color:#00B0F0'> </span>en una partida de ajedrez.</p>
+
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>1.2<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Necesidad de la aplicación de los métodos
+numéricos en la ingeniería.</span></h4>
 
 <p class=MsoNormal>&nbsp;</p>
 
-<p class=MsoNormal>&nbsp;</p>
-
-<h5>TÉCNICAS DE CONTEO</h5>
-
-<p class=MsoNormal>&nbsp;</p>
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>1.3<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Conceptos de aproximación numérica y error.</span></h4>
 
 <p class=MsoNormal>&nbsp;</p>
 
-<h5>COMBINACIONES</h5>
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>1.4<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Tipos de error: Inherentes, de redondeo y por
+truncamiento. Errores absoluto y relativo.</span></h4>
 
 <p class=MsoNormal>&nbsp;</p>
 
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>1.5<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Conceptos de estabilidad y convergencia de un
+método numérico.</span></h4>
+
 <p class=MsoNormal>&nbsp;</p>
 
-<h4 style='margin-left:37.5pt;text-indent:-19.5pt'>1.3<span style='font:7.0pt "Times New Roman"'>
-</span><span style='color:black'>Experimento aleatorio y determinista.</span></h4>
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>1.6<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Aproximación de funciones por medio de
+polinomios.</span></h4>
 
-<h4 style='margin-left:37.5pt;text-indent:-19.5pt'>1.4<span style='font:7.0pt "Times New Roman"'>
-</span><span style='color:black'>Espacio muestral.</span></h4>
+<p class=MsoNormal>&nbsp;</p>
 
-<h4 style='margin-left:37.5pt;text-indent:-19.5pt'>1.5<span style='font:7.0pt "Times New Roman"'>
-</span><span style='color:black'>Eventos y su clasificación.</span></h4>
+<h3 style='margin-left:21.3pt'>2.<span style='font:7.0pt "Times New Roman"'> </span>Solución
+numérica de ecuaciones algebraicas y trascendentes.</h3>
 
-<h4 style='margin-left:37.5pt;text-indent:-19.5pt'>1.6<span style='font:7.0pt "Times New Roman"'>
-</span><span style='color:black'>Enfoques, interpretaciones, escuelas de la
-probabilidad.</span></h4>
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>2.1<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Métodos cerrados. Método de bisección y de
+interpolación lineal (regla falsa). Interpretaciones geométricas de los
+métodos.</span></h4>
 
-<h4 style='margin-left:37.5pt;text-indent:-19.5pt'>1.7<span style='font:7.0pt "Times New Roman"'>
-</span><span style='color:black'>Axiomas y teoremas básicos.</span></h4>
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>2.2<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Métodos abiertos. Método de aproximaciones
+sucesivas y método de Newton-Raphson. Interpretaciones geométricas de los
+métodos y criterios de convergencia.</span></h4>
 
-<h4 style='margin-left:37.5pt;text-indent:-19.5pt'>1.8<span style='font:7.0pt "Times New Roman"'>
-</span><span style='color:black'>Probabilidad condicional.</span></h4>
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>2.3<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Método de factores cuadráticos.</span></h4>
 
-<h4 style='margin-left:37.5pt;text-indent:-19.5pt'>1.9<span style='font:7.0pt "Times New Roman"'>
-</span><span style='color:black'>Probabilidad de eventos independientes.</span></h4>
+<h3 style='margin-left:21.3pt'>3.<span style='font:7.0pt "Times New Roman"'> </span>Solución
+numérica de sistemas de ecuaciones lineales.</h3>
 
-<h4 style='margin-left:37.5pt;text-indent:-24.55pt'>1.10<span style='font:7.0pt "Times New Roman"'>
-</span><span style='color:black'>Probabilidad total.</span></h4>
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>3.1<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Reducción de los errores que se presentan en
+el método de Gauss-Jordan. Estrategias de pivoteo.</span></h4>
 
-<h4 style='margin-left:37.5pt;text-indent:-24.55pt'>1.11<span style='font:7.0pt "Times New Roman"'>
-</span><span style='color:black'>Teorema de Bayes.</span></h4>
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>3.2<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Métodos de descomposición LU. Crout y
+Doolittle.</span></h4>
 
-<h3 style='margin-left:21.3pt'>2.<span style='font:7.0pt "Times New Roman"'> </span>Variables
-aleatorias.</h3>
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>3.3<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Métodos iterativos de Jacobi y Gauss-Seidel.
+Criterio de convergencia.</span></h4>
 
-<h4 style='margin-left:37.5pt;text-indent:-19.5pt'>2.1<span style='font:7.0pt "Times New Roman"'>
-</span><span style='color:black'>Concepto de variable aleatoria.</span></h4>
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>3.4<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Método de Krylov para obtener los valores y
+vectores característicos de una matriz y método de las potencias.</span></h4>
 
-<h4 style='margin-left:37.5pt;text-indent:-19.5pt'>2.2<span style='font:7.0pt "Times New Roman"'>
-</span><span style='color:black'>Variable aleatoria discreta, función de
-probabilidad y sus propiedades. Función de distribución acumulativa y sus
-propiedades.</span></h4>
+<h3 style='margin-left:21.3pt'>4.<span style='font:7.0pt "Times New Roman"'> </span>Interpolación,
+derivación e integración numéricas.</h3>
 
-<h4 style='margin-left:37.5pt;text-indent:-19.5pt'>2.3<span style='font:7.0pt "Times New Roman"'>
-</span><span style='color:black'>Variable aleatoria continua, función de
-densidad de probabilidad y sus propiedades. Función de distribución acumulativa
-y sus propiedades.</span></h4>
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>4.1<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Interpolación con incrementos variables
+(polinomio de Lagrange).</span></h4>
 
-<h4 style='margin-left:37.5pt;text-indent:-19.5pt'>2.4<span style='font:7.0pt "Times New Roman"'>
-</span><span style='color:black'>Valor esperado y sus propiedades.</span></h4>
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>4.2<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Tablas de diferencias finitas. Interpolación
+con incrementos constantes (polinomios interpolantes). Diagrama de rombos.</span></h4>
 
-<h4 style='margin-left:37.5pt;text-indent:-19.5pt'>2.5<span style='font:7.0pt "Times New Roman"'>
-</span><span style='color:black'>Momentos con respecto al origen y a la media,
-variancia como segundo momento con respecto a la media e interpretación,
-propiedades de la variancia, función generadora de momentos.</span></h4>
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>4.3<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Derivación numérica. Deducción de esquemas de
+derivación. Extrapolación de Richardson.</span></h4>
 
-<h4 style='margin-left:37.5pt;text-indent:-19.5pt'>2.6<span style='font:7.0pt "Times New Roman"'>
-</span><span style='color:black'>Parámetros de las distribuciones de las
-variables aleatorias discretas y continuas. Medidas de tendencia central:
-media, mediana y moda. Medidas de dispersión: rango, desviación media,
-variancia, desviación estándar y coeficiente de variación. Medidas de forma:
-sesgo y curtosis.</span></h4>
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>4.4<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Integración numérica. Fórmulas de integración
+trapecial y de Simpson. Cuadratura gaussiana.</span></h4>
 
-<h3 style='margin-left:21.3pt'>3.<span style='font:7.0pt "Times New Roman"'> </span>Variables
-aleatorias conjuntas.</h3>
+<h3 style='margin-left:21.3pt'>5.<span style='font:7.0pt "Times New Roman"'> </span>Solución
+numérica de ecuaciones en derivadas parciales.</h3>
 
-<h4 style='margin-left:37.5pt;text-indent:-19.5pt'>3.1<span style='font:7.0pt "Times New Roman"'>
-</span><span style='color:black'>Variables aleatorias conjuntas discretas,
-función de probabilidad conjunta, su definición y propiedades, funciones
-marginales de probabilidad y funciones condicionales de probabilidad.</span></h4>
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>5.1<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Clasificación de las ecuaciones en derivadas
+parciales.</span></h4>
 
-<h4 style='margin-left:37.5pt;text-indent:-19.5pt'>3.2<span style='font:7.0pt "Times New Roman"'>
-</span><span style='color:black'>Variables aleatorias conjuntas continuas,
-función de densidad conjunta, su definición y propiedades. Funciones marginales
-de densidad y funciones condicionales de densidad.</span></h4>
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>5.2<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Aproximación de derivadas parciales a través
+de diferencias finitas.</span></h4>
 
-<h4 style='margin-left:37.5pt;text-indent:-19.5pt'>3.3<span style='font:7.0pt "Times New Roman"'>
-</span><span style='color:black'>Valor esperado de una función de dos o más
-variables aleatorias sus propiedades y su valor esperado condicional.</span></h4>
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>5.3<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Solución de ecuaciones en derivadas parciales
+utilizando el método de diferencias finitas.</span></h4>
 
-<h4 style='margin-left:37.5pt;text-indent:-19.5pt'>3.4<span style='font:7.0pt "Times New Roman"'>
-</span><span style='color:black'>Variables aleatorias independientes,
-covariancia, correlación y sus propiedades, variancia de una suma de dos o más
-variables aleatorias.</span></h4>
+<h3 style='margin-left:21.3pt'>6.<span style='font:7.0pt "Times New Roman"'> </span>Solución
+numérica de ecuaciones y sistemas de ecuaciones diferenciales.</h3>
 
-<h3 style='margin-left:21.3pt'>4.<span style='font:7.0pt "Times New Roman"'> </span>Modelos
-probabilísticos de fenómenos aleatorios discretos.</h3>
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>6.1<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Método de la serie de Taylor.</span></h4>
 
-<h4 style='margin-left:37.5pt;text-indent:-19.5pt'>4.1<span style='font:7.0pt "Times New Roman"'>
-</span><span style='color:black'>Ensayo de Bernoulli, distribución de
-Bernoulli, cálculo de su media y varianza.</span></h4>
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>6.2<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Método de Euler modificado.</span></h4>
 
-<h4 style='margin-left:37.5pt;text-indent:-19.5pt'>4.2<span style='font:7.0pt "Times New Roman"'>
-</span><span style='color:black'>Proceso de Bernoulli, distribución binomial,
-cálculo de su media y variancia, distribución geométrica, cálculo de su media y
-varianza, distribución binomial negativa su media y varianza, distribución
-hipergeométrica.</span></h4>
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>6.3<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Método de Runge-Kuta de 2º y 4º orden.</span></h4>
 
-<h4 style='margin-left:37.5pt;text-indent:-19.5pt'>4.3<span style='font:7.0pt "Times New Roman"'>
-</span><span style='color:black'>Proceso de Poisson, distribución de Poisson,
-cálculo de su media y varianza, aproximación entre las distribuciones binomial
-y Poisson.</span></h4>
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>6.4<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Solución aproximada de sistemas de ecuaciones
+diferenciales.</span></h4>
 
-<h3 style='margin-left:21.3pt'>5.<span style='font:7.0pt "Times New Roman"'> </span>Modelos
-probabilísticos de fenómenos aleatorios continuos.</h3>
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>6.5<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Solución de ecuaciones diferenciales de orden
+superior por el método de diferencias finitas.</span></h4>
 
-<h4 style='margin-left:37.5pt;text-indent:-19.5pt'>5.1<span style='font:7.0pt "Times New Roman"'>
-</span><span style='color:black'>Distribuciones continuas, distribución
-uniforme continua, cálculo de su media y varianza, generación de números
-aleatorios y el uso de paquetería de cómputo para la generación de números
-aleatorios con distribución discreta o continua, utilizando el método de la
-transformación inversa.</span></h4>
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>6.6<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>El problema de valores en la frontera.</span></h4>
 
-<h4 style='margin-left:37.5pt;text-indent:-19.5pt'>5.2<span style='font:7.0pt "Times New Roman"'>
-</span><span style='color:black'>Distribución Gamma, sus parámetros, momentos y
-funciones generatrices, distribución exponencial, sus parámetros, momentos y
-funciones generatrices.</span></h4>
+<h3 style='margin-left:21.3pt'>7.<span style='font:7.0pt "Times New Roman"'> </span>Bibliografía.</h3>
 
-<h4 style='margin-left:37.5pt;text-indent:-19.5pt'>5.3<span style='font:7.0pt "Times New Roman"'>
-</span><span style='color:black'>Distribuciones normal y normal estándar, uso
-de tablas de distribución normal estándar, la aproximación de la distribución
-binomial a la distribución normal.</span></h4>
-
-<h4 style='margin-left:37.5pt;text-indent:-19.5pt'>5.4<span style='font:7.0pt "Times New Roman"'>
-</span><span style='color:black'>Distribuciones Chi-Cuadrada, T de Student, F
-de Fisher, Weibull y distribución Lognormal, como modelos teóricos para la
-estadística aplicada, sus parámetros, momentos y funciones generatrices.</span></h4>
-
-<h3 style='margin-left:21.3pt'>6.<span style='font:7.0pt "Times New Roman"'> </span>Bibliografía
-</h3>
-
-<p class=MsoNormal style='margin-top:12.0pt'>DEVORE, Jay L. - <i>Probabilidad y
-estadística para ingeniería y ciencias.</i></p>
-
-<p class=MsoNormal style='margin-top:12.0pt'><i>&nbsp;</i></p>
-
-<p class=MsoNormal style='margin-top:12.0pt'><i>&nbsp;</i></p>
+<p class=MsoNormal style='margin-top:12.0pt'>CHAPRA, Steven C., CANALE, Raymond
+P. - <i>Métodos numéricos para ingenieros</i>.</p>
 
 <p class=MsoNormal style='margin-top:12.0pt'>&nbsp;</p>
 
