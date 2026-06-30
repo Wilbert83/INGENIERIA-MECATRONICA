@@ -8,11 +8,11 @@
        CAMBIA ESTOS 5 DATOS POR CADA MATERIA
        COLOR: usa el color de identidad visual de la materia
   ════════════════════════════════════════════════════════ -->
-  <meta name="SEMESTRE"  content="Primer Semestre">
-  <meta name="MATERIA"   content="Álgebra">
-  <meta name="CLAVE"     content="1120">
+  <meta name="SEMESTRE"  content="Segundo Semestre">
+  <meta name="MATERIA"   content="CÁLCULO INTEGRAL">
+  <meta name="CLAVE"     content="1221">
   <meta name="CREDITOS"  content="8">
-  <meta name="COLOR"     content="#3494BA">
+  <meta name="COLOR"     content="#287C3D">
   <!-- ════════════════════════════════════════════════════════ -->
 
   <title>Álgebra · Prontuario Mecatrónica · UNAM FI</title>
@@ -517,12 +517,275 @@
 
       <article class="word-article" id="word-content">
 
-        <!-- ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼
-             PEGA AQUÍ el contenido del <body> del .htm
-             que exporta Word. Desde <div class=WordSection1>
-             hasta el </div> final del body.
-             Todo lo demás ocurre de forma automática.
-        ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲ -->
+
+<div class=WordSection1>
+
+<h2><span class=Ttulo2Car>CÁLCULO INTEGRAL </span>(1221)</h2>
+
+<p class=MsoNormal style='margin-top:5.0pt;margin-right:0cm;margin-bottom:10.0pt;
+margin-left:0cm;line-height:115%'><em><span style='font-size:10.0pt;line-height:
+115%'>Objetivo(s) del curso:</span></em></p>
+
+<p class=MsoNormal style='margin-top:5.0pt;margin-right:0cm;margin-bottom:10.0pt;
+margin-left:0cm;text-align:justify;line-height:115%'><span
+class=MsoSubtleEmphasis><span style='font-size:10.0pt;line-height:115%'>El
+alumno utilizará conceptos del cálculo integral para funciones reales de
+variable real y las variaciones de funciones escalares de variable vectorial
+respecto a cada una de sus variables, para resolver problemas físicos y
+geométricos.</span></span></p>
+
+<h3 style='margin-left:21.3pt'>1.<span style='font:7.0pt "Times New Roman"'> </span>Sucesiones
+y series.</h3>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.3pt'>1.1<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>Definición de sucesión. Límite y convergencia
+de una sucesión. Sucesiones monótonas y acotadas.</span></h4>
+
+<h5>SUCESIÓN</h5>
+
+<p class=MsoNormal>Una <b><i><span style='color:#00B0F0'>sucesión</span></i></b><span
+style='color:#00B0F0'> </span>de números reales es toda lista o colección
+ordenada infinita de números, de los cuales algunos, o todos ellos, pueden
+coincidir entre sí.</p>
+
+<p class=MsoNormal>Una sucesión se distingue de un conjunto en dos aspectos. El
+primero, es que en una sucesión hay un orden; se trata de una colección
+ordenada, de modo que hay un primer elemento, un segundo, etcétera. El segundo
+es que la colección ordenada es infinita como lista, aunque no necesariamente
+como conjunto.</p>
+
+<p class=MsoNormal style='margin-bottom:0cm'>Una manera de escribir o describir
+una sucesión es mediante una tabla infinita, con lo cual queda explícito el
+orden.</p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=331 height=84 id=Imagen284
+src="capitulo_02_CÁLCULO_INTEGRAL_(1221)_archivos/image001.gif"
+alt="Tabla&#10;&#10;Descripción generada automáticamente"></p>
+
+<p class=MsoNormal>El número del renglón superior indica la posición o el orden
+que ocupa el número correspondiente del renglón inferior. Este último es
+propiamente la sucesión. Los tres puntos suspensivos indican que se trata de
+una lista infinita.</p>
+
+<p class=MsoNormal>Dada la propiedad de infinitud que tiene una sucesión, da
+entender que para toda posición que elijamos, debe ser posible determinar el
+elemento correspondiente.</p>
+
+<p class=MsoNormal style='margin-bottom:0cm'>Para representar en forma general
+una sucesión, emplearemos cualquier letra con subíndices consecutivos, de esta
+manera estamos representando el orden correspondiente:</p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=143 height=115 id=Imagen272
+src="capitulo_02_CÁLCULO_INTEGRAL_(1221)_archivos/image002.gif"
+alt="Texto, Carta&#10;&#10;Descripción generada automáticamente"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'>Que una sucesión x<sub>1</sub>, x<sub>2</sub>,
+x<sub>3</sub>, … esté definida, significa que es posible determinar el valor de
+x<sub>n</sub> para todo entero positivo n. A cada sucesión hay asociada una
+función, digamos:</p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=119 height=76 id=Imagen286
+src="capitulo_02_CÁLCULO_INTEGRAL_(1221)_archivos/image003.gif"
+alt="Texto&#10;&#10;Descripción generada automáticamente con confianza baja"></p>
+
+<p class=MsoNormal>Conocer la sucesión equivale a conocer la función asociada;
+de hecho, muchos autores definen como sucesión a la función misma x: <span
+style='font-family:"Cambria Math",serif'>&#8477;</span> &#8594; <span
+style='font-family:"Cambria Math",serif'>&#8477;</span>. Se presume que con
+ello se define de manera rigurosa el concepto de sucesión. Si bien, el concepto
+de sucesión se precisa al entender ésta como función, en la práctica resulta
+útil interpretarla como una lista o una colección ordenada infinita.</p>
+
+<p class=MsoNormal style='margin-bottom:0cm'>La sucesión {a1, a2, a3, . . .}
+también se denota mediante</p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=235 height=35 id=Imagen287
+src="capitulo_02_CÁLCULO_INTEGRAL_(1221)_archivos/image004.gif"></p>
+
+<h5><span style='text-transform:none'>TEOREMAS IMPORTANTES SOBRE LÍMITES Y
+CONVERGENCIA</span></h5>
+
+<h6>Teorema 1</h6>
+
+<p class=MsoNormal style='margin-bottom:0cm'>Toda sucesión convergente es
+acotada.</p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><img width=577 height=315
+id=Imagen288 src="capitulo_02_CÁLCULO_INTEGRAL_(1221)_archivos/image005.gif"
+alt="Texto, Carta&#10;&#10;Descripción generada automáticamente"></p>
+
+<h6>Teorema 2</h6>
+
+<p class=MsoNormal style='margin-bottom:0cm'><img width=397 height=83
+id=Imagen289 src="capitulo_02_CÁLCULO_INTEGRAL_(1221)_archivos/image006.gif"
+alt="Imagen que contiene Texto&#10;&#10;Descripción generada automáticamente"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'><img width=529 height=262
+id=Imagen290 src="capitulo_02_CÁLCULO_INTEGRAL_(1221)_archivos/image007.gif"
+alt="Texto&#10;&#10;Descripción generada automáticamente con confianza baja"></p>
+
+<p class=MsoNormal style='margin-bottom:0cm'>Una sucesión {a<sub>n</sub>} tiene
+el límite L y lo expresamos como</p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=401 height=33 id=Imagen291
+src="capitulo_02_CÁLCULO_INTEGRAL_(1221)_archivos/image008.gif"></p>
+
+<p class=MsoNormal>sí podemos hacer que los términos <i>a<sub>n</sub></i> se
+aproximen a <i>L</i> tanto como se quiera tomando <i>n</i> lo suficientemente
+grande. Si <span
+style='font-size:11.0pt;line-height:107%;font-family:"Calibri",sans-serif;
+position:relative;top:7.5pt'><img width=50 height=24
+src="capitulo_02_CÁLCULO_INTEGRAL_(1221)_archivos/image009.gif"></span>existe,
+se dice que la sucesión converge (o que es convergente). De lo contrario, se
+dice que la sucesión diverge (o es divergente).</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h5>SUCESIONES MONÓTONAS Y ACOTADAS</h5>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.3pt'>1.2<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>Definición de serie. Convergencia de una
+serie. Propiedades y condiciones para la convergencia.</span></h4>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.3pt'>1.3<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>Serie geométrica y serie p.</span></h4>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.3pt'>1.4<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>Series de términos positivos. Criterios de
+comparación y del cociente o de D'Alembert.</span></h4>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.3pt'>1.5<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>Series de signos alternados. Criterio de
+Leibniz.</span></h4>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.3pt'>1.6<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>Series de potencias.</span></h4>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.3pt'>1.7<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>Desarrollo de funciones en series de
+potencias. Serie de Maclaurin, de Taylor y desarrollo de funciones
+trigonométricas.</span></h4>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3 style='margin-left:21.3pt'>2.<span style='font:7.0pt "Times New Roman"'> </span>Las
+integrales definida e indefinida.</h3>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.3pt'>2.1<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>Concepto de sumas de Riemann. Concepto de
+integral definida. Interpretación geométrica y propiedades.</span></h4>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.3pt'>2.2<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>Enunciado e interpretación geométrica del
+teorema del valor medio del cálculo integral.</span></h4>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.3pt'>2.3<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>Definición de la integral indefinida a partir
+de la integral definida con el extremo superior variable. Enunciado y
+demostración del teorema fundamental de cálculo.</span></h4>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.3pt'>2.4<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>Determinación de integrales indefinidas
+inmediatas. Cambio de variable.</span></h4>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.3pt'>2.5<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>Integrales de funciones cuyo resultado
+involucra a la función logaritmo natural.</span></h4>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.3pt'>2.6<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>Regla de L'Hôpital y sus aplicaciones a formas
+indeterminadas en límites de funciones.</span></h4>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.3pt'>2.7<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>La integral impropia.</span></h4>
+
+<h3 style='margin-left:21.3pt'>3.<span style='font:7.0pt "Times New Roman"'> </span>Métodos
+de integración.</h3>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.3pt'>3.1<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>Integración por partes.</span></h4>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.3pt'>3.2<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>Integrales de expresiones trigonométricas e
+integración por sustitución trigonométrica.</span></h4>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.3pt'>3.3<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>Integración por descomposición en fracciones
+racionales.</span></h4>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.3pt'>3.4<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>Aplicaciones de la integral definida al
+cálculo de: área en coordenadas cartesianas, longitud de arco en coordenadas
+cartesianas y polares, y volúmenes de sólidos de revolución.</span></h4>
+
+<h3 style='margin-left:21.3pt'>4.<span style='font:7.0pt "Times New Roman"'> </span>Derivación
+y diferenciación de funciones escalares de varias variables.</h3>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.3pt'>4.1<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>Definición de funciones escalares de variable
+vectorial. Región de definición.</span></h4>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.3pt'>4.2<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>Representación gráfica para el caso de
+funciones de dos variables independientes. Curvas de nivel.</span></h4>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.3pt'>4.3<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>Conceptos de límites y continuidad para
+funciones escalares de variable vectorial de dos variables independientes.</span></h4>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.3pt'>4.4<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>Derivadas parciales e interpretación
+geométrica para el caso de dos variables independientes. Vector normal a una
+superficie. Ecuaciones del plano tangente y de la recta normal.</span></h4>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.3pt'>4.5<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>Derivadas parciales sucesivas. Teorema de
+derivadas parciales mixtas.</span></h4>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.3pt'>4.6<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>Función diferenciable. Diferencial total.</span></h4>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.3pt'>4.7<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>Función de función. Regla de la cadena.</span></h4>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.3pt'>4.8<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>Función implícita. Derivación implícita en
+sistemas de ecuaciones.</span></h4>
+
+<h4 style='margin-left:35.45pt;text-indent:-21.3pt'>4.9<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span><span style='color:black'>Concepto de gradiente. Operador nabla.
+Definición de derivada direccional. Interpretación geométrica y aplicaciones.</span></h4>
+
+<h3 style='margin-left:21.3pt'>5.<span style='font:7.0pt "Times New Roman"'> </span>Bibliografía.</h3>
+
+<p class=MsoNormal style='margin-top:12.0pt'>STEWART, James - <i>Cálculo
+Trascendentes tempranas</i>.</p>
+
+</div>
+
 
       </article>
 
