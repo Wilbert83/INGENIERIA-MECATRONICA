@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ════════════════════════════════════════════════════════
+       CAMBIA ESTOS 5 DATOS POR CADA MATERIA
+       COLOR: usa el color de identidad visual de la materia
+  ════════════════════════════════════════════════════════ -->
+  <meta name="SEMESTRE"  content="Segundo Semestre">
+  <meta name="MATERIA"   content="DIBUJO MECÁNICO E INDUSTRIAL">
+  <meta name="CLAVE"     content="1209">
+  <meta name="CREDITOS"  content="6">
+  <meta name="COLOR"     content="#E66200">
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <title>Álgebra · Prontuario Mecatrónica · UNAM FI</title>
+  <link rel="icon" type="image/png" href="../../favicon.png">
+
+  <!-- Preloader SÍNCRONO — evita flash de tema al cargar -->
+  <script>
+    (function(){
+      document.documentElement.dataset.theme =
+        localStorage.getItem('prontuario-theme') || 'dark';
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+  /* ═══════════════════════════════════════════════════
+     RESET
+  ═══════════════════════════════════════════════════ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* ═══════════════════════════════════════════════════
+     TOKENS — --color se sobreescribe por JS desde <meta>
+  ═══════════════════════════════════════════════════ */
+  :root {
+    --color:     #3494BA;
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-disp: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --toc-w:     258px;
+    --hdr-h:     52px;
+  }
+
+  /* ── Dark ── */
+  [data-theme="dark"] {
+    --bg:      #07090F;
+    --surface: #0D1322;
+    --card:    #101726;
+    --border:  rgba(255,255,255,0.08);
+    --text:    #E2E8F0;
+    --text-d:  #94A3B8;
+    --text-m:  #4B5563;
+    --h3-bg:   var(--color);
+    --h3-fg:   #FFFFFF;
+    --h4-bg:   color-mix(in srgb, var(--color) 24%, #0D1322);
+    --h4-fg:   #E2E8F0;
+    --h5-fg:   color-mix(in srgb, var(--color) 88%, white);
+    --h6-fg:   color-mix(in srgb, var(--color) 72%, white);
+    --h7-fg:   color-mix(in srgb, var(--color) 56%, #94A3B8);
+  }
+
+  /* ── Light ── */
+  [data-theme="light"] {
+    --bg:      #D8E5F5;
+    --surface: #FFFFFF;
+    --card:    #F8FAFD;
+    --border:  rgba(15,23,42,0.12);
+    --text:    #0F172A;
+    --text-d:  #334155;
+    --text-m:  #64748B;
+    --h3-bg:   var(--color);
+    --h3-fg:   #FFFFFF;
+    --h4-bg:   color-mix(in srgb, var(--color) 14%, #EFF6FF);
+    --h4-fg:   color-mix(in srgb, var(--color) 90%, #0F172A);
+    --h5-fg:   color-mix(in srgb, var(--color) 80%, #0F172A);
+    --h6-fg:   color-mix(in srgb, var(--color) 65%, #0F172A);
+    --h7-fg:   color-mix(in srgb, var(--color) 50%, #334155);
+  }
+  [data-theme="light"] .toc-sidebar { box-shadow: 2px 0 12px rgba(15,23,42,0.08); }
+  [data-theme="light"] .hero        { box-shadow: 0 2px 10px rgba(15,23,42,0.06); }
+
+  /* Fuerza herencia de color en spans/fonts del contenido Word
+     para que los colores inline no rompan el tema claro */
+  [data-theme="light"] .word-article span,
+  [data-theme="light"] .word-article font,
+  [data-theme="light"] .word-article p > span,
+  [data-theme="light"] .word-article li > span {
+    color: inherit !important;
+    background: transparent !important;
+  }
+
+  /* ═══════════════════════════════════════════════════
+     BASE — body es columna: header | page-layout
+  ═══════════════════════════════════════════════════ */
+  html, body { height: 100%; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: var(--font-body); font-size: 14px; line-height: 1.7;
+    display: flex; flex-direction: column;
+    overflow: hidden;          /* el scroll ocurre en content-main */
+    transition: background 0.25s 0s, color 0.25s 0s;
+  }
+
+  /* ═══════════════════════════════════════════════════
+     HEADER — sticky, fuera del scroll
+  ═══════════════════════════════════════════════════ */
+  .site-header {
+    flex-shrink: 0;            /* nunca se encoge */
+    height: var(--hdr-h);
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 10px; padding: 0 18px;
+    z-index: 100;
+    transition: background 0.25s 0.18s, border-color 0.25s 0.18s;
+  }
+  .hdr-strip {
+    width: 3px; height: 28px; border-radius: 2px;
+    background: var(--color); flex-shrink: 0; transition: background 0.25s 0s;
+  }
+  .hdr-logo {
+    width: 30px; height: 30px; border-radius: 6px;
+    overflow: hidden; flex-shrink: 0; text-decoration: none;
+  }
+  .hdr-logo img { width: 100%; height: 100%; object-fit: cover; }
+  .hdr-text { text-decoration: none; }
+  .hdr-name { font-family: var(--font-disp); font-size: 13px; font-weight: 600; color: var(--text); line-height: 1.2; transition: color 0.25s 0.18s; }
+  .hdr-sub  { font-family: var(--font-mono); font-size: 9px; color: var(--text-m); letter-spacing: .06em; transition: color 0.25s 0.18s; }
+  .hdr-space { flex: 1; }
+  .hdr-btn {
+    display: flex; align-items: center; gap: 5px;
+    padding: 6px 11px; border-radius: 7px;
+    background: var(--surface); border: 1px solid var(--border);
+    color: var(--text-d); font-family: var(--font-mono); font-size: 11px;
+    text-decoration: none; cursor: pointer; white-space: nowrap;
+    transition: border-color 0.18s, color 0.18s, background 0.3s;
+  }
+  .hdr-btn:hover { border-color: var(--color); color: var(--color); }
+  .theme-btn {
+    width: 32px; height: 32px; border-radius: 7px;
+    background: var(--surface); border: 1px solid var(--border);
+    color: var(--text-d); cursor: pointer;
+    display: grid; place-items: center; flex-shrink: 0;
+    transition: border-color 0.18s, color 0.18s, background 0.3s;
+  }
+  .theme-btn:hover { border-color: var(--color); color: var(--color); }
+
+  /* ═══════════════════════════════════════════════════
+     PAGE LAYOUT
+     Estructura:
+       body
+       ├── site-header   (flex-shrink:0, altura fija)
+       └── page-layout   (flex:1, fila)
+               ├── toc-sidebar  (anchura fija)
+               └── content-main (flex:1, scrollable)
+                       ├── hero        (scrollea con el contenido)
+                       └── word-article
+  ═══════════════════════════════════════════════════ */
+  .page-layout {
+    flex: 1;                   /* ocupa todo lo que queda tras el header */
+    display: flex;
+    min-height: 0;             /* CRÍTICO: permite que los hijos definan su propio scroll */
+    overflow: hidden;
+  }
+
+  /* ── HERO — dentro del scroll, se oculta al bajar ── */
+  .hero {
+    flex-shrink: 0;
+    padding: 40px 52px 32px;
+    background: color-mix(in srgb, var(--color) 6%, var(--bg));
+    border-bottom: 1px solid transparent;
+    transition: background 0.25s 0s, border-color 0.25s 0s, box-shadow 0.25s 0s;
+  }
+  [data-theme="dark"] .hero { border-bottom-color: var(--border); }
+
+  .hero-semestre {
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: .18em; text-transform: uppercase; color: var(--color);
+    border: 1px solid color-mix(in srgb, var(--color) 40%, transparent);
+    border-radius: 4px; padding: 3px 9px;
+    display: inline-block; margin-bottom: 14px;
+    transition: color 0.25s 0s, border-color 0.3s;
+  }
+  .hero-title {
+    font-family: var(--font-disp); font-size: clamp(30px, 5vw, 52px);
+    font-weight: 700; letter-spacing: -.025em;
+    color: var(--text); line-height: 1.0; margin-bottom: 6px;
+    transition: color 0.25s 0s;
+  }
+  .hero-meta {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: .04em;
+    color: var(--text-m); margin-bottom: 20px; transition: color 0.25s 0s;
+  }
+  .hero-sep {
+    width: 36px; height: 3px; border-radius: 2px;
+    background: var(--color); margin-bottom: 16px; transition: background 0.25s 0s;
+  }
+  .hero-obj-lbl {
+    font-family: var(--font-mono); font-size: 9.5px;
+    letter-spacing: .12em; text-transform: uppercase;
+    color: var(--color); margin-bottom: 6px; transition: color 0.25s 0s;
+  }
+  .hero-obj-txt {
+    font-size: 14px; color: var(--text-d); line-height: 1.75;
+    max-width: 820px; font-style: italic; transition: color 0.25s 0s;
+  }
+
+  /* ── Fila interior: sidebar + scroll ── */
+  /* body-row eliminado — page-layout cumple su función directamente */
+
+  /* ═══════════════════════════════════════════════════
+     TOC SIDEBAR
+  ═══════════════════════════════════════════════════ */
+  .toc-sidebar {
+    width: var(--toc-w); flex-shrink: 0;
+    background: var(--surface); border-right: 1px solid var(--border);
+    display: flex; flex-direction: column; overflow: hidden;
+    transition: width 0.22s ease, background 0.25s 0.18s, border-color 0.25s 0.18s, box-shadow 0.25s 0.18s;
+  }
+  .toc-sidebar.collapsed { width: 0; border-right-width: 0; }
+
+  .toc-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 10px 12px 9px; border-bottom: 1px solid var(--border);
+    flex-shrink: 0; gap: 6px; transition: border-color 0.25s 0s;
+  }
+  .toc-title {
+    font-family: var(--font-mono); font-size: 9.5px;
+    color: var(--text-m); letter-spacing: .1em;
+    text-transform: uppercase; white-space: nowrap; transition: color 0.25s 0s;
+  }
+  .toc-close {
+    width: 20px; height: 20px; background: transparent;
+    border: 1px solid var(--border); border-radius: 4px;
+    color: var(--text-m); display: grid; place-items: center;
+    cursor: pointer; font-size: 8px; flex-shrink: 0; padding: 0;
+    transition: border-color 0.18s, color 0.18s;
+  }
+  .toc-close:hover { border-color: var(--color); color: var(--color); }
+
+  .toc-nav {
+    flex: 1; overflow-y: auto; overflow-x: hidden; padding: 4px 0 16px;
+    scrollbar-width: thin; scrollbar-color: var(--border) transparent;
+  }
+  .toc-nav::-webkit-scrollbar { width: 4px; }
+  .toc-nav::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+  /* ── H3: grupo colapsable ── */
+  .toc-group { margin: 0; }
+  .toc-group > summary {
+    display: flex; align-items: flex-start; gap: 0;
+    padding: 5px 10px 5px 6px; cursor: default;
+    font-size: 11.5px; color: var(--text-d);
+    list-style: none; line-height: 1.35; user-select: none;
+    transition: color 0.14s;
+  }
+  .toc-group > summary::-webkit-details-marker { display: none; }
+  .toc-group > summary.toc-active { color: var(--color); }
+
+  /* Triángulo: solo colapsa/expande */
+  .toc-arrow {
+    flex-shrink: 0; width: 20px; height: 20px;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 7px; color: var(--text-m); cursor: pointer;
+    border-radius: 3px; margin-top: 1px;
+    transition: transform 0.18s, color 0.18s, background 0.14s;
+  }
+  .toc-arrow:hover { color: var(--color); background: color-mix(in srgb, var(--color) 12%, transparent); }
+  .toc-group[open] > summary .toc-arrow { transform: rotate(90deg); }
+
+  /* Texto h3: solo hace scroll */
+  .toc-h3-text {
+    flex: 1; cursor: pointer; padding: 2px 4px; border-radius: 3px;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    transition: background 0.14s, color 0.14s;
+  }
+  .toc-h3-text:hover { background: color-mix(in srgb, var(--color) 10%, transparent); color: var(--text); }
+
+  /* ── H4–H8: items hijo ── */
+  .toc-children { list-style: none; padding: 0; margin: 0; }
+  .toc-item {
+    display: block; padding: 3px 12px 3px 22px;
+    font-size: 11px; color: var(--text-m); text-decoration: none;
+    line-height: 1.35; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    border-left: 2px solid transparent; margin-left: 8px;
+    transition: background 0.14s, color 0.14s, border-color 0.14s;
+  }
+  .toc-item:hover { color: var(--text); background: color-mix(in srgb, var(--color) 8%, transparent); }
+  .toc-item.toc-active { color: var(--color); border-left-color: var(--color); }
+  .toc-item.lv4 { padding-left: 14px; font-size: 11px; }
+  .toc-item.lv5 { padding-left: 24px; font-size: 10.5px; font-family: var(--font-mono); opacity: .9; }
+  .toc-item.lv6 { padding-left: 34px; font-size: 10px;   font-family: var(--font-mono); opacity: .8; }
+  .toc-item.lv7 { padding-left: 44px; font-size: 9.5px;  font-family: var(--font-mono); opacity: .7; }
+  .toc-item.lv8 { padding-left: 54px; font-size: 9px;    font-family: var(--font-mono); opacity: .6; }
+
+  /* ═══════════════════════════════════════════════════
+     CONTENT-MAIN — único elemento que hace scroll
+  ═══════════════════════════════════════════════════ */
+  .content-main {
+    flex: 1; min-width: 0;
+    overflow-y: auto; overflow-x: hidden;  /* ← AQUÍ ocurre todo el scroll */
+    display: flex; flex-direction: column;
+    scrollbar-width: thin; scrollbar-color: var(--border) transparent;
+    transition: background 0.25s 0s;
+  }
+  .content-main::-webkit-scrollbar { width: 6px; }
+  .content-main::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+  /* Botón flotante para reabrir TOC */
+  .toc-open-btn {
+    display: none; position: fixed;
+    top: calc(var(--hdr-h) + 10px); left: 0;
+    width: 26px; height: 26px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-left: none; border-radius: 0 6px 6px 0;
+    color: var(--text-m); cursor: pointer;
+    place-items: center; font-size: 9px; z-index: 50;
+    transition: color 0.18s, border-color 0.18s;
+  }
+  .toc-open-btn.visible { display: grid; }
+  .toc-open-btn:hover { color: var(--color); border-color: var(--color); }
+
+  /* ═══════════════════════════════════════════════════
+     WORD CONTENT WRAPPER
+  ═══════════════════════════════════════════════════ */
+  .word-article { padding: 36px 52px 72px; max-width: 940px; width: 100%; }
+
+  /* Herencia forzada en spans dentro de headings
+     (Word mete style="color:black" que rompe el tema oscuro) */
+  .word-article h2 span, .word-article h3 span, .word-article h4 span,
+  .word-article h5 span, .word-article h6 span, .word-article h7 span,
+  .word-article h8 span { color: inherit !important; background: inherit !important; font-size: inherit !important; }
+
+  /* H2 — oculto, el título ya está en el hero */
+  .word-article h2 { display: none !important; }
+
+  /* H3 — tema principal, fondo sólido con color de identidad */
+  .word-article h3 {
+    background: var(--h3-bg) !important; color: var(--h3-fg) !important;
+    padding: 8px 16px !important; border-radius: 4px !important;
+    margin: 32px 0 0 !important;
+    font-family: var(--font-disp) !important; font-size: 13px !important;
+    font-weight: 600 !important; letter-spacing: .08em !important;
+    text-transform: uppercase !important; text-indent: 0 !important;
+    line-height: 1.4 !important; transition: background 0.25s 0s, color 0.25s 0s !important;
+  }
+  .word-article h3:first-child { margin-top: 0 !important; }
+
+  /* H4 — subtema, fondo tenue */
+  .word-article h4 {
+    background: var(--h4-bg) !important; color: var(--h4-fg) !important;
+    padding: 6px 16px 6px 22px !important; border-radius: 0 0 4px 4px !important;
+    margin: 2px 0 12px !important;
+    font-family: var(--font-body) !important; font-size: 12px !important;
+    font-weight: 600 !important; letter-spacing: .06em !important;
+    text-transform: uppercase !important; text-indent: 0 !important;
+    line-height: 1.4 !important; transition: background 0.25s 0s, color 0.25s 0s !important;
+  }
+  .word-article h3 + h4 { border-radius: 0 0 4px 4px !important; margin-top: 2px !important; }
+  .word-article p + h4, .word-article div + h4 { margin-top: 20px !important; border-radius: 4px !important; }
+
+  /* H5 — sección sin fondo */
+  .word-article h5 {
+    background: none !important; color: var(--h5-fg) !important;
+    padding: 10px 0 3px !important; margin: 18px 0 7px !important;
+    font-family: var(--font-mono) !important; font-size: 10.5px !important;
+    font-weight: 600 !important; letter-spacing: .14em !important;
+    text-transform: uppercase !important;
+    border-bottom: 1px solid color-mix(in srgb, var(--color) 28%, transparent) !important;
+    line-height: 1.4 !important; transition: color 0.25s 0s, border-color 0.3s !important;
+  }
+
+  /* H6 */
+  .word-article h6 {
+    background: none !important; color: var(--h6-fg) !important;
+    padding: 8px 0 2px !important; margin: 14px 0 6px !important;
+    font-family: var(--font-body) !important; font-size: 12.5px !important;
+    font-weight: 600 !important; text-transform: none !important;
+    transition: color 0.25s 0s !important;
+  }
+
+  /* H7 / H8 — niveles profundos, también generados por Word */
+  .word-article h7,
+  .word-article p.MsoHeading7, .word-article [class*="Heading7"] {
+    display: block !important; background: none !important;
+    color: var(--h7-fg) !important; padding: 6px 0 2px !important;
+    margin: 12px 0 5px !important; font-family: var(--font-body) !important;
+    font-size: 12px !important; font-weight: 500 !important; font-style: italic;
+    transition: color 0.25s 0s !important;
+  }
+  .word-article h8,
+  .word-article p.MsoHeading8, .word-article [class*="Heading8"] {
+    display: block !important; background: none !important;
+    color: var(--text-d) !important; padding: 5px 0 2px !important;
+    margin: 10px 0 4px !important; font-family: var(--font-body) !important;
+    font-size: 11.5px !important; font-weight: 400 !important; font-style: italic;
+  }
+
+  /* Párrafos */
+  .word-article p {
+    margin-bottom: 10px !important; color: var(--text) !important;
+    font-size: 13.5px !important; line-height: 1.75 !important; transition: color 0.25s 0s;
+  }
+
+  /* Términos clave (bold+italic → em en Word) */
+  .word-article em { font-style: normal; font-weight: 700; color: var(--h5-fg); transition: color 0.25s 0s; }
+
+  /* Spans con color inline en dark → redirigir al tono del color de identidad */
+  [data-theme="dark"] .word-article p span[style*="color"]   { color: var(--h5-fg) !important; }
+  [data-theme="dark"] .word-article p b span[style*="color"] { color: var(--h5-fg) !important; }
+  [data-theme="dark"] .word-article p i span[style*="color"] { color: var(--h5-fg) !important; }
+
+  /* Cita destacada */
+  .word-article .MsoIntenseQuote {
+    border-left: 3px solid var(--color) !important;
+    padding: 10px 16px !important;
+    background: color-mix(in srgb, var(--color) 7%, var(--surface)) !important;
+    border-radius: 0 4px 4px 0 !important; color: var(--h5-fg) !important;
+    font-style: italic; margin: 16px 0 !important; transition: background 0.25s 0s !important;
+  }
+
+  /* Imágenes */
+  .word-article img {
+    max-width: 100% !important; height: auto !important;
+    display: block !important; margin: 14px auto !important;
+    border-radius: 6px; border: 1px solid var(--border); transition: border-color 0.25s 0s;
+  }
+
+  /* Tablas */
+  .word-article table { border-collapse: collapse; width: 100%; margin: 16px 0; font-size: 13px; }
+  .word-article td, .word-article th {
+    border: 1px solid var(--border); padding: 7px 10px; color: var(--text);
+    transition: border-color 0.25s 0s, color 0.25s 0s;
+  }
+  .word-article th {
+    background: color-mix(in srgb, var(--color) 15%, var(--surface));
+    font-weight: 600; transition: background 0.25s 0s;
+  }
+
+  /* Listas de Word */
+  .word-article ul, .word-article ol {
+    padding-left: 28px; margin-bottom: 10px;
+    color: var(--text); font-size: 13.5px; line-height: 1.75;
+  }
+  .word-article .MsoListParagraph,
+  .word-article .MsoListParagraphCxSpFirst,
+  .word-article .MsoListParagraphCxSpMiddle,
+  .word-article .MsoListParagraphCxSpLast {
+    padding-left: 20px !important; margin-bottom: 5px !important;
+    color: var(--text) !important; font-size: 13.5px !important;
+  }
+
+  /* ═══════════════════════════════════════════════════
+     RESPONSIVE
+  ═══════════════════════════════════════════════════ */
+  @media (max-width: 800px) {
+    .toc-sidebar {
+      position: fixed; top: var(--hdr-h); left: 0; bottom: 0;
+      z-index: 90; box-shadow: none;
+      transition: width 0.22s ease, box-shadow 0.22s;
+    }
+    .toc-sidebar:not(.collapsed) { box-shadow: 4px 0 24px rgba(0,0,0,0.45); }
+    .hero { padding: 24px 20px 20px; }
+    .word-article { padding: 20px 20px 48px; }
+  }
+  @media (max-width: 480px) { .hdr-sub { display: none; } }
+  </style>
+</head>
+
+<body>
+
+<!-- ══════════════════════════════════════
+     HEADER — siempre visible, nunca scrollea
+══════════════════════════════════════ -->
+<header class="site-header">
+  <div class="hdr-strip"></div>
+  <a href="../../index.html" class="hdr-logo" title="Inicio">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAArCAYAAAA65tviAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANNSURBVGhD7ZltaBt1HMc/17vLXV3KrQ9pVtuEmc6OLvSFCg0M36iVjWy+s9W5WmWI4liniDOvxGdQhMKYFAQpIqLDVwq2IPSN+Cp94UTZhmFRTFp1TbULpVsvueR81TL/tLkt3nLpzAfuzff35eDDPXDcT9KaDZvbAOlGRXyBHjoOHcMYHELr7kWSFbHiKnbJwlxIk5+bZWl6ikJuXqz8ixsSaT8wSuj4e+RmPiGfnMHMpLCtolhzFUlR0cJ9GLE4gfgY2ckEf33zqVjbwFGk/cAowZEXyJx5ibVfzovjmqBHooTHJ7j8xektZSqK+AI97PsoyaXXHvdMYh09EmXPG2e58Exs09tMVlT9dTFcJzjyIld/vUD+uy/FUc2xlnNIup87IgOs/PCtOKZJDK7HGBwin5wRY8/IJ2cwBofEGJxEtO5ezExKjD3DzKTQunvFGJxEJFm55W+nm8G2ilu+9iuKbCcaIvVGQ6TeaIhshtoWpO3ho7QffGrjaH1gBLnZvzFrue9BACTVh7H/0Mb8v+KqiK9rN4FHjhEcPsGdTyYIPnqcQHwMuaUVLbyXXcPjdB15GbW1E61nD12jCYLDJ1B2doinumlcFVk9n+Tnkw/x5+cTlAsmmQ9OkTp1mMJiFoBy0USSZZr33kvLwP3YBRO7WBBPUxWuijhhW0XWsin8/TF27BtkNfW9WKmamoo0aTrmHxlaBvajtgWx/l6kSWsWa1VRUxGQWJtPYa1eoZCbp7i8KBaqpsYiYK0sk371MX57/3nskiWOq6bmIrcKV0UkVcMXDCP7d4IEitGBrzOEJMti1XVcFdkRjXH3u1+xa+QkTT6d0HPv0PvmWXydIbHqOhV/Ptzz9WV+eqJfjD1l4LOLnDscFGN3r4iXNETqjYZIvfH/ELFLFpKiirFnSIq65WdNRRFzIY0W7hNjz9DCfZgLaTEGJ5H83CxGLC7GnmHE4uTnZsUYnESWpqcIxMfQI1FxVHP0SJRAfIyl6SlxBE4ihdw82ckE4fEJT2XWFz3ZycSmuxGc9iMA19I/UjavcdcrHyLpfkpX85RWrkC5LFZdRVJU9N39tB98mtCzb/H7x29vua3C6aPxem6LZeh2oOIzsp1oiNQb/wC/2QLl/sw38AAAAABJRU5ErkJggg==" alt="IM">
+  </a>
+  <a href="../../index.html" class="hdr-text">
+    <div class="hdr-name">Prontuario Mecatrónica</div>
+    <div class="hdr-sub">UNAM · FI · DIMEI · Plan 2016</div>
+  </a>
+  <div class="hdr-space"></div>
+  <a href="../../index.html" class="hdr-btn">← Índice</a>
+  <button class="theme-btn" id="themeBtn" title="Cambiar tema"></button>
+</header>
+
+<!-- ══════════════════════════════════════
+     PAGE LAYOUT
+══════════════════════════════════════ -->
+<div class="page-layout">
+
+    <!-- SIDEBAR: marcadores colapsables -->
+    <aside class="toc-sidebar" id="tocSidebar">
+      <div class="toc-header">
+        <span class="toc-title">Contenido – Marcadores</span>
+        <button class="toc-close" id="tocClose" title="Ocultar panel">◀</button>
+      </div>
+      <nav class="toc-nav" id="tocNav"></nav>
+    </aside>
+
+    <!-- ÁREA DE SCROLL: hero + contenido de la materia -->
+    <div class="content-main" id="contentMain">
+
+      <button class="toc-open-btn" id="tocOpenBtn" title="Mostrar marcadores">▶</button>
+
+      <!-- HERO: dentro del scroll, se oculta al bajar -->
+      <section class="hero" id="hero"></section>
+
+      <article class="word-article" id="word-content">
+
+
+<div class=WordSection1>
+
+<h2><span class=Ttulo2Car>DIBUJO MECÁNICO E INDUSTRIAL </span>(1209)</h2>
+
+<p class=MsoNormal style='margin-top:5.0pt;margin-right:0cm;margin-bottom:10.0pt;
+margin-left:0cm;line-height:115%'><em><span style='font-size:10.0pt;line-height:
+115%'>Objetivo(s) del curso:</span></em></p>
+
+<p class=MsoNormal style='margin-top:5.0pt;margin-right:0cm;margin-bottom:10.0pt;
+margin-left:0cm;text-align:justify;line-height:115%'><span
+class=MsoSubtleEmphasis><span style='font-size:10.0pt;line-height:115%'>El
+alumno elaborará e interpretará planos dentro de las ramas de la ingeniería, a
+fin de poder establecer una comunicación eficaz durante el ejercicio
+profesional.</span></span></p>
+
+<h3 style='margin-left:21.3pt'>1.<span style='font:7.0pt "Times New Roman"'> </span>Introducción
+al dibujo.</h3>
+
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>1.1<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Definición de dibujo.</span></h4>
+
+<h5>DIBUJO</h5>
+
+<p class=MsoNormal>Un <b><i><span style='color:#00B0F0'>Dibujo</span></i></b><span
+style='color:#00B0F0'> </span>se define como un conjunto de imágenes y
+especificaciones gráficas detalladas diseñadas para representar objetos físicos
+o procesos. Su objetivo principal es permitir la recreación precisa de esos
+objetos o procesos a partir de la información proporcionada.</p>
+
+<p class=MsoNormal style='margin-bottom:0cm'>Un dibujo es una representación
+gráfica de un objeto real. Por lo tanto, el dibujo, es un lenguaje gráfico en
+virtud de que a vale de imágenes para, comunicar pensamientos e ideas. Como
+estas imágenes las entiende gente de distintas naciones, el dibujo recibe el
+nombre de <b><i>Lenguaje Universal</i></b>.</p>
+
+<p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center'><img
+width=500 height=301 id=Imagen292
+src="capitulo_05_DIBUJO_MECÁNICO_E_INDUSTRIAL_(1209)_archivos/image001.jpg"
+alt="Diagrama&#10;&#10;Descripción generada automáticamente"></p>
+
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>1.2<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Clasificación de dibujos.</span></h4>
+
+<h5>Clasificación</h5>
+
+<p class=MsoNormal>Los dibujos se pueden clasificar en varias categorías,
+destacando:</p>
+
+<p class=MsoNormal><b>Dibujos axonométricos</b>: Representan las tres
+dimensiones de un objeto con factores de escala constantes para cada dirección.
+Incluyen:</p>
+
+<p class=MsoListParagraphCxSpFirst style='margin-left:21.3pt;text-indent:-18.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Dibujos isométricos: Escala uniforme en los tres ejes.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:21.3pt;text-indent:-18.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Dibujos dimétricos: Escala uniforme en dos de los ejes.</p>
+
+<p class=MsoListParagraphCxSpLast style='margin-left:21.3pt;text-indent:-18.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Dibujos trimétricos: Diferentes factores de escala para los tres
+ejes.</p>
+
+<p class=MsoNormal><b>Dibujos oblicuos</b>: Muestran una cara del objeto en el
+plano del papel, con las dimensiones de profundidad en ángulos específicos:</p>
+
+<p class=MsoListParagraphCxSpFirst style='margin-left:21.3pt;text-indent:-18.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Oblicuo caballero: La profundidad se mide en escala completa.</p>
+
+<p class=MsoListParagraphCxSpLast style='margin-left:21.3pt;text-indent:-18.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Oblicuo gabinete: La profundidad se mide a la mitad de su escala.</p>
+
+<p class=MsoNormal><b>Dibujos en perspectiva</b>: Representan objetos con
+líneas que convergen hacia puntos de fuga, generando una apariencia
+tridimensional más realista.</p>
+
+<p class=MsoNormal><b>Dibujos en detalle</b>: Se enfocan en la geometría,
+dimensiones, tolerancias y materiales de una parte específica&#8203;</p>
+
+<h3 style='margin-left:21.3pt'>2.<span style='font:7.0pt "Times New Roman"'> </span>Análisis
+geométrico.</h3>
+
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>2.1<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Concepto de lugar geométrico.</span></h4>
+
+<p class=MsoNormal style='margin-top:12.0pt'>Un lugar geométrico se define como
+un conjunto de puntos que cumplen una o más condiciones geométricas
+específicas. Por ejemplo, un círculo es un lugar geométrico que incluye todos
+los puntos equidistantes de un punto central.</p>
+
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>2.2<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Definición de lugares geométricos básicos.</span></h4>
+
+<p class=MsoNormal style='margin-top:12.0pt'>Los lugares geométricos básicos
+incluyen formas como:</p>
+
+<ul style='margin-top:0cm' type=disc>
+ <li class=MsoNormal><b>Línea recta</b>: Lugar geométrico de todos los puntos
+     alineados en una dirección fija.</li>
+ <li class=MsoNormal><b>Círculo</b>: Lugar geométrico donde todos los puntos
+     están equidistantes de un punto fijo llamado centro.</li>
+ <li class=MsoNormal><b>Parábola</b>: Conjunto de puntos equidistantes de un
+     punto fijo (foco) y una línea recta (directriz).</li>
+ <li class=MsoNormal><b>Elipse</b>: Lugar geométrico cuyos puntos mantienen
+     constante la suma de sus distancias a dos focos fijos.</li>
+</ul>
+
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>2.3<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Análisis tridimensional.</span></h4>
+
+<p class=MsoNormal style='margin-top:12.0pt'>El análisis tridimensional en el
+dibujo implica representar y estudiar objetos en tres dimensiones utilizando
+sistemas de coordenadas tridimensionales (x, y, z). Este enfoque permite
+interpretar volúmenes y geometrías complejas en espacios tridimensionales&#8203;.</p>
+
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>2.4<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Elementos geométricos en el espacio.</span></h4>
+
+<p class=MsoNormal style='margin-top:12.0pt'>Los elementos geométricos en el
+espacio incluyen:</p>
+
+<ul style='margin-top:0cm' type=disc>
+ <li class=MsoNormal><b>Puntos</b>: Posiciones específicas sin dimensión.</li>
+ <li class=MsoNormal><b>Líneas</b>: Extensiones unidimensionales que conectan
+     dos puntos.</li>
+ <li class=MsoNormal><b>Planos</b>: Superficies bidimensionales infinitas.</li>
+ <li class=MsoNormal><b>Sólidos</b>: Volúmenes tridimensionales encerrados por
+     superficies&#8203;.</li>
+</ul>
+
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>2.5<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Concepto de proyección.</span></h4>
+
+<p class=MsoNormal style='margin-top:12.0pt'>La proyección es el proceso de
+transformar un objeto tridimensional en una representación bidimensional
+mediante líneas que conectan puntos del objeto con un plano de observación.</p>
+
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>2.6<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Clasificación de proyecciones.</span></h4>
+
+<p class=MsoNormal style='margin-top:12.0pt'>Las proyecciones pueden
+clasificarse en:</p>
+
+<ul style='margin-top:0cm' type=disc>
+ <li class=MsoNormal><b>Proyecciones ortogonales</b>: Proyecciones
+     perpendiculares al plano de observación.</li>
+ <li class=MsoNormal><b>Proyecciones oblicuas</b>: Proyecciones en ángulos
+     distintos a 90° respecto al plano de observación.</li>
+ <li class=MsoNormal><b>Proyecciones en perspectiva</b>: Proyecciones que
+     convergen hacia uno o más puntos de fuga para simular la profundidad.</li>
+</ul>
+
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>2.7<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Sistemas de proyecciones ortogonales.</span></h4>
+
+<p class=MsoNormal style='margin-top:12.0pt'>Los sistemas de proyecciones
+ortogonales incluyen:</p>
+
+<ul style='margin-top:0cm' type=disc>
+ <li class=MsoNormal><b>Proyección del primer ángulo</b>: El objeto se sitúa
+     entre el observador y el plano de proyección.</li>
+ <li class=MsoNormal><b>Proyección del tercer ángulo</b>: El plano de
+     proyección se sitúa entre el objeto y el observador, siendo este el
+     sistema más común en América.</li>
+</ul>
+
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>2.8<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Consolidar las habilidades utilizando la
+herramienta computacional.</span></h4>
+
+<p class=MsoNormal style='margin-top:12.0pt'>El uso de software CAD (Diseño
+Asistido por Computadora) fortalece las habilidades de representación gráfica,
+permitiendo crear, analizar y modificar modelos tridimensionales con mayor
+precisión y eficiencia. Estas herramientas también facilitan el cálculo de
+propiedades geométricas y el análisis de diseño.</p>
+
+<h3 style='margin-left:21.3pt'>3.<span style='font:7.0pt "Times New Roman"'> </span>Norma
+de dibujo técnico.</h3>
+
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>3.1<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Introducción.</span></h4>
+
+<p class=MsoNormal style='margin-top:12.0pt'>La norma de dibujo técnico
+establece las bases y reglas que permiten la comunicación clara y precisa entre
+los diferentes actores de un proyecto. Estas normas aseguran la uniformidad en
+la interpretación y creación de dibujos técnicos.</p>
+
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>3.2<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Clasificación de los dibujos.</span></h4>
+
+<p class=MsoNormal style='margin-top:12.0pt'>Los dibujos técnicos se clasifican
+según su propósito y detalle en:</p>
+
+<ul style='margin-top:0cm' type=disc>
+ <li class=MsoNormal><b>Dibujos de conjunto</b>: Representan la disposición y
+     relación entre diferentes partes.</li>
+ <li class=MsoNormal><b>Dibujos de detalle</b>: Describen una única pieza con
+     todas sus dimensiones, materiales y especificaciones</li>
+</ul>
+
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>3.3<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Formatos.</span></h4>
+
+<p class=MsoNormal style='margin-top:12.0pt'>Los formatos de los dibujos
+técnicos están regulados por normas internacionales como la ISO y ANSI. Estas
+normas definen tamaños de papel estándar, márgenes y la disposición de cuadros
+de título&#8203;.</p>
+
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>3.4<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Vistas.</span></h4>
+
+<p class=MsoNormal style='margin-top:12.0pt'>Las vistas son representaciones
+bidimensionales de un objeto tridimensional. Incluyen:</p>
+
+<ul style='margin-top:0cm' type=disc>
+ <li class=MsoNormal><b>Vista frontal</b>: La principal.</li>
+ <li class=MsoNormal><b>Vista superior y lateral</b>: Complementan la frontal.</li>
+ <li class=MsoNormal><b>Vistas múltiples y auxiliares</b>: Para detalles
+     específicos o inclinaciones no visibles en las vistas principales&#8203;.</li>
+</ul>
+
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>3.5<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Vistas auxiliares.</span></h4>
+
+<p class=MsoNormal style='margin-top:12.0pt'>Se utilizan para representar
+superficies inclinadas u oblicuas que no se observan claramente en las vistas
+principales. Estas permiten identificar relaciones geométricas como ángulos,
+pendientes o distancias.</p>
+
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>3.6<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Acotaciones (sistemas usuales).</span></h4>
+
+<p class=MsoNormal style='margin-top:12.0pt'>Las acotaciones comunican
+dimensiones en un dibujo técnico. Se aplican siguiendo normas como la ASME
+Y14.5 para garantizar precisión. Existen varios sistemas:</p>
+
+<ul style='margin-top:0cm' type=disc>
+ <li class=MsoNormal><b>Cadena</b>: Dimensiones consecutivas.</li>
+ <li class=MsoNormal><b>Base común</b>: Todas las dimensiones parten de un
+     mismo punto.</li>
+</ul>
+
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>3.7<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Tolerancias dimensionales, geométricas y
+ajustes.</span></h4>
+
+<p class=MsoNormal style='margin-top:12.0pt'>Las tolerancias especifican
+límites aceptables de variación en dimensiones y geometría. Estas se dividen
+en:</p>
+
+<ul style='margin-top:0cm' type=disc>
+ <li class=MsoNormal><b>Dimensionales</b>: Controlan variaciones en tamaño.</li>
+ <li class=MsoNormal><b>Geométricas</b>: Aseguran precisión en forma y
+     posición.</li>
+ <li class=MsoNormal><b>Ajustes</b>: Describen cómo interactúan componentes
+     ensamblados&#8203;.</li>
+</ul>
+
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>3.8<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Representación de acabados.</span></h4>
+
+<p class=MsoNormal style='margin-top:12.0pt'>Los acabados superficiales se
+indican mediante símbolos que especifican rugosidad, procesos de manufactura y
+tratamientos adicionales.</p>
+
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>3.9<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Acotación funcional.</span></h4>
+
+<p class=MsoNormal style='margin-top:12.0pt'>La acotación funcional prioriza
+las dimensiones críticas para el correcto funcionamiento de una pieza o
+ensamblaje. Esto permite evitar errores y garantizar la intercambiabilidad.</p>
+
+<h4 style='margin-left:35.45pt;text-indent:-24.7pt'>3.10<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Aplicación de la herramienta computacional.</span></h4>
+
+<p class=MsoNormal style='margin-top:12.0pt'>El uso de software CAD (Diseño
+Asistido por Computadora) optimiza la creación, modificación y análisis de
+dibujos técnicos. Herramientas como SolidWorks o AutoCAD agilizan la aplicación
+de normas, acotaciones y tolerancias&#8203;.</p>
+
+<h3 style='margin-left:21.3pt'>4.<span style='font:7.0pt "Times New Roman"'> </span>Dibujo
+en el proyecto.</h3>
+
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>4.1<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Medidas de elementos comerciales.</span></h4>
+
+<p class=MsoNormal style='margin-top:12.0pt'>Los elementos comerciales incluyen
+componentes estándar como tornillos, tuercas y rodamientos. Las dimensiones de
+estos elementos suelen estar normalizadas para garantizar compatibilidad e
+intercambiabilidad entre diferentes fabricantes. Las especificaciones pueden
+incluir longitudes, diámetros y tolerancias, disponibles en catálogos técnicos.</p>
+
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>4.2<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Dibujo de elementos mecánicos simples.</span></h4>
+
+<p class=MsoNormal style='margin-top:12.0pt'>Los elementos mecánicos simples
+incluyen engranajes, poleas y ejes. Los dibujos representan la geometría
+básica, dimensiones, y especificaciones de materiales, mostrando su
+funcionalidad en un sistema más grande.</p>
+
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>4.3<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Representación de uniones y ensambles.</span></h4>
+
+<p class=MsoNormal style='margin-top:12.0pt'>Las uniones y ensambles se
+ilustran mediante diagramas que muestran cómo las piezas individuales se
+conectan. Estas representaciones incluyen detalles como:</p>
+
+<ul style='margin-top:0cm' type=disc>
+ <li class=MsoNormal>Posición relativa de las partes.</li>
+ <li class=MsoNormal>Métodos de unión: soldadura, pernos, chavetas, entre
+     otros.</li>
+ <li class=MsoNormal>Tolerancias y ajustes necesarios para el
+     ensamblaje&#8203;.</li>
+</ul>
+
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>4.4<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Dibujos de conjunto en el diseño mecánico.</span></h4>
+
+<p class=MsoNormal style='margin-top:12.0pt'>Estos dibujos describen sistemas
+completos y su estructura. Incluyen vistas detalladas de todas las partes y su
+disposición en el ensamblaje, asegurando que se comprenda el funcionamiento
+integral del diseño&#8203;.</p>
+
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>4.5<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Dibujo en los procesos de manufactura.</span></h4>
+
+<p class=MsoNormal style='margin-top:12.0pt'>El dibujo técnico en manufactura
+detalla cómo se fabrican las piezas. Esto incluye:</p>
+
+<ul style='margin-top:0cm' type=disc>
+ <li class=MsoNormal>Proceso de corte y conformado.</li>
+ <li class=MsoNormal>Simbología para acabados superficiales.</li>
+ <li class=MsoNormal>Indicaciones de tolerancias y materiales&#8203;.</li>
+</ul>
+
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>4.6<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Dibujo en las instalaciones y su
+representación.</span></h4>
+
+<p class=MsoNormal style='margin-top:12.0pt'>Para instalaciones como sistemas
+eléctricos o mecánicos, los dibujos incluyen:</p>
+
+<ul style='margin-top:0cm' type=disc>
+ <li class=MsoNormal>Diagramas esquemáticos.</li>
+ <li class=MsoNormal>Planos de distribución.</li>
+ <li class=MsoNormal>Detalles constructivos para garantizar la instalación
+     correcta&#8203;.</li>
+</ul>
+
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>4.7<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Aplicación de la herramienta computacional.</span></h4>
+
+<p class=MsoNormal style='margin-top:12.0pt'>El software CAD permite modelar y
+analizar elementos mecánicos y sistemas completos, optimizando la precisión y
+reduciendo los errores en los planos técnicos. Se emplea para:</p>
+
+<ul style='margin-top:0cm' type=disc>
+ <li class=MsoNormal>Creación de modelos tridimensionales.</li>
+ <li class=MsoNormal>Generación automática de vistas y cortes.</li>
+ <li class=MsoNormal>Aplicación de tolerancias y ajustes en diseños</li>
+</ul>
+
+<h3 style='margin-left:21.3pt'>5.<span style='font:7.0pt "Times New Roman"'> </span>Proyecto
+de dibujo.</h3>
+
+<h4 style='margin-left:35.45pt;text-indent:-19.5pt'>5.1<span style='font:7.0pt "Times New Roman"'>
+</span><span style='color:black'>Elaboración de planos de un proyecto de
+ingeniería.</span></h4>
+
+<p class=MsoNormal style='margin-top:12.0pt'>La elaboración de planos para un
+proyecto de ingeniería implica una serie de pasos clave para garantizar que el
+diseño cumpla con los requisitos técnicos y sea comprensible para su
+implementación. Incluye:</p>
+
+<ol style='margin-top:0cm' start=1 type=1>
+ <li class=MsoNormal><b>Creación del plano del emplazamiento</b>: Este es uno
+     de los primeros dibujos que se realizan y proporciona una representación
+     en planta del área donde se desarrollará el proyecto. Incluye detalles
+     topográficos, estructuras existentes, carreteras y elementos relevantes
+     para el diseño&#8203;.</li>
+ <li class=MsoNormal><b>Vistas en planta y detalles de construcción</b>: Se
+     generan vistas detalladas de los diferentes pisos, instalaciones
+     eléctricas, y sistemas mecánicos y de plomería. Estos planos se organizan
+     según el orden de construcción para facilitar su interpretación y
+     ejecución&#8203;&#8203;.</li>
+ <li class=MsoNormal><b>Documentación formal y legal</b>: Los planos incluyen
+     un cuadro de título, especificaciones y los sellos de un ingeniero
+     profesional titulado, quien es legalmente responsable del diseño y
+     ejecución del proyecto. Esto asegura que los planos sean documentos
+     oficiales para construcción&#8203;.</li>
+ <li class=MsoNormal><b>Incorporación de software CAD</b>: Las herramientas
+     computacionales se emplean para generar modelos tridimensionales, vistas
+     múltiples, cortes y secciones. Esto agiliza el diseño y permite realizar
+     modificaciones de manera precisa y eficiente durante las fases del
+     proyecto&#8203;&#8203;.</li>
+</ol>
+
+<h3 style='margin-left:21.3pt'>6.<span style='font:7.0pt "Times New Roman"'> </span>Bibliografía.</h3>
+
+<p class=MsoNormal style='margin-top:12.0pt'>LIEU &amp; SORBY, - <i>Dibujo para
+diseño de ingeniería.</i></p>
+
+<p class=MsoNormal style='margin-top:12.0pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-top:12.0pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-top:12.0pt'>&nbsp;</p>
+
+</div>
+
+
+      </article>
+
+    </div><!-- /content-main -->
+</div><!-- /page-layout -->
+
+
+<!-- ══════════════════════════════════════
+     SCRIPTS
+══════════════════════════════════════ -->
+<script>
+'use strict';
+
+const MOON = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>`;
+const SUN  = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`;
+
+const $       = id => document.getElementById(id);
+const getMeta = n  => (document.querySelector(`meta[name="${n}"]`) || {}).content || '';
+
+/* ────────────────────────────────────────
+   1. COLOR de identidad de la materia
+──────────────────────────────────────── */
+function applyColor() {
+  const c = getMeta('COLOR') || '#3494BA';
+  document.documentElement.style.setProperty('--color', c);
+}
+
+/* ────────────────────────────────────────
+   2. LIMPIEZA automática del HTML de Word
+──────────────────────────────────────── */
+function cleanWordHTML() {
+  const wc = $('word-content');
+  if (!wc) return;
+
+  /* Quitar TODOS los estilos inline de headings */
+  wc.querySelectorAll('h1,h2,h3,h4,h5,h6,h7,h8').forEach(h => {
+    h.removeAttribute('style');
+    h.querySelectorAll('span').forEach(s => {
+      const fs = s.style.fontSize || '';
+      if (fs.includes('7') && fs.includes('pt')) {
+        s.replaceWith(document.createTextNode(' ')); /* elimina espaciadores 7pt de Word */
+      } else {
+        s.removeAttribute('style');
+      }
+    });
+  });
+
+  /* Quitar colores/backgrounds problemáticos en el resto */
+  const BLUES = ['#459ec4','#3494ba','#1a495c','rgb(69,158,196)','rgb(52,148,186)'];
+  const isWordBlue = v => v && BLUES.some(b => v.toLowerCase().replace(/\s/g,'').includes(b));
+
+  wc.querySelectorAll('*').forEach(el => {
+    const s = el.style;
+    if (!s || !s.length) return;
+
+    if (isWordBlue(s.color)) s.removeProperty('color');
+
+    const bg = (s.background + s.backgroundColor).toLowerCase().replace(/\s/g,'');
+    if (bg.includes('#3494ba') || bg.includes('#d4eaf3') ||
+        bg.includes('white')   || bg.includes('#ffffff')) {
+      s.removeProperty('background');
+      s.removeProperty('background-color');
+    }
+
+    const col = (s.color || '').toLowerCase().replace(/\s/g,'');
+    if (['white','#ffffff','#fff','black','#000000','#000','windowtext'].includes(col))
+      s.removeProperty('color');
+  });
+
+  /* Wingdings → bullet normal */
+  wc.querySelectorAll('span[style*="Wingdings"],span[style*="wingdings"]').forEach(s => {
+    s.textContent = '•'; s.removeAttribute('style');
+  });
+
+  /* Imágenes: quitar width/height inline */
+  wc.querySelectorAll('img').forEach(img => {
+    img.removeAttribute('width');
+    img.removeAttribute('height');
+  });
+}
+
+/* ────────────────────────────────────────
+   3. HERO — lee <meta>, extrae objetivo del
+      word-content y lo elimina para no duplicarlo
+──────────────────────────────────────── */
+function buildHero() {
+  const semestre = getMeta('SEMESTRE');
+  const materia  = getMeta('MATERIA') || 'Materia';
+  const clave    = getMeta('CLAVE');
+  const creditos = getMeta('CREDITOS');
+  const wc = $('word-content');
+
+  wc.querySelector('h2')?.remove(); /* título ya aparece en el hero */
+
+  let objLabel = '', objHTML = '';
+  for (const em of wc.querySelectorAll('em')) {
+    if (em.textContent.toLowerCase().includes('objetivo')) {
+      const emPara = em.closest('p');
+      if (emPara) {
+        objLabel = 'Objetivo(s) del curso';
+        let sib = emPara.nextElementSibling;
+        while (sib && sib.tagName === 'P' && !sib.textContent.trim())
+          sib = sib.nextElementSibling;
+        if (sib?.tagName === 'P') { objHTML = sib.innerHTML; sib.remove(); }
+        emPara.remove();
+      }
+      break;
+    }
+  }
+
+  const metaStr = [clave && `Clave: ${clave}`, creditos && `${creditos} créditos`]
+    .filter(Boolean).join(' · ');
+
+  $('hero').innerHTML =
+    (semestre ? `<div class="hero-semestre">${semestre}</div>` : '') +
+    `<h1 class="hero-title">${materia}</h1>` +
+    (metaStr  ? `<div class="hero-meta">${metaStr}</div>` : '') +
+    `<div class="hero-sep"></div>` +
+    (objLabel ? `<div class="hero-obj-lbl">${objLabel}:</div>` : '') +
+    (objHTML  ? `<p class="hero-obj-txt">${objHTML}</p>` : '');
+
+  document.title = `${materia} · Prontuario Mecatrónica · UNAM FI`;
+}
+
+/* ────────────────────────────────────────
+   4. TOC — colapsable h3→h8
+      · Triángulo: solo colapsa/expande
+      · Texto h3 : solo scroll (sin toggle)
+      · Items h4+: scroll + abre solo su padre
+──────────────────────────────────────── */
+function scrollToHeading(el) {
+  const cont = $('contentMain');
+  let top = 0, cur = el;
+  while (cur && cur !== cont) { top += cur.offsetTop; cur = cur.offsetParent; }
+  cont.scrollTo({ top: top - 68, behavior: 'smooth' });
+}
+
+function buildTOC() {
+  const wc  = $('word-content');
+  const nav = $('tocNav');
+  const heads = Array.from(wc.querySelectorAll(
+    'h3,h4,h5,h6,h7,h8,p.MsoHeading7,p.MsoHeading8,[class*="Heading7"],[class*="Heading8"]'
+  ));
+  if (!heads.length) return;
+
+  let idx = 0, curDet = null, curList = null;
+
+  const getLevel = el => {
+    const m = el.tagName.toUpperCase().match(/^H(\d+)$/);
+    if (m) return +m[1];
+    return el.className.match(/Heading8/i) ? 8 : 7;
+  };
+
+  heads.forEach(h => {
+    if (!h.id) h.id = `hd-${++idx}`;
+    const text  = h.innerText.trim().replace(/\s+/g, ' ');
+    const level = getLevel(h);
+
+    if (level === 3) {
+      curDet = document.createElement('details');
+      curDet.className = 'toc-group';
+      curDet.open = false;
+      curDet.dataset.hid = h.id;
+
+      const sum  = document.createElement('summary');
+      const arr  = document.createElement('span');
+      arr.className = 'toc-arrow'; arr.textContent = '▶';
+
+      const txt  = document.createElement('span');
+      txt.className = 'toc-h3-text'; txt.textContent = text; txt.title = text;
+      txt.addEventListener('click', e => {
+        e.preventDefault(); e.stopPropagation();
+        scrollToHeading(h); tocSetActive(sum, null);
+      });
+
+      sum.appendChild(arr); sum.appendChild(txt); curDet.appendChild(sum);
+      curList = document.createElement('ul');
+      curList.className = 'toc-children';
+      curDet.appendChild(curList);
+      nav.appendChild(curDet);
+
+    } else {
+      if (!curList) { curList = document.createElement('ul'); curList.className = 'toc-children'; nav.appendChild(curList); }
+      const li = document.createElement('li');
+      const a  = document.createElement('a');
+      a.href = '#' + h.id; a.className = `toc-item lv${level}`;
+      a.textContent = text; a.title = text;
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        scrollToHeading(h);
+        a.closest('details')?.setAttribute('open', '');
+        tocSetActive(null, a);
+      });
+      li.appendChild(a); curList.appendChild(li);
+    }
+  });
+}
+
+/* ────────────────────────────────────────
+   5. TRACKING — resalta item activo al scroll
+      · No abre grupos cerrados
+      · Auto-scrollea el sidebar (debounce 80ms)
+──────────────────────────────────────── */
+let _active = null, _timer = null;
+
+function tocSetActive(sum, link) {
+  if (_active) _active.classList.remove('toc-active');
+  const t = link || sum; if (!t) return;
+  t.classList.add('toc-active'); _active = t;
+
+  clearTimeout(_timer);
+  _timer = setTimeout(() => {
+    const nav = $('tocNav'); if (!nav || !t) return;
+    const nr = nav.getBoundingClientRect(), ir = t.getBoundingClientRect();
+    if (ir.top < nr.top + 40 || ir.bottom > nr.bottom - 40)
+      nav.scrollTo({ top: t.offsetTop - nav.offsetTop - nav.clientHeight / 2 + t.clientHeight / 2, behavior: 'smooth' });
+  }, 80);
+}
+
+function initActiveTracking() {
+  const heads = Array.from($('word-content').querySelectorAll(
+    'h3,h4,h5,h6,h7,h8,p.MsoHeading7,p.MsoHeading8'
+  ));
+  if (!heads.length) return;
+  const nav = $('tocNav');
+
+  const obs = new IntersectionObserver(entries => {
+    const vis = entries.filter(e => e.isIntersecting);
+    if (!vis.length) return;
+    vis.sort((a,b) => a.boundingClientRect.top - b.boundingClientRect.top);
+    const id   = vis[0].target.id;
+    const link = nav.querySelector(`.toc-item[href="#${id}"]`);
+
+    if (link) {
+      /* Si el grupo padre está cerrado, resaltar el summary del grupo en su lugar */
+      const det = link.closest('details');
+      if (det && !det.open) {
+        tocSetActive(det.querySelector('summary'), null);
+      } else {
+        tocSetActive(null, link);
+      }
+    } else {
+      const det = nav.querySelector(`details[data-hid="${id}"]`);
+      if (det) tocSetActive(det.querySelector('summary'), null);
+    }
+  }, { root: $('contentMain'), rootMargin: '-60px 0px -60% 0px', threshold: 0 });
+
+  heads.forEach(h => obs.observe(h));
+}
+
+/* ────────────────────────────────────────
+   6. TOGGLE SIDEBAR
+──────────────────────────────────────── */
+function initSidebarToggle() {
+  const sb = $('tocSidebar'), ob = $('tocOpenBtn');
+  $('tocClose').addEventListener('click', () => { sb.classList.add('collapsed');    ob.classList.add('visible'); });
+  ob.addEventListener('click',           () => { sb.classList.remove('collapsed'); ob.classList.remove('visible'); });
+}
+
+/* ────────────────────────────────────────
+   7. TEMA CLARO / OSCURO
+──────────────────────────────────────── */
+function syncThemeBtn() {
+  const dark = document.documentElement.dataset.theme !== 'light';
+  $('themeBtn').innerHTML = dark ? MOON : SUN;
+  $('themeBtn').title = dark ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro';
+}
+$('themeBtn').addEventListener('click', () => {
+  const next = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+  document.documentElement.dataset.theme = next;
+  localStorage.setItem('prontuario-theme', next);
+  syncThemeBtn();
+});
+
+/* ────────────────────────────────────────
+   INIT
+──────────────────────────────────────── */
+(function init() {
+  applyColor();          /* 1. color de materia */
+  cleanWordHTML();       /* 2. limpia estilos inline de Word */
+  buildHero();           /* 3. hero + extrae objetivo */
+  buildTOC();            /* 4. TOC colapsable */
+  initSidebarToggle();   /* 5. botón colapsar/abrir */
+  syncThemeBtn();        /* 6. ícono tema */
+  initActiveTracking();  /* 7. highlight al scroll */
+})();
+</script>
+
+</body>
+</html>
