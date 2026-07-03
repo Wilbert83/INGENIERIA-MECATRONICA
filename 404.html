@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark" data-accent="cyan">
+<head>
+  <script>
+    (function(){
+      var h = document.documentElement;
+      var t = localStorage.getItem('theme');
+      var a = localStorage.getItem('accentFixed') || 'cyan';
+      if (t) h.dataset.theme = t;
+      h.dataset.accent = a;
+    })();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 · Señal perdida</title>
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAArCAYAAAA65tviAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANNSURBVGhD7ZltaBt1HMc/17vLXV3KrQ9pVtuEmc6OLvSFCg0M36iVjWy+s9W5WmWI4liniDOvxGdQhMKYFAQpIqLDVwq2IPSN+Cp94UTZhmFRTFp1TbULpVsvueR81TL/tLkt3nLpzAfuzff35eDDPXDcT9KaDZvbAOlGRXyBHjoOHcMYHELr7kWSFbHiKnbJwlxIk5+bZWl6ikJuXqz8ixsSaT8wSuj4e+RmPiGfnMHMpLCtolhzFUlR0cJ9GLE4gfgY2ckEf33zqVjbwFGk/cAowZEXyJx5ibVfzovjmqBHooTHJ7j8xektZSqK+AI97PsoyaXXHvdMYh09EmXPG2e58Exs09tMVlT9dTFcJzjyIld/vUD+uy/FUc2xlnNIup87IgOs/PCtOKZJDK7HGBwin5wRY8/IJ2cwBofEGJxEtO5ezExKjD3DzKTQunvFGJxEJFm55W+nm8G2ilu+9iuKbCcaIvVGQ6TeaIhshtoWpO3ho7QffGrjaH1gBLnZvzFrue9BACTVh7H/0Mb8v+KqiK9rN4FHjhEcPsGdTyYIPnqcQHwMuaUVLbyXXcPjdB15GbW1E61nD12jCYLDJ1B2doinumlcFVk9n+Tnkw/x5+cTlAsmmQ9OkTp1mMJiFoBy0USSZZr33kvLwP3YBRO7WBBPUxWuijhhW0XWsin8/TF27BtkNfW9WKmamoo0aTrmHxlaBvajtgWx/l6kSWsWa1VRUxGQWJtPYa1eoZCbp7i8KBaqpsYiYK0sk371MX57/3nskiWOq6bmIrcKV0UkVcMXDCP7d4IEitGBrzOEJMti1XVcFdkRjXH3u1+xa+QkTT6d0HPv0PvmWXydIbHqOhV/Ptzz9WV+eqJfjD1l4LOLnDscFGN3r4iXNETqjYZIvfH/ELFLFpKiirFnSIq65WdNRRFzIY0W7hNjz9DCfZgLaTEGJ5H83CxGLC7GnmHE4uTnZsUYnESWpqcIxMfQI1FxVHP0SJRAfIyl6SlxBE4ihdw82ckE4fEJT2XWFz3ZycSmuxGc9iMA19I/UjavcdcrHyLpfkpX85RWrkC5LFZdRVJU9N39tB98mtCzb/H7x29vua3C6aPxem6LZeh2oOIzsp1oiNQb/wC/2QLl/sw38AAAAABJRU5ErkJggg==">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html:not([data-ready]) *, html:not([data-ready]) *::before,
+  html:not([data-ready]) *::after { transition: none !important; }
+
+  /* ── Tokens ── */
+  :root { --p:#38BDF8; --p-d:rgba(56,189,248,0.09); --p-g:rgba(56,189,248,0.22);
+           --mono:'JetBrains Mono',monospace; --disp:'Space Grotesk',sans-serif; }
+
+  /* Todos los acentos del sistema */
+  [data-accent="cyan"]      { --p:#38BDF8; --p-d:rgba(56,189,248,0.09);  --p-g:rgba(56,189,248,0.22); }
+    [data-accent="celeste"]   { --p:#7DD3FC; --p-d:rgba(125,211,252,0.09); --p-g:rgba(125,211,252,0.22); }
+    [data-accent="azul"]      { --p:#60A5FA; --p-d:rgba(96,165,250,0.09);  --p-g:rgba(96,165,250,0.22); }
+    [data-accent="indigo"]    { --p:#818CF8; --p-d:rgba(129,140,248,0.09); --p-g:rgba(129,140,248,0.22); }
+    [data-accent="violeta"]   { --p:#A78BFA; --p-d:rgba(167,139,250,0.09); --p-g:rgba(167,139,250,0.22); }
+    [data-accent="purpura"]   { --p:#C084FC; --p-d:rgba(192,132,252,0.09); --p-g:rgba(192,132,252,0.22); }
+    [data-accent="fuchsia"]   { --p:#E879F9; --p-d:rgba(232,121,249,0.09); --p-g:rgba(232,121,249,0.22); }
+    [data-accent="rosa"]      { --p:#F472B6; --p-d:rgba(244,114,182,0.09); --p-g:rgba(244,114,182,0.22); }
+    [data-accent="rojo"]      { --p:#F87171; --p-d:rgba(248,113,113,0.09); --p-g:rgba(248,113,113,0.22); }
+    [data-accent="coral"]     { --p:#FF7F6B; --p-d:rgba(255,127,107,0.09); --p-g:rgba(255,127,107,0.22); }
+    [data-accent="naranja"]   { --p:#FB923C; --p-d:rgba(251,146,60,0.09);  --p-g:rgba(251,146,60,0.22); }
+    [data-accent="amarillo"]  { --p:#FBBF24; --p-d:rgba(251,191,36,0.09);  --p-g:rgba(251,191,36,0.22); }
+    [data-accent="lima"]      { --p:#A3E635; --p-d:rgba(163,230,53,0.09);  --p-g:rgba(163,230,53,0.22); }
+    [data-accent="esmeralda"] { --p:#10B981; --p-d:rgba(16,185,129,0.09);  --p-g:rgba(16,185,129,0.22); }
+    [data-accent="verde"]     { --p:#34D399; --p-d:rgba(52,211,153,0.09);  --p-g:rgba(52,211,153,0.22); }
+    [data-accent="blanco"]    { --p:#CBD5E1; --p-d:rgba(203,213,225,0.09); --p-g:rgba(203,213,225,0.22); }
+    /* ── Tomados del mapa curricular oficial (colores por materia) ── */
+    [data-accent="carmesi"]   { --p:#DC2626; --p-d:rgba(220,38,38,0.09);   --p-g:rgba(220,38,38,0.22); }
+    [data-accent="cobalto"]   { --p:#2563EB; --p-d:rgba(37,99,235,0.09);   --p-g:rgba(37,99,235,0.22); }
+    [data-accent="turquesa"]  { --p:#22D3EE; --p-d:rgba(34,211,238,0.09);  --p-g:rgba(34,211,238,0.22); }
+    [data-accent="esmeralda2"]{ --p:#15803D; --p-d:rgba(21,128,61,0.09);   --p-g:rgba(21,128,61,0.22); }
+    [data-accent="mostaza"]   { --p:#CA8A04; --p-d:rgba(202,138,4,0.09);   --p-g:rgba(202,138,4,0.22); }
+    [data-accent="ambar"]     { --p:#C2410C; --p-d:rgba(194,65,12,0.09);   --p-g:rgba(194,65,12,0.22); }
+    [data-accent="magenta"]   { --p:#D6249C; --p-d:rgba(214,36,156,0.09);  --p-g:rgba(214,36,156,0.22); }
+    [data-accent="vino"]      { --p:#9D174D; --p-d:rgba(157,23,77,0.09);   --p-g:rgba(157,23,77,0.22); }
+    [data-accent="lavanda"]   { --p:#A855F7; --p-d:rgba(168,85,247,0.09);  --p-g:rgba(168,85,247,0.22); }
+    [data-accent="petroleo"]  { --p:#0E7490; --p-d:rgba(14,116,144,0.09);  --p-g:rgba(14,116,144,0.22); }
+
+  [data-theme="dark"]  {
+    --bg:#07090F; --surface:#0D1322; --border:rgba(255,255,255,0.08);
+    --text:#E2E8F0; --text-d:#94A3B8; --text-m:#4B5563;
+  }
+  [data-theme="light"] {
+    --bg:#EDF2F8; --surface:#FFFFFF; --border:rgba(15,23,42,0.10);
+    --text:#0F172A; --text-d:#334155; --text-m:#64748B;
+  }
+  [data-theme="light"] body { background-image:radial-gradient(circle,rgba(15,23,42,0.05) 1px,transparent 1px); }
+
+  html,body{height:100%}
+  body{
+    background-color:var(--bg); color:var(--text);
+    font-family:var(--disp); display:flex; flex-direction:column;
+    align-items:center; justify-content:center; min-height:100vh; padding:24px;
+    background-image:radial-gradient(circle, var(--p-d) 1px, transparent 1px);
+    background-size:28px 28px;
+    transition:background-color 0.3s, color 0.3s;
+    text-align:center;
+  }
+
+  /* ── 404 con glitch ── */
+  .err-code {
+    font-size:clamp(80px,20vw,160px); font-weight:700; line-height:1;
+    color:var(--p); letter-spacing:-.04em; margin-bottom:4px;
+    position:relative; display:inline-block;
+    transition:color 0.3s;
+  }
+  .err-code::before {
+    content:'404'; position:absolute; left:3px; top:0;
+    color:color-mix(in srgb,var(--p) 60%,red);
+    clip-path:polygon(0 20%,100% 20%,100% 35%,0 35%);
+    animation:g1 3.5s infinite;
+  }
+  .err-code::after {
+    content:'404'; position:absolute; left:-3px; top:0;
+    color:color-mix(in srgb,var(--p) 60%,blue);
+    clip-path:polygon(0 65%,100% 65%,100% 80%,0 80%);
+    animation:g2 3.5s infinite;
+  }
+  @keyframes g1{0%,92%,100%{opacity:0}93%,97%{opacity:1;transform:translateX(2px)}}
+  @keyframes g2{0%,92%,100%{opacity:0}94%,98%{opacity:1;transform:translateX(-2px)}}
+
+  .err-label {
+    font-family:var(--mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase;
+    color:var(--p); margin-bottom:20px; transition:color 0.3s;
+  }
+  h1 { font-size:clamp(20px,3.5vw,32px); font-weight:700; margin-bottom:10px; line-height:1.15; }
+  .err-sub {
+    font-family:var(--mono); font-size:12.5px; color:var(--text-d);
+    margin-bottom:28px; line-height:1.75; max-width:420px;
+    transition:color 0.3s;
+  }
+  .err-block {
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:8px; padding:12px 18px; margin-bottom:30px;
+    font-family:var(--mono); font-size:11.5px; color:var(--text-m);
+    text-align:left; max-width:340px; width:100%;
+    transition:background 0.3s, border-color 0.3s, color 0.3s;
+  }
+  .err-block span { color:var(--p); transition:color 0.3s; }
+  .btn-home {
+    display:inline-flex; align-items:center; gap:7px;
+    background:var(--p); color:#000; font-family:var(--mono); font-size:12px;
+    font-weight:600; padding:10px 22px; border-radius:8px; text-decoration:none;
+    transition:opacity 0.18s, transform 0.15s, background 0.3s;
+    letter-spacing:.04em; margin-bottom:40px;
+  }
+  .btn-home:hover{opacity:.85;transform:translateY(-1px)}
+
+  /* ── Controles (esquina superior derecha) ── */
+  .controls {
+    position:fixed; top:14px; right:14px;
+    display:flex; align-items:center; gap:8px;
+  }
+
+  /* Selector de color — igual que en el índice */
+  .accent-group {
+    display:flex; align-items:center; gap:4px; flex-wrap:wrap;
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:20px; padding:4px 8px; max-width:260px;
+    transition:background 0.3s, border-color 0.3s;
+  }
+  .accent-dot {
+    width:14px; height:14px; border-radius:50%;
+    border:2px solid transparent; cursor:pointer; padding:0;
+    transition:transform 0.15s, border-color 0.2s; outline:none;
+  }
+  .accent-dot:hover { transform:scale(1.3); }
+  .accent-dot.active { border-color:var(--text); }
+  .accent-rand {
+    width:14px; height:14px; border-radius:50%;
+    background:transparent; border:1.5px solid var(--border);
+    cursor:pointer; font-size:9px; display:grid; place-items:center;
+    transition:transform 0.2s, border-color 0.2s; outline:none;
+    line-height:1;
+  }
+  .accent-rand:hover { transform:rotate(25deg) scale(1.2); border-color:var(--p); }
+  .accent-rand.active { border-color:var(--p); }
+
+  .theme-btn {
+    width:30px; height:30px; border-radius:7px;
+    background:var(--surface); border:1px solid var(--border);
+    color:var(--text-d); cursor:pointer; display:grid; place-items:center;
+    transition:border-color 0.18s, color 0.18s, background 0.3s;
+    flex-shrink:0;
+  }
+  .theme-btn:hover{border-color:var(--p);color:var(--p)}
+  </style>
+</head>
+<body>
+
+  <!-- ── Controles ── -->
+  <div class="controls">
+    <div class="accent-group">
+      <button class="accent-dot" data-accent="cyan"       style="background:#38BDF8" title="Cian"></button>
+      <button class="accent-dot" data-accent="celeste"    style="background:#7DD3FC" title="Celeste"></button>
+      <button class="accent-dot" data-accent="azul"       style="background:#60A5FA" title="Azul"></button>
+      <button class="accent-dot" data-accent="indigo"     style="background:#818CF8" title="Índigo"></button>
+      <button class="accent-dot" data-accent="violeta"    style="background:#A78BFA" title="Violeta"></button>
+      <button class="accent-dot" data-accent="purpura"    style="background:#C084FC" title="Púrpura"></button>
+      <button class="accent-dot" data-accent="fuchsia"    style="background:#E879F9" title="Fucsia"></button>
+      <button class="accent-dot" data-accent="rosa"       style="background:#F472B6" title="Rosa"></button>
+      <button class="accent-dot" data-accent="rojo"       style="background:#F87171" title="Rojo"></button>
+      <button class="accent-dot" data-accent="coral"      style="background:#FF7F6B" title="Coral"></button>
+      <button class="accent-dot" data-accent="naranja"    style="background:#FB923C" title="Naranja"></button>
+      <button class="accent-dot" data-accent="amarillo"   style="background:#FBBF24" title="Amarillo"></button>
+      <button class="accent-dot" data-accent="lima"       style="background:#A3E635" title="Lima"></button>
+      <button class="accent-dot" data-accent="esmeralda"  style="background:#10B981" title="Esmeralda"></button>
+      <button class="accent-dot" data-accent="verde"      style="background:#34D399" title="Verde"></button>
+      <button class="accent-dot" data-accent="blanco"     style="background:#CBD5E1" title="Blanco"></button>
+      <button class="accent-dot" data-accent="carmesi"    style="background:#DC2626" title="Carmesí"></button>
+      <button class="accent-dot" data-accent="cobalto"    style="background:#2563EB" title="Cobalto"></button>
+      <button class="accent-dot" data-accent="turquesa"   style="background:#22D3EE" title="Turquesa"></button>
+      <button class="accent-dot" data-accent="esmeralda2" style="background:#15803D" title="Bosque"></button>
+      <button class="accent-dot" data-accent="mostaza"    style="background:#CA8A04" title="Mostaza"></button>
+      <button class="accent-dot" data-accent="ambar"      style="background:#C2410C" title="Ámbar"></button>
+      <button class="accent-dot" data-accent="magenta"    style="background:#D6249C" title="Magenta"></button>
+      <button class="accent-dot" data-accent="vino"       style="background:#9D174D" title="Vino"></button>
+      <button class="accent-dot" data-accent="lavanda"    style="background:#A855F7" title="Lavanda"></button>
+      <button class="accent-dot" data-accent="petroleo"   style="background:#0E7490" title="Petróleo"></button>
+      <button class="accent-rand" id="randBtn" title="Color aleatorio">🎲</button>
+    </div>
+    <button class="theme-btn" id="themeBtn"></button>
+  </div>
+
+  <!-- ── Contenido ── -->
+  <div class="err-code">404</div>
+  <div class="err-label">// error :: señal perdida</div>
+  <h1>Página no encontrada</h1>
+  <p class="err-sub">La URL que buscas no existe en este sistema.<br>
+  Puede que haya sido movida, renombrada o aún esté pendiente.</p>
+
+  <div class="err-block">
+    <span>GET</span> <em id="errPath"></em><br>
+    Status: <span>404</span> Not Found<br>
+    Sistema: <span>Mecatrónica · Wilbert</span>
+  </div>
+
+  <a class="btn-home" href="/INGENIERIA-MECATRONICA/">← Volver al inicio</a>
+
+<script>
+const MOON=`<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>`;
+const SUN =`<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`;
+
+const ALL_ACCENTS = [
+  'cyan','celeste','azul','indigo','violeta','purpura',
+  'fuchsia','rosa','rojo','coral','naranja','amarillo',
+  'lima','esmeralda','verde','blanco',
+  'carmesi','cobalto','turquesa','esmeralda2','mostaza',
+  'ambar','magenta','vino','lavanda','petroleo'
+];
+
+const $ = id => document.getElementById(id);
+
+/* ── Ruta que falló ── */
+$('errPath').textContent = location.pathname;
+
+/* ── Acento ── */
+function applyAccent(accent) {
+  document.documentElement.dataset.accent = accent;
+  syncDots(accent);
+}
+
+function syncDots(accent) {
+  const isRand = !localStorage.getItem('accentFixed');
+  document.querySelectorAll('.accent-dot:not(.accent-rand)').forEach(b =>
+    b.classList.toggle('active', !isRand && b.dataset.accent === accent)
+  );
+  $('randBtn').classList.toggle('active', isRand);
+  $('randBtn').title = isRand
+    ? 'Aleatorio activo — clic para fijar color actual'
+    : 'Clic para volver a color aleatorio';
+}
+
+document.querySelectorAll('.accent-dot:not(.accent-rand)').forEach(btn => {
+  btn.addEventListener('click', () => {
+    localStorage.setItem('accentFixed', btn.dataset.accent);
+    applyAccent(btn.dataset.accent);
+  });
+});
+
+$('randBtn').addEventListener('click', () => {
+  if (localStorage.getItem('accentFixed')) {
+    localStorage.removeItem('accentFixed');
+  }
+  const next = ALL_ACCENTS[Math.floor(Math.random() * ALL_ACCENTS.length)];
+  applyAccent(next);
+});
+
+/* ── Tema ── */
+function syncTheme() {
+  const dark = document.documentElement.dataset.theme !== 'light';
+  $('themeBtn').innerHTML = dark ? MOON : SUN;
+  $('themeBtn').title = dark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro';
+}
+
+$('themeBtn').addEventListener('click', () => {
+  const nxt = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+  document.documentElement.dataset.theme = nxt;
+  localStorage.setItem('theme', nxt);
+  syncTheme();
+});
+
+/* ── Init ── */
+(function() {
+  const fixed = localStorage.getItem('accentFixed');
+  if (!fixed) {
+    const rand = ALL_ACCENTS[Math.floor(Math.random() * ALL_ACCENTS.length)];
+    applyAccent(rand);
+  } else {
+    syncDots(fixed);
+  }
+  syncTheme();
+  requestAnimationFrame(() => requestAnimationFrame(() =>
+    document.documentElement.setAttribute('data-ready', '')
+  ));
+})();
+</script>
+</body>
+</html>
