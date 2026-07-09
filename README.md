@@ -8,7 +8,7 @@
 [![Estado](https://img.shields.io/badge/estado-activo-brightgreen?style=flat-square)]()
 
 > Sitio web personal de apuntes y prontuario de **Ingeniería Mecatrónica** — Plan 2016.  
-Apuntes organizados por semestre y materia, con integración completa de NotebookLM (9 tipos de recursos por materia), con sistema de temas, colores de identidad por asignatura y TOC interactivo generado automáticamente desde exportaciones de Word.
+> Apuntes organizados por semestre y materia, con integración completa de NotebookLM (9 tipos de recursos por materia), con sistema de temas, colores de identidad por asignatura y TOC interactivo generado automáticamente desde exportaciones de Word.
 
 🌐 **Demo en vivo:** <https://wilbert83.github.io/INGENIERIA-MECATRONICA/>
 
