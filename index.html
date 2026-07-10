@@ -402,7 +402,6 @@
       border-radius: 4px; padding: 2px 6px;
       transition: color 0.2s, border-color 0.2s;
     }
-
   </style>
 </head>
 
@@ -475,9 +474,9 @@
      HERO
 ════════════════════════════════════ -->
 <section class="hero">
-  <div class="hero-eyebrow">Licenciatura en Ingeniería Mecatrónica · Plan 2016</div>
-  <h1>Prontuario<br><span class="ac">UNAM Facultad de Ingeniería</span></h1>
-  <p class="hero-desc">Notas del plan de estudios completo, organizadas por semestre y materia. Cada asignatura en su propio documento con temas, subtemas y material de apoyo.</p>
+  <div class="hero-eyebrow">Ingeniería Mecatrónica · Plan 2016</div>
+  <h1>Prontuario<br><span class="ac">de Mecatrónica</span></h1>
+  <p class="hero-desc">Notas y Apuntes del plan de estudios completo, organizadas por semestre y materia. Cada asignatura en su propio documento con temas, subtemas y material de apoyo.</p>
   <div class="stats-row">
     <div class="stat"><div class="stat-n" id="sTotal">—</div><div class="stat-l">Materias totales</div></div>
     <div class="stat"><div class="stat-n">10</div><div class="stat-l">Semestres</div></div>
@@ -515,19 +514,30 @@
   </div>
 </main>
 
+<!-- ════════════════════════════════════
+     OTROS CUADERNOS (fuera del plan)
+═══════════════════════════════════════ -->
+<section class="otros-section" id="otrosSection">
+  <div class="otros-hdr">
+    <span class="otros-title">Otros cuadernos</span>
+    <span class="otros-sub">notebooks fuera del plan curricular</span>
+  </div>
+  <div class="otros-grid" id="otrosGrid"></div>
+</section>
+
+
 
 <!-- ════════════════════════════════════
      FOOTER
 ════════════════════════════════════ -->
 <footer>
   <div class="foot-l">
-    Ingeniería Mecatrónica · UNAM Facultad de Ingeniería · DIMEI<br>
-    Plan de Estudios 2016 — Prontuario personal · Wilbert83
+    Ingeniería Mecatrónica · Prontuario<br>
+    Wilbert Miguel Nahuatlato — Prontuario personal · Wilbert83
   </div>
   <div class="foot-r">
     <a href="https://wilbert83.github.io/INGENIERIA-MECATRONICA/" target="_blank">Sitio web</a>
     <a href="https://github.com/Wilbert83/INGENIERIA-MECATRONICA" target="_blank">Repositorio</a>
-    <a href="https://fi.unam.mx" target="_blank">FI UNAM</a>
   </div>
 </footer>
 
@@ -548,99 +558,101 @@ const PLAN = [
   {
     num: 1, filterNum: 1, label: "Primer Semestre",
     subjects: [
-      { name: "Álgebra",                                       slug: "algebra",                       status: "disponible" },
-      { name: "Cálculo y Geometría Analítica",                 slug: "calculo-geometria-analitica",   status: "disponible" },
-      { name: "Redacción y Exposición",                        slug: "redaccion-exposicion",          status: "progreso" },
-      { name: "Química",                                       slug: "quimica",                       status: "progreso" },
-      { name: "Fundamentos de Programación",                   slug: "fundamentos-programacion",      status: "progreso" },
+      { emoji:"📖", name: "Álgebra",                                       slug: "algebra",                       status: "disponible"},
+      { emoji:"📐", name: "Cálculo y Geometría Analítica",                 slug: "calculo-geometria-analitica",   status: "disponible" },
+      { emoji:"✍️", name: "Redacción y Exposición de Temas de Ingeniería",  slug: "redaccion-exposicion",          status: "progreso" },
+      { emoji:"🧪", name: "Química",                                       slug: "quimica",                       status: "progreso" },
+      { emoji:"💻", name: "Fundamentos de Programación",                   slug: "fundamentos-programacion",      status: "progreso" },
     ]
   },
   {
     num: 2, filterNum: 2, label: "Segundo Semestre",
     subjects: [
-      { name: "Álgebra Lineal",                                slug: "algebra-lineal",                status: "progreso" },
-      { name: "Cálculo Integral",                              slug: "calculo-integral",              status: "progreso" },
-      { name: "Física Experimental",                           slug: "fisica-experimental",           status: "progreso" },
-      { name: "Estática",                                      slug: "estatica",                      status: "progreso" },
-      { name: "Dibujo Mecánico e Industrial",                  slug: "dibujo-mecanico-industrial",    status: "progreso" },
+      { emoji:"↗️",   name: "Álgebra Lineal",                               slug: "algebra-lineal",                status: "progreso" },
+      { emoji:"🌀",  name: "Cálculo Integral",                             slug: "calculo-integral",              status: "progreso" },
+      { emoji:"🔬",  name: "Física Experimental",                          slug: "fisica-experimental",           status: "progreso" },
+      { emoji:"⚖️",  name: "Estática",                                     slug: "estatica",                      status: "progreso" },
+      { emoji:"📏",  name: "Dibujo Mecánico e Industrial",                 slug: "dibujo-mecanico-industrial",    status: "progreso" },
     ]
   },
   {
     num: 3, filterNum: 3, label: "Tercer Semestre",
     subjects: [
-      { name: "Probabilidad",                                  slug: "probabilidad",                  status: "progreso" },
-      { name: "Cálculo Vectorial",                             slug: "calculo-vectorial",             status: "progreso" },
-      { name: "Ecuaciones Diferenciales",                      slug: "ecuaciones-diferenciales",      status: "progreso" },
-      { name: "Cinemática y Dinámica",                         slug: "cinematica-dinamica",           status: "progreso" },
-      { name: "Manufactura I",                                 slug: "manufactura-1",                 status: "progreso" },
-      { name: "Cultura y Comunicación",                        slug: "cultura-comunicacion",          status: "progreso" },
+      { emoji:"🎲",  name: "Probabilidad",                                  slug: "probabilidad",                  status: "progreso" },
+      { emoji:"🔵",  name: "Cálculo Vectorial",                             slug: "calculo-vectorial",             status: "progreso" },
+      { emoji:"📗",  name: "Ecuaciones Diferenciales",                      slug: "ecuaciones-diferenciales",      status: "progreso" },
+      { emoji:"🏎",  name: "Cinemática y Dinámica",                         slug: "cinematica-dinamica",           status: "progreso" },
+      { emoji:"🏭",  name: "Manufactura I",                                 slug: "manufactura-1",                 status: "progreso" },
+      { emoji:"🗣️",  name: "Cultura y Comunicación",                        slug: "cultura-comunicacion",          status: "progreso" },
     ]
   },
   {
     num: 4, filterNum: 4, label: "Cuarto Semestre",
     subjects: [
-      { name: "Estadística",                                   slug: "estadistica",                   status: "progreso" },
-      { name: "Matemáticas Avanzadas",                         slug: "matematicas-avanzadas",         status: "progreso" },
-      { name: "Electricidad y Magnetismo",                     slug: "electricidad-magnetismo",       status: "progreso" },
-      { name: "Análisis Numérico",                             slug: "analisis-numerico",             status: "progreso" },
-      { name: "Termodinámica",                                 slug: "termodinamica",                 status: "progreso" },
+      { emoji:"📊",  name: "Estadística",                                   slug: "estadistica",                   status: "progreso" },
+      { emoji:"📙",  name: "Matemáticas Avanzadas",                         slug: "matematicas-avanzadas",         status: "progreso" },
+      { emoji:"🧲",  name: "Electricidad y Magnetismo",                     slug: "electricidad-magnetismo",       status: "progreso" },
+      { emoji:"🧮",  name: "Análisis Numérico",                             slug: "analisis-numerico",             status: "progreso" },
+      { emoji:"🔥",  name: "Termodinámica",                                 slug: "termodinamica",                 status: "progreso" },
+      { emoji:"👑",  name: "Taller Sociohumanístico: Liderazgo",            slug: "taller-liderazgo",              status: "pendiente" },
+      { emoji:"🎨",  name: "Taller Sociohumanístico: Creatividad",          slug: "taller-creatividad",            status: "pendiente" },
     ]
   },
   {
     num: 5, filterNum: 5, label: "Quinto Semestre",
     subjects: [
-      { name: "Análisis de Circuitos",                         slug: "analisis-circuitos",            status: "pendiente" },
-      { name: "Termofluidos",                                  slug: "termofluidos",                  status: "pendiente" },
-      { name: "Ingeniería de Materiales",                      slug: "ingenieria-materiales",         status: "pendiente" },
-      { name: "Mecánica de Sólidos",                           slug: "mecanica-solidos",              status: "pendiente" },
-      { name: "Técnicas de Programación",                      slug: "tecnicas-programacion",         status: "pendiente" },
+      { emoji:"💡",  name: "Análisis de Circuitos",                         slug: "analisis-circuitos",            status: "pendiente" },
+      { emoji:"💧",  name: "Termofluidos",                                  slug: "termofluidos",                  status: "pendiente" },
+      { emoji:"✈️",  name: "Ingeniería de Materiales",                      slug: "ingenieria-materiales",         status: "pendiente" },
+      { emoji:"🏗",  name: "Mecánica de Sólidos",                           slug: "mecanica-solidos",              status: "pendiente" },
+      { emoji:"🖥️",  name: "Técnicas de Programación",                      slug: "tecnicas-programacion",         status: "pendiente" },
     ]
   },
   {
     num: 6, filterNum: 6, label: "Sexto Semestre",
     subjects: [
-      { name: "Electrónica Básica",                            slug: "electronica-basica",            status: "pendiente" },
-      { name: "Modelado de Sistemas Físicos",                  slug: "modelado-sistemas-fisicos",     status: "pendiente" },
-      { name: "Ingeniería de Manufactura",                     slug: "ingenieria-manufactura",        status: "pendiente" },
-      { name: "Mecanismos",                                    slug: "mecanismos",                    status: "pendiente" },
-      { name: "Desarrollo de Videojuegos",                     slug: "desarrollo-videojuegos",        status: "pendiente" },
+      { emoji:"📺",  name: "Electrónica Básica",                            slug: "electronica-basica",            status: "pendiente" },
+      { emoji:"📝",  name: "Modelado de Sistemas Físicos",                  slug: "modelado-sistemas-fisicos",     status: "pendiente" },
+      { emoji:"🔧",  name: "Ingeniería de Manufactura",                     slug: "ingenieria-manufactura",        status: "pendiente" },
+      { emoji:"⚙️",  name: "Mecanismos",                                    slug: "mecanismos",                    status: "pendiente" },
+      { emoji:"🎮",  name: "Desarrollo de Videojuegos",                     slug: "desarrollo-videojuegos",        status: "pendiente" },
     ]
   },
   {
     num: 7, filterNum: 7, label: "Séptimo Semestre",
     subjects: [
-      { name: "Circuitos Digitales",                           slug: "circuitos-digitales",           status: "pendiente" },
-      { name: "Sistemas Electrónicos Lineales",                slug: "sistemas-electronicos-lineales",status: "pendiente" },
-      { name: "Introducción a la Economía",                    slug: "introduccion-economia",         status: "pendiente" },
-      { name: "Diseño de Elementos de Máquinas",               slug: "diseno-elementos-maquinas",     status: "pendiente" },
-      { name: "Ingeniería Económica",                          slug: "ingenieria-economica",          status: "pendiente" },
+      { emoji:"📟",  name: "Circuitos Digitales",                           slug: "circuitos-digitales",           status: "pendiente" },
+      { emoji:"📻",  name: "Sistemas Electrónicos Lineales",                slug: "sistemas-electronicos-lineales",status: "pendiente" },
+      { emoji:"💸",  name: "Introducción a la Economía",                    slug: "introduccion-economia",         status: "pendiente" },
+      { emoji:"🔩",  name: "Diseño de Elementos de Máquinas",               slug: "diseno-elementos-maquinas",     status: "pendiente" },
+      { emoji:"💲",  name: "Ingeniería Económica",                          slug: "ingenieria-economica",          status: "pendiente" },
     ]
   },
   {
     num: 8, filterNum: 8, label: "Octavo Semestre",
     subjects: [
-      { name: "Máquinas Eléctricas",                           slug: "maquinas-electricas",           status: "pendiente" },
-      { name: "Instrumentación",                               slug: "instrumentacion",               status: "pendiente" },
-      { name: "Control Automático",                            slug: "control-automatico",            status: "pendiente" },
-      { name: "Desarrollo Empresarial",                        slug: "desarrollo-empresarial",        status: "pendiente" },
+      { emoji:"⚡",  name: "Máquinas Eléctricas",                           slug: "maquinas-electricas",           status: "pendiente" },
+      { emoji:"🎹",  name: "Instrumentación",                               slug: "instrumentacion",               status: "pendiente" },
+      { emoji:"🎛",  name: "Control Automático",                            slug: "control-automatico",            status: "pendiente" },
+      { emoji:"💼",  name: "Desarrollo Empresarial",                        slug: "desarrollo-empresarial",        status: "pendiente" },
     ]
   },
   {
     num: 9, filterNum: 9, label: "Noveno Semestre",
     subjects: [
-      { name: "Diseño Mecatrónico",                            slug: "diseno-mecatronico",            status: "progreso" },
-      { name: "Automatización Industrial",                     slug: "automatizacion-industrial",     status: "progreso" },
-      { name: "CAD-CAM",                                       slug: "cad-cam",                       status: "progreso" },
-      { name: "Robótica",                                      slug: "robotica",                      status: "progreso" },
-      { name: "Ética Profesional",                             slug: "etica-profesional",             status: "progreso" },
+      { emoji:"🎆",  name: "Diseño Mecatrónico",                            slug: "diseno-mecatronico",            status: "progreso" },
+      { emoji:"🚥",  name: "Automatización Industrial",                     slug: "automatizacion-industrial",     status: "progreso" },
+      { emoji:"🖨️",  name: "CAD-CAM",                                       slug: "cad-cam",                       status: "progreso" },
+      { emoji:"🤖",  name: "Robótica",                                      slug: "robotica",                      status: "progreso" },
+      { emoji:"🏛",  name: "Ética Profesional",                             slug: "etica-profesional",             status: "progreso" },
     ]
   },
   /* ── S10: sólo materias obligatorias ── */
   {
     num: 10, filterNum: 10, label: "Décimo Semestre",
     subjects: [
-      { name: "Recursos y Necesidades de México",              slug: "recursos-necesidades-mexico",   status: "pendiente" },
-      { name: "Proyecto de Ingeniería",                        slug: "proyecto-ingenieria",           status: "pendiente" },
+      { emoji:"🦅",  name: "Recursos y Necesidades de México",              slug: "recursos-necesidades-mexico",   status: "pendiente" },
+      { emoji:"📓",  name: "Proyecto de Ingeniería",                        slug: "proyecto-ingenieria",           status: "pendiente" },
     ]
   },
   /* ── Card independiente: Asignaturas Optativas ── */
@@ -674,7 +686,7 @@ const PLAN = [
       { name: "Deterioro de Materiales",                       slug: "deterioro-materiales",          status: "pendiente" },
       { name: "Contabilidad Financiera y Costos",              slug: "contabilidad-financiera",       status: "pendiente" },
       { name: "Calidad",                                       slug: "calidad",                       status: "pendiente" },
-      { name: "Biotermofluidos",                               slug: "biotermofluidos",               status: "progreso" },
+      { emoji:"🧬", name: "Biotermofluidos",                               slug: "biotermofluidos",               status: "progreso" },
     ]
   }
 ];
@@ -712,7 +724,10 @@ function render(filterNum = 'all', search = '') {
   PLAN.forEach((sem, idx) => {
     if (filterNum !== 'all' && String(sem.filterNum) !== filterNum) return;
 
-    const matched = q ? sem.subjects.filter(s => s.name.toLowerCase().includes(q)) : sem.subjects;
+    const matched = q ? sem.subjects.filter(s =>
+      s.name.toLowerCase().includes(q) ||
+      (s.temas||[]).some(t => t.toLowerCase().includes(q))
+    ) : sem.subjects;
     if (q && matched.length === 0) return;
 
     const display = q ? matched : sem.subjects;
@@ -732,11 +747,14 @@ function render(filterNum = 'all', search = '') {
       let badge  = '';
       if (s.status === 'disponible') badge = `<span class="sbadge disponible">Ver →</span>`;
       if (s.status === 'progreso')   badge = `<span class="sbadge progreso">Pronto</span>`;
+      const audioBadge = s.audio ? `<span class="sbadge audio" title="Audio disponible">🎧</span>` : '';
+      const guiaBadge  = s.guia  ? `<span class="sbadge guia"  title="Guía de estudio">📄</span>` : '';
       return `
         <${tag} class="${cls}" ${href}>
           <span class="s-dot ${s.status}"></span>
+          ${s.emoji ? `<span class="s-emoji">${s.emoji}</span>` : ''}
           <span class="s-name">${s.name}</span>
-          <span class="s-badges">${badge}</span>
+          <span class="s-badges">${audioBadge}${guiaBadge}${badge}</span>
           <span class="s-arrow">→</span>
         </${tag}>`;
     }).join('');
@@ -814,6 +832,58 @@ $('searchInput').addEventListener('input', e => {
 /* ─────────────────────────────────────────────────────
    ACCENT + THEME
 ─────────────────────────────────────────────────────── */
+
+/* ─────────────────────────────────────────────────────
+   OTROS CUADERNOS — notebooks fuera del plan curricular
+   Campos:
+     name  : nombre visible
+     emoji : icono representativo
+     desc  : descripción corta
+     guia  : link al notebook de NotebookLM (pega aquí)
+     audio : link al Audio Overview (opcional)
+─────────────────────────────────────────────────────── */
+const OTROS = [
+  {
+    name:  'Rave Mechatronics',
+    emoji: '🎧',
+    desc:  'Proyecto personal — electrónica y música',
+    guia:  '',
+    audio: ''
+  },
+  {
+    name:  'Lenguas Extranjeras',
+    emoji: '🗽',
+    desc:  'Cuaderno de idiomas',
+    guia:  '',
+    audio: ''
+  },
+];
+
+function renderOtros() {
+  const grid = $('otrosGrid');
+  if (!grid) return;
+  if (!OTROS.length) { $('otrosSection').style.display = 'none'; return; }
+
+  grid.innerHTML = OTROS.map(o => {
+    const href   = o.guia || o.audio || '#';
+    const target = href !== '#' ? 'target="_blank" rel="noopener"' : '';
+    const badge  = o.audio
+      ? '<span class="otro-badge">🎧 audio</span>'
+      : o.guia
+        ? '<span class="otro-badge">📓 notebook</span>'
+        : '';
+    return `
+      <a class="otro-card" href="${href}" ${target}>
+        <span class="otro-emoji">${o.emoji}</span>
+        <div class="otro-info">
+          <div class="otro-name">${o.name}</div>
+          <div class="otro-desc">${o.desc}</div>
+        </div>
+        ${badge}
+      </a>`;
+  }).join('');
+}
+
 const ALL_ACCENTS = [
   'cyan','celeste','azul','indigo','violeta','purpura',
   'fuchsia','rosa','rojo','coral','naranja','amarillo',
@@ -892,7 +962,8 @@ $('themeBtn').addEventListener('click', () => {
   buildFilters();
   updateStats();
   render();
-
+  renderOtros();
+  
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
       document.documentElement.setAttribute('data-ready', '');
